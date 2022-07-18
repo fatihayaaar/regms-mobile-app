@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constant.dart';
-import 'package:regms_flutter_client/screens/StarterScreen.dart';
+import 'package:regms_flutter_client/screens/starter_screen.dart';
 
 void main() {
   runApp(

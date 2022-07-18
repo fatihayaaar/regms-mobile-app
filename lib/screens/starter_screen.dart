@@ -8,6 +8,14 @@ class StarterScreen extends StatefulWidget {
 class _StarterScreenState extends State {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+        child: Scaffold(
+          body: Stack(
+            children: [
+              
+            ],
+          ),
+        ),
+    );
   }
 }
