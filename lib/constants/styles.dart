@@ -17,6 +17,6 @@ final kLoginButtonContentTextStyle = TextStyle(
 );
 
 final kHintTextStyle = TextStyle(
-  fontSize: 14,
+  fontSize: 15,
   color: kTextLightColor,
 );

@@ -35,12 +35,14 @@ class _LoginScreen extends State {
   }
 
   Widget _buildBody() {
-    return Column(
-      children: [
-        SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-        _buildTitle(),
-        _buildContent(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+          _buildTitle(),
+          _buildContent(),
+        ],
+      ),
     );
   }
 
@@ -49,14 +51,14 @@ class _LoginScreen extends State {
       1.0,
       Container(
         width: double.infinity,
-        margin: EdgeInsets.fromLTRB(25, 0, 0, 0),
-        alignment: Alignment.bottomLeft,
+        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        alignment: Alignment.center,
         child: Text(
           "Login",
           style: TextStyle(
-            color: Colors.black87,
+            color: Color.fromRGBO(4, 4, 54, 1.0),
             fontWeight: FontWeight.bold,
-            fontSize: 50,
+            fontSize: 55,
           ),
         ),
       ),
@@ -108,56 +110,82 @@ class _LoginScreen extends State {
   }
 
   Widget _buildUsernameTextField() {
-    return TextFormField(
-      focusNode: _usernameFocus,
-      textInputAction: TextInputAction.go,
-      maxLines: 1,
-      controller: _usernameController,
-      onFieldSubmitted: (term) {
-        _fieldFocusChange(context, _usernameFocus, _passwordFocus);
-      },
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "* Required";
-        } else
-          return null;
-      },
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-        border: UnderlineInputBorder(
-          borderSide: BorderSide(color: kTextLightColor),
+    return Row(
+      children: [
+        Container(
+          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+          child: Icon(
+            Icons.person,
+            color: kTextLightColor,
+          ),
         ),
-        hintText: "Username",
-        hintStyle: kHintTextStyle,
-      ),
+        Expanded(
+          child: TextFormField(
+            focusNode: _usernameFocus,
+            textInputAction: TextInputAction.go,
+            maxLines: 1,
+            controller: _usernameController,
+            onFieldSubmitted: (term) {
+              _fieldFocusChange(context, _usernameFocus, _passwordFocus);
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "* Required";
+              } else
+                return null;
+            },
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: kTextFieldBottomBorderColor),
+              ),
+              hintText: "Username",
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
   Widget _buildPasswordTextField() {
-    return TextFormField(
-      focusNode: _passwordFocus,
-      textInputAction: TextInputAction.go,
-      maxLines: 1,
-      obscureText: _isHiddenPassword,
-      controller: _passwordController,
-      onFieldSubmitted: (value) {
-        _passwordFocus.unfocus();
-        _loginButtonOnClick();
-      },
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "* Required";
-        } else
-          return null;
-      },
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-        border: UnderlineInputBorder(
-          borderSide: BorderSide(color: kTextLightColor),
+    return Row(
+      children: [
+        Container(
+          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+          child: Icon(
+            Icons.lock,
+            color: kTextLightColor,
+          ),
         ),
-        hintText: "Password",
-        hintStyle: kHintTextStyle,
-      ),
+        Expanded(
+          child: TextFormField(
+            focusNode: _passwordFocus,
+            textInputAction: TextInputAction.go,
+            maxLines: 1,
+            obscureText: _isHiddenPassword,
+            controller: _passwordController,
+            onFieldSubmitted: (value) {
+              _passwordFocus.unfocus();
+              _loginButtonOnClick();
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "* Required";
+              } else
+                return null;
+            },
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: kTextFieldBottomBorderColor),
+              ),
+              hintText: "Password",
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
