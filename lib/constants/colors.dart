@@ -10,5 +10,5 @@ const kBodyTextColor = Color.fromRGBO(124, 125, 126, 1);
 const kTextLightColor = Color.fromRGBO(182, 183, 183, 1);
 const kTextContentColor = Color.fromRGBO(88, 80, 49, 1);
 const kButtonContentTextColor = Color.fromRGBO(255, 255, 255, 1);
-const kBasicButtonColor = Color.fromRGBO(255, 170, 0, 1);
+const kLoginButtonColor = Color.fromRGBO(0, 81, 255, 1.0);
 final kShadowColor = Color(0x00000000).withOpacity(0.1);

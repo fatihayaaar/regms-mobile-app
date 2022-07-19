@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
+import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/register_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
@@ -18,6 +19,7 @@ class _LoginScreen extends State {
   final FocusNode _passwordFocus = FocusNode();
   late String _username;
   late String _password;
+  bool _isHiddenPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +47,17 @@ class _LoginScreen extends State {
   Widget _buildTitle() {
     return FadeAnimation(
       1.0,
-      Center(
+      Container(
+        width: double.infinity,
+        margin: EdgeInsets.fromLTRB(25, 0, 0, 0),
+        alignment: Alignment.bottomLeft,
         child: Text(
-          "Giriş Yap",
+          "Login",
+          style: TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.bold,
+            fontSize: 50,
+          ),
         ),
       ),
     );
@@ -55,10 +65,10 @@ class _LoginScreen extends State {
 
   Widget _buildContent() {
     return Container(
-        alignment: Alignment.centerLeft,
-        padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-        margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
-        child: _buildForm());
+      padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+      margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
+      child: _buildForm(),
+    );
   }
 
   Widget _buildForm() {
@@ -69,12 +79,10 @@ class _LoginScreen extends State {
         child: Column(
           children: [
             _buildFormTextFields(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.15 - 50,
-            ),
-            _buildLoginButton(),
-            SizedBox(height: 25),
+            SizedBox(height: 10),
             _buildForgotPasswordLink(),
+            SizedBox(height: 25),
+            _buildLoginButton(),
             SizedBox(height: 25),
             _buildSignUp(),
           ],
@@ -91,7 +99,7 @@ class _LoginScreen extends State {
         child: Column(
           children: <Widget>[
             _buildUsernameTextField(),
-            SizedBox(height: 30),
+            SizedBox(height: 15),
             _buildPasswordTextField(),
           ],
         ),
@@ -100,16 +108,56 @@ class _LoginScreen extends State {
   }
 
   Widget _buildUsernameTextField() {
-    return Container(
-      height: 56,
-      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+    return TextFormField(
+      focusNode: _usernameFocus,
+      textInputAction: TextInputAction.go,
+      maxLines: 1,
+      controller: _usernameController,
+      onFieldSubmitted: (term) {
+        _fieldFocusChange(context, _usernameFocus, _passwordFocus);
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "* Required";
+        } else
+          return null;
+      },
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(color: kTextLightColor),
+        ),
+        hintText: "Username",
+        hintStyle: kHintTextStyle,
+      ),
     );
   }
 
   Widget _buildPasswordTextField() {
-    return Container(
-      height: 56,
-      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+    return TextFormField(
+      focusNode: _passwordFocus,
+      textInputAction: TextInputAction.go,
+      maxLines: 1,
+      obscureText: _isHiddenPassword,
+      controller: _passwordController,
+      onFieldSubmitted: (value) {
+        _passwordFocus.unfocus();
+        _loginButtonOnClick();
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "* Required";
+        } else
+          return null;
+      },
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(color: kTextLightColor),
+        ),
+        hintText: "Password",
+        hintStyle: kHintTextStyle,
+      ),
     );
   }
 
@@ -117,17 +165,17 @@ class _LoginScreen extends State {
     return FadeAnimation(
       1.0,
       Container(
-        height: 56,
+        height: 50,
         width: double.infinity,
         child: ElevatedButton(
-          style: kBasicButtonButtonStyle,
+          style: kLoginButtonButtonStyle,
           onPressed: () {
             _loginButtonOnClick();
           },
           child: Container(
             child: Text(
-              "Giriş Yap",
-              style: kButtonContentTextStyle,
+              "Login",
+              style: kLoginButtonContentTextStyle,
             ),
           ),
         ),
@@ -138,30 +186,20 @@ class _LoginScreen extends State {
   Widget _buildForgotPasswordLink() {
     return FadeAnimation(
       1.0,
-      RichText(
-        textAlign: TextAlign.center,
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: 'Şifrenizi mi ',
-              style: TextStyle(
-                height: 1.4,
-                fontFamily: "SofiaPro",
-                fontSize: 14,
-                color: Color.fromRGBO(124, 125, 126, 1.0),
-              ),
+      Container(
+        width: double.infinity,
+        alignment: Alignment.topRight,
+        child: GestureDetector(
+          onTap: () {},
+          child: Text(
+            'Forgot password?',
+            textAlign: TextAlign.right,
+            style: TextStyle(
+              height: 1.4,
+              fontSize: 14,
+              color: kLoginButtonColor,
             ),
-            TextSpan(
-              text: 'unuttunuz?',
-              style: TextStyle(
-                height: 1.4,
-                fontFamily: "SofiaPro",
-                fontSize: 14,
-                color: Color.fromRGBO(252, 96, 17, 1.0),
-              ),
-              recognizer: TapGestureRecognizer()..onTap = () {},
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -175,7 +213,7 @@ class _LoginScreen extends State {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Bir Hesabınız yok mu? ',
+              text: 'Don\'t you have an account? ',
               style: TextStyle(
                 height: 1.4,
                 fontFamily: "SofiaPro",
@@ -184,12 +222,12 @@ class _LoginScreen extends State {
               ),
             ),
             TextSpan(
-              text: 'Kayıt Ol',
+              text: 'Register',
               style: TextStyle(
                 height: 1.4,
                 fontFamily: "SofiaPro",
                 fontSize: 14,
-                color: Color.fromRGBO(252, 96, 17, 1.0),
+                color: kLoginButtonColor,
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
@@ -205,6 +243,18 @@ class _LoginScreen extends State {
         ),
       ),
     );
+  }
+
+  void _fieldFocusChange(
+      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+    currentFocus.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
+  }
+
+  void _togglePasswordView() {
+    setState(() {
+      _isHiddenPassword = !_isHiddenPassword;
+    });
   }
 
   void _loginButtonOnClick() {}

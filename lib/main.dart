@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/starter_screen.dart';
 
 void main() {
@@ -8,7 +9,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: buildThemeData(),
-      home: StarterScreen(),
+      home: LoginScreen(),
     ),
   );
 }
