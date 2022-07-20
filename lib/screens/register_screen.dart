@@ -1,10 +1,12 @@
 import 'package:expandable_page_view/expandable_page_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
+import 'package:regms_flutter_client/widgets/shake.dart';
 import 'package:regms_flutter_client/widgets/slide_tile.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -24,6 +26,9 @@ class _RegisterScreen extends State {
   late String _username;
   late String _password;
   bool _isHiddenPassword = true;
+
+  late DateTime _dateTime = new DateTime.now();
+  late String _selectedGender = "Gender";
 
   @override
   void initState() {
@@ -67,7 +72,7 @@ class _RegisterScreen extends State {
         ),
         Positioned(
           right: 20,
-          bottom: 10,
+          bottom: 30,
           child: _buildNextButton(),
         )
       ],
@@ -88,59 +93,35 @@ class _RegisterScreen extends State {
         children: <Widget>[
           SlideTile(widget: _buildStep1()),
           SlideTile(widget: _buildStep2()),
-          SlideTile(widget: _buildStep3()),
         ],
       ),
     );
   }
 
   Widget _buildNextButton() {
-    Widget widget;
-    if (slideIndex != 3 && slideIndex != 0) {
-      widget = Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        color: Color.fromRGBO(0, 0, 0, 0),
-        child: SizedBox(
-          width: 72,
+    if (slideIndex != 2 && slideIndex != 0) {
+      return Container(
+        alignment: Alignment.centerRight,
+        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+        child: Container(
           height: 38,
+          width: 120,
           child: ElevatedButton(
+            style: kRegisterButtonButtonStyle,
             onPressed: () {
               nextButtonOnClick();
             },
-            child: Container(),
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(Color.fromRGBO(255, 170, 0, 1)),
-              shadowColor:
-                  MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(28.0),
-                ),
+            child: Container(
+              child: Text(
+                "Register",
+                style: kLoginButtonContentTextStyle,
               ),
             ),
           ),
         ),
       );
-    } else if (slideIndex == 3) {
-      widget = Container(
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-        color: Color.fromRGBO(0, 0, 0, 0),
-        child: SizedBox(
-          width: 153,
-          height: 38,
-          child: ElevatedButton(
-              onPressed: () {
-                submitButtonOnClick();
-              },
-              child: Text("Kaydı Tamamla", style: kLoginButtonContentTextStyle),
-              style: kLoginButtonButtonStyle),
-        ),
-      );
-    } else {
-      widget = Container();
     }
-    return widget;
+    return Container();
   }
 
   void nextButtonOnClick() {}
@@ -156,17 +137,20 @@ class _RegisterScreen extends State {
         child: Column(
           children: <Widget>[
             SizedBox(height: 40),
-            Text("Register", style: tRegisterTitleTextStyle),
+            Container(
+              child: Text("Start\nRegistering", style: tRegisterTitleTextStyle),
+              alignment: Alignment.bottomLeft,
+            ),
             SizedBox(height: 40),
             _buildUsernameTextField(),
             AspectRatio(
-              aspectRatio: 10 / 4,
+              aspectRatio: 10 / 2,
               child: Container(
                 width: double.infinity,
               ),
             ),
             _buildContractText(),
-            SizedBox(height: 10),
+            SizedBox(height: 60),
             _buildNextButtonStep1(),
             SizedBox(height: 40),
             _buildSignInText(),
@@ -181,17 +165,18 @@ class _RegisterScreen extends State {
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
       child: Column(
-        children: <Widget>[],
-      ),
-    );
-  }
-
-  Widget _buildStep3() {
-    return Container(
-      padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-      margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
-      child: Column(
-        children: <Widget>[],
+        children: <Widget>[
+          SizedBox(height: 40),
+          Text("Complete The Registration", style: tRegisterTitleTextStyle),
+          SizedBox(height: 40),
+          _buildEmailTextField(),
+          SizedBox(height: 20),
+          _buildPasswordTextField(),
+          SizedBox(height: 20),
+          _buildDatePickerTextField(),
+          SizedBox(height: 20),
+          _buildSexTextField(),
+        ],
       ),
     );
   }
@@ -205,7 +190,9 @@ class _RegisterScreen extends State {
         width: 72,
         child: ElevatedButton(
           style: kRegisterButtonButtonStyle,
-          onPressed: () {},
+          onPressed: () {
+            nextButtonStep1OnClick();
+          },
           child: Container(
             child: Text(
               "Go On",
@@ -291,5 +278,160 @@ class _RegisterScreen extends State {
         ],
       ),
     );
+  }
+
+  Widget _buildEmailTextField() {
+    return Container(
+      decoration: tTextFieldBoxDecoration,
+      child: TextFormField(
+        focusNode: _usernameFocus,
+        textInputAction: TextInputAction.go,
+        maxLines: 1,
+        controller: _usernameController,
+        onFieldSubmitted: (term) {
+          //_fieldFocusChange(context, _usernameFocus, _passwordFocus);
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "* Required";
+          } else
+            return null;
+        },
+        decoration: tTextFieldInputDecoration("Email Address"),
+      ),
+    );
+  }
+
+  Widget _buildPasswordTextField() {
+    return Container(
+      decoration: tTextFieldBoxDecoration,
+      child: TextFormField(
+        focusNode: _passwordFocus,
+        textInputAction: TextInputAction.go,
+        maxLines: 1,
+        obscureText: _isHiddenPassword,
+        controller: _passwordController,
+        onFieldSubmitted: (value) {
+          _passwordFocus.unfocus();
+          //_loginButtonOnClick();
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "* Required";
+          } else
+            return null;
+        },
+        decoration: tTextFieldInputDecoration("Password"),
+      ),
+    );
+  }
+
+  Widget _buildDatePickerTextField() {
+    return Shake(
+      //key: _keyDateAni,
+      child: SizedBox(
+        height: 50,
+        width: double.infinity,
+        child: ElevatedButton(
+          //focusNode: _emailFocus,
+          style: kDatePickerButtonButtonStyle,
+          onPressed: () {
+            // _datePickerShow();
+            _buildCupertinoDatePicker(context);
+          },
+          child: Container(
+            margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              _dateTime == null ? "Birth Date" : "$_dateTime".split(' ')[0],
+              style: kHintTextStyle,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildCupertinoDatePicker(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext builder) {
+          return Container(
+            height: MediaQuery.of(context).copyWith().size.height / 3,
+            color: Colors.white,
+            child: CupertinoDatePicker(
+              mode: CupertinoDatePickerMode.date,
+              onDateTimeChanged: (picked) {
+                if (picked != null && picked != _dateTime)
+                  setState(() {
+                    _dateTime = picked;
+                  });
+              },
+              initialDateTime: _dateTime,
+              minimumYear: 1950,
+              maximumYear: 2022,
+            ),
+          );
+        });
+  }
+
+  Widget _buildSexTextField() {
+    return Shake(
+      //key: _keySexAni,
+      child: Container(
+        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+        decoration: kBoxDecorationTextField,
+        child: SizedBox(
+          height: 50,
+          width: double.infinity,
+          child: CupertinoButton(
+            alignment: Alignment.centerLeft,
+            onPressed: () {
+              showCupertinoModalPopup<void>(
+                context: context,
+                builder: (BuildContext context) => CupertinoActionSheet(
+                  actions: <CupertinoActionSheetAction>[
+                    CupertinoActionSheetAction(
+                      child: Text('Male', style: gSheetActionTextStyle),
+                      onPressed: () {
+                        setState(() {
+                          _selectedGender = "Male";
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                    CupertinoActionSheetAction(
+                      child: Text('Female', style: gSheetActionTextStyle),
+                      onPressed: () {
+                        setState(() {
+                          _selectedGender = "Female";
+                        });
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              );
+            },
+            child: Text(_selectedGender == null ? "Gender" : "$_selectedGender",
+                style: kHintTextStyle),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void nextButtonStep1OnClick() {
+    FocusScope.of(context).requestFocus(FocusNode());
+
+    controller.animateToPage(
+      slideIndex + 1,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.fastOutSlowIn,
+    );
+
+    setState(() {
+      slideIndex = slideIndex + 1;
+    });
   }
 }

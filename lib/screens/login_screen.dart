@@ -38,8 +38,9 @@ class _LoginScreen extends State {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.18),
           _buildTitle(),
+          SizedBox(height: 20),
           _buildContent(),
         ],
       ),
@@ -76,7 +77,7 @@ class _LoginScreen extends State {
             _buildFormTextFields(),
             SizedBox(height: 10),
             _buildForgotPasswordLink(),
-            SizedBox(height: 25),
+            SizedBox(height: 40),
             _buildLoginButton(),
             SizedBox(height: 25),
             _buildSignUp(),

@@ -33,6 +33,17 @@ final kRegisterButtonButtonStyle = ButtonStyle(
   ),
 );
 
+final kDatePickerButtonButtonStyle = ButtonStyle(
+  backgroundColor:
+      MaterialStateProperty.all(Color.fromRGBO(245, 245, 245, 1.0)),
+  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(15.0),
+    ),
+  ),
+);
+
 final kLoginButtonContentTextStyle = TextStyle(
   fontSize: 16,
   color: kButtonContentTextColor,
@@ -66,4 +77,15 @@ final tForgotPasswordTextStyle = TextStyle(
   height: 1.4,
   fontSize: 14,
   color: kLoginButtonColor,
+);
+
+final Decoration kBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.circular(15),
+);
+
+final gSheetActionTextStyle = TextStyle(
+  fontSize: 15,
+  fontFamily: "SofiaPro",
+  color: Color.fromRGBO(88, 80, 49, 1),
 );
