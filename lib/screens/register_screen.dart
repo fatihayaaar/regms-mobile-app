@@ -30,6 +30,12 @@ class _RegisterScreen extends State {
   late DateTime _dateTime = new DateTime.now();
   late String _selectedGender = "Gender";
 
+  var items = [
+    'Gender',
+    'Male',
+    'Female',
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -376,46 +382,29 @@ class _RegisterScreen extends State {
   }
 
   Widget _buildSexTextField() {
-    return Shake(
-      //key: _keySexAni,
-      child: Container(
-        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
-        decoration: kBoxDecorationTextField,
-        child: SizedBox(
-          height: 50,
-          width: double.infinity,
-          child: CupertinoButton(
-            alignment: Alignment.centerLeft,
-            onPressed: () {
-              showCupertinoModalPopup<void>(
-                context: context,
-                builder: (BuildContext context) => CupertinoActionSheet(
-                  actions: <CupertinoActionSheetAction>[
-                    CupertinoActionSheetAction(
-                      child: Text('Male', style: gSheetActionTextStyle),
-                      onPressed: () {
-                        setState(() {
-                          _selectedGender = "Male";
-                        });
-                        Navigator.pop(context);
-                      },
-                    ),
-                    CupertinoActionSheetAction(
-                      child: Text('Female', style: gSheetActionTextStyle),
-                      onPressed: () {
-                        setState(() {
-                          _selectedGender = "Female";
-                        });
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
-                ),
-              );
-            },
-            child: Text(_selectedGender == null ? "Gender" : "$_selectedGender",
-                style: kHintTextStyle),
-          ),
+    return Container(
+      padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+      decoration: kBoxDecorationDropDownButton,
+      child: SizedBox(
+        height: 50,
+        width: double.infinity,
+        child: DropdownButton(
+          value: _selectedGender,
+          items: items.map((String items) {
+            return DropdownMenuItem(
+              value: items,
+              child: Text(items),
+            );
+          }).toList(),
+          onChanged: (String? value) {
+            setState(() {
+              _selectedGender = value!;
+            });
+          },
+          isExpanded: true,
+          underline: Container(),
+          style: kHintTextStyle,
+          elevation: 1,
         ),
       ),
     );

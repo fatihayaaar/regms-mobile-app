@@ -11,4 +11,6 @@ const kButtonContentTextColor = Color.fromRGBO(255, 255, 255, 1);
 const kTextFieldLightColor = Color.fromRGBO(143, 143, 143, 1.0);
 const kRegisterRichTextAboutColor = Color.fromRGBO(124, 125, 126, 1.0);
 
+const kBorderColor = Color.fromRGBO(232, 232, 232, 1.0);
+
 const kTextContentColor = Color.fromRGBO(88, 80, 49, 1);

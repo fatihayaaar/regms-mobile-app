@@ -35,10 +35,15 @@ final kRegisterButtonButtonStyle = ButtonStyle(
 
 final kDatePickerButtonButtonStyle = ButtonStyle(
   backgroundColor:
-      MaterialStateProperty.all(Color.fromRGBO(245, 245, 245, 1.0)),
+      MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 1.0)),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
+      side: BorderSide(
+        width: 1,
+        color: kBorderColor,
+        style: BorderStyle.solid,
+      ),
       borderRadius: BorderRadius.circular(15.0),
     ),
   ),
@@ -81,6 +86,12 @@ final tForgotPasswordTextStyle = TextStyle(
 
 final Decoration kBoxDecorationTextField = BoxDecoration(
   color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.circular(15),
+);
+
+final Decoration kBoxDecorationDropDownButton = BoxDecoration(
+  color: Color.fromRGBO(255, 255, 255, 1.0),
+  border: Border.all(color: kBorderColor),
   borderRadius: BorderRadius.circular(15),
 );
 
