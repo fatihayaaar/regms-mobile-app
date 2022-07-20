@@ -25,10 +25,10 @@ class _LoginScreen extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: miniAppBar(color: Color.fromRGBO(0, 0, 0, 0)),
-      backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+      backgroundColor: kBackgroundColor,
       body: Stack(
         children: [
-          _buildBody(),
+          FadeAnimation(1.0, _buildBody()),
         ],
       ),
     );
@@ -47,20 +47,13 @@ class _LoginScreen extends State {
   }
 
   Widget _buildTitle() {
-    return FadeAnimation(
-      1.0,
-      Container(
-        width: double.infinity,
-        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        alignment: Alignment.center,
-        child: Text(
-          "Login",
-          style: TextStyle(
-            color: Color.fromRGBO(4, 4, 54, 1.0),
-            fontWeight: FontWeight.bold,
-            fontSize: 55,
-          ),
-        ),
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      alignment: Alignment.center,
+      child: Text(
+        "Login",
+        style: tLoginTitleText,
       ),
     );
   }
@@ -94,117 +87,77 @@ class _LoginScreen extends State {
   }
 
   Widget _buildFormTextFields() {
-    return FadeAnimation(
-      1.0,
-      Container(
-        padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-        child: Column(
-          children: <Widget>[
-            _buildUsernameTextField(),
-            SizedBox(height: 15),
-            _buildPasswordTextField(),
-          ],
-        ),
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+      child: Column(
+        children: <Widget>[
+          _buildUsernameTextField(),
+          SizedBox(height: 15),
+          _buildPasswordTextField(),
+        ],
       ),
     );
   }
 
   Widget _buildUsernameTextField() {
-    return Row(
-      children: [
-        Container(
-          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-          child: Icon(
-            Icons.person,
-            color: kTextLightColor,
-          ),
-        ),
-        Expanded(
-          child: TextFormField(
-            focusNode: _usernameFocus,
-            textInputAction: TextInputAction.go,
-            maxLines: 1,
-            controller: _usernameController,
-            onFieldSubmitted: (term) {
-              _fieldFocusChange(context, _usernameFocus, _passwordFocus);
-            },
-            validator: (value) {
-              if (value!.isEmpty) {
-                return "* Required";
-              } else
-                return null;
-            },
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: kTextFieldBottomBorderColor),
-              ),
-              hintText: "Username",
-              hintStyle: kHintTextStyle,
-            ),
-          ),
-        ),
-      ],
+    return Container(
+      decoration: tTextFieldBoxDecoration,
+      child: TextFormField(
+        focusNode: _usernameFocus,
+        textInputAction: TextInputAction.go,
+        maxLines: 1,
+        controller: _usernameController,
+        onFieldSubmitted: (term) {
+          _fieldFocusChange(context, _usernameFocus, _passwordFocus);
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "* Required";
+          } else
+            return null;
+        },
+        decoration: tTextFieldInputDecoration("Username"),
+      ),
     );
   }
 
   Widget _buildPasswordTextField() {
-    return Row(
-      children: [
-        Container(
-          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-          child: Icon(
-            Icons.lock,
-            color: kTextLightColor,
-          ),
-        ),
-        Expanded(
-          child: TextFormField(
-            focusNode: _passwordFocus,
-            textInputAction: TextInputAction.go,
-            maxLines: 1,
-            obscureText: _isHiddenPassword,
-            controller: _passwordController,
-            onFieldSubmitted: (value) {
-              _passwordFocus.unfocus();
-              _loginButtonOnClick();
-            },
-            validator: (value) {
-              if (value!.isEmpty) {
-                return "* Required";
-              } else
-                return null;
-            },
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: kTextFieldBottomBorderColor),
-              ),
-              hintText: "Password",
-              hintStyle: kHintTextStyle,
-            ),
-          ),
-        ),
-      ],
+    return Container(
+      decoration: tTextFieldBoxDecoration,
+      child: TextFormField(
+        focusNode: _passwordFocus,
+        textInputAction: TextInputAction.go,
+        maxLines: 1,
+        obscureText: _isHiddenPassword,
+        controller: _passwordController,
+        onFieldSubmitted: (value) {
+          _passwordFocus.unfocus();
+          _loginButtonOnClick();
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "* Required";
+          } else
+            return null;
+        },
+        decoration: tTextFieldInputDecoration("Password"),
+      ),
     );
   }
 
   Widget _buildLoginButton() {
-    return FadeAnimation(
-      1.0,
-      Container(
-        height: 50,
-        width: double.infinity,
-        child: ElevatedButton(
-          style: kLoginButtonButtonStyle,
-          onPressed: () {
-            _loginButtonOnClick();
-          },
-          child: Container(
-            child: Text(
-              "Login",
-              style: kLoginButtonContentTextStyle,
-            ),
+    return Container(
+      height: 50,
+      width: double.infinity,
+      child: ElevatedButton(
+        style: kLoginButtonButtonStyle,
+        onPressed: () {
+          _loginButtonOnClick();
+        },
+        child: Container(
+          child: Text(
+            "Login",
+            style: kLoginButtonContentTextStyle,
           ),
         ),
       ),
@@ -212,63 +165,43 @@ class _LoginScreen extends State {
   }
 
   Widget _buildForgotPasswordLink() {
-    return FadeAnimation(
-      1.0,
-      Container(
-        width: double.infinity,
-        alignment: Alignment.topRight,
-        child: GestureDetector(
-          onTap: () {},
-          child: Text(
-            'Forgot password?',
-            textAlign: TextAlign.right,
-            style: TextStyle(
-              height: 1.4,
-              fontSize: 14,
-              color: kLoginButtonColor,
-            ),
-          ),
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.topRight,
+      child: GestureDetector(
+        onTap: () {},
+        child: Text(
+          'Forgot password?',
+          textAlign: TextAlign.right,
+          style: tForgotPasswordTextStyle,
         ),
       ),
     );
   }
 
   Widget _buildSignUp() {
-    return FadeAnimation(
-      1.0,
-      RichText(
-        textAlign: TextAlign.center,
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: 'Don\'t you have an account? ',
-              style: TextStyle(
-                height: 1.4,
-                fontFamily: "SofiaPro",
-                fontSize: 14,
-                color: Color.fromRGBO(124, 125, 126, 1.0),
-              ),
-            ),
-            TextSpan(
-              text: 'Register',
-              style: TextStyle(
-                height: 1.4,
-                fontFamily: "SofiaPro",
-                fontSize: 14,
-                color: kLoginButtonColor,
-              ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RegisterScreen(),
-                    ),
-                  );
-                },
-            ),
-          ],
-        ),
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: 'Don\'t you have an account? ',
+            style: tsRichTextStyle(kRegisterRichTextAboutColor),
+          ),
+          TextSpan(
+            text: 'Register',
+            style: tsRichTextStyle(kLoginButtonColor),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RegisterScreen(),
+                  ),
+                );
+              },
+          ),
+        ],
       ),
     );
   }
