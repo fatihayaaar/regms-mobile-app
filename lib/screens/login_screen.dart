@@ -53,7 +53,7 @@ class _LoginScreen extends State {
       alignment: Alignment.center,
       child: Text(
         "Login",
-        style: tLoginTitleText,
+        style: tLoginTitleTextStyle,
       ),
     );
   }

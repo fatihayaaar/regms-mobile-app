@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 
-final tLoginTitleText = TextStyle(
+final tLoginTitleTextStyle = TextStyle(
   color: kLoginTitleColor,
   fontWeight: FontWeight.bold,
   fontSize: 50,
+);
+
+final tRegisterTitleTextStyle = TextStyle(
+  color: kLoginTitleColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 35,
 );
 
 final kLoginButtonButtonStyle = ButtonStyle(
@@ -13,6 +19,16 @@ final kLoginButtonButtonStyle = ButtonStyle(
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(15.0),
+    ),
+  ),
+);
+
+final kRegisterButtonButtonStyle = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all(kLoginButtonColor),
+  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30.0),
     ),
   ),
 );
