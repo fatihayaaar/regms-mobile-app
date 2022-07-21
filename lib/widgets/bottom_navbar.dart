@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/login_screen.dart';
@@ -26,8 +27,14 @@ class BottomNavBarState extends State<BottomNavBar> {
     return Container(
       decoration: BoxDecoration(
         color: Color.fromRGBO(255, 255, 255, 1),
+        border: Border(
+          top: BorderSide(
+            color: kBorderColor,
+            width: 0.5,
+          ),
+        ),
       ),
-      height: 65,
+      height: 55,
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
@@ -76,8 +83,8 @@ class BottomNavBarState extends State<BottomNavBar> {
 
   Widget _buildAvatarItem({required Widget page}) {
     return Container(
-      height: 40,
-      width: 40,
+      height: 35,
+      width: 35,
       alignment: Alignment.centerRight,
       padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
       child: ElevatedButton(

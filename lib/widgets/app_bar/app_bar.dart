@@ -11,18 +11,28 @@ AppBar appBar(
     required void onTap()}) {
   return AppBar(
     automaticallyImplyLeading: false,
-    toolbarHeight: 60,
+    toolbarHeight: 55,
     title: Row(children: [_buildLeftAction(uploadTap)]),
     backgroundColor: kThemeColor,
+    bottom: PreferredSize(
+      preferredSize: Size.fromHeight(0.5),
+      child: Container(
+        color: kBorderColor,
+        height: 0.5,
+      ),
+    ),
     iconTheme: IconThemeData(color: kTextContentColor),
     shadowColor: Color.fromRGBO(0, 0, 0, 0),
-    actions: [_buildRightAction(onTap)],
+    actions: [
+      _buildNotificationAction(onTap),
+      _buildRightAction(onTap),
+    ],
   );
 }
 
 Widget _buildLeftAction(uploadTap) {
   return Container(
-    width: 21.5,
+    width: 20,
     margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
     child: ElevatedButton(
       onPressed: uploadTap,
@@ -33,14 +43,25 @@ Widget _buildLeftAction(uploadTap) {
 }
 
 Widget _buildRightAction(onTap) {
-  return Container(
-    child: GestureDetector(
-      child: Container(
-        margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-        alignment: Alignment.centerRight,
-        child: menuSvg,
-      ),
-      onTap: onTap,
+  return GestureDetector(
+    child: Container(
+      width: 20,
+      margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
+      alignment: Alignment.centerRight,
+      child: menuSvg,
     ),
+    onTap: onTap,
+  );
+}
+
+Widget _buildNotificationAction(onTap) {
+  return GestureDetector(
+    child: Container(
+      width: 20,
+      margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
+      alignment: Alignment.centerRight,
+      child: notificationSvg,
+    ),
+    onTap: onTap,
   );
 }

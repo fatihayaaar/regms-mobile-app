@@ -14,9 +14,7 @@ class _MyProfileScreen extends State {
     return Scaffold(
       appBar: appBar(uploadTap: () {}, onTap: () {}),
       body: _buildBody(),
-      bottomNavigationBar: BottomNavBar(
-        selected: -2
-      ),
+      bottomNavigationBar: BottomNavBar(selected: -2),
     );
   }
 
@@ -30,22 +28,10 @@ class _MyProfileScreen extends State {
           overScroll.disallowIndicator();
           return false;
         },
-        child: Container(
-          height: double.maxFinite,
-          decoration: BoxDecoration(
-            color: kBackgroundColor,
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-            child: SingleChildScrollView(
-              child: Container(
-                width: double.infinity,
-                child: _buildContent(),
-              ),
-            ),
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            child: _buildContent(),
           ),
         ),
       ),
