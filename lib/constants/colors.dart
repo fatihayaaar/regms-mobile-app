@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Colors
-const kThemeColor = Color.fromRGBO(255, 232, 142, 1);
+const kThemeColor = Color.fromRGBO(243, 243, 243, 1.0);
 const kBackgroundColor = Color.fromRGBO(255, 255, 255, 1);
 const kBodyTextColor = Color.fromRGBO(124, 125, 126, 1);
 
@@ -13,4 +13,4 @@ const kRegisterRichTextAboutColor = Color.fromRGBO(120, 120, 123, 1.0);
 
 const kBorderColor = Color.fromRGBO(232, 232, 232, 1.0);
 
-const kTextContentColor = Color.fromRGBO(88, 80, 49, 1);
+const kTextContentColor = Color.fromRGBO(33, 33, 33, 1.0);

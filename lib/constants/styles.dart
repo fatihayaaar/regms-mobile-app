@@ -112,3 +112,10 @@ final gSheetActionTextStyle = GoogleFonts.nunitoSans(
   fontSize: 14,
   color: Color.fromRGBO(88, 80, 49, 1),
 );
+
+final kListTextStyle = TextStyle(
+  height: 1.6,
+  fontFamily: "SofiaPro",
+  fontSize: 15,
+  color: kTextContentColor,
+);
