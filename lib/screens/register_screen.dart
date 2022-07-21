@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/my_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 import 'package:regms_flutter_client/widgets/shake.dart';
 import 'package:regms_flutter_client/widgets/slide_tile.dart';
@@ -79,7 +80,7 @@ class _RegisterScreen extends State {
         Positioned(
           right: 20,
           bottom: 30,
-          child: _buildNextButton(),
+          child: _buildRegisterButton(),
         )
       ],
     );
@@ -104,7 +105,7 @@ class _RegisterScreen extends State {
     );
   }
 
-  Widget _buildNextButton() {
+  Widget _buildRegisterButton() {
     if (slideIndex != 2 && slideIndex != 0) {
       return Container(
         alignment: Alignment.centerRight,
@@ -115,7 +116,7 @@ class _RegisterScreen extends State {
           child: ElevatedButton(
             style: kRegisterButtonButtonStyle,
             onPressed: () {
-              nextButtonOnClick();
+              submitButtonOnClick();
             },
             child: Container(
               child: Text(
@@ -129,10 +130,6 @@ class _RegisterScreen extends State {
     }
     return Container();
   }
-
-  void nextButtonOnClick() {}
-
-  void submitButtonOnClick() {}
 
   Widget _buildStep1() {
     return FadeAnimation(
@@ -199,11 +196,9 @@ class _RegisterScreen extends State {
           onPressed: () {
             nextButtonStep1OnClick();
           },
-          child: Container(
-            child: Text(
-              "Go On",
-              style: kLoginButtonContentTextStyle,
-            ),
+          child: Text(
+            "Go On",
+            style: kLoginButtonContentTextStyle,
           ),
         ),
       ),
@@ -422,5 +417,12 @@ class _RegisterScreen extends State {
     setState(() {
       slideIndex = slideIndex + 1;
     });
+  }
+
+  void submitButtonOnClick() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => MyProfileScreen()),
+    );
   }
 }

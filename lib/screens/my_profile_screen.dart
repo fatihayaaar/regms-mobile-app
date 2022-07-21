@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 
 class MyProfileScreen extends StatefulWidget {
   @override
@@ -10,6 +11,9 @@ class _MyProfileScreen extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(),
+      bottomNavigationBar: BottomNavBar(
+        selected: -2
+      ),
     );
   }
 }

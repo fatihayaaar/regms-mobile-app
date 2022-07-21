@@ -50,6 +50,18 @@ final kDatePickerButtonButtonStyle = ButtonStyle(
   ),
 );
 
+final kTransparentButtonButtonStyle = ButtonStyle(
+  padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(0)),
+  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(0, 0, 0, 0)),
+  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(0.0),
+    ),
+  ),
+);
+
+
 final kLoginButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 17,
   fontWeight: FontWeight.bold,
