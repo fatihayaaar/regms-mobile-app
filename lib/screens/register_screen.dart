@@ -193,7 +193,7 @@ class _RegisterScreen extends State {
       margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
       child: Container(
         height: 38,
-        width: 72,
+        width: 90,
         child: ElevatedButton(
           style: kRegisterButtonButtonStyle,
           onPressed: () {
@@ -375,7 +375,7 @@ class _RegisterScreen extends State {
               },
               initialDateTime: _dateTime,
               minimumYear: 1950,
-              maximumYear: 2022,
+              maximumYear: 2023,
             ),
           );
         });

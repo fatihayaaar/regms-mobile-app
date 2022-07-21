@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 
-final tLoginTitleTextStyle = TextStyle(
+final tLoginTitleTextStyle = GoogleFonts.raleway(
   color: kLoginTitleColor,
   fontWeight: FontWeight.bold,
-  fontSize: 50,
+  fontSize: 48,
 );
 
-final tRegisterTitleTextStyle = TextStyle(
+final tRegisterTitleTextStyle = GoogleFonts.raleway(
   color: kLoginTitleColor,
   fontWeight: FontWeight.bold,
-  fontSize: 35,
+  fontSize: 33,
 );
 
 final kLoginButtonButtonStyle = ButtonStyle(
@@ -49,8 +50,9 @@ final kDatePickerButtonButtonStyle = ButtonStyle(
   ),
 );
 
-final kLoginButtonContentTextStyle = TextStyle(
-  fontSize: 16,
+final kLoginButtonContentTextStyle = GoogleFonts.raleway(
+  fontSize: 17,
+  fontWeight: FontWeight.bold,
   color: kButtonContentTextColor,
 );
 
@@ -66,21 +68,20 @@ final tTextFieldInputDecoration = (hintText) => InputDecoration(
       hintStyle: kHintTextStyle,
     );
 
-final kHintTextStyle = TextStyle(
-  fontSize: 15,
+final kHintTextStyle = GoogleFonts.raleway(
+  fontSize: 14,
   color: kTextFieldLightColor,
 );
 
-final tsRichTextStyle = (color) => TextStyle(
+final tsRichTextStyle = (color) => GoogleFonts.raleway(
       height: 1.4,
-      fontFamily: "SofiaPro",
-      fontSize: 14,
+      fontSize: 13,
       color: color,
     );
 
-final tForgotPasswordTextStyle = TextStyle(
+final tForgotPasswordTextStyle = GoogleFonts.raleway(
   height: 1.4,
-  fontSize: 14,
+  fontSize: 13,
   color: kLoginButtonColor,
 );
 
@@ -95,8 +96,7 @@ final Decoration kBoxDecorationDropDownButton = BoxDecoration(
   borderRadius: BorderRadius.circular(15),
 );
 
-final gSheetActionTextStyle = TextStyle(
-  fontSize: 15,
-  fontFamily: "SofiaPro",
+final gSheetActionTextStyle = GoogleFonts.nunitoSans(
+  fontSize: 14,
   color: Color.fromRGBO(88, 80, 49, 1),
 );
