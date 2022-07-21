@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/my_profile_screen.dart';
@@ -31,26 +32,45 @@ class BottomNavBarState extends State<BottomNavBar> {
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
-          Expanded(flex: 1, child: _buildItem(page: LoginScreen())),
-          Expanded(flex: 1, child: _buildItem(page: LoginScreen())),
-          Expanded(flex: 1, child: _buildItem(page: LoginScreen())),
+          Expanded(
+              flex: 1,
+              child: _buildItem(
+                page: LoginScreen(),
+                svg: heart,
+                svgClicked: heartFill,
+              )),
+          Expanded(
+              flex: 1,
+              child: _buildItem(
+                page: LoginScreen(),
+                svg: messages,
+                svgClicked: messagesFill,
+              )),
+          Expanded(
+              flex: 1,
+              child: _buildItem(
+                page: LoginScreen(),
+                svg: search,
+                svgClicked: searchFill,
+              )),
           Expanded(flex: 2, child: _buildAvatarItem(page: MyProfileScreen())),
         ],
       ),
     );
   }
 
-  Widget _buildItem({required Widget page}) {
+  Widget _buildItem(
+      {required Widget page, required Widget svg, required Widget svgClicked}) {
     return Container(
       height: 19.03,
       width: 19.03,
       child: ElevatedButton(
-          style: kTransparentButtonButtonStyle,
-          onPressed: () {
-            Navigator.push(context, _createRoute(page));
-          },
-          child: Container() //selected == 1 ? svgSearchClicked : svgSearch,
-          ),
+        style: kTransparentButtonButtonStyle,
+        onPressed: () {
+          Navigator.push(context, _createRoute(page));
+        },
+        child: selected == 1 ? svgClicked : svg,
+      ),
     );
   }
 
