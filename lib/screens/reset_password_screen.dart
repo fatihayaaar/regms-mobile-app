@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/screens/email_validate_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
+class ResetPasswordScreen extends StatefulWidget {
   @override
-  _ForgotPasswordScreen createState() => _ForgotPasswordScreen();
+  _ResetPasswordScreen createState() => _ResetPasswordScreen();
 }
 
-class _ForgotPasswordScreen extends State {
+class _ResetPasswordScreen extends State {
+  bool _isHiddenPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,9 +37,11 @@ class _ForgotPasswordScreen extends State {
             SizedBox(height: 10),
             _buildSubTitle(),
             SizedBox(height: 40),
-            _buildUsernameTextField(),
+            _buildPasswordTextField(),
+            SizedBox(height: 20),
+            _buildConfirmPasswordTextField(),
             SizedBox(height: 60),
-            _buildForgotPasswordButton(),
+            _buildResetPasswordButton(),
           ],
         ),
       ),
@@ -47,21 +50,23 @@ class _ForgotPasswordScreen extends State {
 
   Widget _buildTitle() {
     return Container(
-      child: Text("Forgot\nPassword", style: tRegisterTitleTextStyle),
+      child: Text("Reset\nPassword", style: tRegisterTitleTextStyle),
       alignment: Alignment.bottomLeft,
     );
   }
 
-  Widget _buildUsernameTextField() {
+  Widget _buildPasswordTextField() {
     return Container(
       decoration: tTextFieldBoxDecoration,
       child: TextFormField(
-        //focusNode: _usernameFocus,
+        //focusNode: _passwordFocus,
         textInputAction: TextInputAction.go,
         maxLines: 1,
-        //controller: _usernameController,
-        onFieldSubmitted: (term) {
-          //_fieldFocusChange(context, _usernameFocus, _passwordFocus);
+        obscureText: _isHiddenPassword,
+        //controller: _passwordController,
+        onFieldSubmitted: (value) {
+          //_passwordFocus.unfocus();
+          //_loginButtonOnClick();
         },
         validator: (value) {
           if (value!.isEmpty) {
@@ -69,24 +74,46 @@ class _ForgotPasswordScreen extends State {
           } else
             return null;
         },
-        decoration: tTextFieldInputDecoration("Username"),
+        decoration: tTextFieldInputDecoration("Password"),
       ),
     );
   }
 
-  Widget _buildForgotPasswordButton() {
+  Widget _buildConfirmPasswordTextField() {
+    return Container(
+      decoration: tTextFieldBoxDecoration,
+      child: TextFormField(
+        //focusNode: _passwordFocus,
+        textInputAction: TextInputAction.go,
+        maxLines: 1,
+        obscureText: _isHiddenPassword,
+        //controller: _passwordController,
+        onFieldSubmitted: (value) {
+          //_passwordFocus.unfocus();
+          //_loginButtonOnClick();
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "* Required";
+          } else
+            return null;
+        },
+        decoration: tTextFieldInputDecoration("Confirm Password"),
+      ),
+    );
+  }
+
+  Widget _buildResetPasswordButton() {
     return Container(
       height: 50,
       width: double.infinity,
       child: ElevatedButton(
         style: kLoginButtonButtonStyle,
         onPressed: () {
-          Route route =
-              MaterialPageRoute(builder: (_) => EmailValidateScreen());
-          Navigator.pushReplacement(context, route);
+          Navigator.pop(context);
         },
         child: Text(
-          "Send",
+          "Submit",
           style: kLoginButtonContentTextStyle,
         ),
       ),
@@ -97,7 +124,7 @@ class _ForgotPasswordScreen extends State {
     return Container(
       alignment: Alignment.centerLeft,
       child: Text(
-        "Enter your username.",
+        "Enter your new password.",
         style: kSubTitleTextStyle,
         textAlign: TextAlign.start,
       ),

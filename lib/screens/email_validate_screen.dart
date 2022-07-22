@@ -6,6 +6,7 @@ import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/reset_password_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 
 class EmailValidateScreen extends StatefulWidget {
@@ -83,7 +84,7 @@ class _EmailValidateScreen extends State {
         style: kLoginButtonButtonStyle,
         onPressed: () {
           Route route =
-              MaterialPageRoute(builder: (_) => EmailValidateScreen());
+              MaterialPageRoute(builder: (_) => ResetPasswordScreen());
           Navigator.pushReplacement(context, route);
         },
         child: Text(
