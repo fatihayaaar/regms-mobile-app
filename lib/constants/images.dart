@@ -22,3 +22,7 @@ final Widget menuSvg = SvgPicture.asset(
 final Widget notificationSvg = SvgPicture.asset(
   'assets/images/svg/bell.svg',
 );
+final Widget whiteArrowSvg = SvgPicture.asset(
+  'assets/images/svg/arrow-small-left.svg',
+  color: Colors.white,
+);

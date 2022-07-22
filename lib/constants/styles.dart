@@ -118,9 +118,21 @@ final gSheetActionTextStyle = GoogleFonts.nunitoSans(
   color: Color.fromRGBO(88, 80, 49, 1),
 );
 
+final tAppbarTitleTextStyle = GoogleFonts.raleway(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  fontSize: 19,
+);
+
+final tAppbarActionTextStyle = GoogleFonts.raleway(
+  color: Colors.white,
+  fontSize: 19,
+);
+
 final kListTextStyle = TextStyle(
   height: 1.6,
   fontFamily: "SofiaPro",
   fontSize: 15,
   color: kTextContentColor,
 );
+

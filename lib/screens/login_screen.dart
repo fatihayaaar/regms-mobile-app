@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/screens/forgot_password_screen.dart';
 import 'package:regms_flutter_client/screens/register_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
@@ -221,5 +222,8 @@ class _LoginScreen extends State {
     });
   }
 
-  void _loginButtonOnClick() {}
+  void _loginButtonOnClick() {
+    Route route = MaterialPageRoute(builder: (_) => EditProfileScreen());
+    Navigator.push(context, route);
+  }
 }

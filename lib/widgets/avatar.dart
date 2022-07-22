@@ -9,9 +9,9 @@ Widget buildAvatar(
       color: borderColor,
     ),
     child: CircleAvatar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey,
       radius: size,
-      backgroundImage: AssetImage(img),
+      //backgroundImage: AssetImage(img),
     ),
   );
 }
