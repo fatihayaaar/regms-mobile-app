@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/forgot_password_screen.dart';
 import 'package:regms_flutter_client/screens/register_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 
@@ -155,11 +156,9 @@ class _LoginScreen extends State {
         onPressed: () {
           _loginButtonOnClick();
         },
-        child: Container(
-          child: Text(
-            "Login",
-            style: kLoginButtonContentTextStyle,
-          ),
+        child: Text(
+          "Login",
+          style: kLoginButtonContentTextStyle,
         ),
       ),
     );
@@ -170,7 +169,10 @@ class _LoginScreen extends State {
       width: double.infinity,
       alignment: Alignment.topRight,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Route route = MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
+          Navigator.push(context, route);
+        },
         child: Text(
           'Forgot password?',
           textAlign: TextAlign.right,

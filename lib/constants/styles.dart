@@ -85,6 +85,11 @@ final kHintTextStyle = GoogleFonts.raleway(
   color: kTextFieldLightColor,
 );
 
+final kSubTitleTextStyle = GoogleFonts.raleway(
+  fontSize: 18,
+  color: kTextFieldLightColor,
+);
+
 final tsRichTextStyle = (color) => GoogleFonts.raleway(
       height: 1.4,
       fontSize: 13,
