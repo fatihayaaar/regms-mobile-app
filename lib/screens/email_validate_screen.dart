@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
@@ -10,6 +14,23 @@ class EmailValidateScreen extends StatefulWidget {
 }
 
 class _EmailValidateScreen extends State {
+  late Timer _timer;
+  int _start = 120;
+  late bool _timerStart = true;
+  late bool _g;
+
+  @override
+  void initState() {
+    super.initState();
+    _g = false;
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +54,18 @@ class _EmailValidateScreen extends State {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.18),
                 _buildTitle(),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
+                _buildSubTitle(),
+                SizedBox(height: 40),
+                _buildVerificationTextField(),
+                SizedBox(height: 40),
+                _buildLastTimeText(),
+                SizedBox(height: 10),
+                _buildReSend(),
+                SizedBox(height: 40),
                 _buildEmailValidateButton(),
               ],
-            )
-        )
-    );
+            )));
   }
 
   Widget _buildTitle() {
@@ -55,7 +82,8 @@ class _EmailValidateScreen extends State {
       child: ElevatedButton(
         style: kLoginButtonButtonStyle,
         onPressed: () {
-          Route route = MaterialPageRoute(builder: (_) => EmailValidateScreen());
+          Route route =
+              MaterialPageRoute(builder: (_) => EmailValidateScreen());
           Navigator.pushReplacement(context, route);
         },
         child: Text(
@@ -63,6 +91,96 @@ class _EmailValidateScreen extends State {
           style: kLoginButtonContentTextStyle,
         ),
       ),
+    );
+  }
+
+  Widget _buildReSend() {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: "If you didn't receive a code! ",
+            style: tsRichTextStyle(kBodyTextColor),
+          ),
+          TextSpan(
+            text: 'Resend',
+            style:
+                tsRichTextStyle(_g == true ? kLoginButtonColor : kBorderColor),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                if (_start == 0) {
+                  _start = 120;
+                  startTimer();
+                }
+              },
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildSubTitle() {
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        "Enter the verification code\nwe just send your email address.",
+        style: kSubTitleTextStyle,
+        textAlign: TextAlign.start,
+      ),
+    );
+  }
+
+  void startTimer() {
+    if (_timerStart) {
+      _timerStart = false;
+      const oneSec = const Duration(seconds: 1);
+      _timer = new Timer.periodic(
+        oneSec,
+        (Timer timer) {
+          if (_start == 0) {
+            setState(() {
+              _g = true;
+              _timerStart = true;
+              timer.cancel();
+            });
+          } else {
+            setState(() {
+              _g = false;
+              _start--;
+            });
+          }
+        },
+      );
+    }
+  }
+
+  Widget _buildVerificationTextField() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(14, 0, 15, 0),
+      decoration: kBoxDecorationTextField,
+      child: VerificationCode(
+        fillColor: kTextFieldColor,
+        textStyle: kHintTextStyle,
+        keyboardType: TextInputType.number,
+        underlineColor: kBorderColor,
+        length: 4,
+        onCompleted: (String value) {
+          setState(() {});
+        },
+        onEditing: (bool value) {
+          setState(() {});
+        },
+      ),
+    );
+  }
+
+  Widget _buildLastTimeText() {
+    return Text(
+      (_start / 60).truncate().toString() +
+          ":" +
+          (_start % 60).toString().padLeft(2, '0').toString(),
+      style: kSubTitleTextStyle,
     );
   }
 }

@@ -10,6 +10,7 @@ const kLoginButtonColor = Color.fromRGBO(0, 89, 255, 1.0);
 const kButtonContentTextColor = Color.fromRGBO(255, 255, 255, 1);
 const kTextFieldLightColor = Color.fromRGBO(138, 138, 138, 1.0);
 const kRegisterRichTextAboutColor = Color.fromRGBO(120, 120, 123, 1.0);
+const kTextFieldColor = Color.fromRGBO(245, 245, 245, 1.0);
 
 const kBorderColor = Color.fromRGBO(232, 232, 232, 1.0);
 

@@ -86,7 +86,7 @@ class _ForgotPasswordScreen extends State {
           Navigator.pushReplacement(context, route);
         },
         child: Text(
-          "Forgot Password",
+          "Send",
           style: kLoginButtonContentTextStyle,
         ),
       ),
@@ -98,7 +98,7 @@ class _ForgotPasswordScreen extends State {
       alignment: Alignment.centerLeft,
       child: Text(
         "Enter the email address\nassociated with your account.",
-        style: kHintTextStyle,
+        style: kSubTitleTextStyle,
         textAlign: TextAlign.start,
       ),
     );
