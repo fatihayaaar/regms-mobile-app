@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/title_appbar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
@@ -9,6 +10,8 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreen extends State {
+  int _length = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,10 +121,132 @@ class _EditProfileScreen extends State {
   }
 
   Widget _buildFormContent() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+      margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
+      child: Column(
+        children: [
+          SizedBox(height: 20),
+          _buildProfileProperty(),
+          SizedBox(height: 25),
+          _buildNameAndSurnameTextField(),
+          SizedBox(height: 20),
+          _buildBioTextField(),
+          SizedBox(height: 7),
+          _buildBioLength(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildNameAndSurnameTextField() {
     return Column(
       children: [
-        SizedBox(height: 40),
+        Container(
+          alignment: Alignment.centerLeft,
+          margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
+          child: Text(
+            "Name And Surname",
+            style: kHintTextStyle,
+          ),
+        ),
+        Container(
+          decoration: tTextFieldBoxDecoration,
+          child: TextFormField(
+            //focusNode: _usernameFocus,
+            textInputAction: TextInputAction.go,
+            maxLines: 1,
+            //controller: _usernameController,
+            onFieldSubmitted: (term) {
+              //_fieldFocusChange(context, _usernameFocus, _passwordFocus);
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "* Required";
+              } else
+                return null;
+            },
+            decoration: tTextFieldInputDecoration("Name And Surname"),
+          ),
+        ),
       ],
+    );
+  }
+
+  Widget _buildBioTextField() {
+    return Column(
+      children: [
+        Container(
+          alignment: Alignment.centerLeft,
+          margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
+          child: Text(
+            "About Me",
+            style: kHintTextStyle,
+          ),
+        ),
+        Container(
+          decoration: tTextFieldBoxDecoration,
+          child: TextFormField(
+            //focusNode: _usernameFocus,
+            textInputAction: TextInputAction.go,
+            minLines: 5,
+            maxLines: 10,
+            onChanged: (value) {
+              setState(() {
+                _length = value.length;
+              });
+            },
+            //controller: _usernameController,
+            onFieldSubmitted: (term) {
+              //_fieldFocusChange(context, _usernameFocus, _passwordFocus);
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "* Required";
+              } else
+                return null;
+            },
+            decoration: tTextFieldInputDecoration(
+                "You should write your biography! People may have opinions about you."),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBioLength() {
+    return Container(
+      alignment: Alignment.centerRight,
+      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+      child: Text(
+        "$_length/300",
+        style: kHintTextStyle,
+        textAlign: TextAlign.left,
+      ),
+    );
+  }
+
+  Widget _buildProfileProperty() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _buildProfilePropertyChild(),
+        _buildProfilePropertyChild(),
+        _buildProfilePropertyChild(),
+        _buildProfilePropertyChild(),
+      ],
+    );
+  }
+
+  _buildProfilePropertyChild() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        color: Colors.grey,
+      ),
     );
   }
 }
