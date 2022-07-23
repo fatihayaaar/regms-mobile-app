@@ -61,6 +61,16 @@ final kTransparentButtonButtonStyle = ButtonStyle(
   ),
 );
 
+final kProfileButtonButtonStyle = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all(kTextFieldColor),
+  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(6.0),
+    ),
+  ),
+);
+
 final kProfileHeaderDecoration = BoxDecoration(
   color: Colors.grey,
   borderRadius: BorderRadius.vertical(
@@ -74,6 +84,12 @@ final kLoginButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 17,
   fontWeight: FontWeight.bold,
   color: kButtonContentTextColor,
+);
+
+final kProfileButtonContentTextStyle = GoogleFonts.raleway(
+  fontSize: 13,
+  fontWeight: FontWeight.bold,
+  color: kAppbarColor,
 );
 
 final tTextFieldBoxDecoration = BoxDecoration(
@@ -91,6 +107,11 @@ final tTextFieldInputDecoration = (hintText) => InputDecoration(
 final kHintTextStyle = GoogleFonts.raleway(
   fontSize: 14,
   color: kTextFieldLightColor,
+);
+
+final kBioTextStyle = GoogleFonts.raleway(
+  fontSize: 14,
+  color: kTextBioColor,
 );
 
 final kSubTitleTextStyle = GoogleFonts.raleway(
@@ -135,6 +156,18 @@ final tAppbarTitleTextStyle = GoogleFonts.raleway(
 final tAppbarActionTextStyle = GoogleFonts.raleway(
   color: Colors.white,
   fontSize: 19,
+);
+
+final kNameAndSurnameTextStyle = GoogleFonts.raleway(
+  fontSize: 18,
+  fontWeight: FontWeight.w500,
+  color: kBodyTextColor,
+);
+
+final kUsernameTextStyle = GoogleFonts.raleway(
+  fontSize: 25,
+  fontWeight: FontWeight.bold,
+  color: kAppbarColor,
 );
 
 final kListTextStyle = TextStyle(

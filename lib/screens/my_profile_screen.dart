@@ -60,18 +60,22 @@ class _MyProfileScreen extends State {
     return Column(
       children: [
         _buildProfileHeader(),
+        SizedBox(height: 10),
+        _buildProfileContent(),
+        SizedBox(height: 20),
+        _buildProfileActions(),
       ],
     );
   }
 
   Widget _buildProfileHeader() {
     return Container(
-      height: 210,
+      height: 200,
       child: Stack(
         children: [
           Container(
             margin: EdgeInsets.all(10),
-            height: 150,
+            height: 140,
             width: double.infinity,
             decoration: kProfileHeaderDecoration,
           ),
@@ -88,6 +92,64 @@ class _MyProfileScreen extends State {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildProfileContent() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
+      alignment: Alignment.topLeft,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "fayar",
+            style: kUsernameTextStyle,
+          ),
+          Text(
+            "Fatih Ayar",
+            style: kNameAndSurnameTextStyle,
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in velit ultrices, ultrices libero maximus, pulvinar ipsum.",
+            style: kBioTextStyle,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProfileActions() {
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+      child: Row(
+        children: [
+          _buildProfileEditButton("Friends"),
+          _buildProfileEditButton("Messages"),
+          _buildProfileEditButton("Edit"),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProfileEditButton(String text) {
+    return Expanded(
+      flex: 1,
+      child: Container(
+        margin: EdgeInsets.fromLTRB(3, 0, 3, 0),
+        height: 33,
+        child: ElevatedButton(
+          style: kProfileButtonButtonStyle,
+          onPressed: () {},
+          child: Text(
+            text,
+            style: kProfileButtonContentTextStyle,
+          ),
+        ),
       ),
     );
   }
