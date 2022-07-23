@@ -61,6 +61,14 @@ final kTransparentButtonButtonStyle = ButtonStyle(
   ),
 );
 
+final kProfileHeaderDecoration = BoxDecoration(
+  color: Colors.grey,
+  borderRadius: BorderRadius.vertical(
+    top: Radius.circular(15),
+    bottom: Radius.circular(15),
+  ),
+);
+
 
 final kLoginButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 17,

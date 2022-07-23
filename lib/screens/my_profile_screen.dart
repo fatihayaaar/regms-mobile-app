@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/app_bar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
@@ -72,13 +73,7 @@ class _MyProfileScreen extends State {
             margin: EdgeInsets.all(10),
             height: 150,
             width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(15),
-                bottom: Radius.circular(15),
-              ),
-            ),
+            decoration: kProfileHeaderDecoration,
           ),
           Positioned(
             bottom: 0,
