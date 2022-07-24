@@ -177,3 +177,14 @@ final kListTextStyle = TextStyle(
   color: kTextContentColor,
 );
 
+final kFollowersCountTextStyle = GoogleFonts.raleway(
+  fontSize: 14,
+  fontWeight: FontWeight.normal,
+  color: kAppbarColor,
+);
+
+final kFollowersCountSizeTextStyle = GoogleFonts.raleway(
+  fontSize: 21,
+  fontWeight: FontWeight.bold,
+  color: kAppbarColor,
+);

@@ -1,3 +1,4 @@
+import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
@@ -11,6 +12,9 @@ class MyProfileScreen extends StatefulWidget {
 }
 
 class _MyProfileScreen extends State {
+  final List<Map> myImages =
+      List.generate(20, (index) => {"id": index, "name": "$index"}).toList();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,10 +64,12 @@ class _MyProfileScreen extends State {
     return Column(
       children: [
         _buildProfileHeader(),
-        SizedBox(height: 10),
+        SizedBox(height: 5),
         _buildProfileContent(),
         SizedBox(height: 20),
         _buildProfileActions(),
+        SizedBox(height: 10),
+        _buildPosts(),
       ],
     );
   }
@@ -104,13 +110,30 @@ class _MyProfileScreen extends State {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "fayar",
-            style: kUsernameTextStyle,
-          ),
-          Text(
-            "Fatih Ayar",
-            style: kNameAndSurnameTextStyle,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "fayar",
+                      style: kUsernameTextStyle,
+                    ),
+                    Text(
+                      "Fatih Ayar",
+                      style: kNameAndSurnameTextStyle,
+                    ),
+                  ],
+                ),
+              ),
+              _buildProfileFollowersText(text: "Followers", count: "210"),
+              _buildProfileFollowersText(text: "Following", count: "120"),
+            ],
           ),
           SizedBox(height: 10),
           Text(
@@ -150,6 +173,53 @@ class _MyProfileScreen extends State {
             style: kProfileButtonContentTextStyle,
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildProfileFollowersText(
+      {required String text, required String count}) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Container(
+        margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+        child: Column(
+          children: [
+            Text(
+              count,
+              style: kFollowersCountSizeTextStyle,
+            ),
+            Text(
+              text,
+              style: kFollowersCountTextStyle,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPosts() {
+    return Container(
+      height: ((myImages.length / 3) + 1) * 110,
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: GridView.builder(
+        scrollDirection: Axis.vertical,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 140,
+          childAspectRatio: 1 / 1,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 5,
+        ),
+        itemCount: myImages.length,
+        itemBuilder: (BuildContext ctx, index) {
+          return Container(
+            decoration: BoxDecoration(
+              color: kBorderColor,
+              borderRadius: BorderRadius.circular(4),
+            ),
+          );
+        },
       ),
     );
   }
