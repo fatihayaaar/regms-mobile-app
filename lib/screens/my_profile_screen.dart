@@ -1,5 +1,5 @@
-import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/app_bar.dart';
@@ -76,12 +76,12 @@ class _MyProfileScreen extends State {
 
   Widget _buildProfileHeader() {
     return Container(
-      height: 200,
+      height: 175,
       child: Stack(
         children: [
           Container(
-            margin: EdgeInsets.all(10),
-            height: 140,
+            margin: EdgeInsets.all(5),
+            height: 125,
             width: double.infinity,
             decoration: kProfileHeaderDecoration,
           ),
@@ -104,7 +104,7 @@ class _MyProfileScreen extends State {
 
   Widget _buildProfileContent() {
     return Container(
-      margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
+      margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
       alignment: Alignment.topLeft,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -137,7 +137,7 @@ class _MyProfileScreen extends State {
           ),
           SizedBox(height: 10),
           Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in velit ultrices, ultrices libero maximus, pulvinar ipsum.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in velit ultrices",
             style: kBioTextStyle,
           ),
         ],
@@ -148,7 +148,7 @@ class _MyProfileScreen extends State {
   Widget _buildProfileActions() {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+      margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
       child: Row(
         children: [
           _buildProfileEditButton("Friends"),
@@ -201,12 +201,13 @@ class _MyProfileScreen extends State {
 
   Widget _buildPosts() {
     return Container(
-      height: ((myImages.length / 3) + 1) * 110,
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
       child: GridView.builder(
+        physics: ScrollPhysics(),
         scrollDirection: Axis.vertical,
+        shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 140,
+          maxCrossAxisExtent: (MediaQuery.of(context).size.width / 3) ,
           childAspectRatio: 1 / 1,
           crossAxisSpacing: 5,
           mainAxisSpacing: 5,

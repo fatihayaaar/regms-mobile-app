@@ -161,7 +161,7 @@ final tAppbarActionTextStyle = GoogleFonts.raleway(
 final kNameAndSurnameTextStyle = GoogleFonts.raleway(
   fontSize: 18,
   fontWeight: FontWeight.w500,
-  color: kBodyTextColor,
+  color: kTextContentColor,
 );
 
 final kUsernameTextStyle = GoogleFonts.raleway(
