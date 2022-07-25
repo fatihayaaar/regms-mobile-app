@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/app_bar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
@@ -80,7 +81,7 @@ class _MyProfileScreen extends State {
       child: Stack(
         children: [
           Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.all(0),
             height: 125,
             width: double.infinity,
             decoration: kProfileHeaderDecoration,
@@ -151,15 +152,17 @@ class _MyProfileScreen extends State {
       margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
       child: Row(
         children: [
-          _buildProfileEditButton("Friends"),
-          _buildProfileEditButton("Messages"),
-          _buildProfileEditButton("Edit"),
+          _buildProfileEditButton("Friends", () {}),
+          _buildProfileEditButton("Edit", () {
+            Route route = MaterialPageRoute(builder: (_) => EditProfileScreen());
+            Navigator.push(context, route);
+          }),
         ],
       ),
     );
   }
 
-  Widget _buildProfileEditButton(String text) {
+  Widget _buildProfileEditButton(String text, void onClick()) {
     return Expanded(
       flex: 1,
       child: Container(
@@ -167,7 +170,7 @@ class _MyProfileScreen extends State {
         height: 33,
         child: ElevatedButton(
           style: kProfileButtonButtonStyle,
-          onPressed: () {},
+          onPressed: onClick,
           child: Text(
             text,
             style: kProfileButtonContentTextStyle,

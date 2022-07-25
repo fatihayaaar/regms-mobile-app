@@ -5,6 +5,7 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/screens/forgot_password_screen.dart';
+import 'package:regms_flutter_client/screens/my_profile_screen.dart';
 import 'package:regms_flutter_client/screens/register_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 
@@ -223,7 +224,7 @@ class _LoginScreen extends State {
   }
 
   void _loginButtonOnClick() {
-    Route route = MaterialPageRoute(builder: (_) => EditProfileScreen());
+    Route route = MaterialPageRoute(builder: (_) => MyProfileScreen());
     Navigator.push(context, route);
   }
 }
