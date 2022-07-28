@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:regms_flutter_client/constants/colors.dart';
 
 //bottom-navbar
 final Widget heart = SvgPicture.asset('assets/images/svg/heart.svg');
@@ -20,4 +21,9 @@ final Widget menuSvg = SvgPicture.asset(
 final Widget whiteArrowSvg = SvgPicture.asset(
   'assets/images/svg/arrow-small-left.svg',
   color: Colors.white,
+);
+
+final Widget searchBTN = SvgPicture.asset(
+  'assets/images/svg/search.svg',
+  color: kBodyTextColor,
 );

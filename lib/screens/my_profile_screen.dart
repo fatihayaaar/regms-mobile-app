@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/app_bar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
+import 'package:regms_flutter_client/widgets/search.dart';
+import 'package:regms_flutter_client/widgets/settings_draver.dart';
 
 class MyProfileScreen extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _MyProfileScreen extends State {
       appBar: appBar("My Profile", uploadTap: () {}, onTap: () {}),
       body: _buildBody(),
       bottomNavigationBar: BottomNavBar(selected: -2),
-      endDrawer: _buildDrawer(),
+      endDrawer: buildDrawer(context: context),
     );
   }
 
@@ -236,36 +237,6 @@ class _MyProfileScreen extends State {
           );
         },
       ),
-    );
-  }
-
-  Widget _buildDrawer() {
-    return Drawer(
-      width: double.infinity,
-      child: ListView(
-        children: [
-          _buildListTile("Username Change"),
-          _buildListTile("Email Address Change"),
-          _buildListTile("Password Change"),
-          _buildListTile("Privacy"),
-          _buildListTile("Security"),
-          _buildListTile("Notification"),
-          _buildListTile("Settings"),
-          _buildListTile("Log-out"),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildListTile(String text) {
-    return ListTile(
-      dense: true,
-      contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-      title: Text(text,
-      style: GoogleFonts.raleway(
-        fontSize: 15,
-        fontWeight: FontWeight.w600,
-      ),),
     );
   }
 }

@@ -170,13 +170,6 @@ final kUsernameTextStyle = TextStyle(
   color: kAppbarColor,
 );
 
-final kListTextStyle = TextStyle(
-  height: 1.6,
-  fontFamily: "SofiaPro",
-  fontSize: 15,
-  color: kTextContentColor,
-);
-
 final kFollowersCountTextStyle = TextStyle(
   fontSize: 15,
   fontWeight: FontWeight.normal,
@@ -187,4 +180,20 @@ final kFollowersCountSizeTextStyle = TextStyle(
   fontSize: 15,
   fontWeight: FontWeight.bold,
   color: kAppbarColor,
+);
+
+final kListTextStyle = GoogleFonts.raleway(
+fontSize: 15,
+fontWeight: FontWeight.w600,
+);
+
+final Decoration kBoxDecorationSearchTextField = BoxDecoration(
+  color: kBorderColor,
+  borderRadius: BorderRadius.circular(10),
+);
+
+final kListTitleTextStyle = GoogleFonts.raleway(
+  color: kAppbarColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 19,
 );
