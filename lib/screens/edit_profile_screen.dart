@@ -82,8 +82,12 @@ class _EditProfileScreen extends State {
         alignment: Alignment.center,
         children: [
           Center(
-              child: buildAvatar(
-                  borderColor: Colors.white.withOpacity(0), img: "", size: 80)),
+            child: buildAvatar(
+              borderColor: Colors.white.withOpacity(0),
+              img: "assets/images/dump_1.jpg",
+              size: 80,
+            ),
+          ),
           Positioned(
             bottom: 15,
             right: 15,

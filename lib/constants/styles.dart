@@ -158,14 +158,14 @@ final tAppbarActionTextStyle = GoogleFonts.raleway(
   fontSize: 19,
 );
 
-final kNameAndSurnameTextStyle = GoogleFonts.raleway(
-  fontSize: 18,
+final kNameAndSurnameTextStyle = TextStyle(
+  fontSize: 15,
   fontWeight: FontWeight.w500,
   color: kTextContentColor,
 );
 
-final kUsernameTextStyle = GoogleFonts.raleway(
-  fontSize: 25,
+final kUsernameTextStyle = TextStyle(
+  fontSize: 20,
   fontWeight: FontWeight.bold,
   color: kAppbarColor,
 );
@@ -177,14 +177,14 @@ final kListTextStyle = TextStyle(
   color: kTextContentColor,
 );
 
-final kFollowersCountTextStyle = GoogleFonts.raleway(
-  fontSize: 14,
+final kFollowersCountTextStyle = TextStyle(
+  fontSize: 15,
   fontWeight: FontWeight.normal,
-  color: kAppbarColor,
+  color: kRegisterRichTextAboutColor,
 );
 
-final kFollowersCountSizeTextStyle = GoogleFonts.raleway(
-  fontSize: 21,
+final kFollowersCountSizeTextStyle = TextStyle(
+  fontSize: 15,
   fontWeight: FontWeight.bold,
   color: kAppbarColor,
 );

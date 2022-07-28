@@ -13,16 +13,8 @@ final Widget search = SvgPicture.asset('assets/images/svg/search.svg');
 final Widget searchFill = SvgPicture.asset('assets/images/svg/search_fill.svg');
 
 //appbar
-final Widget uploadSvg = SvgPicture.asset(
-  'assets/images/svg/upload.svg',
-  color: Colors.white,
-);
 final Widget menuSvg = SvgPicture.asset(
   'assets/images/svg/menu-burger.svg',
-  color: Colors.white,
-);
-final Widget notificationSvg = SvgPicture.asset(
-  'assets/images/svg/bell.svg',
   color: Colors.white,
 );
 final Widget whiteArrowSvg = SvgPicture.asset(

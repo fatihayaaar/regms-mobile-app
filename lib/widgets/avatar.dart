@@ -11,7 +11,7 @@ Widget buildAvatar(
     child: CircleAvatar(
       backgroundColor: Colors.grey,
       radius: size,
-      //backgroundImage: AssetImage(img),
+      backgroundImage: AssetImage(img),
     ),
   );
 }

@@ -97,7 +97,7 @@ class BottomNavBarState extends State<BottomNavBar> {
           child: CircleAvatar(
             backgroundColor: Colors.grey.withOpacity(0.5),
             radius: 20,
-            //backgroundImage: AssetImage("assets/images/avatar.png"),
+            backgroundImage: AssetImage("assets/images/dump_1.jpg"),
             //child: Image.file(),
           ),
         ),
