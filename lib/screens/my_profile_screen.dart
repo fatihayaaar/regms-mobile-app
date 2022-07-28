@@ -7,7 +7,7 @@ import 'package:regms_flutter_client/widgets/app_bar/app_bar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/search.dart';
-import 'package:regms_flutter_client/widgets/settings_draver.dart';
+import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
 class MyProfileScreen extends StatefulWidget {
   @override
