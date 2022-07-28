@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';

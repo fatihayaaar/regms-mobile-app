@@ -79,7 +79,6 @@ final kProfileHeaderDecoration = BoxDecoration(
   ),
 );
 
-
 final kLoginButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 17,
   fontWeight: FontWeight.bold,
@@ -183,8 +182,8 @@ final kFollowersCountSizeTextStyle = TextStyle(
 );
 
 final kListTextStyle = GoogleFonts.raleway(
-fontSize: 15,
-fontWeight: FontWeight.w600,
+  fontSize: 15,
+  fontWeight: FontWeight.w600,
 );
 
 final Decoration kBoxDecorationSearchTextField = BoxDecoration(
