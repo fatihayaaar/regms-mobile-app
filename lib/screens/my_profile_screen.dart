@@ -6,7 +6,6 @@ import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/app_bar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
-import 'package:regms_flutter_client/widgets/search.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
 class MyProfileScreen extends StatefulWidget {
@@ -21,10 +20,10 @@ class _MyProfileScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("My Profile", uploadTap: () {}, onTap: () {}),
+      appBar: appBar("My Profile"),
       body: _buildBody(),
-      bottomNavigationBar: BottomNavBar(selected: -2),
       endDrawer: buildDrawer(context: context),
+      bottomNavigationBar: BottomNavBar(selected: -2),
     );
   }
 
