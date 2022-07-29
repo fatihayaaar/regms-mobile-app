@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/settings/account_setting.dart';
 import 'package:regms_flutter_client/widgets/search.dart';
 
 Widget buildDrawer({required context}) {
@@ -10,46 +11,55 @@ Widget buildDrawer({required context}) {
       margin: EdgeInsets.symmetric(horizontal: 30),
       child: ListView(
         children: [
-          _buildHeader(context: context),
+          buildDrawerHeader(context: context, title: "Settings"),
           SizedBox(height: 10),
           buildSearch(),
           SizedBox(height: 20),
-          _buildListItem("Account"),
+          buildDrawerListItem(context, "Account", AccountSettingsScreen()),
           Divider(color: kBorderColor),
-          _buildListItem("Notifications"),
+          buildDrawerListItem(
+              context, "Notifications", AccountSettingsScreen()),
           Divider(color: kBorderColor),
-          _buildListItem("Appearance"),
+          buildDrawerListItem(context, "Appearance", AccountSettingsScreen()),
           Divider(color: kBorderColor),
-          _buildListItem("Privacy & Security"),
+          buildDrawerListItem(
+              context, "Privacy & Security", AccountSettingsScreen()),
           Divider(color: kBorderColor),
-          _buildListItem("Help and Support"),
+          buildDrawerListItem(
+              context, "Help and Support", AccountSettingsScreen()),
           Divider(color: kBorderColor),
-          _buildListItem("About"),
+          buildDrawerListItem(context, "About", AccountSettingsScreen()),
           Divider(color: kBorderColor),
-          _buildListItem("Log-out"),
+          buildDrawerListItem(context, "Log-out", AccountSettingsScreen()),
         ],
       ),
     ),
   );
 }
 
-Widget _buildListItem(String text) {
-  return Container(
-    margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
-    child: Row(
-      children: [
-        Expanded(child: Text(text, style: kListTextStyle)),
-        Icon(
-          Icons.arrow_forward_ios,
-          color: kBodyTextColor,
-          size: 16,
-        ),
-      ],
+Widget buildDrawerListItem(context, String text, Widget page) {
+  return GestureDetector(
+    onTap: () {
+      Route route = MaterialPageRoute(builder: (_) => page);
+      Navigator.push(context, route);
+    },
+    child: Container(
+      margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+      child: Row(
+        children: [
+          Expanded(child: Text(text, style: kListTextStyle)),
+          Icon(
+            Icons.arrow_forward_ios,
+            color: kBodyTextColor,
+            size: 16,
+          ),
+        ],
+      ),
     ),
   );
 }
 
-Widget _buildHeader({required context}) {
+Widget buildDrawerHeader({required context, required title}) {
   return Container(
     height: 60,
     child: Stack(
@@ -61,7 +71,7 @@ Widget _buildHeader({required context}) {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Settings",
+                title,
                 style: kListTitleTextStyle,
               ),
             ],
