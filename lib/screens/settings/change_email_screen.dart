@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/confirm_password_screen.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
 class ChangeEmailScreen extends StatefulWidget {
@@ -73,7 +74,10 @@ class _ChangeEmailScreen extends State {
         width: double.infinity,
         child: ElevatedButton(
           style: kLoginButtonButtonStyle,
-          onPressed: () {},
+          onPressed: () {
+            Route route = MaterialPageRoute(builder: (_) => ConfirmPasswordScreen());
+            Navigator.push(context, route);
+          },
           child: Text(
             "Submit",
             style: kLoginButtonContentTextStyle,

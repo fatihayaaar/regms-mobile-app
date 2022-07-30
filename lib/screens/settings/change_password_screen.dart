@@ -34,6 +34,8 @@ class _ChangePasswordScreen extends State {
                   alignment: Alignment.topCenter,
                   child: Column(
                     children: [
+                      _buildCurrentPasswordTextField(),
+                      SizedBox(height: 10),
                       _buildPasswordTextField(),
                       SizedBox(height: 10),
                       _buildRePasswordTextField(),
@@ -45,6 +47,29 @@ class _ChangePasswordScreen extends State {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildCurrentPasswordTextField() {
+    return Container(
+      decoration: tTextFieldBoxDecoration,
+      child: TextFormField(
+        focusNode: _passwordFocus,
+        textInputAction: TextInputAction.go,
+        maxLines: 1,
+        obscureText: _isHiddenPassword,
+        controller: _passwordController,
+        onFieldSubmitted: (value) {
+          _passwordFocus.unfocus();
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "* Required";
+          } else
+            return null;
+        },
+        decoration: tTextFieldInputDecoration("Current Password"),
       ),
     );
   }
