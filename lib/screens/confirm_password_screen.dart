@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
 class ConfirmPasswordScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class _ConfirmPasswordScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: miniAppBar(),
       body: _build(),
     );
   }
@@ -24,7 +26,6 @@ class _ConfirmPasswordScreen extends State {
       margin: EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          SizedBox(height: 28),
           buildDrawerHeader(context: context, title: "Confirm Password"),
           SizedBox(height: 10),
           Expanded(

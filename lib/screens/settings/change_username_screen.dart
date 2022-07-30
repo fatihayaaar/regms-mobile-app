@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
 class ChangeUsernameScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _ChangeUsernameScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: miniAppBar(),
       body: _build(),
     );
   }
@@ -23,7 +25,6 @@ class _ChangeUsernameScreen extends State {
       margin: EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          SizedBox(height: 28),
           buildDrawerHeader(context: context, title: "Change Username"),
           SizedBox(height: 10),
           Expanded(
@@ -73,8 +74,7 @@ class _ChangeUsernameScreen extends State {
         width: double.infinity,
         child: ElevatedButton(
           style: kLoginButtonButtonStyle,
-          onPressed: () {
-          },
+          onPressed: () {},
           child: Text(
             "Submit",
             style: kLoginButtonContentTextStyle,

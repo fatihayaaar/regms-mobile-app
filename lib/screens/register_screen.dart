@@ -46,7 +46,7 @@ class _RegisterScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(color: Color.fromRGBO(0, 0, 0, 0)),
+      appBar: miniAppBar(),
       body: Stack(
         children: [
           NotificationListener<OverscrollIndicatorNotification>(

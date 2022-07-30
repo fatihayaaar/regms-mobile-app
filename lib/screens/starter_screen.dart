@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 
 class StarterScreen extends StatefulWidget {
   @override
@@ -8,14 +9,13 @@ class StarterScreen extends StatefulWidget {
 class _StarterScreenState extends State {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Scaffold(
-          body: Stack(
-            children: [
-              
-            ],
-          ),
-        ),
+    return Scaffold(
+      appBar: miniAppBar(),
+      body: Stack(
+        children: [
+
+        ],
+      ),
     );
   }
 }

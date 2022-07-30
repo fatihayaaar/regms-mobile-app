@@ -36,7 +36,7 @@ class _EmailValidateScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(color: Color.fromRGBO(0, 0, 0, 0)),
+      appBar: miniAppBar(),
       backgroundColor: kBackgroundColor,
       body: Stack(
         children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
@@ -27,7 +28,7 @@ class _LoginScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(color: Color.fromRGBO(0, 0, 0, 0)),
+      appBar: miniAppBar(),
       backgroundColor: kBackgroundColor,
       body: Stack(
         children: [
@@ -172,7 +173,8 @@ class _LoginScreen extends State {
       alignment: Alignment.topRight,
       child: GestureDetector(
         onTap: () {
-          Route route = MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
+          Route route =
+              MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
           Navigator.push(context, route);
         },
         child: Text(

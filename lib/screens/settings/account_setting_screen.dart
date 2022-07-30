@@ -3,6 +3,7 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/screens/settings/change_email_screen.dart';
 import 'package:regms_flutter_client/screens/settings/change_password_screen.dart';
 import 'package:regms_flutter_client/screens/settings/change_username_screen.dart';
+import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _AccountSettingsScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: miniAppBar(),
       body: _buildDrawer(),
     );
   }
