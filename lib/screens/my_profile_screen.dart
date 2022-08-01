@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
-import 'package:regms_flutter_client/widgets/app_bar/app_bar.dart';
+import 'package:regms_flutter_client/widgets/app_bar/silver_app_bar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
@@ -20,7 +20,6 @@ class _MyProfileScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("My Profile"),
       body: _buildBody(),
       endDrawer: buildDrawer(context: context),
       bottomNavigationBar: BottomNavBar(selected: -2),
@@ -28,46 +27,30 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildBody() {
-    return Stack(
-      children: [
-        Container(
-          color: kMainAppbarColor,
-          height: 30,
-          width: double.infinity,
-        ),
-        NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (overScroll) {
-            overScroll.disallowIndicator();
-            return false;
-          },
+    return NestedScrollView(
+      body: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overScroll) {
+          overScroll.disallowIndicator();
+          return false;
+        },
+        child: SingleChildScrollView(
           child: Container(
-            height: double.maxFinite,
-            decoration: BoxDecoration(
-              color: kBackgroundColor,
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-              child: SingleChildScrollView(
-                child: Container(
-                  width: double.infinity,
-                  child: _buildContent(),
-                ),
-              ),
-            ),
+            width: double.infinity,
+            child: _buildContent(),
           ),
         ),
-      ],
+      ),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return [
+          buildSilverApp(_buildProfileHeader(), "My Profile"),
+        ];
+      },
     );
   }
 
   Widget _buildContent() {
     return Column(
       children: [
-        _buildProfileHeader(),
-        SizedBox(height: 5),
         _buildProfileContent(),
         SizedBox(height: 20),
         _buildProfileActions(),
@@ -78,40 +61,29 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildProfileHeader() {
-    return Container(
-      height: 165,
-      child: Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.all(0),
-            height: 125,
-            width: double.infinity,
-            decoration: kProfileHeaderDecoration,
+    return FlexibleSpaceBar(
+      background: Container(
+        margin: EdgeInsets.fromLTRB(
+            0, 55 + MediaQuery.of(context).viewPadding.top, 0, 0),
+        child: Expanded(
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
             child: Image.asset(
               "assets/images/dump_2.jpg",
               fit: BoxFit.cover,
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 15,
-            child: Container(
-              alignment: Alignment.bottomCenter,
-              child: buildAvatar(
-                borderColor: Colors.white.withOpacity(1),
-                img: "assets/images/dump_1.jpg",
-                size: 40,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
 
   Widget _buildProfileContent() {
     return Container(
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+      margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
       alignment: Alignment.topLeft,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -121,23 +93,9 @@ class _MyProfileScreen extends State {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
-                flex: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "fayar",
-                      style: kUsernameTextStyle,
-                    ),
-                    Text(
-                      "Fatih Ayar",
-                      style: kNameAndSurnameTextStyle,
-                    ),
-                  ],
-                ),
-              ),
+              _buildAvatar(),
+              SizedBox(width: 10),
+              _buildUsernameAndFirstName(),
             ],
           ),
           SizedBox(height: 10),
@@ -236,6 +194,34 @@ class _MyProfileScreen extends State {
           );
         },
       ),
+    );
+  }
+
+  _buildAvatar() {
+    return Container(
+      alignment: Alignment.bottomCenter,
+      child: buildAvatar(
+        borderColor: Colors.white.withOpacity(1),
+        img: "assets/images/dump_1.jpg",
+        size: 25,
+      ),
+    );
+  }
+
+  _buildUsernameAndFirstName() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "fayar",
+          style: kUsernameTextStyle,
+        ),
+        Text(
+          "Fatih Ayar",
+          style: kNameAndSurnameTextStyle,
+        ),
+      ],
     );
   }
 }

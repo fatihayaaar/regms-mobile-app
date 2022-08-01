@@ -158,15 +158,15 @@ final tAppbarActionTextStyle = GoogleFonts.raleway(
 );
 
 final kNameAndSurnameTextStyle = TextStyle(
-  fontSize: 15,
+  fontSize: 17,
   fontWeight: FontWeight.w500,
-  color: kTextContentColor,
+  color: kNameAndSurnameColor,
 );
 
 final kUsernameTextStyle = TextStyle(
-  fontSize: 20,
+  fontSize: 22,
   fontWeight: FontWeight.bold,
-  color: kAppbarColor,
+  color: kUsernameColor,
 );
 
 final kFollowersCountTextStyle = TextStyle(

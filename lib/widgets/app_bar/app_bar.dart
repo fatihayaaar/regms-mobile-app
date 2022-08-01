@@ -6,9 +6,9 @@ import 'package:regms_flutter_client/constants/styles.dart';
 AppBar appBar(String title) {
   return AppBar(
     systemOverlayStyle: SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.light,
-  ),
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+    ),
     automaticallyImplyLeading: false,
     toolbarHeight: 55,
     title: Row(children: [
