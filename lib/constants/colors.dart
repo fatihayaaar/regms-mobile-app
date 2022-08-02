@@ -19,4 +19,4 @@ const kBorderColor = Color.fromRGBO(232, 232, 232, 1.0);
 
 const kTextContentColor = Color.fromRGBO(33, 33, 33, 1.0);
 const kUsernameColor = Color.fromRGBO(33, 33, 33, 1.0);
-const kNameAndSurnameColor = Color.fromRGBO(84, 84, 84, 1.0);
+const kNameAndSurnameColor = Color.fromRGBO(110, 110, 110, 1.0);

@@ -14,8 +14,8 @@ class MyProfileScreen extends StatefulWidget {
 }
 
 class _MyProfileScreen extends State {
-  final List<Map> myImages =
-      List.generate(0, (index) => {"id": index, "name": "$index"}).toList();
+  final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'G'];
+  final List<int> colorCodes = <int>[600, 500, 100, 600, 500, 100];
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +52,7 @@ class _MyProfileScreen extends State {
     return Column(
       children: [
         _buildProfileContent(),
-        SizedBox(height: 20),
-        _buildProfileActions(),
-        SizedBox(height: 10),
+        SizedBox(height: 0),
         _buildPosts(),
       ],
     );
@@ -90,21 +88,22 @@ class _MyProfileScreen extends State {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildAvatar(),
-              SizedBox(width: 10),
-              _buildUsernameAndFirstName(),
+              Expanded(child: Container()),
+              _buildProfileActions(),
             ],
           ),
+          SizedBox(width: 10),
+          _buildUsernameAndFirstName(),
           SizedBox(height: 10),
-          Text(
-            "Software Developer ;) fayardev founder",
-            style: kBioTextStyle,
-          ),
+          _buildBio(),
           SizedBox(height: 15),
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _buildProfileFollowersText(text: "Followers", count: "9.2M"),
               SizedBox(width: 15),
@@ -118,11 +117,11 @@ class _MyProfileScreen extends State {
 
   Widget _buildProfileActions() {
     return Container(
-      width: double.infinity,
-      margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Row(
         children: [
           _buildProfileEditButton("Friends", () {}),
+          SizedBox(width: 10),
           _buildProfileEditButton("Edit", () {
             Route route =
                 MaterialPageRoute(builder: (_) => EditProfileScreen());
@@ -134,18 +133,16 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildProfileEditButton(String text, void onClick()) {
-    return Expanded(
-      flex: 1,
-      child: Container(
-        margin: EdgeInsets.fromLTRB(3, 0, 3, 0),
-        height: 33,
-        child: ElevatedButton(
-          style: kProfileButtonButtonStyle,
-          onPressed: onClick,
-          child: Text(
-            text,
-            style: kProfileButtonContentTextStyle,
-          ),
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      height: 33,
+      width: 85,
+      child: ElevatedButton(
+        style: kProfileButtonButtonStyle,
+        onPressed: onClick,
+        child: Text(
+          text,
+          style: kProfileButtonContentTextStyle,
         ),
       ),
     );
@@ -173,55 +170,55 @@ class _MyProfileScreen extends State {
 
   Widget _buildPosts() {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
-      child: GridView.builder(
-        physics: ScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: (MediaQuery.of(context).size.width / 3),
-          childAspectRatio: 1 / 1,
-          crossAxisSpacing: 5,
-          mainAxisSpacing: 5,
-        ),
-        itemCount: myImages.length,
-        itemBuilder: (BuildContext ctx, index) {
-          return Container(
-            decoration: BoxDecoration(
-              color: kBorderColor,
-              borderRadius: BorderRadius.circular(4),
-            ),
-          );
-        },
+      height: double.maxFinite,
+      child: ListView.builder(
+          physics: ScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          itemCount: entries.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 50,
+              color: Colors.amber[colorCodes[index]],
+              child: Center(child: Text('Entry ${entries[index]}')),
+            );
+          }
       ),
     );
   }
 
   _buildAvatar() {
     return Container(
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.bottomLeft,
       child: buildAvatar(
         borderColor: Colors.white.withOpacity(1),
         img: "assets/images/dump_1.jpg",
-        size: 25,
+        size: 35,
       ),
     );
   }
 
   _buildUsernameAndFirstName() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "fayar",
-          style: kUsernameTextStyle,
-        ),
         Text(
           "Fatih Ayar",
           style: kNameAndSurnameTextStyle,
         ),
+        Text(
+          "fayar",
+          style: kUsernameTextStyle,
+        ),
       ],
+    );
+  }
+
+  _buildBio() {
+    return Text(
+      "Software Developer ;) fayardev founder",
+      style: kBioTextStyle,
     );
   }
 }

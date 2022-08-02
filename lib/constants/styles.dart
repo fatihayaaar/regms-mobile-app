@@ -66,7 +66,7 @@ final kProfileButtonButtonStyle = ButtonStyle(
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(6.0),
+      borderRadius: BorderRadius.circular(15.0),
     ),
   ),
 );
@@ -158,15 +158,15 @@ final tAppbarActionTextStyle = GoogleFonts.raleway(
 );
 
 final kNameAndSurnameTextStyle = TextStyle(
-  fontSize: 17,
-  fontWeight: FontWeight.w500,
-  color: kNameAndSurnameColor,
+  fontSize: 27,
+  fontWeight: FontWeight.bold,
+  color: kUsernameColor,
 );
 
 final kUsernameTextStyle = TextStyle(
-  fontSize: 22,
-  fontWeight: FontWeight.bold,
-  color: kUsernameColor,
+  fontSize: 17,
+  fontWeight: FontWeight.w400,
+  color: kNameAndSurnameColor,
 );
 
 final kFollowersCountTextStyle = TextStyle(
