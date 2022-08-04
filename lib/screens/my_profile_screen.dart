@@ -1,6 +1,8 @@
+import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/silver_app_bar.dart';
@@ -52,8 +54,8 @@ class _MyProfileScreen extends State {
     return Column(
       children: [
         _buildProfileContent(),
-        SizedBox(height: 0),
-        _buildPosts(),
+        SizedBox(height: 20),
+        _buildPostsTab(),
       ],
     );
   }
@@ -169,22 +171,15 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildPosts() {
-    return Container(
-      height: double.maxFinite,
-      child: ListView.builder(
-          physics: ScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: entries.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 50,
-              color: Colors.amber[colorCodes[index]],
-              child: Center(child: Text('Entry ${entries[index]}')),
-            );
-          }
-      ),
-    );
+    return ListView.builder(
+        padding: EdgeInsets.all(0),
+        physics: ScrollPhysics(),
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: entries.length,
+        itemBuilder: (BuildContext context, int index) {
+          return _buildPostItem(index);
+        });
   }
 
   _buildAvatar() {
@@ -219,6 +214,49 @@ class _MyProfileScreen extends State {
     return Text(
       "Software Developer ;) fayardev founder",
       style: kBioTextStyle,
+    );
+  }
+
+  Widget _buildPostItem(index) {
+    return Container(
+      height: 150,
+      color: Colors.amber[colorCodes[index]],
+      child: Center(child: Text('Entry ${entries[index]}')),
+    );
+  }
+
+  _buildPostsTab() {
+    return LimitedBox(
+      maxHeight: double.maxFinite,
+      child: ContainedTabBarView(
+        tabs: [
+          _buildPostsHeaderItem(svg: messages),
+          _buildPostsHeaderItem(svg: search),
+          _buildPostsHeaderItem(svg: heart),
+        ],
+        tabBarProperties: TabBarProperties(
+          height: 45.0,
+          indicatorColor: kAppbarColor,
+          indicatorWeight: 2.0,
+          labelColor: kAppbarColor,
+          unselectedLabelColor: Colors.grey[400],
+        ),
+        views: [
+          _buildPosts(),
+          _buildPosts(),
+          _buildPosts(),
+        ],
+        onChange: (index) {},
+      ),
+    );
+  }
+
+  _buildPostsHeaderItem({required Widget svg}) {
+    return Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: svg,
+      ),
     );
   }
 }
