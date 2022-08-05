@@ -7,6 +7,7 @@ import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/silver_app_bar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
+import 'package:regms_flutter_client/widgets/post_card.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
 class MyProfileScreen extends StatefulWidget {
@@ -187,7 +188,12 @@ class _MyProfileScreen extends State {
           shrinkWrap: false,
           itemCount: entries.length,
           itemBuilder: (BuildContext context, int index) {
-            return _buildPostItem(index);
+            return PostCard(
+              username: "fayar",
+              contentText: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              likeCount: "920",
+              commentCount: "10",
+            );
           }),
     );
   }
@@ -224,82 +230,6 @@ class _MyProfileScreen extends State {
     return Text(
       "Software Developer ;) fayardev founder",
       style: kBioTextStyle,
-    );
-  }
-
-  Widget _buildPostItem(index) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 0),
-      child: Column(
-        children: [
-          Divider(color: kBorderColor, height: 1,),
-          SizedBox(height: 5),
-          Row(
-            children: [
-              _buildPostAvatar(),
-              SizedBox(width: 7),
-              Text(
-                "fayar",
-                style: kPostUsernameTextStyle,
-              ),
-            ],
-          ),
-          SizedBox(height: 5),
-          Container(
-            margin: EdgeInsets.fromLTRB(7, 0, 7, 7),
-            child: Text(
-              "Flutter solves this by providing the AspectRatio widget You give it an AspectRatio, a child, and, well, that’s it.",
-              style: kPostContentTextStyle,
-            ),
-          ),
-          AspectRatio(
-            aspectRatio: 1080 / 800,
-            child: Container(
-              color: Colors.amber,
-              child: Center(child: Text('Entry ${entries[index]}')),
-            ),
-          ),
-          Container(
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.fromLTRB(10, 7, 0, 7),
-                  child: Row(
-                    children: [
-                      Text(
-                        "1920 Likes",
-                        style: kPostCountTextStyle,
-                      ),
-                      SizedBox(width: 10),
-                      Text(
-                        "190 Comment",
-                        style: kPostCountTextStyle,
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  _buildPostAvatar() {
-    return Container(
-      alignment: Alignment.bottomLeft,
-      margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
-      child: buildAvatar(
-        borderColor: Colors.white.withOpacity(1),
-        img: "assets/images/dump_1.jpg",
-        size: 20,
-      ),
     );
   }
 
