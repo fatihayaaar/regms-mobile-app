@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/silver_app_bar.dart';
@@ -9,6 +7,7 @@ import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/post_card.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
+import 'package:regms_flutter_client/widgets/my_tab.dart';
 
 class MyProfileScreen extends StatefulWidget {
   @override
@@ -33,6 +32,7 @@ class _MyProfileScreen extends State {
     return NestedScrollView(
       body: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
+          print(overScroll.depth.toString() + overScroll.leading.toString());
           if (overScroll.depth.toString() == "0" && !overScroll.leading) {
             setState(() {
               _listViewScroll = true;
@@ -185,12 +185,13 @@ class _MyProfileScreen extends State {
               ? ScrollPhysics()
               : NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
-          shrinkWrap: false,
+          shrinkWrap: true,
           itemCount: entries.length,
           itemBuilder: (BuildContext context, int index) {
             return PostCard(
               username: "fayar",
-              contentText: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              contentText:
+                  "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
               likeCount: "920",
               commentCount: "10",
             );
@@ -234,49 +235,15 @@ class _MyProfileScreen extends State {
   }
 
   _buildPostsTab() {
-    return LimitedBox(
-      maxHeight: double.maxFinite,
-      child: DefaultTabController(
-        length: 3,
-        child: Container(
-          height: MediaQuery.of(context).size.height -
-              MediaQuery.of(context).viewPadding.top -
-              110,
-          child: Scaffold(
-            appBar: PreferredSize(
-              preferredSize: Size(40, 40),
-              child: Container(
-                height: 40,
-                child: TabBar(
-                  indicatorColor: kAppbarColor,
-                  padding: EdgeInsets.zero,
-                  tabs: [
-                    _buildPostsHeaderItem(svg: messages),
-                    _buildPostsHeaderItem(svg: search),
-                    _buildPostsHeaderItem(svg: heart),
-                  ],
-                ),
-              ),
-            ),
-            body: TabBarView(
-              children: [
-                _buildPosts(),
-                _buildPosts(),
-                _buildPosts(),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  _buildPostsHeaderItem({required Widget svg}) {
-    return Container(
-      height: 30,
-      width: 30,
-      alignment: Alignment.center,
-      child: svg,
-    );
+    return MyTab(
+      height: MediaQuery.of(context).size.height -
+          MediaQuery.of(context).viewPadding.top -
+          110,
+      tabs: [
+        _buildPosts(),
+        _buildPosts(),
+        _buildPosts(),
+      ],
+    ).build(context);
   }
 }
