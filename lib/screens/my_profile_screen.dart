@@ -1,4 +1,3 @@
-import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
@@ -17,7 +16,8 @@ class MyProfileScreen extends StatefulWidget {
 
 class _MyProfileScreen extends State {
   final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'G'];
-  final List<int> colorCodes = <int>[600, 500, 100, 600, 500, 100];
+
+  var _listViewScroll = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +32,21 @@ class _MyProfileScreen extends State {
     return NestedScrollView(
       body: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
+          if (overScroll.depth.toString() == "0" && !overScroll.leading) {
+            setState(() {
+              _listViewScroll = true;
+            });
+          }
+          if (overScroll.depth.toString() == "2" && overScroll.leading) {
+            setState(() {
+              _listViewScroll = false;
+            });
+          }
           overScroll.disallowIndicator();
           return false;
         },
         child: SingleChildScrollView(
-          child: Container(
-            width: double.infinity,
-            child: _buildContent(),
-          ),
+          child: _buildContent(),
         ),
       ),
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -65,16 +72,14 @@ class _MyProfileScreen extends State {
       background: Container(
         margin: EdgeInsets.fromLTRB(
             0, 55 + MediaQuery.of(context).viewPadding.top, 0, 0),
-        child: Expanded(
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20),
-              topLeft: Radius.circular(20),
-            ),
-            child: Image.asset(
-              "assets/images/dump_2.jpg",
-              fit: BoxFit.cover,
-            ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20),
+            topLeft: Radius.circular(20),
+          ),
+          child: Image.asset(
+            "assets/images/dump_2.jpg",
+            fit: BoxFit.cover,
           ),
         ),
       ),
@@ -171,15 +176,20 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildPosts() {
-    return ListView.builder(
-        padding: EdgeInsets.all(0),
-        physics: ScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: entries.length,
-        itemBuilder: (BuildContext context, int index) {
-          return _buildPostItem(index);
-        });
+    return LimitedBox(
+      maxHeight: double.maxFinite,
+      child: ListView.builder(
+          padding: EdgeInsets.all(0),
+          physics: _listViewScroll
+              ? ScrollPhysics()
+              : NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          shrinkWrap: false,
+          itemCount: entries.length,
+          itemBuilder: (BuildContext context, int index) {
+            return _buildPostItem(index);
+          }),
+    );
   }
 
   _buildAvatar() {
@@ -219,44 +229,124 @@ class _MyProfileScreen extends State {
 
   Widget _buildPostItem(index) {
     return Container(
-      height: 150,
-      color: Colors.amber[colorCodes[index]],
-      child: Center(child: Text('Entry ${entries[index]}')),
+      margin: EdgeInsets.symmetric(vertical: 0),
+      child: Column(
+        children: [
+          Divider(color: kBorderColor, height: 1,),
+          SizedBox(height: 5),
+          Row(
+            children: [
+              _buildPostAvatar(),
+              SizedBox(width: 7),
+              Text(
+                "fayar",
+                style: kPostUsernameTextStyle,
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+          Container(
+            margin: EdgeInsets.fromLTRB(7, 0, 7, 7),
+            child: Text(
+              "Flutter solves this by providing the AspectRatio widget You give it an AspectRatio, a child, and, well, that’s it.",
+              style: kPostContentTextStyle,
+            ),
+          ),
+          AspectRatio(
+            aspectRatio: 1080 / 800,
+            child: Container(
+              color: Colors.amber,
+              child: Center(child: Text('Entry ${entries[index]}')),
+            ),
+          ),
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.fromLTRB(10, 7, 0, 7),
+                  child: Row(
+                    children: [
+                      Text(
+                        "1920 Likes",
+                        style: kPostCountTextStyle,
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        "190 Comment",
+                        style: kPostCountTextStyle,
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildPostAvatar() {
+    return Container(
+      alignment: Alignment.bottomLeft,
+      margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
+      child: buildAvatar(
+        borderColor: Colors.white.withOpacity(1),
+        img: "assets/images/dump_1.jpg",
+        size: 20,
+      ),
     );
   }
 
   _buildPostsTab() {
     return LimitedBox(
       maxHeight: double.maxFinite,
-      child: ContainedTabBarView(
-        tabs: [
-          _buildPostsHeaderItem(svg: messages),
-          _buildPostsHeaderItem(svg: search),
-          _buildPostsHeaderItem(svg: heart),
-        ],
-        tabBarProperties: TabBarProperties(
-          height: 45.0,
-          indicatorColor: kAppbarColor,
-          indicatorWeight: 2.0,
-          labelColor: kAppbarColor,
-          unselectedLabelColor: Colors.grey[400],
+      child: DefaultTabController(
+        length: 3,
+        child: Container(
+          height: MediaQuery.of(context).size.height -
+              MediaQuery.of(context).viewPadding.top -
+              110,
+          child: Scaffold(
+            appBar: PreferredSize(
+              preferredSize: Size(40, 40),
+              child: Container(
+                height: 40,
+                child: TabBar(
+                  indicatorColor: kAppbarColor,
+                  padding: EdgeInsets.zero,
+                  tabs: [
+                    _buildPostsHeaderItem(svg: messages),
+                    _buildPostsHeaderItem(svg: search),
+                    _buildPostsHeaderItem(svg: heart),
+                  ],
+                ),
+              ),
+            ),
+            body: TabBarView(
+              children: [
+                _buildPosts(),
+                _buildPosts(),
+                _buildPosts(),
+              ],
+            ),
+          ),
         ),
-        views: [
-          _buildPosts(),
-          _buildPosts(),
-          _buildPosts(),
-        ],
-        onChange: (index) {},
       ),
     );
   }
 
   _buildPostsHeaderItem({required Widget svg}) {
-    return Expanded(
-      child: Container(
-        alignment: Alignment.center,
-        child: svg,
-      ),
+    return Container(
+      height: 30,
+      width: 30,
+      alignment: Alignment.center,
+      child: svg,
     );
   }
 }

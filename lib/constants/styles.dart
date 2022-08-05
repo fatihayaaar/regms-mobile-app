@@ -196,3 +196,21 @@ final kListTitleTextStyle = GoogleFonts.raleway(
   fontWeight: FontWeight.bold,
   fontSize: 19,
 );
+
+final kPostUsernameTextStyle = GoogleFonts.raleway(
+  color: kAppbarColor,
+  fontWeight: FontWeight.w600,
+  fontSize: 17,
+);
+
+final kPostContentTextStyle = GoogleFonts.raleway(
+  color: kAppbarColor,
+  fontWeight: FontWeight.w500,
+  fontSize: 15,
+);
+
+final kPostCountTextStyle = TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.normal,
+  color: kRegisterRichTextAboutColor,
+);

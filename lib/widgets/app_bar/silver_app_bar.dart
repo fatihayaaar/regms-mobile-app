@@ -15,8 +15,8 @@ buildSilverApp(header, title) {
    shadowColor: Colors.transparent,
    backgroundColor: kAppbarColor,
    toolbarHeight: 55,
-   expandedHeight: 225.0,
-   leadingWidth: 200,
+   expandedHeight: 200.0,
+   leadingWidth: 400,
    leading: Container(
      margin: const EdgeInsets.fromLTRB(25, 0, 0, 0),
      child: buildTitle(title),
@@ -26,13 +26,11 @@ buildSilverApp(header, title) {
 }
 
 Widget buildTitle(String title) {
-  return Flexible(
-    child: Container(
-      alignment: Alignment.centerLeft,
-      child: Text(
-        title,
-        style: tAppbarTitleTextStyle,
-      ),
+  return Container(
+    alignment: Alignment.centerLeft,
+    child: Text(
+      title,
+      style: tAppbarTitleTextStyle,
     ),
   );
 }
