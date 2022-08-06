@@ -96,6 +96,11 @@ final tTextFieldBoxDecoration = BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(15)),
 );
 
+final kCommentTextFieldBoxDecoration = BoxDecoration(
+  color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.all(Radius.circular(0)),
+);
+
 final tTextFieldInputDecoration = (hintText) => InputDecoration(
       contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       border: InputBorder.none,
@@ -103,12 +108,25 @@ final tTextFieldInputDecoration = (hintText) => InputDecoration(
       hintStyle: kHintTextStyle,
     );
 
+final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
+  isDense: true,
+  contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+  border: InputBorder.none,
+  hintText: hintText,
+  hintStyle: kHintTextStyle,
+);
+
+final kTimeTextStyle = GoogleFonts.roboto(
+  fontSize: 14,
+  color: kTextFieldLightColor,
+);
+
 final kHintTextStyle = GoogleFonts.raleway(
   fontSize: 14,
   color: kTextFieldLightColor,
 );
 
-final kBioTextStyle = GoogleFonts.raleway(
+final kBioTextStyle = GoogleFonts.roboto(
   fontSize: 14,
   color: kTextBioColor,
 );
@@ -123,6 +141,13 @@ final tsRichTextStyle = (color) => GoogleFonts.raleway(
       fontSize: 13,
       color: color,
     );
+
+final kCommentRichTextStyle = (color, weight) => GoogleFonts.roboto(
+  height: 1.4,
+  fontSize: 13,
+  color: color,
+  fontWeight: weight,
+);
 
 final tForgotPasswordTextStyle = GoogleFonts.raleway(
   height: 1.4,
@@ -203,13 +228,13 @@ final kPostUsernameTextStyle = GoogleFonts.raleway(
   fontSize: 17,
 );
 
-final kPostContentTextStyle = GoogleFonts.raleway(
+final kPostContentTextStyle = GoogleFonts.roboto(
   color: kAppbarColor,
-  fontWeight: FontWeight.w500,
-  fontSize: 15,
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
 );
 
-final kPostCountTextStyle = TextStyle(
+final kPostCountTextStyle = GoogleFonts.roboto(
   fontSize: 15,
   fontWeight: FontWeight.normal,
   color: kRegisterRichTextAboutColor,
