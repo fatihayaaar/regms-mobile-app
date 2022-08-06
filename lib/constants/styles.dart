@@ -110,8 +110,11 @@ final tTextFieldInputDecoration = (hintText) => InputDecoration(
 
 final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
   isDense: true,
-  contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-  border: InputBorder.none,
+  contentPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: kBorderColor, width: 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(15)),
+  ),
   hintText: hintText,
   hintStyle: kHintTextStyle,
 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/silver_app_bar.dart';
@@ -179,23 +180,26 @@ class _MyProfileScreen extends State {
   Widget _buildPosts() {
     return LimitedBox(
       maxHeight: double.maxFinite,
-      child: ListView.builder(
-          padding: EdgeInsets.all(0),
-          physics: _listViewScroll
-              ? ScrollPhysics()
-              : NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: entries.length,
-          itemBuilder: (BuildContext context, int index) {
-            return PostCard(
-              username: "fayar",
-              contentText:
-                  "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-              likeCount: "920",
-              commentCount: "10",
-            );
-          }),
+      child: Container(
+        color: kBorderColor,
+        child: ListView.builder(
+            padding: EdgeInsets.all(0),
+            physics: _listViewScroll
+                ? ScrollPhysics()
+                : NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: entries.length,
+            itemBuilder: (BuildContext context, int index) {
+              return PostCard(
+                username: "fayar",
+                contentText:
+                    "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+                likeCount: "920",
+                commentCount: "10",
+              );
+            }),
+      ),
     );
   }
 

@@ -49,7 +49,8 @@ class _PostCardState extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 0),
+      margin: const EdgeInsets.fromLTRB(0, 1, 0, 10),
+      color: kThemeColor,
       child: Column(
         children: [
           SizedBox(height: 5),
@@ -116,11 +117,12 @@ class _PostCardState extends State {
   }
 
   _buildPostMedia() {
-    return AspectRatio(
-      aspectRatio: 1080 / 800,
-      child: Container(
-        color: Colors.amber,
-        child: Center(child: Text('Entry')),
+    return Container(
+      height: 200,
+      width: double.infinity,
+      child: Image.asset(
+        "assets/images/dump_2.jpg",
+        fit: BoxFit.cover,
       ),
     );
   }
@@ -129,8 +131,12 @@ class _PostCardState extends State {
     return Container(
       child: Column(
         children: [
+          _buildLikeStatus(),
+          Container(
+            child: Divider(color: kBorderColor, height: 1),
+            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          ),
           _buildActions(),
-          _buildLikeText(),
           _buildComments(),
           _buildCommentTextField(),
         ],
@@ -139,9 +145,15 @@ class _PostCardState extends State {
   }
 
   _buildPostActionText(text) {
-    return Text(
-      "$text",
-      style: kPostCountTextStyle,
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 2, 0, 0),
+      child: Text(
+        "$text",
+        style: kCommentRichTextStyle(
+          kCommentTextColor,
+          FontWeight.bold,
+        ),
+      ),
     );
   }
 
@@ -154,21 +166,25 @@ class _PostCardState extends State {
           child: buildAvatar(
             borderColor: Colors.white.withOpacity(1),
             img: "$avatar",
-            size: 10,
+            size: 15,
           ),
         ),
         Expanded(
-          child: TextFormField(
-            textInputAction: TextInputAction.go,
-            maxLines: 1,
-            onFieldSubmitted: (term) {},
-            validator: (value) {
-              if (value!.isEmpty) {
-                return "* Required";
-              } else
-                return null;
-            },
-            decoration: kCommentTextFieldInputDecoration("send your comment"),
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(5, 0, 10, 0),
+            child: TextFormField(
+              textInputAction: TextInputAction.go,
+              maxLines: 1,
+              onFieldSubmitted: (term) {},
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "* Required";
+                } else
+                  return null;
+              },
+              decoration:
+                  kCommentTextFieldInputDecoration("send your comment..."),
+            ),
           ),
         ),
       ],
@@ -179,25 +195,28 @@ class _PostCardState extends State {
     return Container(
       margin: EdgeInsets.all(10),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Row(
-              children: [
-                _buildAction(
-                  icon: heart,
-                  onClick: () {},
-                ),
-                SizedBox(width: 15),
-                _buildAction(
-                  icon: messages,
-                  onClick: () {},
-                ),
-              ],
-            ),
+          _buildAction(
+            icon: heart,
+            onClick: () {},
+            text: "Like",
+          ),
+          _buildAction(
+            icon: messages,
+            onClick: () {},
+            text: "Comment",
           ),
           _buildAction(
             icon: heart,
             onClick: () {},
+            text: "Send",
+          ),
+          _buildAction(
+            icon: messages,
+            onClick: () {},
+            text: "Save",
           ),
         ],
       ),
@@ -205,17 +224,14 @@ class _PostCardState extends State {
   }
 
   _buildAction({String? text, required Widget icon, required void onClick()}) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-      child: Row(
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 25,
+            height: 15,
             child: icon,
-          ),
-          Visibility(
-            visible: text == null ? false : true,
-            child: SizedBox(width: 5),
           ),
           Visibility(
             visible: text == null ? false : true,
@@ -229,7 +245,7 @@ class _PostCardState extends State {
   _buildLikeText() {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
       child: RichText(
         textAlign: TextAlign.left,
         overflow: TextOverflow.ellipsis,
@@ -312,9 +328,9 @@ class _PostCardState extends State {
               ],
             ),
           ),
-          SizedBox(height: 3),
           Container(
             alignment: Alignment.centerLeft,
+            margin: EdgeInsets.fromLTRB(0, 4, 0, 4),
             child: Text(
               "See all $commentCount comments",
               style: kCommentRichTextStyle(
@@ -342,6 +358,14 @@ class _PostCardState extends State {
           "3s",
           style: kTimeTextStyle,
         ),
+      ],
+    );
+  }
+
+  _buildLikeStatus() {
+    return Row(
+      children: [
+        _buildLikeText(),
       ],
     );
   }
