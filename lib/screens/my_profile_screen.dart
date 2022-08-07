@@ -18,8 +18,6 @@ class MyProfileScreen extends StatefulWidget {
 class _MyProfileScreen extends State {
   final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'G'];
 
-  var _listViewScroll = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,17 +31,6 @@ class _MyProfileScreen extends State {
     return NestedScrollView(
       body: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
-          print(overScroll.depth.toString() + overScroll.leading.toString());
-          if (overScroll.depth.toString() == "0" && !overScroll.leading) {
-            setState(() {
-              _listViewScroll = true;
-            });
-          }
-          if (overScroll.depth.toString() == "2" && overScroll.leading) {
-            setState(() {
-              _listViewScroll = false;
-            });
-          }
           overScroll.disallowIndicator();
           return false;
         },
@@ -60,13 +47,7 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildContent() {
-    return Column(
-      children: [
-        _buildProfileContent(),
-        SizedBox(height: 10),
-        _buildPostsTab(),
-      ],
-    );
+    return _buildPostsTab();
   }
 
   Widget _buildProfileHeader() {
@@ -89,42 +70,43 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildProfileContent() {
-    return Container(
-      decoration: kBoxDecorationTextField,
-      padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-      margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
-      alignment: Alignment.centerLeft,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Row(
+    return FlexibleSpaceBar(
+      background: Container(
+        margin: EdgeInsets.fromLTRB(
+            20, 55 + MediaQuery.of(context).viewPadding.top, 20, 0),
+        alignment: Alignment.centerLeft,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  _buildAvatar(),
+                  SizedBox(width: 10),
+                  _buildUsernameAndFirstName(),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            _buildBio(),
+            SizedBox(height: 15),
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildAvatar(),
-                SizedBox(width: 10),
-                _buildUsernameAndFirstName(),
+                _buildProfileFollowersText(text: "Followers", count: "9.2M"),
+                SizedBox(width: 15),
+                _buildProfileFollowersText(text: "Following", count: "1"),
               ],
             ),
-          ),
-          SizedBox(height: 10),
-          _buildBio(),
-          SizedBox(height: 15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildProfileFollowersText(text: "Followers", count: "9.2M"),
-              SizedBox(width: 15),
-              _buildProfileFollowersText(text: "Following", count: "1"),
-            ],
-          ),
-          SizedBox(height: 15),
-          _buildProfileActions(),
-        ],
+            SizedBox(height: 15),
+            //_buildProfileActions(),
+          ],
+        ),
       ),
     );
   }
@@ -191,9 +173,6 @@ class _MyProfileScreen extends State {
         color: kBorderColor,
         child: ListView.builder(
             padding: EdgeInsets.all(0),
-            physics: _listViewScroll
-                ? ScrollPhysics()
-                : NeverScrollableScrollPhysics(),
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             itemCount: entries.length,
@@ -247,9 +226,6 @@ class _MyProfileScreen extends State {
 
   _buildPostsTab() {
     return MyTab(
-      height: MediaQuery.of(context).size.height -
-          MediaQuery.of(context).viewPadding.top -
-          110,
       tabs: [
         _buildPosts(),
         _buildPosts(),

@@ -3,11 +3,9 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/images.dart';
 
 class MyTab {
-  double height;
   List<Widget> tabs;
 
   MyTab({
-    required this.height,
     required this.tabs,
   });
 
@@ -17,7 +15,7 @@ class MyTab {
       child: DefaultTabController(
         length: 3,
         child: Container(
-          height: height,
+          height: MediaQuery.of(context).size.height,
           child: Scaffold(
             appBar: PreferredSize(
               preferredSize: Size(40, 40),

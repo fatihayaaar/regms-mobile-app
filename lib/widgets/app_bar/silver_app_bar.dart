@@ -15,7 +15,7 @@ buildSilverApp(header, title) {
    shadowColor: Colors.transparent,
    backgroundColor: kAppbarColor,
    toolbarHeight: 55,
-   expandedHeight: 200.0,
+   expandedHeight: 233.0,
    leadingWidth: 400,
    leading: Container(
      margin: const EdgeInsets.fromLTRB(25, 0, 0, 0),
