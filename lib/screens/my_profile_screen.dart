@@ -53,7 +53,7 @@ class _MyProfileScreen extends State {
       ),
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
-          buildSilverApp(_buildProfileHeader(), "My Profile"),
+          buildSilverApp(_buildProfileContent(), "My Profile"),
         ];
       },
     );
@@ -63,7 +63,7 @@ class _MyProfileScreen extends State {
     return Column(
       children: [
         _buildProfileContent(),
-        SizedBox(height: 20),
+        SizedBox(height: 10),
         _buildPostsTab(),
       ],
     );
@@ -90,35 +90,40 @@ class _MyProfileScreen extends State {
 
   Widget _buildProfileContent() {
     return Container(
+      decoration: kBoxDecorationTextField,
+      padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
       margin: EdgeInsets.fromLTRB(10, 15, 10, 0),
-      alignment: Alignment.topLeft,
+      alignment: Alignment.centerLeft,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildAvatar(),
-              Expanded(child: Container()),
-              _buildProfileActions(),
-            ],
+          Container(
+            alignment: Alignment.centerLeft,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _buildAvatar(),
+                SizedBox(width: 10),
+                _buildUsernameAndFirstName(),
+              ],
+            ),
           ),
-          SizedBox(width: 10),
-          _buildUsernameAndFirstName(),
           SizedBox(height: 10),
           _buildBio(),
           SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildProfileFollowersText(text: "Followers", count: "9.2M"),
               SizedBox(width: 15),
               _buildProfileFollowersText(text: "Following", count: "1"),
             ],
           ),
+          SizedBox(height: 15),
+          _buildProfileActions(),
         ],
       ),
     );
@@ -126,11 +131,12 @@ class _MyProfileScreen extends State {
 
   Widget _buildProfileActions() {
     return Container(
+      alignment: Alignment.center,
       margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _buildProfileEditButton("Friends", () {}),
-          SizedBox(width: 10),
           _buildProfileEditButton("Edit", () {
             Route route =
                 MaterialPageRoute(builder: (_) => EditProfileScreen());
@@ -142,16 +148,17 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildProfileEditButton(String text, void onClick()) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-      height: 33,
-      width: 85,
-      child: ElevatedButton(
-        style: kProfileButtonButtonStyle,
-        onPressed: onClick,
-        child: Text(
-          text,
-          style: kProfileButtonContentTextStyle,
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        height: 33,
+        child: ElevatedButton(
+          style: kProfileButtonButtonStyle,
+          onPressed: onClick,
+          child: Text(
+            text,
+            style: kProfileButtonContentTextStyle,
+          ),
         ),
       ),
     );
@@ -205,7 +212,7 @@ class _MyProfileScreen extends State {
 
   _buildAvatar() {
     return Container(
-      alignment: Alignment.bottomLeft,
+      alignment: Alignment.centerLeft,
       child: buildAvatar(
         borderColor: Colors.white.withOpacity(1),
         img: "assets/images/dump_1.jpg",

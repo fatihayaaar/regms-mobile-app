@@ -57,6 +57,7 @@ class _PostCardState extends State {
           _buildPostCardHeader(),
           SizedBox(height: 5),
           _buildPostContent(),
+          SizedBox(height: 5),
           _buildPostMedia(),
           _buildPostFooter(),
           SizedBox(height: 10),
@@ -117,9 +118,11 @@ class _PostCardState extends State {
   }
 
   _buildPostMedia() {
-    return Container(
-      height: 200,
-      width: double.infinity,
+    return InteractiveViewer(
+      panEnabled: true, // Set it to false to prevent panning.
+      boundaryMargin: EdgeInsets.all(80),
+      minScale: 1,
+      maxScale: 4,
       child: Image.asset(
         "assets/images/dump_2.jpg",
         fit: BoxFit.cover,
@@ -128,19 +131,17 @@ class _PostCardState extends State {
   }
 
   _buildPostFooter() {
-    return Container(
-      child: Column(
-        children: [
-          _buildLikeStatus(),
-          Container(
-            child: Divider(color: kBorderColor, height: 1),
-            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          ),
-          _buildActions(),
-          _buildComments(),
-          _buildCommentTextField(),
-        ],
-      ),
+    return Column(
+      children: [
+        _buildLikeStatus(),
+        Container(
+          child: Divider(color: kBorderColor, height: 0),
+          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+        ),
+        _buildActions(),
+        _buildComments(),
+        _buildCommentTextField(),
+      ],
     );
   }
 
@@ -149,7 +150,7 @@ class _PostCardState extends State {
       margin: const EdgeInsets.fromLTRB(0, 2, 0, 0),
       child: Text(
         "$text",
-        style: kCommentRichTextStyle(
+        style: kActionRichTextStyle(
           kCommentTextColor,
           FontWeight.bold,
         ),
@@ -157,7 +158,7 @@ class _PostCardState extends State {
     );
   }
 
-  Widget _buildCommentTextField() {
+  _buildCommentTextField() {
     return Row(
       children: [
         Container(
@@ -199,22 +200,22 @@ class _PostCardState extends State {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildAction(
-            icon: heart,
+            icon: (Icons.thumb_up_alt_outlined),
             onClick: () {},
             text: "Like",
           ),
           _buildAction(
-            icon: messages,
+            icon: (Icons.chat_outlined),
             onClick: () {},
             text: "Comment",
           ),
           _buildAction(
-            icon: heart,
+            icon: (Icons.send),
             onClick: () {},
             text: "Send",
           ),
           _buildAction(
-            icon: messages,
+            icon: (Icons.bookmark_border),
             onClick: () {},
             text: "Save",
           ),
@@ -223,15 +224,19 @@ class _PostCardState extends State {
     );
   }
 
-  _buildAction({String? text, required Widget icon, required void onClick()}) {
+  _buildAction(
+      {String? text, required IconData icon, required void onClick()}) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 15,
-            child: icon,
+            child: Icon(
+              icon,
+              size: 18,
+              color: kCommentTextColor,
+            ),
           ),
           Visibility(
             visible: text == null ? false : true,
@@ -245,7 +250,7 @@ class _PostCardState extends State {
   _buildLikeText() {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      margin: EdgeInsets.fromLTRB(0, 10, 10, 10),
       child: RichText(
         textAlign: TextAlign.left,
         overflow: TextOverflow.ellipsis,
@@ -253,14 +258,14 @@ class _PostCardState extends State {
           children: [
             TextSpan(
               text: 'Liked by ',
-              style: kCommentRichTextStyle(
+              style: kLikeRichTextStyle(
                 kCommentTextColor,
                 FontWeight.normal,
               ),
             ),
             TextSpan(
               text: '$likeCount',
-              style: kCommentRichTextStyle(
+              style: kLikeRichTextStyle(
                 kCommentUsernameColor,
                 FontWeight.bold,
               ),
@@ -300,37 +305,21 @@ class _PostCardState extends State {
 
   _buildComments() {
     return Container(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.topLeft,
       margin: EdgeInsets.fromLTRB(10, 0, 10, 5),
       child: Column(
         children: [
-          RichText(
-            textAlign: TextAlign.left,
-            overflow: TextOverflow.ellipsis,
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: 'fayar ',
-                  style: kCommentRichTextStyle(
-                    kCommentUsernameColor,
-                    FontWeight.bold,
-                  ),
-                ),
-                TextSpan(
-                  text:
-                      'hello, For code reusability, I have created a method named',
-                  style: kCommentRichTextStyle(
-                    kCommentTextColor,
-                    FontWeight.normal,
-                  ),
-                  recognizer: TapGestureRecognizer()..onTap = () {},
-                ),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildCommentAvatar(),
+              _buildCommentBox(),
+            ],
           ),
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.fromLTRB(0, 4, 0, 4),
+            margin: EdgeInsets.fromLTRB(45, 4, 0, 4),
             child: Text(
               "See all $commentCount comments",
               style: kCommentRichTextStyle(
@@ -365,8 +354,111 @@ class _PostCardState extends State {
   _buildLikeStatus() {
     return Row(
       children: [
+        _buildLikeAvatars(),
         _buildLikeText(),
       ],
+    );
+  }
+
+  _buildLikeAvatars() {
+    return Container(
+      width: 60,
+      height: 20,
+      margin: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            left: 32,
+            child: _buildLikeAvatar(),
+          ),
+          Positioned(
+            top: 0,
+            left: 16,
+            child: _buildLikeAvatar(),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: _buildLikeAvatar(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildLikeAvatar() {
+    return Container(
+      alignment: Alignment.bottomLeft,
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      child: buildAvatar(
+        borderColor: Colors.white.withOpacity(1),
+        img: "$avatar",
+        size: 9,
+      ),
+    );
+  }
+
+  _buildCommentBox() {
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+        decoration: kCommentBoxDecoration,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                _buildCommentBoxUsername(),
+                _buildCommentBoxTime(),
+              ],
+            ),
+            SizedBox(height: 4),
+            _buildCommentBoxText(),
+            SizedBox(height: 2),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _buildCommentAvatar() {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+      child: buildAvatar(
+        borderColor: Colors.white.withOpacity(1),
+        img: "$avatar",
+        size: 14,
+      ),
+    );
+  }
+
+  _buildCommentBoxUsername() {
+    return Text(
+      'fayar ',
+      style: kCommentRichTextStyle(
+        kCommentUsernameColor,
+        FontWeight.bold,
+      ),
+    );
+  }
+
+  _buildCommentBoxText() {
+    return Text(
+      'hello, For code reusability, I have created a method named',
+      style: kCommentRichTextStyle(
+        kCommentTextColor,
+        FontWeight.normal,
+      ),
+    );
+  }
+
+  _buildCommentBoxTime() {
+    return Text(
+      "10sn",
+      style: kCommentTimeTextStyle,
     );
   }
 }

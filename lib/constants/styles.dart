@@ -79,6 +79,16 @@ final kProfileHeaderDecoration = BoxDecoration(
   ),
 );
 
+final kCommentBoxDecoration = BoxDecoration(
+  color: kTextFieldColor,
+  borderRadius: BorderRadius.only(
+    topLeft: Radius.zero,
+    topRight: Radius.circular(12),
+    bottomLeft: Radius.circular(12),
+    bottomRight: Radius.circular(12),
+  ),
+);
+
 final kLoginButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 17,
   fontWeight: FontWeight.bold,
@@ -120,7 +130,12 @@ final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
 );
 
 final kTimeTextStyle = GoogleFonts.roboto(
-  fontSize: 14,
+  fontSize: 13,
+  color: kTextFieldLightColor,
+);
+
+final kCommentTimeTextStyle = GoogleFonts.roboto(
+  fontSize: 13,
   color: kTextFieldLightColor,
 );
 
@@ -146,11 +161,25 @@ final tsRichTextStyle = (color) => GoogleFonts.raleway(
     );
 
 final kCommentRichTextStyle = (color, weight) => GoogleFonts.roboto(
-  height: 1.4,
   fontSize: 13,
   color: color,
   fontWeight: weight,
 );
+
+final kLikeRichTextStyle = (color, weight) => GoogleFonts.roboto(
+  height: 1.4,
+  fontSize: 11,
+  color: color,
+  fontWeight: weight,
+);
+
+final kActionRichTextStyle = (color, weight) => GoogleFonts.roboto(
+  height: 1.4,
+  fontSize: 11,
+  color: color,
+  fontWeight: weight,
+);
+
 
 final tForgotPasswordTextStyle = GoogleFonts.raleway(
   height: 1.4,
