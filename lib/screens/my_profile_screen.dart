@@ -8,7 +8,6 @@ import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/post_card.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
-import 'package:regms_flutter_client/widgets/my_tab.dart';
 
 class MyProfileScreen extends StatefulWidget {
   @override
@@ -20,10 +19,13 @@ class _MyProfileScreen extends State {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _buildBody(),
-      endDrawer: buildDrawer(context: context),
-      bottomNavigationBar: BottomNavBar(selected: -2),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        body: _buildBody(),
+        endDrawer: buildDrawer(context: context),
+        bottomNavigationBar: BottomNavBar(selected: -2),
+      ),
     );
   }
 
@@ -34,80 +36,107 @@ class _MyProfileScreen extends State {
           overScroll.disallowIndicator();
           return false;
         },
-        child: SingleChildScrollView(
-          child: _buildContent(),
-        ),
+        child: _buildContent(),
       ),
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
-          buildSilverApp(_buildProfileContent(), "My Profile"),
+          buildSilverApp(_buildProfileContent(), "My Profile", context),
         ];
       },
-    );
-  }
-
-  Widget _buildContent() {
-    return _buildPostsTab();
-  }
-
-  Widget _buildProfileHeader() {
-    return FlexibleSpaceBar(
-      background: Container(
-        margin: EdgeInsets.fromLTRB(
-            0, 55 + MediaQuery.of(context).viewPadding.top, 0, 0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(20),
-            topLeft: Radius.circular(20),
-          ),
-          child: Image.asset(
-            "assets/images/dump_2.jpg",
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
     );
   }
 
   Widget _buildProfileContent() {
     return FlexibleSpaceBar(
       background: Container(
+        color: kThemeColor,
         margin: EdgeInsets.fromLTRB(
-            20, 55 + MediaQuery.of(context).viewPadding.top, 20, 0),
+            0, 55 + MediaQuery.of(context).viewPadding.top, 0, 0),
         alignment: Alignment.centerLeft,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
+            _buildProfileHeader(),
             Container(
-              alignment: Alignment.centerLeft,
-              child: Row(
+              margin: EdgeInsets.fromLTRB(20, 70, 20, 0),
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildAvatar(),
-                  SizedBox(width: 10),
-                  _buildUsernameAndFirstName(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildAvatar(),
+                      SizedBox(width: 10),
+                      _buildUsernameAndFirstName(),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  _buildBio(),
+                  SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildProfileFollowersText(
+                          text: "Followers", count: "9.2M"),
+                      SizedBox(width: 15),
+                      _buildProfileFollowersText(text: "Following", count: "1"),
+                    ],
+                  ),
+                  SizedBox(height: 15),
+                  //_buildProfileActions(),
                 ],
               ),
             ),
-            SizedBox(height: 10),
-            _buildBio(),
-            SizedBox(height: 15),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildProfileFollowersText(text: "Followers", count: "9.2M"),
-                SizedBox(width: 15),
-                _buildProfileFollowersText(text: "Following", count: "1"),
-              ],
-            ),
-            SizedBox(height: 15),
-            //_buildProfileActions(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildProfileHeader() {
+    return Image.asset(
+      "assets/images/dump_2.jpg",
+      fit: BoxFit.cover,
+      width: double.infinity,
+      height: 100,
+    );
+  }
+
+  _buildAvatar() {
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: buildAvatar(
+        borderColor: Colors.white.withOpacity(1),
+        img: "assets/images/dump_1.jpg",
+        size: 35,
+      ),
+    );
+  }
+
+  _buildUsernameAndFirstName() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 40),
+        Text(
+          "Fatih Ayar",
+          style: kNameAndSurnameTextStyle,
+        ),
+        Text(
+          "fayar",
+          style: kUsernameTextStyle,
+        ),
+      ],
+    );
+  }
+
+  _buildBio() {
+    return Text(
+      "Software Developer ;) fayardev founder",
+      style: kBioTextStyle,
     );
   }
 
@@ -166,6 +195,16 @@ class _MyProfileScreen extends State {
     );
   }
 
+  Widget _buildContent() {
+    return TabBarView(
+      children: [
+        _buildPosts(),
+        _buildPosts(),
+        _buildPosts(),
+      ],
+    );
+  }
+
   Widget _buildPosts() {
     return LimitedBox(
       maxHeight: double.maxFinite,
@@ -187,50 +226,5 @@ class _MyProfileScreen extends State {
             }),
       ),
     );
-  }
-
-  _buildAvatar() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      child: buildAvatar(
-        borderColor: Colors.white.withOpacity(1),
-        img: "assets/images/dump_1.jpg",
-        size: 35,
-      ),
-    );
-  }
-
-  _buildUsernameAndFirstName() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Fatih Ayar",
-          style: kNameAndSurnameTextStyle,
-        ),
-        Text(
-          "fayar",
-          style: kUsernameTextStyle,
-        ),
-      ],
-    );
-  }
-
-  _buildBio() {
-    return Text(
-      "Software Developer ;) fayardev founder",
-      style: kBioTextStyle,
-    );
-  }
-
-  _buildPostsTab() {
-    return MyTab(
-      tabs: [
-        _buildPosts(),
-        _buildPosts(),
-        _buildPosts(),
-      ],
-    ).build(context);
   }
 }

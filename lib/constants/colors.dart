@@ -18,8 +18,8 @@ const kTextFieldColor = Color.fromRGBO(245, 245, 245, 1.0);
 const kBorderColor = Color.fromRGBO(232, 232, 232, 1.0);
 
 const kTextContentColor = Color.fromRGBO(33, 33, 33, 1.0);
-const kUsernameColor = Color.fromRGBO(255, 255, 255, 1.0);
-const kNameAndSurnameColor = Color.fromRGBO(255, 255, 255, 1.0);
+const kUsernameColor = Color.fromRGBO(33, 33, 33, 1.0);
+const kNameAndSurnameColor = Color.fromRGBO(110, 110, 110, 1.0);
 
 const kCommentUsernameColor = Color.fromRGBO(33, 33, 33, 1.0);
 const kCommentTextColor = Color.fromRGBO(72, 72, 72, 1.0);

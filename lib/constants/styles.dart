@@ -146,7 +146,7 @@ final kHintTextStyle = GoogleFonts.raleway(
 
 final kBioTextStyle = GoogleFonts.roboto(
   fontSize: 14,
-  color: kThemeColor,
+  color: kTextBioColor,
 );
 
 final kSubTitleTextStyle = GoogleFonts.raleway(
