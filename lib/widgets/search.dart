@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 
 Widget buildSearch() {
@@ -25,7 +24,7 @@ Widget buildSearch() {
           alignment: Alignment.centerRight,
           child: Container(
             padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
-            child: searchBTN,
+            child: Icon(Icons.search_rounded),
           ),
         ),
       ],

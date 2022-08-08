@@ -20,7 +20,7 @@ class _MyProfileScreen extends State {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         body: _buildBody(),
         endDrawer: buildDrawer(context: context),
@@ -51,26 +51,20 @@ class _MyProfileScreen extends State {
       background: Container(
         color: kThemeColor,
         margin: EdgeInsets.fromLTRB(
-            0, 55 + MediaQuery.of(context).viewPadding.top, 0, 0),
+            0, 40 + MediaQuery.of(context).viewPadding.top, 0, 0),
         alignment: Alignment.centerLeft,
         child: Stack(
           children: [
             _buildProfileHeader(),
+            _buildProfileActions(),
             Container(
-              margin: EdgeInsets.fromLTRB(20, 70, 20, 0),
+              margin: EdgeInsets.fromLTRB(10, 60, 10, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildAvatar(),
-                      SizedBox(width: 10),
-                      _buildUsernameAndFirstName(),
-                    ],
-                  ),
+                  _buildAvatar(),
+                  _buildUsernameAndFirstName(),
                   SizedBox(height: 10),
                   _buildBio(),
                   SizedBox(height: 15),
@@ -85,7 +79,6 @@ class _MyProfileScreen extends State {
                     ],
                   ),
                   SizedBox(height: 15),
-                  //_buildProfileActions(),
                 ],
               ),
             ),
@@ -120,7 +113,6 @@ class _MyProfileScreen extends State {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 40),
         Text(
           "Fatih Ayar",
           style: kNameAndSurnameTextStyle,
@@ -142,11 +134,11 @@ class _MyProfileScreen extends State {
 
   Widget _buildProfileActions() {
     return Container(
-      alignment: Alignment.center,
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      alignment: Alignment.topRight,
+      margin: EdgeInsets.fromLTRB(0, 110, 10, 0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           _buildProfileEditButton("Edit", () {
             Route route =
@@ -159,17 +151,15 @@ class _MyProfileScreen extends State {
   }
 
   Widget _buildProfileEditButton(String text, void onClick()) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        height: 33,
-        child: ElevatedButton(
-          style: kProfileButtonButtonStyle,
-          onPressed: onClick,
-          child: Text(
-            text,
-            style: kProfileButtonContentTextStyle,
-          ),
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      height: 33,
+      child: ElevatedButton(
+        style: kProfileButtonButtonStyle,
+        onPressed: onClick,
+        child: Text(
+          text,
+          style: kProfileButtonContentTextStyle,
         ),
       ),
     );
@@ -198,6 +188,7 @@ class _MyProfileScreen extends State {
   Widget _buildContent() {
     return TabBarView(
       children: [
+        _buildPosts(),
         _buildPosts(),
         _buildPosts(),
         _buildPosts(),

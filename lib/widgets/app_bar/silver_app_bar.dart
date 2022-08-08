@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 
 buildSilverApp(header, title, context) {
@@ -15,8 +14,8 @@ buildSilverApp(header, title, context) {
     floating: false,
     shadowColor: Colors.transparent,
     backgroundColor: kAppbarColor,
-    toolbarHeight: 55,
-    expandedHeight: 325.0,
+    toolbarHeight: 40,
+    expandedHeight: 335.0,
     leadingWidth: 400,
     leading: Container(
       margin: const EdgeInsets.fromLTRB(25, 0, 0, 0),
@@ -27,14 +26,18 @@ buildSilverApp(header, title, context) {
       preferredSize: Size(40, 40),
       child: Container(
         height: 40,
-        color: kThemeColor,
+        decoration: BoxDecoration(
+          color: kThemeColor,
+          border: Border.symmetric(horizontal: BorderSide(color: kBorderColor, width: 0.5))
+        ),
         child: TabBar(
           indicatorColor: kAppbarColor,
           padding: EdgeInsets.zero,
           tabs: [
-            _buildPostsHeaderItem(svg: messages),
-            _buildPostsHeaderItem(svg: search),
-            _buildPostsHeaderItem(svg: heart),
+            _buildPostsHeaderItem(icon: Icons.format_list_bulleted_sharp),
+            _buildPostsHeaderItem(icon: Icons.play_circle_outlined),
+            _buildPostsHeaderItem(icon: Icons.favorite_border),
+            _buildPostsHeaderItem(icon: Icons.bookmark_outline),
           ],
         ),
       ),
@@ -42,12 +45,11 @@ buildSilverApp(header, title, context) {
   );
 }
 
-_buildPostsHeaderItem({required Widget svg}) {
-  return Container(
-    height: 30,
-    width: 30,
-    alignment: Alignment.center,
-    child: svg,
+_buildPostsHeaderItem({required IconData icon}) {
+  return Icon(
+    icon,
+    size: 30,
+    color: kAppbarColor,
   );
 }
 

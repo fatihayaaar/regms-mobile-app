@@ -119,15 +119,15 @@ final tTextFieldInputDecoration = (hintText) => InputDecoration(
     );
 
 final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
-  isDense: true,
-  contentPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
-  enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: kBorderColor, width: 1.0),
-    borderRadius: BorderRadius.all(Radius.circular(15)),
-  ),
-  hintText: hintText,
-  hintStyle: kHintTextStyle,
-);
+      isDense: true,
+      contentPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: kBorderColor, width: 1.0),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      ),
+      hintText: hintText,
+      hintStyle: kHintTextStyle,
+    );
 
 final kTimeTextStyle = GoogleFonts.roboto(
   fontSize: 13,
@@ -161,25 +161,24 @@ final tsRichTextStyle = (color) => GoogleFonts.raleway(
     );
 
 final kCommentRichTextStyle = (color, weight) => GoogleFonts.roboto(
-  fontSize: 13,
-  color: color,
-  fontWeight: weight,
-);
+      fontSize: 13,
+      color: color,
+      fontWeight: weight,
+    );
 
 final kLikeRichTextStyle = (color, weight) => GoogleFonts.roboto(
-  height: 1.4,
-  fontSize: 11,
-  color: color,
-  fontWeight: weight,
-);
+      height: 1.4,
+      fontSize: 11,
+      color: color,
+      fontWeight: weight,
+    );
 
 final kActionRichTextStyle = (color, weight) => GoogleFonts.roboto(
-  height: 1.4,
-  fontSize: 11,
-  color: color,
-  fontWeight: weight,
-);
-
+      height: 1.4,
+      fontSize: 11,
+      color: color,
+      fontWeight: weight,
+    );
 
 final tForgotPasswordTextStyle = GoogleFonts.raleway(
   height: 1.4,

@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/constants/images.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
@@ -49,7 +48,7 @@ class _PostCardState extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 1, 0, 10),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
       color: kThemeColor,
       child: Column(
         children: [
