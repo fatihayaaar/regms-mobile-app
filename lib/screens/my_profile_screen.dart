@@ -40,7 +40,7 @@ class _MyProfileScreen extends State {
       ),
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
-          buildSilverApp(_buildProfileContent(), "My Profile", context),
+          buildSilverApp(_buildProfileContent(), "fayar", context),
         ];
       },
     );
@@ -64,10 +64,10 @@ class _MyProfileScreen extends State {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildAvatar(),
-                  _buildUsernameAndFirstName(),
-                  SizedBox(height: 10),
+                  _buildNameAndSurname(),
+                  SizedBox(height: 5),
                   _buildBio(),
-                  SizedBox(height: 15),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,20 +108,10 @@ class _MyProfileScreen extends State {
     );
   }
 
-  _buildUsernameAndFirstName() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Fatih Ayar",
-          style: kNameAndSurnameTextStyle,
-        ),
-        Text(
-          "fayar",
-          style: kUsernameTextStyle,
-        ),
-      ],
+  _buildNameAndSurname() {
+    return Text(
+      "Fatih Ayar",
+      style: kNameAndSurnameTextStyle,
     );
   }
 

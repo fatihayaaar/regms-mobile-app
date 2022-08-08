@@ -144,7 +144,7 @@ final kHintTextStyle = GoogleFonts.raleway(
   color: kTextFieldLightColor,
 );
 
-final kBioTextStyle = GoogleFonts.roboto(
+final kBioTextStyle = GoogleFonts.rubik(
   fontSize: 14,
   color: kTextBioColor,
 );
@@ -160,22 +160,21 @@ final tsRichTextStyle = (color) => GoogleFonts.raleway(
       color: color,
     );
 
-final kCommentRichTextStyle = (color, weight) => GoogleFonts.roboto(
+final kCommentRichTextStyle = (color, weight) => GoogleFonts.rubik(
       fontSize: 13,
       color: color,
       fontWeight: weight,
     );
 
-final kLikeRichTextStyle = (color, weight) => GoogleFonts.roboto(
+final kLikeRichTextStyle = (color, weight) => GoogleFonts.rubik(
       height: 1.4,
       fontSize: 11,
       color: color,
       fontWeight: weight,
     );
 
-final kActionRichTextStyle = (color, weight) => GoogleFonts.roboto(
-      height: 1.4,
-      fontSize: 11,
+final kActionRichTextStyle = (color, weight) => GoogleFonts.rubik(
+      fontSize: 13,
       color: color,
       fontWeight: weight,
     );
@@ -197,7 +196,7 @@ final Decoration kBoxDecorationDropDownButton = BoxDecoration(
   borderRadius: BorderRadius.circular(15),
 );
 
-final gSheetActionTextStyle = GoogleFonts.nunitoSans(
+final gSheetActionTextStyle = GoogleFonts.rubik(
   fontSize: 14,
   color: Color.fromRGBO(88, 80, 49, 1),
 );
@@ -253,20 +252,14 @@ final kListTitleTextStyle = GoogleFonts.raleway(
   fontSize: 19,
 );
 
-final kPostUsernameTextStyle = GoogleFonts.raleway(
+final kPostUsernameTextStyle = GoogleFonts.rubik(
   color: kAppbarColor,
   fontWeight: FontWeight.w600,
   fontSize: 17,
 );
 
-final kPostContentTextStyle = GoogleFonts.roboto(
+final kPostContentTextStyle = GoogleFonts.rubik(
   color: kAppbarColor,
   fontWeight: FontWeight.w400,
   fontSize: 14,
-);
-
-final kPostCountTextStyle = GoogleFonts.roboto(
-  fontSize: 15,
-  fontWeight: FontWeight.normal,
-  color: kRegisterRichTextAboutColor,
 );

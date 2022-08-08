@@ -23,3 +23,6 @@ const kNameAndSurnameColor = Color.fromRGBO(110, 110, 110, 1.0);
 
 const kCommentUsernameColor = Color.fromRGBO(33, 33, 33, 1.0);
 const kCommentTextColor = Color.fromRGBO(72, 72, 72, 1.0);
+const kCommentActionIconColor = Color.fromRGBO(47, 47, 47, 1.0);
+
+const kPostActionTextColor = Color.fromRGBO(117, 117, 117, 1.0);

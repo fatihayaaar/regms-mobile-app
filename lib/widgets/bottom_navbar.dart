@@ -33,7 +33,7 @@ class BottomNavBarState extends State<BottomNavBar> {
           ),
         ),
       ),
-      height: 55,
+      height: 45,
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
@@ -67,7 +67,7 @@ class BottomNavBarState extends State<BottomNavBar> {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: _buildAvatarItem(
               page: MyProfileScreen(),
             ),
@@ -90,24 +90,18 @@ class BottomNavBarState extends State<BottomNavBar> {
   }
 
   Widget _buildAvatarItem({required Widget page}) {
-    return Container(
-      height: 35,
-      width: 35,
-      alignment: Alignment.centerRight,
-      padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(context, _createRoute(page));
-        },
-        style: kTransparentButtonButtonStyle,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(100),
-          child: CircleAvatar(
-            backgroundColor: Colors.grey.withOpacity(0.5),
-            radius: 20,
-            backgroundImage: AssetImage("assets/images/dump_1.jpg"),
-            //child: Image.file(),
-          ),
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.push(context, _createRoute(page));
+      },
+      style: kTransparentButtonButtonStyle,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: CircleAvatar(
+          backgroundColor: Colors.grey.withOpacity(0.5),
+          radius: 15,
+          backgroundImage: AssetImage("assets/images/dump_1.jpg"),
+          //child: Image.file(),
         ),
       ),
     );

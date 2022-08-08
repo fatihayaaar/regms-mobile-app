@@ -132,11 +132,6 @@ class _PostCardState extends State {
   _buildPostFooter() {
     return Column(
       children: [
-        _buildLikeStatus(),
-        Container(
-          child: Divider(color: kBorderColor, height: 0),
-          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-        ),
         _buildActions(),
         _buildComments(),
         _buildCommentTextField(),
@@ -150,8 +145,8 @@ class _PostCardState extends State {
       child: Text(
         "$text",
         style: kActionRichTextStyle(
-          kCommentTextColor,
-          FontWeight.bold,
+          kPostActionTextColor,
+          FontWeight.normal
         ),
       ),
     );
@@ -201,22 +196,17 @@ class _PostCardState extends State {
           _buildAction(
             icon: (Icons.thumb_up_alt_outlined),
             onClick: () {},
-            text: "Like",
+            text: "$likeCount",
           ),
-          _buildAction(
-            icon: (Icons.chat_outlined),
-            onClick: () {},
-            text: "Comment",
-          ),
+          SizedBox(width: 20),
           _buildAction(
             icon: (Icons.send),
             onClick: () {},
-            text: "Send",
           ),
+          Expanded(child: Container()),
           _buildAction(
             icon: (Icons.bookmark_border),
             onClick: () {},
-            text: "Save",
           ),
         ],
       ),
@@ -225,61 +215,23 @@ class _PostCardState extends State {
 
   _buildAction(
       {String? text, required IconData icon, required void onClick()}) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            child: Icon(
-              icon,
-              size: 18,
-              color: kCommentTextColor,
-            ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          child: Icon(
+            icon,
+            size: 25,
+            color: kCommentActionIconColor,
           ),
-          Visibility(
-            visible: text == null ? false : true,
-            child: _buildPostActionText(text),
-          ),
-        ],
-      ),
-    );
-  }
-
-  _buildLikeText() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      margin: EdgeInsets.fromLTRB(0, 10, 10, 10),
-      child: RichText(
-        textAlign: TextAlign.left,
-        overflow: TextOverflow.ellipsis,
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: 'Liked by ',
-              style: kLikeRichTextStyle(
-                kCommentTextColor,
-                FontWeight.normal,
-              ),
-            ),
-            TextSpan(
-              text: '$likeCount',
-              style: kLikeRichTextStyle(
-                kCommentUsernameColor,
-                FontWeight.bold,
-              ),
-              recognizer: TapGestureRecognizer()..onTap = () {},
-            ),
-            TextSpan(
-              text: ' users ',
-              style: kCommentRichTextStyle(
-                kCommentTextColor,
-                FontWeight.normal,
-              ),
-            ),
-          ],
         ),
-      ),
+        SizedBox(width: 5),
+        Visibility(
+          visible: text == null ? false : true,
+          child: _buildPostActionText(text),
+        ),
+      ],
     );
   }
 
@@ -347,54 +299,6 @@ class _PostCardState extends State {
           style: kTimeTextStyle,
         ),
       ],
-    );
-  }
-
-  _buildLikeStatus() {
-    return Row(
-      children: [
-        _buildLikeAvatars(),
-        _buildLikeText(),
-      ],
-    );
-  }
-
-  _buildLikeAvatars() {
-    return Container(
-      width: 60,
-      height: 20,
-      margin: const EdgeInsets.fromLTRB(10, 10, 0, 10),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 32,
-            child: _buildLikeAvatar(),
-          ),
-          Positioned(
-            top: 0,
-            left: 16,
-            child: _buildLikeAvatar(),
-          ),
-          Positioned(
-            top: 0,
-            left: 0,
-            child: _buildLikeAvatar(),
-          ),
-        ],
-      ),
-    );
-  }
-
-  _buildLikeAvatar() {
-    return Container(
-      alignment: Alignment.bottomLeft,
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-      child: buildAvatar(
-        borderColor: Colors.white.withOpacity(1),
-        img: "$avatar",
-        size: 9,
-      ),
     );
   }
 
