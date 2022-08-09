@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
@@ -85,7 +83,7 @@ class _PostCardState extends State {
 
   _buildPostContent() {
     return Visibility(
-      visible: post.text == "" ? false : true,
+      visible: post.text == null ? false : post.text == "" ? false : true,
       child: Container(
         margin: const EdgeInsets.fromLTRB(7, 0, 7, 7),
         child: Text(
@@ -97,10 +95,12 @@ class _PostCardState extends State {
   }
 
   _buildPostMedia() {
-    return Image.asset(
-      "${post.media}",
-      fit: BoxFit.cover,
-    );
+    return post.media == null
+        ? Container()
+        : Image.asset(
+            "${post.media}",
+            fit: BoxFit.cover,
+          );
   }
 
   _buildPostFooter() {
@@ -108,6 +108,7 @@ class _PostCardState extends State {
       children: [
         _buildActions(),
         _buildComments(),
+        SizedBox(height: post.commentCount == 0 ? 5 : 0),
         _buildCommentTextField(),
       ],
     );
