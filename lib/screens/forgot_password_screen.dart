@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/email_validate_screen.dart';
@@ -16,11 +15,7 @@ class _ForgotPasswordScreen extends State {
     return Scaffold(
       appBar: miniAppBar(),
       backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          FadeAnimation(1.0, _buildBody()),
-        ],
-      ),
+      body: _buildBody(),
     );
   }
 

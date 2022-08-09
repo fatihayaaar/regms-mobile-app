@@ -129,12 +129,12 @@ final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
       hintStyle: kHintTextStyle,
     );
 
-final kTimeTextStyle = GoogleFonts.roboto(
+final kTimeTextStyle = GoogleFonts.rubik(
   fontSize: 13,
   color: kTextFieldLightColor,
 );
 
-final kCommentTimeTextStyle = GoogleFonts.roboto(
+final kCommentTimeTextStyle = GoogleFonts.rubik(
   fontSize: 13,
   color: kTextFieldLightColor,
 );
@@ -212,25 +212,25 @@ final tAppbarActionTextStyle = GoogleFonts.raleway(
   fontSize: 19,
 );
 
-final kNameAndSurnameTextStyle = TextStyle(
+final kNameAndSurnameTextStyle = GoogleFonts.rubik(
   fontSize: 27,
   fontWeight: FontWeight.bold,
   color: kUsernameColor,
 );
 
-final kUsernameTextStyle = TextStyle(
+final kUsernameTextStyle = GoogleFonts.rubik(
   fontSize: 17,
   fontWeight: FontWeight.w400,
   color: kNameAndSurnameColor,
 );
 
-final kFollowersCountTextStyle = TextStyle(
+final kFollowersCountTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.normal,
   color: kRegisterRichTextAboutColor,
 );
 
-final kFollowersCountSizeTextStyle = TextStyle(
+final kFollowersCountSizeTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.bold,
   color: kAppbarColor,

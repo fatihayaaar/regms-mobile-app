@@ -1,10 +1,12 @@
-import 'package:flutter/gestures.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
+import 'package:regms_flutter_client/widgets/comment_box.dart';
 
-// ignore: must_be_immutable
 class PostCard extends StatefulWidget {
   String? username;
   String? contentText;
@@ -86,7 +88,7 @@ class _PostCardState extends State {
               _buildPostAvatar(),
               SizedBox(width: 7),
               _buildPostUsername(),
-              SizedBox(width: 10),
+              SizedBox(width: 7),
               _buildPostDate(),
             ],
           ),
@@ -118,7 +120,8 @@ class _PostCardState extends State {
 
   _buildPostMedia() {
     return InteractiveViewer(
-      panEnabled: true, // Set it to false to prevent panning.
+      panEnabled: true,
+      // Set it to false to prevent panning.
       boundaryMargin: EdgeInsets.all(80),
       minScale: 1,
       maxScale: 4,
@@ -144,10 +147,7 @@ class _PostCardState extends State {
       margin: const EdgeInsets.fromLTRB(0, 2, 0, 0),
       child: Text(
         "$text",
-        style: kActionRichTextStyle(
-          kPostActionTextColor,
-          FontWeight.normal
-        ),
+        style: kActionRichTextStyle(kPostActionTextColor, FontWeight.normal),
       ),
     );
   }
@@ -260,13 +260,14 @@ class _PostCardState extends State {
       margin: EdgeInsets.fromLTRB(10, 0, 10, 5),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildCommentAvatar(),
-              _buildCommentBox(),
-            ],
+          CommentBox(
+            comment: Comment(
+              avatar: avatar!,
+              text:
+                  'The issue I am having is when the "Click me!" button is clicked, the function is called,',
+              username: username!,
+              sendTime: '3s',
+            ),
           ),
           Container(
             alignment: Alignment.centerLeft,
@@ -290,7 +291,7 @@ class _PostCardState extends State {
       children: [
         Icon(
           Icons.access_time,
-          size: 12,
+          size: 10,
           color: kBodyTextColor,
         ),
         SizedBox(width: 3),
@@ -299,69 +300,6 @@ class _PostCardState extends State {
           style: kTimeTextStyle,
         ),
       ],
-    );
-  }
-
-  _buildCommentBox() {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-        decoration: kCommentBoxDecoration,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                _buildCommentBoxUsername(),
-                _buildCommentBoxTime(),
-              ],
-            ),
-            SizedBox(height: 4),
-            _buildCommentBoxText(),
-            SizedBox(height: 2),
-          ],
-        ),
-      ),
-    );
-  }
-
-  _buildCommentAvatar() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-      child: buildAvatar(
-        borderColor: Colors.white.withOpacity(1),
-        img: "$avatar",
-        size: 14,
-      ),
-    );
-  }
-
-  _buildCommentBoxUsername() {
-    return Text(
-      'fayar ',
-      style: kCommentRichTextStyle(
-        kCommentUsernameColor,
-        FontWeight.bold,
-      ),
-    );
-  }
-
-  _buildCommentBoxText() {
-    return Text(
-      'hello, For code reusability, I have created a method named',
-      style: kCommentRichTextStyle(
-        kCommentTextColor,
-        FontWeight.normal,
-      ),
-    );
-  }
-
-  _buildCommentBoxTime() {
-    return Text(
-      "10sn",
-      style: kCommentTimeTextStyle,
     );
   }
 }

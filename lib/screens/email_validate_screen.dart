@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
-import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/reset_password_screen.dart';
@@ -38,11 +37,7 @@ class _EmailValidateScreen extends State {
     return Scaffold(
       appBar: miniAppBar(),
       backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          FadeAnimation(1.0, _buildBody()),
-        ],
-      ),
+      body: _buildBody(),
     );
   }
 

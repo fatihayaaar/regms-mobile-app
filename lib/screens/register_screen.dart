@@ -2,7 +2,6 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/my_profile_screen.dart';
@@ -132,33 +131,30 @@ class _RegisterScreen extends State {
   }
 
   Widget _buildStep1() {
-    return FadeAnimation(
-      1.0,
-      Container(
-        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 40),
-            Container(
-              child: Text("Start\nRegistering", style: tRegisterTitleTextStyle),
-              alignment: Alignment.bottomLeft,
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: 40),
+          Container(
+            child: Text("Start\nRegistering", style: tRegisterTitleTextStyle),
+            alignment: Alignment.bottomLeft,
+          ),
+          SizedBox(height: 40),
+          _buildUsernameTextField(),
+          AspectRatio(
+            aspectRatio: 10 / 2,
+            child: Container(
+              width: double.infinity,
             ),
-            SizedBox(height: 40),
-            _buildUsernameTextField(),
-            AspectRatio(
-              aspectRatio: 10 / 2,
-              child: Container(
-                width: double.infinity,
-              ),
-            ),
-            _buildContractText(),
-            SizedBox(height: 60),
-            _buildNextButtonStep1(),
-            SizedBox(height: 40),
-            _buildSignInText(),
-          ],
-        ),
+          ),
+          _buildContractText(),
+          SizedBox(height: 60),
+          _buildNextButtonStep1(),
+          SizedBox(height: 40),
+          _buildSignInText(),
+        ],
       ),
     );
   }

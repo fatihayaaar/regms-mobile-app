@@ -1,10 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/animations/fade_animation.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/screens/forgot_password_screen.dart';
 import 'package:regms_flutter_client/screens/my_profile_screen.dart';
 import 'package:regms_flutter_client/screens/register_screen.dart';
@@ -32,7 +30,7 @@ class _LoginScreen extends State {
       backgroundColor: kBackgroundColor,
       body: Stack(
         children: [
-          FadeAnimation(1.0, _buildBody()),
+          _buildBody(),
         ],
       ),
     );
