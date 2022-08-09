@@ -3,48 +3,26 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/comment.dart';
+import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/comment_box.dart';
 
 class PostCard extends StatefulWidget {
-  String? username;
-  String? contentText;
-  String? avatar;
-  String? likeCount;
-  String? commentCount;
+  final Post post;
 
   PostCard({
-    this.username = "",
-    this.contentText = "",
-    this.avatar = "assets/images/dump_1.jpg",
-    this.likeCount = "0",
-    this.commentCount = "0",
+    required this.post,
   });
 
   @override
-  State<StatefulWidget> createState() => _PostCardState(
-        username: username,
-        contentText: contentText,
-        avatar: avatar,
-        likeCount: likeCount,
-        commentCount: commentCount,
-      );
+  State<StatefulWidget> createState() => _PostCardState(post: post);
 }
 
 class _PostCardState extends State {
-  String? username;
-  String? contentText;
-  String? avatar;
-  String? likeCount;
-  String? commentCount;
+  Post post;
 
   _PostCardState({
-    this.username,
-    this.contentText,
-    this.avatar,
-    this.likeCount,
-    this.commentCount,
+    required this.post,
   });
 
   @override
@@ -73,7 +51,7 @@ class _PostCardState extends State {
       margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
       child: buildAvatar(
         borderColor: Colors.white.withOpacity(1),
-        img: "$avatar",
+        img: "${post.user.avatar}",
         size: 20,
       ),
     );
@@ -100,18 +78,18 @@ class _PostCardState extends State {
 
   _buildPostUsername() {
     return Text(
-      "$username",
+      "${post.user.username}",
       style: kPostUsernameTextStyle,
     );
   }
 
   _buildPostContent() {
     return Visibility(
-      visible: contentText == "" ? false : true,
+      visible: post.text == "" ? false : true,
       child: Container(
         margin: const EdgeInsets.fromLTRB(7, 0, 7, 7),
         child: Text(
-          "$contentText",
+          "${post.text}",
           style: kPostContentTextStyle,
         ),
       ),
@@ -119,16 +97,9 @@ class _PostCardState extends State {
   }
 
   _buildPostMedia() {
-    return InteractiveViewer(
-      panEnabled: true,
-      // Set it to false to prevent panning.
-      boundaryMargin: EdgeInsets.all(80),
-      minScale: 1,
-      maxScale: 4,
-      child: Image.asset(
-        "assets/images/dump_2.jpg",
-        fit: BoxFit.cover,
-      ),
+    return Image.asset(
+      "${post.media}",
+      fit: BoxFit.cover,
     );
   }
 
@@ -160,7 +131,7 @@ class _PostCardState extends State {
           margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
           child: buildAvatar(
             borderColor: Colors.white.withOpacity(1),
-            img: "$avatar",
+            img: "${post.user.avatar}",
             size: 15,
           ),
         ),
@@ -196,7 +167,7 @@ class _PostCardState extends State {
           _buildAction(
             icon: (Icons.thumb_up_alt_outlined),
             onClick: () {},
-            text: "$likeCount",
+            text: "${post.likeCount}",
           ),
           SizedBox(width: 20),
           _buildAction(
@@ -254,38 +225,6 @@ class _PostCardState extends State {
     );
   }
 
-  _buildComments() {
-    return Container(
-      alignment: Alignment.topLeft,
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 5),
-      child: Column(
-        children: [
-          CommentBox(
-            comment: Comment(
-              avatar: avatar!,
-              text:
-                  'The issue I am having is when the "Click me!" button is clicked, the function is called,',
-              username: username!,
-              sendTime: '3s',
-            ),
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            margin: EdgeInsets.fromLTRB(45, 4, 0, 4),
-            child: Text(
-              "See all $commentCount comments",
-              style: kCommentRichTextStyle(
-                kBodyTextColor,
-                FontWeight.normal,
-              ),
-              textAlign: TextAlign.left,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   _buildPostDate() {
     return Row(
       children: [
@@ -296,10 +235,19 @@ class _PostCardState extends State {
         ),
         SizedBox(width: 3),
         Text(
-          "3s",
+          "${post.sendDate}",
           style: kTimeTextStyle,
         ),
       ],
     );
+  }
+
+  _buildComments() {
+    return post.comment == null
+        ? Container()
+        : CommentBox(
+            comment: post.comment!,
+            detailText: post.commentCount > 0 ? "${post.commentCount}" : null,
+          );
   }
 }

@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
@@ -7,8 +5,8 @@ import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
 class CommentBox extends StatefulWidget {
-  String? detailText;
-  Comment comment;
+  final String? detailText;
+  final Comment comment;
 
   CommentBox({this.detailText, required this.comment});
 
@@ -26,7 +24,7 @@ class _CommentBoxState extends State {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topLeft,
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 5),
+      margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       child: Column(
         children: [
           Row(
@@ -48,7 +46,7 @@ class _CommentBoxState extends State {
       margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: buildAvatar(
         borderColor: Colors.white.withOpacity(1),
-        img: "${comment.avatar}",
+        img: "${comment.user.avatar}",
         size: 14,
       ),
     );
@@ -57,7 +55,7 @@ class _CommentBoxState extends State {
   _buildCommentBox() {
     return Expanded(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+        margin: const EdgeInsets.fromLTRB(5, 2, 5, 2),
         padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
         decoration: kCommentBoxDecoration,
         child: Column(
@@ -67,13 +65,13 @@ class _CommentBoxState extends State {
             Row(
               children: [
                 _buildCommentBoxUsername(),
-                SizedBox(width: 3),
+                SizedBox(width: 5),
                 _buildCommentBoxTime(),
               ],
             ),
             SizedBox(height: 4),
             _buildCommentBoxText(),
-            SizedBox(height: 2),
+            SizedBox(height: 4),
           ],
         ),
       ),
@@ -82,7 +80,7 @@ class _CommentBoxState extends State {
 
   _buildCommentBoxUsername() {
     return Text(
-      '${comment.username} ',
+      '${comment.user.username}',
       style: kCommentRichTextStyle(
         kCommentUsernameColor,
         FontWeight.bold,
@@ -102,7 +100,7 @@ class _CommentBoxState extends State {
 
   _buildCommentBoxTime() {
     return Text(
-      "10sn",
+      comment.sendTime,
       style: kCommentTimeTextStyle,
     );
   }
@@ -110,18 +108,20 @@ class _CommentBoxState extends State {
   _buildDetail() {
     return Visibility(
       visible: detailText == null ? false : true,
-      child: detailText != null ? Container(
-        alignment: Alignment.centerLeft,
-        margin: EdgeInsets.fromLTRB(45, 4, 0, 4),
-        child: Text(
-          detailText!,
-          style: kCommentRichTextStyle(
-            kBodyTextColor,
-            FontWeight.normal,
-          ),
-          textAlign: TextAlign.left,
-        ),
-      ) : Container(),
+      child: detailText != null
+          ? Container(
+              alignment: Alignment.centerLeft,
+              margin: const EdgeInsets.fromLTRB(45, 4, 0, 4),
+              child: Text(
+                "See ${detailText!} comment",
+                style: kCommentRichTextStyle(
+                  kBodyTextColor,
+                  FontWeight.normal,
+                ),
+                textAlign: TextAlign.left,
+              ),
+            )
+          : Container(),
     );
   }
 }

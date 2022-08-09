@@ -1,12 +1,13 @@
+import 'package:regms_flutter_client/models/user.dart';
+
 class Comment {
-  String avatar;
-  String username;
+  User user;
   String sendTime;
   String text;
 
-  Comment(
-      {required this.avatar,
-      required this.username,
-      required this.sendTime,
-      required this.text});
+  Comment({
+    required this.user,
+    required this.sendTime,
+    required this.text,
+  });
 }
