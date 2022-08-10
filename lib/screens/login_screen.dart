@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/main.dart';
+import 'package:regms_flutter_client/models/user.dart';
 import 'package:regms_flutter_client/screens/forgot_password_screen.dart';
-import 'package:regms_flutter_client/screens/my_profile_screen.dart';
+import 'package:regms_flutter_client/screens/profile_screen.dart';
 import 'package:regms_flutter_client/screens/register_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 
@@ -229,8 +231,15 @@ class _LoginScreen extends State {
     });
   }
 
-  void _loginButtonOnClick() {
-    Route route = MaterialPageRoute(builder: (_) => MyProfileScreen());
+  void _loginButtonOnClick() async {
+    await prefs.setString("username", "fayar");
+    root.initMyUser();
+    Route route = MaterialPageRoute(
+      builder: (_) => ProfileScreen(
+        user: root.myUser!,
+        isMyProfile: true,
+      ),
+    );
     Navigator.push(context, route);
   }
 }

@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/root.dart';
 import 'package:regms_flutter_client/screens/login_screen.dart';
+import 'package:regms_flutter_client/screens/profile_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+late SharedPreferences prefs;
+late Root root;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  prefs = await SharedPreferences.getInstance();
+  root = Root();
+
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ),
   );
+
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: buildThemeData(),
-      home: LoginScreen(),
+      home: root.myUser == null
+          ? LoginScreen()
+          : ProfileScreen(user: root.myUser!),
     ),
   );
 }

@@ -195,6 +195,12 @@ final Decoration kBoxDecorationTextField = BoxDecoration(
   borderRadius: BorderRadius.circular(15),
 );
 
+final Decoration kFilterBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(255, 255, 255, 1.0),
+  borderRadius: BorderRadius.circular(15),
+  border: Border.all(color: kBorderColor),
+);
+
 final Decoration kBoxDecorationDropDownButton = BoxDecoration(
   color: Color.fromRGBO(255, 255, 255, 1.0),
   border: Border.all(color: kBorderColor),

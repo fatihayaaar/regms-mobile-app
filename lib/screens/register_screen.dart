@@ -4,7 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/screens/my_profile_screen.dart';
+import 'package:regms_flutter_client/main.dart';
+import 'package:regms_flutter_client/screens/profile_screen.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 import 'package:regms_flutter_client/widgets/shake.dart';
 import 'package:regms_flutter_client/widgets/slide_tile.dart';
@@ -415,10 +416,17 @@ class _RegisterScreen extends State {
     });
   }
 
-  void submitButtonOnClick() {
+  void submitButtonOnClick() async {
+    await prefs.setString("username", "fayar");
+    root.initMyUser();
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => MyProfileScreen()),
+      MaterialPageRoute(
+        builder: (context) => ProfileScreen(
+          user: root.myUser!,
+          isMyProfile: true,
+        ),
+      ),
     );
   }
 }

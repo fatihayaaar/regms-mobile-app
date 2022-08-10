@@ -11,16 +11,25 @@ import 'package:regms_flutter_client/widgets/post_card.dart';
 import 'package:regms_flutter_client/widgets/profile_card.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
-class MyProfileScreen extends StatefulWidget {
+class ProfileScreen extends StatefulWidget {
+  final bool? isMyProfile;
+  final User user;
+
+  ProfileScreen({required this.user, this.isMyProfile});
+
   @override
-  _MyProfileScreen createState() => _MyProfileScreen();
+  _ProfileScreenState createState() => _ProfileScreenState(user, isMyProfile);
 }
 
-class _MyProfileScreen extends State {
+class _ProfileScreenState extends State {
+  bool? isMyProfile;
+  User user;
+
   String _selectedTag = "All";
   var items = [
     'All',
     'Photos',
+    'Videos',
     'Text',
   ];
 
@@ -69,6 +78,8 @@ class _MyProfileScreen extends State {
     )
   ];
 
+  _ProfileScreenState(this.user, this.isMyProfile);
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -92,7 +103,7 @@ class _MyProfileScreen extends State {
       ),
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
-          buildSilverApp(_buildProfileContent(), "fayar", context),
+          buildSilverApp(_buildProfileContent(), user.username, context),
         ];
       },
     );
@@ -103,9 +114,9 @@ class _MyProfileScreen extends State {
       background: Container(
         color: kThemeColor,
         margin: EdgeInsets.fromLTRB(
-            0, MediaQuery.of(context).viewPadding.top, 0, 0),
+            0, 40 + MediaQuery.of(context).viewPadding.top, 0, 0),
         alignment: Alignment.centerLeft,
-        child: ProfileCard(),
+        child: ProfileCard(user: user),
       ),
     );
   }
@@ -149,32 +160,9 @@ class _MyProfileScreen extends State {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Container(
-              decoration: kBoxDecorationTextField,
-              padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
-              child: SizedBox(
-                height: 30,
-                width: 105,
-                child: DropdownButton(
-                  value: _selectedTag,
-                  items: items.map((String items) {
-                    return DropdownMenuItem(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _selectedTag = value!;
-                    });
-                  },
-                  isExpanded: true,
-                  underline: Container(),
-                  style: kLabelTextStyle,
-                  elevation: 1,
-                ),
-              ),
-            ),
+            _buildFilter(),
+            SizedBox(width: 10),
+            _buildListTag(),
           ],
         ),
       ),
@@ -191,6 +179,67 @@ class _MyProfileScreen extends State {
         itemBuilder: (BuildContext context, int index) {
           return posts.elementAt(index);
         },
+      ),
+    );
+  }
+
+  _buildListTag() {
+    return Container(
+      decoration: kBoxDecorationTextField,
+      padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
+      child: SizedBox(
+        height: 30,
+        width: 105,
+        child: DropdownButton(
+          value: _selectedTag,
+          items: items.map((String items) {
+            return DropdownMenuItem(
+              value: items,
+              child: Text(items),
+            );
+          }).toList(),
+          onChanged: (String? value) {
+            setState(() {
+              _selectedTag = value!;
+            });
+          },
+          isExpanded: true,
+          underline: Container(),
+          style: kLabelTextStyle,
+          elevation: 1,
+        ),
+      ),
+    );
+  }
+
+  _buildFilter() {
+    return Expanded(
+      child: Container(
+        decoration: kFilterBoxDecorationTextField,
+        padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
+        child: SizedBox(
+          height: 30,
+          width: 105,
+          child: DropdownButton(
+            value: _selectedTag,
+            items: items.map((String items) {
+              return DropdownMenuItem(
+                value: items,
+                child: Text(items),
+              );
+            }).toList(),
+            icon: Icon(Icons.filter_list),
+            onChanged: (String? value) {
+              setState(() {
+                _selectedTag = value!;
+              });
+            },
+            isExpanded: true,
+            underline: Container(),
+            style: kLabelTextStyle,
+            elevation: 1,
+          ),
+        ),
       ),
     );
   }

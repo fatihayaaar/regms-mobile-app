@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/models/user.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
 class ProfileCard extends StatefulWidget {
+  final User user;
+
+  ProfileCard({required this.user});
+
   @override
-  State<StatefulWidget> createState() => _ProfileCardState();
+  State<StatefulWidget> createState() => _ProfileCardState(user);
 }
 
 class _ProfileCardState extends State {
+  User user;
+
+  _ProfileCardState(this.user);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,7 +25,7 @@ class _ProfileCardState extends State {
         _buildProfileHeader(),
         _buildProfileActions(),
         Container(
-          margin: EdgeInsets.fromLTRB(10, 75, 10, 0),
+          margin: EdgeInsets.fromLTRB(10, 60, 10, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,30 +53,11 @@ class _ProfileCardState extends State {
   }
 
   _buildProfileHeader() {
-    return Stack(
-      children: [
-        Container(
-          child: Image.asset(
-            "assets/images/dump_2.jpg",
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: 115,
-          ),
-        ),
-        Container(
-          height: 40,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.black.withOpacity(0.3),
-                Colors.black.withOpacity(0.0),
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-        ),
-      ],
+    return Image.asset(
+      "assets/images/dump_2.jpg",
+      fit: BoxFit.cover,
+      width: double.infinity,
+      height: 100,
     );
   }
 
@@ -75,8 +65,8 @@ class _ProfileCardState extends State {
     return Container(
       alignment: Alignment.centerLeft,
       child: buildAvatar(
-        borderColor: Colors.white.withOpacity(1.0),
-        img: "assets/images/dump_1.jpg",
+        borderColor: Colors.white.withOpacity(1),
+        img: user.avatar,
         size: 35,
       ),
     );
@@ -99,7 +89,7 @@ class _ProfileCardState extends State {
   _buildProfileActions() {
     return Container(
       alignment: Alignment.topRight,
-      margin: EdgeInsets.fromLTRB(0, 130, 10, 0),
+      margin: EdgeInsets.fromLTRB(0, 110, 10, 0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,

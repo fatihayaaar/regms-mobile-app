@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/screens/login_screen.dart';
-import 'package:regms_flutter_client/screens/my_profile_screen.dart';
+import 'package:regms_flutter_client/screens/profile_screen.dart';
 
 // ignore: must_be_immutable
 class BottomNavBar extends StatefulWidget {
@@ -69,7 +70,9 @@ class BottomNavBarState extends State<BottomNavBar> {
           Expanded(
             flex: 1,
             child: _buildAvatarItem(
-              page: MyProfileScreen(),
+              page: root.myUser != null
+                  ? ProfileScreen(user: root.myUser!, isMyProfile: true)
+                  : LoginScreen(),
             ),
           ),
         ],
