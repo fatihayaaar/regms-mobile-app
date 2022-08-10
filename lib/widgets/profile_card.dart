@@ -39,9 +39,15 @@ class _ProfileCardState extends State {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildProfileFollowersText(text: "Followers", count: "9.2M"),
+                  _buildProfileFollowersText(
+                    text: "Followers",
+                    count: user.profile.followersCount.toString(),
+                  ),
                   SizedBox(width: 15),
-                  _buildProfileFollowersText(text: "Following", count: "1"),
+                  _buildProfileFollowersText(
+                    text: "Following",
+                    count: user.profile.followingCount.toString(),
+                  ),
                 ],
               ),
               SizedBox(height: 15),
@@ -54,7 +60,7 @@ class _ProfileCardState extends State {
 
   _buildProfileHeader() {
     return Image.asset(
-      "assets/images/dump_2.jpg",
+      user.profile.coverPhoto!,
       fit: BoxFit.cover,
       width: double.infinity,
       height: 100,
@@ -74,14 +80,14 @@ class _ProfileCardState extends State {
 
   _buildNameAndSurname() {
     return Text(
-      "Fatih Ayar",
+      user.profile.nameAndSurname!,
       style: kNameAndSurnameTextStyle,
     );
   }
 
   _buildBio() {
     return Text(
-      "Software Developer ;) fayardev founder",
+      user.profile.bio!,
       style: kBioTextStyle,
     );
   }
@@ -90,17 +96,12 @@ class _ProfileCardState extends State {
     return Container(
       alignment: Alignment.topRight,
       margin: EdgeInsets.fromLTRB(0, 110, 10, 0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          _buildProfileEditButton("Edit", () {
-            Route route =
-                MaterialPageRoute(builder: (_) => EditProfileScreen());
-            Navigator.push(context, route);
-          }),
-        ],
-      ),
+      child: _buildProfileEditButton("Edit", () {
+        Route route = MaterialPageRoute(
+          builder: (_) => EditProfileScreen(),
+        );
+        Navigator.push(context, route);
+      }),
     );
   }
 

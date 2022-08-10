@@ -14,8 +14,16 @@ class Root {
     if (username != null) {
       if (username != "") {
         myUser = User(
-            username: username,
-            profile: Profile(avatar: "assets/images/dump_1.jpg"));
+          username: username,
+          profile: Profile(
+            avatar: "assets/images/dump_1.jpg",
+            nameAndSurname: "Fatih Ayar",
+            bio: "Software Developer :) fayardev founder",
+            followersCount: 203,
+            followingCount: 1,
+            coverPhoto: "assets/images/dump_2.jpg",
+          ),
+        );
       }
     }
   }
