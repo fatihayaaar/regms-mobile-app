@@ -4,6 +4,7 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/comment_box.dart';
+import 'package:regms_flutter_client/widgets/comment_text_field.dart';
 
 class PostCard extends StatefulWidget {
   final Post post;
@@ -83,7 +84,11 @@ class _PostCardState extends State {
 
   _buildPostContent() {
     return Visibility(
-      visible: post.text == null ? false : post.text == "" ? false : true,
+      visible: post.text == null
+          ? false
+          : post.text == ""
+              ? false
+              : true,
       child: Container(
         margin: const EdgeInsets.fromLTRB(7, 0, 7, 7),
         child: Text(
@@ -109,7 +114,7 @@ class _PostCardState extends State {
         _buildActions(),
         _buildComments(),
         SizedBox(height: post.commentCount == 0 ? 5 : 0),
-        _buildCommentTextField(),
+        CommentTextField(avatar: post.user.avatar),
       ],
     );
   }
@@ -121,40 +126,6 @@ class _PostCardState extends State {
         "$text",
         style: kActionRichTextStyle(kPostActionTextColor, FontWeight.normal),
       ),
-    );
-  }
-
-  _buildCommentTextField() {
-    return Row(
-      children: [
-        Container(
-          alignment: Alignment.bottomLeft,
-          margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-          child: buildAvatar(
-            borderColor: Colors.white.withOpacity(1),
-            img: "${post.user.avatar}",
-            size: 15,
-          ),
-        ),
-        Expanded(
-          child: Container(
-            margin: const EdgeInsets.fromLTRB(5, 0, 10, 0),
-            child: TextFormField(
-              textInputAction: TextInputAction.go,
-              maxLines: 1,
-              onFieldSubmitted: (term) {},
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return "* Required";
-                } else
-                  return null;
-              },
-              decoration:
-                  kCommentTextFieldInputDecoration("send your comment..."),
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -198,7 +169,10 @@ class _PostCardState extends State {
             color: kCommentActionIconColor,
           ),
         ),
-        SizedBox(width: 5),
+        Visibility(
+          visible: text == null ? false : true,
+          child: SizedBox(width: 5),
+        ),
         Visibility(
           visible: text == null ? false : true,
           child: _buildPostActionText(text),

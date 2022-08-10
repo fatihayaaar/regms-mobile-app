@@ -55,7 +55,7 @@ class _CommentBoxState extends State {
   _buildCommentBox() {
     return Expanded(
       child: Container(
-        margin: const EdgeInsets.fromLTRB(5, 2, 5, 2),
+        margin: const EdgeInsets.fromLTRB(5, 2, 0, 2),
         padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
         decoration: kCommentBoxDecoration,
         child: Column(
