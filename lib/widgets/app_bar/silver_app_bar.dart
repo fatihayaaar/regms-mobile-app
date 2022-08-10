@@ -15,7 +15,7 @@ buildSilverApp(header, title, context) {
     shadowColor: Colors.transparent,
     backgroundColor: kAppbarColor,
     toolbarHeight: 40,
-    expandedHeight: 300.0,
+    expandedHeight: 280.0,
     leadingWidth: 400,
     leading: Container(
       margin: const EdgeInsets.fromLTRB(25, 0, 0, 0),
@@ -28,7 +28,9 @@ buildSilverApp(header, title, context) {
         height: 40,
         decoration: BoxDecoration(
           color: kThemeColor,
-          border: Border.symmetric(horizontal: BorderSide(color: kBorderColor, width: 0.5))
+          border: Border.symmetric(
+            horizontal: BorderSide(color: kBorderColor, width: 0.5),
+          ),
         ),
         child: TabBar(
           indicatorColor: kAppbarColor,

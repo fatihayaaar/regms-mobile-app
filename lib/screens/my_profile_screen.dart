@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/user.dart';
@@ -16,6 +17,13 @@ class MyProfileScreen extends StatefulWidget {
 }
 
 class _MyProfileScreen extends State {
+  String _selectedTag = "All";
+  var items = [
+    'All',
+    'Photos',
+    'Text',
+  ];
+
   final List<PostCard> posts = [
     PostCard(
       post: Post(
@@ -95,7 +103,7 @@ class _MyProfileScreen extends State {
       background: Container(
         color: kThemeColor,
         margin: EdgeInsets.fromLTRB(
-            0, 40 + MediaQuery.of(context).viewPadding.top, 0, 0),
+            0, MediaQuery.of(context).viewPadding.top, 0, 0),
         alignment: Alignment.centerLeft,
         child: ProfileCard(),
       ),
@@ -118,14 +126,71 @@ class _MyProfileScreen extends State {
       maxHeight: double.maxFinite,
       child: Container(
         color: kBorderColor,
-        child: ListView.builder(
-            padding: EdgeInsets.all(0),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: posts.length,
-            itemBuilder: (BuildContext context, int index) {
-              return posts.elementAt(index);
-            }),
+        child: ListView(
+          padding: EdgeInsets.all(0),
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: [
+            _buildTags(),
+            _buildPostView(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _buildTags() {
+    return Container(
+      color: kThemeColor,
+      child: Container(
+        margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+        alignment: Alignment.centerRight,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              decoration: kBoxDecorationTextField,
+              padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
+              child: SizedBox(
+                height: 30,
+                width: 105,
+                child: DropdownButton(
+                  value: _selectedTag,
+                  items: items.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _selectedTag = value!;
+                    });
+                  },
+                  isExpanded: true,
+                  underline: Container(),
+                  style: kLabelTextStyle,
+                  elevation: 1,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _buildPostView() {
+    return Container(
+      child: ListView.builder(
+        padding: EdgeInsets.all(0),
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: posts.length,
+        itemBuilder: (BuildContext context, int index) {
+          return posts.elementAt(index);
+        },
       ),
     );
   }

@@ -27,7 +27,7 @@ class _PostCardState extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
       color: kThemeColor,
       child: Column(
         children: [

@@ -149,6 +149,11 @@ final kBioTextStyle = GoogleFonts.rubik(
   color: kTextBioColor,
 );
 
+final kLabelTextStyle = GoogleFonts.rubik(
+  fontSize: 14,
+  color: kTextBioColor,
+);
+
 final kSubTitleTextStyle = GoogleFonts.raleway(
   fontSize: 18,
   color: kTextFieldLightColor,

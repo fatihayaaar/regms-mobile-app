@@ -20,15 +20,7 @@ class _CommentTextFieldState extends State {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          alignment: Alignment.bottomLeft,
-          margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-          child: buildAvatar(
-            borderColor: Colors.white.withOpacity(1),
-            img: "$avatar",
-            size: 15,
-          ),
-        ),
+        _buildAvatar(),
         Expanded(
           child: Container(
             margin: const EdgeInsets.fromLTRB(5, 0, 10, 0),
@@ -48,6 +40,18 @@ class _CommentTextFieldState extends State {
           ),
         ),
       ],
+    );
+  }
+
+  _buildAvatar() {
+    return Container(
+      alignment: Alignment.bottomLeft,
+      margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+      child: buildAvatar(
+        borderColor: Colors.white.withOpacity(1),
+        img: "$avatar",
+        size: 15,
+      ),
     );
   }
 }
