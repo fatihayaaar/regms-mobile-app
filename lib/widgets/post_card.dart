@@ -50,7 +50,7 @@ class _PostCardState extends State {
       margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
       child: buildAvatar(
         borderColor: Colors.white.withOpacity(1),
-        img: "${post.user.avatar}",
+        img: "${post.user.profile.avatar}",
         size: 20,
       ),
     );
@@ -114,7 +114,7 @@ class _PostCardState extends State {
         _buildActions(),
         _buildComments(),
         SizedBox(height: post.commentCount == 0 ? 5 : 0),
-        CommentTextField(avatar: post.user.avatar),
+        CommentTextField(avatar: post.user.profile.avatar),
       ],
     );
   }

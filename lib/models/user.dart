@@ -1,9 +1,11 @@
+import 'package:regms_flutter_client/models/profile.dart';
+
 class User {
   String username;
-  String avatar;
+  Profile profile;
 
   User({
     required this.username,
-    required this.avatar,
+    required this.profile,
   });
 }

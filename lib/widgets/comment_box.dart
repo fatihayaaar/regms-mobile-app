@@ -46,7 +46,7 @@ class _CommentBoxState extends State {
       margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: buildAvatar(
         borderColor: Colors.white.withOpacity(1),
-        img: "${comment.user.avatar}",
+        img: "${comment.user.profile.avatar}",
         size: 14,
       ),
     );

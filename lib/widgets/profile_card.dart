@@ -66,7 +66,7 @@ class _ProfileCardState extends State {
       alignment: Alignment.centerLeft,
       child: buildAvatar(
         borderColor: Colors.white.withOpacity(1),
-        img: user.avatar,
+        img: user.profile.avatar!,
         size: 35,
       ),
     );
