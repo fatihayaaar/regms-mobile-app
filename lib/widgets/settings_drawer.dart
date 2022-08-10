@@ -7,31 +7,37 @@ import 'package:regms_flutter_client/widgets/search.dart';
 Widget buildDrawer({required context}) {
   return Drawer(
     width: double.infinity,
-    child: Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
-      child: ListView(
-        children: [
-          buildDrawerHeader(context: context, title: "Settings"),
-          SizedBox(height: 10),
-          buildSearch(),
-          SizedBox(height: 20),
-          buildDrawerListItem(context, "Account", AccountSettingsScreen()),
-          Divider(color: kBorderColor),
-          buildDrawerListItem(
-              context, "Notifications", AccountSettingsScreen()),
-          Divider(color: kBorderColor),
-          buildDrawerListItem(context, "Appearance", AccountSettingsScreen()),
-          Divider(color: kBorderColor),
-          buildDrawerListItem(
-              context, "Privacy & Security", AccountSettingsScreen()),
-          Divider(color: kBorderColor),
-          buildDrawerListItem(
-              context, "Help and Support", AccountSettingsScreen()),
-          Divider(color: kBorderColor),
-          buildDrawerListItem(context, "About", AccountSettingsScreen()),
-          Divider(color: kBorderColor),
-          buildDrawerListItem(context, "Log-out", AccountSettingsScreen()),
-        ],
+    child: NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overScroll) {
+        overScroll.disallowIndicator();
+        return false;
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 30),
+        child: ListView(
+          children: [
+            buildDrawerHeader(context: context, title: "Settings"),
+            SizedBox(height: 10),
+            buildSearch(),
+            SizedBox(height: 20),
+            buildDrawerListItem(context, "Account", AccountSettingsScreen()),
+            Divider(color: kBorderColor),
+            buildDrawerListItem(
+                context, "Notifications", AccountSettingsScreen()),
+            Divider(color: kBorderColor),
+            buildDrawerListItem(context, "Appearance", AccountSettingsScreen()),
+            Divider(color: kBorderColor),
+            buildDrawerListItem(
+                context, "Privacy & Security", AccountSettingsScreen()),
+            Divider(color: kBorderColor),
+            buildDrawerListItem(
+                context, "Help and Support", AccountSettingsScreen()),
+            Divider(color: kBorderColor),
+            buildDrawerListItem(context, "About", AccountSettingsScreen()),
+            Divider(color: kBorderColor),
+            buildDrawerListItem(context, "Log-out", AccountSettingsScreen()),
+          ],
+        ),
       ),
     ),
   );

@@ -37,14 +37,20 @@ class _LoginScreen extends State {
   }
 
   Widget _buildBody() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(height: MediaQuery.of(context).size.height * 0.18),
-          _buildTitle(),
-          SizedBox(height: 20),
-          _buildContent(),
-        ],
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overScroll) {
+        overScroll.disallowIndicator();
+        return false;
+      },
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+            _buildTitle(),
+            SizedBox(height: 20),
+            _buildContent(),
+          ],
+        ),
       ),
     );
   }

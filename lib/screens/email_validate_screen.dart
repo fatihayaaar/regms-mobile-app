@@ -42,26 +42,34 @@ class _EmailValidateScreen extends State {
   }
 
   Widget _buildBody() {
-    return SingleChildScrollView(
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overScroll) {
+        overScroll.disallowIndicator();
+        return false;
+      },
+      child: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-            margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
-            child: Column(
-              children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.18),
-                _buildTitle(),
-                SizedBox(height: 10),
-                _buildSubTitle(),
-                SizedBox(height: 40),
-                _buildVerificationTextField(),
-                SizedBox(height: 40),
-                _buildLastTimeText(),
-                SizedBox(height: 10),
-                _buildReSend(),
-                SizedBox(height: 40),
-                _buildEmailValidateButton(),
-              ],
-            )));
+          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
+          child: Column(
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+              _buildTitle(),
+              SizedBox(height: 10),
+              _buildSubTitle(),
+              SizedBox(height: 40),
+              _buildVerificationTextField(),
+              SizedBox(height: 40),
+              _buildLastTimeText(),
+              SizedBox(height: 10),
+              _buildReSend(),
+              SizedBox(height: 40),
+              _buildEmailValidateButton(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildTitle() {

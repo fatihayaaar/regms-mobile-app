@@ -23,21 +23,27 @@ class _AccountSettingsScreen extends State {
   Widget _buildDrawer() {
     return Drawer(
       width: double.infinity,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 30),
-        child: ListView(
-          children: [
-            buildDrawerHeader(context: context, title: "Account Settings"),
-            SizedBox(height: 10),
-            buildDrawerListItem(
-                context, "Change Username", ChangeUsernameScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(
-                context, "Change Email Address", ChangeEmailScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(
-                context, "Change Password", ChangePasswordScreen()),
-          ],
+      child: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overScroll) {
+          overScroll.disallowIndicator();
+          return false;
+        },
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 30),
+          child: ListView(
+            children: [
+              buildDrawerHeader(context: context, title: "Account Settings"),
+              SizedBox(height: 10),
+              buildDrawerListItem(
+                  context, "Change Username", ChangeUsernameScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(
+                  context, "Change Email Address", ChangeEmailScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(
+                  context, "Change Password", ChangePasswordScreen()),
+            ],
+          ),
         ),
       ),
     );
