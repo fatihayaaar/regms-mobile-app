@@ -3,6 +3,7 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
+import 'package:regms_flutter_client/widgets/bottom_sheet.dart';
 import 'package:regms_flutter_client/widgets/comment_box.dart';
 import 'package:regms_flutter_client/widgets/comment_text_field.dart';
 
@@ -31,7 +32,7 @@ class _PostCardState extends State {
       color: kThemeColor,
       child: Column(
         children: [
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           _buildPostCardHeader(),
           SizedBox(height: 5),
           _buildPostContent(),
@@ -70,7 +71,7 @@ class _PostCardState extends State {
             ],
           ),
         ),
-        _buildPopMenu(),
+        _buildSheetBottomMenuOpenClick(),
       ],
     );
   }
@@ -181,22 +182,21 @@ class _PostCardState extends State {
     );
   }
 
-  _buildPopMenu() {
-    return PopupMenuButton(
-      icon: Icon(
-        Icons.more_horiz,
-        color: kNameAndSurnameColor,
+  _buildSheetBottomMenuOpenClick() {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet<void>(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          context: context,
+          builder: (_) => BottomSheetWidget(),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+        child: Icon(Icons.keyboard_control_rounded, color: kBodyTextColor,),
       ),
-      itemBuilder: (ctx) => [
-        _buildPopupMenuItem("Delete"),
-        _buildPopupMenuItem("Edit"),
-      ],
-    );
-  }
-
-  PopupMenuItem _buildPopupMenuItem(String title) {
-    return PopupMenuItem(
-      child: Text(title),
     );
   }
 

@@ -235,6 +235,12 @@ final kUsernameTextStyle = GoogleFonts.rubik(
   color: kNameAndSurnameColor,
 );
 
+final kBottomSheetTextStyle = GoogleFonts.rubik(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: kBottomSheetColor,
+);
+
 final kFollowersCountTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.normal,
