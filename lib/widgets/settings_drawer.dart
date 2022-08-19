@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/settings/account_setting_screen.dart';
+import 'package:regms_flutter_client/screens/settings/notification_setting_screen.dart';
 import 'package:regms_flutter_client/widgets/search.dart';
 
 Widget buildDrawer({required context}) {
@@ -23,7 +24,7 @@ Widget buildDrawer({required context}) {
             buildDrawerListItem(context, "Account", AccountSettingsScreen()),
             Divider(color: kBorderColor),
             buildDrawerListItem(
-                context, "Notifications", AccountSettingsScreen()),
+                context, "Notifications", NotificationScreen()),
             Divider(color: kBorderColor),
             buildDrawerListItem(context, "Appearance", AccountSettingsScreen()),
             Divider(color: kBorderColor),

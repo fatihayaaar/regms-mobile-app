@@ -236,7 +236,7 @@ final kUsernameTextStyle = GoogleFonts.rubik(
 );
 
 final kBottomSheetTextStyle = GoogleFonts.rubik(
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: FontWeight.w400,
   color: kBottomSheetColor,
 );

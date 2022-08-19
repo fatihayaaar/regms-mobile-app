@@ -21,11 +21,12 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
           color: Colors.white,
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              _buildDragContainer(),
               _buildItem("Share", Icons.share_rounded),
               _buildItem("Get Link", Icons.insert_link),
               _buildItem("Edit", Icons.mode_edit),
@@ -77,6 +78,22 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  _buildDragContainer() {
+    return Center(
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+        child: Container(
+          width: 50,
+          height: 4,
+          decoration: BoxDecoration(
+            color: Color(0xFFF1F4F8),
+            borderRadius: BorderRadius.circular(8),
+          ),
         ),
       ),
     );
