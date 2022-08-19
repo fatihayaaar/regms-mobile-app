@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/models/user.dart';
 import 'package:regms_flutter_client/screens/forgot_password_screen.dart';
 import 'package:regms_flutter_client/screens/profile_screen.dart';
 import 'package:regms_flutter_client/screens/register_screen.dart';
