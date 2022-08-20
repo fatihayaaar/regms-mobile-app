@@ -14,6 +14,18 @@ final tRegisterTitleTextStyle = GoogleFonts.raleway(
   fontSize: 33,
 );
 
+final kDraftButtonTitleTextStyle = GoogleFonts.raleway(
+  color: kLoginTitleColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 15,
+);
+
+final kAddPostTitleTextStyle = GoogleFonts.raleway(
+  color: kThemeColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 15,
+);
+
 final kLoginButtonButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all(kLoginButtonColor),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
@@ -195,10 +207,21 @@ final Decoration kBoxDecorationTextField = BoxDecoration(
   borderRadius: BorderRadius.circular(15),
 );
 
+final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
+  color: kAppbarColor,
+  borderRadius: BorderRadius.circular(15),
+);
+
 final Decoration kFilterBoxDecorationTextField = BoxDecoration(
   color: Color.fromRGBO(255, 255, 255, 1.0),
   borderRadius: BorderRadius.circular(15),
   border: Border.all(color: kBorderColor),
+);
+
+final kAddPostItemBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(254, 254, 254, 1.0),
+  borderRadius: BorderRadius.circular(0),
+  border: Border.all(color: Colors.white.withOpacity(0.0)),
 );
 
 final Decoration kBoxDecorationDropDownButton = BoxDecoration(
@@ -236,6 +259,12 @@ final kUsernameTextStyle = GoogleFonts.rubik(
 );
 
 final kBottomSheetTextStyle = GoogleFonts.rubik(
+  fontSize: 15,
+  fontWeight: FontWeight.w400,
+  color: kBottomSheetColor,
+);
+
+final kAddPostItemsTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.w400,
   color: kBottomSheetColor,

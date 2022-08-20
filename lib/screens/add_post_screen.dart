@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
 
 class AddPostScreen extends StatefulWidget {
   @override
@@ -37,48 +37,8 @@ class _AddPostScreenState extends State {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 8),
-                child: Expanded(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
-                    child: TextFormField(
-                      controller: textController,
-                      autofocus: true,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        hintText: 'Write something...',
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1,
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(4.0),
-                            topRight: Radius.circular(4.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              _buildTextField(),
               Expanded(child: Container()),
-              Divider(
-                height: 5,
-                thickness: 1,
-                color: kBorderColor,
-              ),
               _buildAddPostIconItems(),
             ],
           ),
@@ -89,35 +49,127 @@ class _AddPostScreenState extends State {
 
   _buildAddPostIconItems() {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-      child: Row(
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+      child: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              _buildIconButtonItem(Icons.photo_outlined),
-              _buildIconButtonItem(Icons.video_call),
-              _buildIconButtonItem(Icons.location_on),
-              _buildIconButtonItem(Icons.emoji_emotions_outlined),
-            ],
+          _buildIconButtonItem(
+            Icons.photo_outlined,
+            "Photos",
+            Colors.red,
           ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+            child: Divider(color: kBorderColor),
+          ),
+          _buildIconButtonItem(
+            Icons.location_on,
+            "Location",
+            Colors.blue,
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+            child: Divider(color: kBorderColor),
+          ),
+          _buildIconButtonItem(
+            Icons.emoji_emotions_outlined,
+            "Emoji",
+            Colors.yellow,
+          ),
+          SizedBox(height: 20),
+          _buildSendButtonItems(),
+          SizedBox(height: 5),
         ],
       ),
     );
   }
 
-  _buildIconButtonItem(IconData icon) {
+  _buildIconButtonItem(IconData icon, String text, color) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-      child: IconButton(
-        icon: Icon(
-          icon,
-          color: Color(0xFF57636C),
-          size: 22,
+      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+      child: Container(
+        height: 30,
+        width: double.infinity,
+        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+        decoration: kAddPostItemBoxDecorationTextField,
+        alignment: Alignment.centerLeft,
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              color: color,
+              size: 22,
+            ),
+            SizedBox(width: 10),
+            Text(text, style: kAddPostItemsTextStyle),
+          ],
         ),
-        onPressed: () {},
+      ),
+    );
+  }
+
+  _buildSendButtonItems() {
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
+      child: Row(
+        children: [
+          _buildDraftButton(),
+          SizedBox(width: 10),
+          _buildPostButton(),
+        ],
+      ),
+    );
+  }
+
+  _buildDraftButton() {
+    return Expanded(
+      flex: 4,
+      child: Container(
+        height: 40,
+        decoration: kBoxDecorationTextField,
+        alignment: Alignment.center,
+        child: Text("Draft", style: kDraftButtonTitleTextStyle),
+      ),
+    );
+  }
+
+  _buildPostButton() {
+    return Expanded(
+      flex: 5,
+      child: Container(
+        height: 40,
+        decoration: kAddPostBoxDecorationTextField,
+        alignment: Alignment.center,
+        child: Text("Post", style: kAddPostTitleTextStyle),
+      ),
+    );
+  }
+
+  _buildTextField() {
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 8),
+      child: Expanded(
+        child: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+          child: TextFormField(
+            controller: textController,
+            autofocus: true,
+            decoration: InputDecoration(
+              hintText: 'Write something...',
+              hintStyle: kHintTextStyle,
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                ),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0x00000000),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

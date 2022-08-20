@@ -34,6 +34,7 @@ class _AppBarWidgetState extends State {
       automaticallyImplyLeading: false,
       toolbarHeight: 40,
       title: Row(children: [
+        _buildBackArrow(),
         _buildTitle(title),
         Flexible(child: Container()),
       ]),
@@ -51,6 +52,22 @@ class _AppBarWidgetState extends State {
         child: Text(
           title,
           style: tAppbarTitleTextStyle,
+        ),
+      ),
+    );
+  }
+
+  _buildBackArrow() {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+          size: 25,
         ),
       ),
     );

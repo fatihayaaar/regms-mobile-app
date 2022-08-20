@@ -96,7 +96,7 @@ Widget buildDrawerHeader({required context, required title}) {
               size: 25,
             ),
           ),
-        )
+        ),
       ],
     ),
   );
