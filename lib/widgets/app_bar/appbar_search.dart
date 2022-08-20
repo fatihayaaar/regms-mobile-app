@@ -27,7 +27,7 @@ class _AppBarSearchWidgetState extends State {
       toolbarHeight: 50,
       title: Row(
         children: [
-          buildSearchWidget(),
+          SearchWidget(),
         ],
       ),
       backgroundColor: kMainAppbarColor,

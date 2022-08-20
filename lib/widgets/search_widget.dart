@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 
-buildSearchWidget() {
-  return Flexible(
-    child: Container(
-      height: 30,
-      alignment: AlignmentDirectional(0, 0),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+class SearchWidget extends StatefulWidget {
+
+  @override
+  State<StatefulWidget> createState() => _SearchWidgetState();
+}
+
+class _SearchWidgetState extends State {
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: Container(
+        height: 28,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Expanded(
               child: TextFormField(
-                //controller: textController,
                 obscureText: false,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -29,13 +33,15 @@ buildSearchWidget() {
                   prefixIcon: Icon(
                     Icons.search_sharp,
                     color: kThemeColor,
+                    size: 20,
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
+
 }

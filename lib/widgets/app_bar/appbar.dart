@@ -14,7 +14,7 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
       _AppBarWidgetState(title, backButtonVisibility);
 
   @override
-  Size get preferredSize => const Size.fromHeight(40.0);
+  Size get preferredSize => const Size.fromHeight(50.0);
 }
 
 class _AppBarWidgetState extends State {
@@ -35,7 +35,7 @@ class _AppBarWidgetState extends State {
         statusBarIconBrightness: Brightness.light,
       ),
       automaticallyImplyLeading: false,
-      toolbarHeight: 40,
+      toolbarHeight: 50,
       title: Row(
         children: [
           _buildBackArrow(),
