@@ -19,8 +19,8 @@ class _PhotoState extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 180),
-      margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+      constraints: BoxConstraints(maxHeight: 180, minHeight: 180),
+      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
       child: Row(
         children: [
           Stack(

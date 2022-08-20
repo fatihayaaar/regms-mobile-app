@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
-import 'package:regms_flutter_client/widgets/photo.dart';
+import 'package:regms_flutter_client/widgets/photos_selection.dart';
 
 class AddPostScreen extends StatefulWidget {
   @override
@@ -10,6 +11,8 @@ class AddPostScreen extends StatefulWidget {
 }
 
 class _AddPostScreenState extends State {
+  var photos = ["assets/images/dump_1.jpg", "assets/images/dump_1.jpg"];
+
   TextEditingController? textController;
 
   @override
@@ -31,27 +34,36 @@ class _AddPostScreenState extends State {
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (overScroll) {
-            overScroll.disallowIndicator();
-            return false;
-          },
-          child: SingleChildScrollView(
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-              ),
-              child: Column(
-                children: [
-                  _buildTextField(),
-                  _buildPhoto(),
-                  SizedBox(height: 20),
-                  _buildAddPostIconItems(),
-                ],
+        child: Stack(
+          children: [
+            Container(height: 30, color: kAppbarColor),
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+              child: NotificationListener<OverscrollIndicatorNotification>(
+                onNotification: (overScroll) {
+                  overScroll.disallowIndicator();
+                  return false;
+                },
+                child: SingleChildScrollView(
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 5),
+                        _buildTextField(),
+                        _buildPhotos(),
+                        SizedBox(height: 20),
+                        _buildAddPostIconItems(),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -144,14 +156,13 @@ class _AddPostScreenState extends State {
     );
   }
 
-  _buildPhoto() {
-    return Photo(photo: "assets/images/dump_1.jpg");
+  _buildPhotos() {
+    return PhotosSelection(photos: photos);
   }
 
   _buildFAB() {
     return FloatingActionButton(
-      onPressed: () {
-      },
+      onPressed: () {},
       backgroundColor: kAppbarColor,
       elevation: 0,
       child: Icon(Icons.send),
