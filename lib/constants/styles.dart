@@ -275,6 +275,18 @@ final kAddPostItemsTextStyle = GoogleFonts.rubik(
   color: kBottomSheetColor,
 );
 
+final kAgendaTextStyle = GoogleFonts.rubik(
+  fontSize: 18,
+  fontWeight: FontWeight.w500,
+  color: kAppbarColor,
+);
+
+final kAgendaDetailTextStyle = GoogleFonts.rubik(
+  color: kAppbarColor.withOpacity(0.5),
+  fontWeight: FontWeight.w400,
+  fontSize: 12,
+);
+
 final kFollowersCountTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.normal,

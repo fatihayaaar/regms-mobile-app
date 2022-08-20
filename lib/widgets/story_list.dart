@@ -22,7 +22,7 @@ class _StoryListState extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: 120,
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(color: kBorderColor)),
         color: kThemeColor,

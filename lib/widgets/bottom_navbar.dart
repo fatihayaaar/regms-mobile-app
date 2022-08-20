@@ -6,6 +6,7 @@ import 'package:regms_flutter_client/screens/add_post_screen.dart';
 import 'package:regms_flutter_client/screens/home_screen.dart';
 import 'package:regms_flutter_client/screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/profile_screen.dart';
+import 'package:regms_flutter_client/screens/search_screen.dart';
 
 // ignore: must_be_immutable
 class BottomNavBar extends StatefulWidget {
@@ -65,7 +66,7 @@ class BottomNavBarState extends State<BottomNavBar> {
           Expanded(
             flex: 1,
             child: _buildItem(
-              page: LoginScreen(),
+              page: SearchScreen(),
               icon: Icons.search_rounded,
             ),
           ),
