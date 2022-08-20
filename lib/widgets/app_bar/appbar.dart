@@ -10,7 +10,8 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   AppBarWidget({this.title = "", this.backButtonVisibility = true});
 
   @override
-  _AppBarWidgetState createState() => _AppBarWidgetState(title, backButtonVisibility);
+  _AppBarWidgetState createState() =>
+      _AppBarWidgetState(title, backButtonVisibility);
 
   @override
   Size get preferredSize => const Size.fromHeight(40.0);
@@ -35,11 +36,13 @@ class _AppBarWidgetState extends State {
       ),
       automaticallyImplyLeading: false,
       toolbarHeight: 40,
-      title: Row(children: [
-        _buildBackArrow(),
-        _buildTitle(title),
-        Flexible(child: Container()),
-      ]),
+      title: Row(
+        children: [
+          _buildBackArrow(),
+          _buildTitle(title),
+          Flexible(child: Container()),
+        ],
+      ),
       backgroundColor: kMainAppbarColor,
       iconTheme: IconThemeData(color: kThemeColor),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),

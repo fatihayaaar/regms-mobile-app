@@ -314,3 +314,9 @@ final kPostContentTextStyle = GoogleFonts.rubik(
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
+
+final kStoryMiniUsernameTextStyle = GoogleFonts.rubik(
+  color: kAppbarColor.withOpacity(0.65),
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+);

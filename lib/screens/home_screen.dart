@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/user.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
+import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/post_card.dart';
+import 'package:regms_flutter_client/widgets/story_list.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -111,14 +114,21 @@ class _HomeScreenState extends State {
         overScroll.disallowIndicator();
         return false;
       },
-      child: ListView.builder(
-        padding: EdgeInsets.all(0),
-        physics: ScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: posts.length,
-        itemBuilder: (BuildContext context, int index) {
-          return posts.elementAt(index);
-        },
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            StoryList(list: []),
+            ListView.builder(
+              padding: EdgeInsets.all(0),
+              physics: ScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: posts.length,
+              itemBuilder: (BuildContext context, int index) {
+                return posts.elementAt(index);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
