@@ -39,31 +39,35 @@ class _AddPostScreenState extends State {
             Container(height: 30, color: kAppbarColor),
             ClipRRect(
               borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-              child: NotificationListener<OverscrollIndicatorNotification>(
-                onNotification: (overScroll) {
-                  overScroll.disallowIndicator();
-                  return false;
-                },
-                child: SingleChildScrollView(
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      children: [
-                        SizedBox(height: 5),
-                        _buildTextField(),
-                        _buildPhotos(),
-                        SizedBox(height: 20),
-                        _buildAddPostIconItems(),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              child: _buildContent(),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  _buildContent() {
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overScroll) {
+        overScroll.disallowIndicator();
+        return false;
+      },
+      child: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.white,
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: 5),
+              _buildTextField(),
+              _buildPhotos(),
+              SizedBox(height: 20),
+              _buildAddPostIconItems(),
+            ],
+          ),
         ),
       ),
     );

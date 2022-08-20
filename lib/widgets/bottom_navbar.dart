@@ -3,6 +3,7 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/screens/add_post_screen.dart';
+import 'package:regms_flutter_client/screens/home_screen.dart';
 import 'package:regms_flutter_client/screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/profile_screen.dart';
 
@@ -43,7 +44,7 @@ class BottomNavBarState extends State<BottomNavBar> {
           Expanded(
             flex: 1,
             child: _buildItem(
-              page: LoginScreen(),
+              page: HomeScreen(),
               icon: Icons.home_outlined,
             ),
           ),

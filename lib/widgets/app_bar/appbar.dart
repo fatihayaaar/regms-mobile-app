@@ -5,11 +5,12 @@ import 'package:regms_flutter_client/constants/styles.dart';
 
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   final String title;
+  final bool backButtonVisibility;
 
-  AppBarWidget({this.title = ""});
+  AppBarWidget({this.title = "", this.backButtonVisibility = true});
 
   @override
-  _AppBarWidgetState createState() => _AppBarWidgetState(title);
+  _AppBarWidgetState createState() => _AppBarWidgetState(title, backButtonVisibility);
 
   @override
   Size get preferredSize => const Size.fromHeight(40.0);
@@ -17,8 +18,9 @@ class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
 
 class _AppBarWidgetState extends State {
   String title;
+  final bool backButtonVisibility;
 
-  _AppBarWidgetState(this.title);
+  _AppBarWidgetState(this.title, this.backButtonVisibility);
 
   @override
   Widget build(BuildContext context) {
@@ -58,16 +60,19 @@ class _AppBarWidgetState extends State {
   }
 
   _buildBackArrow() {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: GestureDetector(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
-          size: 25,
+    return Visibility(
+      visible: backButtonVisibility,
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+            size: 25,
+          ),
         ),
       ),
     );
