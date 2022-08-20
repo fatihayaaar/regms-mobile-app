@@ -207,9 +207,14 @@ final Decoration kBoxDecorationTextField = BoxDecoration(
   borderRadius: BorderRadius.circular(15),
 );
 
+final Decoration kAddPostDraftBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.circular(0),
+);
+
 final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
   color: kAppbarColor,
-  borderRadius: BorderRadius.circular(15),
+  borderRadius: BorderRadius.circular(0),
 );
 
 final Decoration kFilterBoxDecorationTextField = BoxDecoration(

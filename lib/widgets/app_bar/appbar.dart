@@ -72,5 +72,4 @@ class _AppBarWidgetState extends State {
       ),
     );
   }
-
 }

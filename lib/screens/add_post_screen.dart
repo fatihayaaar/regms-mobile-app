@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
+import 'package:regms_flutter_client/widgets/photo.dart';
 
 class AddPostScreen extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class _AddPostScreenState extends State {
     return Scaffold(
       appBar: AppBarWidget(title: "Add"),
       body: _buildBody(),
+      floatingActionButton: _buildFAB(),
     );
   }
 
@@ -29,18 +31,26 @@ class _AddPostScreenState extends State {
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              _buildTextField(),
-              Expanded(child: Container()),
-              _buildAddPostIconItems(),
-            ],
+        child: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (overScroll) {
+            overScroll.disallowIndicator();
+            return false;
+          },
+          child: SingleChildScrollView(
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                children: [
+                  _buildTextField(),
+                  _buildPhoto(),
+                  SizedBox(height: 20),
+                  _buildAddPostIconItems(),
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -72,13 +82,11 @@ class _AddPostScreenState extends State {
             child: Divider(color: kBorderColor),
           ),
           _buildIconButtonItem(
-            Icons.emoji_emotions_outlined,
-            "Emoji",
-            Colors.yellow,
+            Icons.discount,
+            "Labels",
+            Colors.deepOrange,
           ),
           SizedBox(height: 20),
-          _buildSendButtonItems(),
-          SizedBox(height: 5),
         ],
       ),
     );
@@ -108,69 +116,45 @@ class _AddPostScreenState extends State {
     );
   }
 
-  _buildSendButtonItems() {
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 5, 10, 5),
-      child: Row(
-        children: [
-          _buildDraftButton(),
-          SizedBox(width: 10),
-          _buildPostButton(),
-        ],
-      ),
-    );
-  }
-
-  _buildDraftButton() {
-    return Expanded(
-      flex: 4,
-      child: Container(
-        height: 40,
-        decoration: kBoxDecorationTextField,
-        alignment: Alignment.center,
-        child: Text("Draft", style: kDraftButtonTitleTextStyle),
-      ),
-    );
-  }
-
-  _buildPostButton() {
-    return Expanded(
-      flex: 5,
-      child: Container(
-        height: 40,
-        decoration: kAddPostBoxDecorationTextField,
-        alignment: Alignment.center,
-        child: Text("Post", style: kAddPostTitleTextStyle),
-      ),
-    );
-  }
-
   _buildTextField() {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 8),
-      child: Expanded(
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
-          child: TextFormField(
-            controller: textController,
-            autofocus: true,
-            decoration: InputDecoration(
-              hintText: 'Write something...',
-              hintStyle: kHintTextStyle,
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color(0x00000000),
-                ),
+      child: Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+        child: TextFormField(
+          controller: textController,
+          autofocus: true,
+          maxLines: null,
+          decoration: InputDecoration(
+            hintText: 'Write something...',
+            hintStyle: kHintTextStyle,
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
               ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color(0x00000000),
-                ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0x00000000),
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  _buildPhoto() {
+    return Photo(photo: "assets/images/dump_1.jpg");
+  }
+
+  _buildFAB() {
+    return FloatingActionButton(
+      onPressed: () {
+      },
+      backgroundColor: kAppbarColor,
+      elevation: 0,
+      child: Icon(Icons.send),
     );
   }
 }
