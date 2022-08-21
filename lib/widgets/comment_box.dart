@@ -34,7 +34,7 @@ class CommentBox extends StatelessWidget {
   _buildCommentAvatar() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-      child: buildAvatar(
+      child: Avatar(
         borderColor: Colors.white.withOpacity(1),
         img: "${comment.user.profile.avatar}",
         size: 14,

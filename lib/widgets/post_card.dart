@@ -40,7 +40,7 @@ class PostCard extends StatelessWidget {
     return Container(
       alignment: Alignment.bottomLeft,
       margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-      child: buildAvatar(
+      child: Avatar(
         borderColor: Colors.white.withOpacity(1),
         img: "${post.user.profile.avatar}",
         size: 20,

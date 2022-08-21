@@ -30,7 +30,7 @@ class StoryList extends StatelessWidget {
             children: [
               Container(
                 margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                child: buildAvatar(
+                child: Avatar(
                   borderColor: Colors.white,
                   img: "assets/images/dump_1.jpg",
                   size: 32,

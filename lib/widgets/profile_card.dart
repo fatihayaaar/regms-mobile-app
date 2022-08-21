@@ -63,7 +63,7 @@ class ProfileCard extends StatelessWidget {
   _buildAvatar() {
     return Container(
       alignment: Alignment.centerLeft,
-      child: buildAvatar(
+      child: Avatar(
         borderColor: Colors.white.withOpacity(1),
         img: user.profile.avatar!,
         size: 35,

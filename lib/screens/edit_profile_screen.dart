@@ -82,7 +82,7 @@ class _EditProfileScreen extends State {
         alignment: Alignment.center,
         children: [
           Center(
-            child: buildAvatar(
+            child: Avatar(
               borderColor: Colors.white.withOpacity(0),
               img: "assets/images/dump_1.jpg",
               size: 80,

@@ -4,7 +4,6 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
 class FollowUser extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +13,7 @@ class FollowUser extends StatelessWidget {
         minLeadingWidth: 10,
         horizontalTitleGap: 5,
         contentPadding: EdgeInsets.zero,
-        leading: buildAvatar(
+        leading: Avatar(
           size: 28,
           borderColor: kThemeColor,
           img: 'assets/images/dump_1.jpg',
