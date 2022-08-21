@@ -19,7 +19,7 @@ Widget buildDrawer({required context}) {
           children: [
             buildDrawerHeader(context: context, title: "Settings"),
             SizedBox(height: 10),
-            buildSearch(),
+            Search(),
             SizedBox(height: 20),
             buildDrawerListItem(context, "Account", AccountSettingsScreen()),
             Divider(color: kBorderColor),
