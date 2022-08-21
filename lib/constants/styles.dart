@@ -332,3 +332,15 @@ final kStoryMiniUsernameTextStyle = GoogleFonts.rubik(
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
+
+final kUserListUsernameTextStyle = GoogleFonts.rubik(
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  color: kAppbarColor,
+);
+
+final kUserListStatusTextStyle = GoogleFonts.rubik(
+  color: kAppbarColor.withOpacity(0.6),
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+);
