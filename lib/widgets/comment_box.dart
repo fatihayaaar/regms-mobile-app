@@ -4,21 +4,11 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
-class CommentBox extends StatefulWidget {
+class CommentBox extends StatelessWidget {
   final String? detailText;
   final Comment comment;
 
   CommentBox({this.detailText, required this.comment});
-
-  @override
-  State<StatefulWidget> createState() => _CommentBoxState(detailText, comment);
-}
-
-class _CommentBoxState extends State {
-  String? detailText;
-  Comment comment;
-
-  _CommentBoxState(this.detailText, this.comment);
 
   @override
   Widget build(BuildContext context) {

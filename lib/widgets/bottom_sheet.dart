@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 
-class BottomSheetWidget extends StatefulWidget {
+class BottomSheetWidget extends StatelessWidget {
   const BottomSheetWidget({Key? key}) : super(key: key);
 
-  @override
-  _BottomSheetWidgetState createState() => _BottomSheetWidgetState();
-}
-
-class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

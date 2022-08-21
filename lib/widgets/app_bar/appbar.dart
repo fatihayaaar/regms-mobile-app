@@ -25,10 +25,10 @@ class _AppBarWidgetState extends State {
 
   @override
   Widget build(BuildContext context) {
-    return appBar(title);
+    return _appBar(title);
   }
 
-  AppBar appBar(String title) {
+  _appBar(String title) {
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -49,11 +49,11 @@ class _AppBarWidgetState extends State {
     );
   }
 
-  Widget _buildTitle(String title) {
+  _buildTitle(String title) {
     return Flexible(
       child: Container(
         alignment: Alignment.centerLeft,
-        margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Text(
           title,
           style: tAppbarTitleTextStyle,
@@ -65,16 +65,19 @@ class _AppBarWidgetState extends State {
   _buildBackArrow() {
     return Visibility(
       visible: backButtonVisibility,
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-            size: 25,
+      child: Container(
+        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+              size: 25,
+            ),
           ),
         ),
       ),

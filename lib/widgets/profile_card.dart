@@ -2,21 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user.dart';
 import 'package:regms_flutter_client/screens/edit_profile_screen.dart';
+import 'package:regms_flutter_client/screens/users_screens.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
-class ProfileCard extends StatefulWidget {
+class ProfileCard extends StatelessWidget {
   final User user;
+  final context;
 
-  ProfileCard({required this.user});
-
-  @override
-  State<StatefulWidget> createState() => _ProfileCardState(user);
-}
-
-class _ProfileCardState extends State {
-  User user;
-
-  _ProfileCardState(this.user);
+  ProfileCard({required this.user, required this.context});
 
   @override
   Widget build(BuildContext context) {
@@ -121,20 +114,26 @@ class _ProfileCardState extends State {
   }
 
   _buildProfileFollowersText({required String text, required String count}) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-      child: Row(
-        children: [
-          Text(
-            count,
-            style: kFollowersCountSizeTextStyle,
-          ),
-          SizedBox(width: 5),
-          Text(
-            text,
-            style: kFollowersCountTextStyle,
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Route route = MaterialPageRoute(builder: (_) => UsersScreen());
+        Navigator.push(context, route);
+      },
+      child: Container(
+        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        child: Row(
+          children: [
+            Text(
+              count,
+              style: kFollowersCountSizeTextStyle,
+            ),
+            SizedBox(width: 5),
+            Text(
+              text,
+              style: kFollowersCountTextStyle,
+            ),
+          ],
+        ),
       ),
     );
   }

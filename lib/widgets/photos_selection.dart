@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/widgets/photo.dart';
 
-class PhotosSelection extends StatefulWidget {
+class PhotosSelection extends StatelessWidget {
   final photos;
 
   PhotosSelection({
     required this.photos,
   });
-
-  @override
-  State<StatefulWidget> createState() => _PhotosSelectionState(photos);
-}
-
-class _PhotosSelectionState extends State {
-  var photos;
-
-  _PhotosSelectionState(this.photos);
 
   @override
   Widget build(BuildContext context) {

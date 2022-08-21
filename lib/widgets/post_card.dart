@@ -7,22 +7,13 @@ import 'package:regms_flutter_client/widgets/bottom_sheet.dart';
 import 'package:regms_flutter_client/widgets/comment_box.dart';
 import 'package:regms_flutter_client/widgets/comment_text_field.dart';
 
-class PostCard extends StatefulWidget {
+class PostCard extends StatelessWidget {
   final Post post;
+  final context;
 
   PostCard({
     required this.post,
-  });
-
-  @override
-  State<StatefulWidget> createState() => _PostCardState(post: post);
-}
-
-class _PostCardState extends State {
-  Post post;
-
-  _PostCardState({
-    required this.post,
+    required this.context,
   });
 
   @override

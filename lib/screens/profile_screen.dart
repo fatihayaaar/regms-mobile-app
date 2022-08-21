@@ -34,76 +34,80 @@ class _ProfileScreenState extends State {
     'Text',
   ];
 
-  final List<PostCard> posts = [
-    PostCard(
-      post: Post(
-        user: User(
-          username: "fayar",
-          profile: Profile(avatar: "assets/images/dump_1.jpg"),
-        ),
-        likeCount: 920,
-        commentCount: 10,
-        text:
-            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-        sendDate: "3s",
-        comment: Comment(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          text:
-              "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
-          sendTime: "10sn",
-        ),
-        media: "assets/images/dump_2.jpg",
-      ),
-    ),
-    PostCard(
-      post: Post(
-        user: User(
-          username: "fayar",
-          profile: Profile(avatar: "assets/images/dump_1.jpg"),
-        ),
-        likeCount: 920,
-        commentCount: 0,
-        sendDate: "3s",
-        media: "assets/images/dump_2.jpg",
-      ),
-    ),
-    PostCard(
-      post: Post(
-        user: User(
-          username: "fayar",
-          profile: Profile(avatar: "assets/images/dump_1.jpg"),
-        ),
-        likeCount: 9220,
-        commentCount: 0,
-        text:
-            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-        sendDate: "3s",
-        comment: Comment(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          text:
-              "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
-          sendTime: "10sn",
-        ),
-      ),
-    )
-  ];
+  List<PostCard> posts = [];
 
   _ProfileScreenState(this.user, this.isMyProfile);
 
   @override
   Widget build(BuildContext context) {
+    posts = [
+      PostCard(
+        post: Post(
+          user: User(
+            username: "fayar",
+            profile: Profile(avatar: "assets/images/dump_1.jpg"),
+          ),
+          likeCount: 920,
+          commentCount: 10,
+          text:
+          "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+          sendDate: "3s",
+          comment: Comment(
+            user: User(
+              username: "fayar",
+              profile: Profile(avatar: "assets/images/dump_1.jpg"),
+            ),
+            text:
+            "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+            sendTime: "10sn",
+          ),
+          media: "assets/images/dump_2.jpg",
+        ),
+        context: context,
+      ),
+      PostCard(
+        post: Post(
+          user: User(
+            username: "fayar",
+            profile: Profile(avatar: "assets/images/dump_1.jpg"),
+          ),
+          likeCount: 920,
+          commentCount: 0,
+          sendDate: "3s",
+          media: "assets/images/dump_2.jpg",
+        ),
+        context: context,
+      ),
+      PostCard(
+        post: Post(
+          user: User(
+            username: "fayar",
+            profile: Profile(avatar: "assets/images/dump_1.jpg"),
+          ),
+          likeCount: 9220,
+          commentCount: 0,
+          text:
+          "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+          sendDate: "3s",
+          comment: Comment(
+            user: User(
+              username: "fayar",
+              profile: Profile(avatar: "assets/images/dump_1.jpg"),
+            ),
+            text:
+            "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+            sendTime: "10sn",
+          ),
+        ),
+        context: context,
+      ),
+    ];
     return DefaultTabController(
       length: 4,
       child: Scaffold(
         body: _buildBody(),
         endDrawer: buildDrawer(context: context),
-        bottomNavigationBar: BottomNavBar(selected: -2),
+        bottomNavigationBar: BottomNavBar(selected: -2, context: context),
       ),
     );
   }
@@ -132,7 +136,7 @@ class _ProfileScreenState extends State {
         margin: EdgeInsets.fromLTRB(
             0, 40 + MediaQuery.of(context).viewPadding.top, 0, 0),
         alignment: Alignment.centerLeft,
-        child: ProfileCard(user: user),
+        child: ProfileCard(user: user, context: context),
       ),
     );
   }

@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 
-class SearchWidget extends StatefulWidget {
-
-  @override
-  State<StatefulWidget> createState() => _SearchWidgetState();
-}
-
-class _SearchWidgetState extends State {
+class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Flexible(

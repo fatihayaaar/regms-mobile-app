@@ -3,21 +3,12 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
-class StoryList extends StatefulWidget {
+class StoryList extends StatelessWidget {
   final list;
 
   StoryList({
     required this.list,
   });
-
-  @override
-  State<StatefulWidget> createState() => _StoryListState(list);
-}
-
-class _StoryListState extends State {
-  var list;
-
-  _StoryListState(this.list);
 
   @override
   Widget build(BuildContext context) {

@@ -2,19 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
-class CommentTextField extends StatefulWidget {
+class CommentTextField extends StatelessWidget {
   final String? avatar;
 
   CommentTextField({this.avatar});
-
-  @override
-  State<StatefulWidget> createState() => _CommentTextFieldState(avatar);
-}
-
-class _CommentTextFieldState extends State {
-  String? avatar;
-
-  _CommentTextFieldState(this.avatar);
 
   @override
   Widget build(BuildContext context) {

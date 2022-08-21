@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SlideTile extends StatelessWidget {
-  Widget widget;
+  final Widget widget;
 
   SlideTile({required this.widget});
 

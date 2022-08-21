@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Photo extends StatefulWidget {
+class Photo extends StatelessWidget {
   final String photo;
 
   Photo({
     required this.photo,
   });
-
-  @override
-  State<StatefulWidget> createState() => _PhotoState(photo);
-}
-
-class _PhotoState extends State {
-  String photo;
-
-  _PhotoState(this.photo);
 
   @override
   Widget build(BuildContext context) {

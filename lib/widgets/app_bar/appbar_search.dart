@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/search_widget.dart';
 
-class AppBarSearchWidget extends StatefulWidget implements PreferredSizeWidget {
-  @override
-  _AppBarSearchWidgetState createState() => _AppBarSearchWidgetState();
-
+class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(50.0);
-}
 
-class _AppBarSearchWidgetState extends State {
   @override
   Widget build(BuildContext context) {
-    return appBar();
+    return _appBar();
   }
 
-  AppBar appBar() {
+  _appBar() {
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -27,12 +23,25 @@ class _AppBarSearchWidgetState extends State {
       toolbarHeight: 50,
       title: Row(
         children: [
+          _buildTitle("Search"),
+          SizedBox(width: 15),
           SearchWidget(),
         ],
       ),
       backgroundColor: kMainAppbarColor,
       iconTheme: IconThemeData(color: kThemeColor),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
+    );
+  }
+
+  _buildTitle(String title) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      child: Text(
+        title,
+        style: tAppbarTitleTextStyle,
+      ),
     );
   }
 }

@@ -8,22 +8,11 @@ import 'package:regms_flutter_client/screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/profile_screen.dart';
 import 'package:regms_flutter_client/screens/search_screen.dart';
 
-// ignore: must_be_immutable
-class BottomNavBar extends StatefulWidget {
-  int selected;
+class BottomNavBar extends StatelessWidget {
+  final int selected;
+  final context;
 
-  BottomNavBar({required this.selected});
-
-  @override
-  State<StatefulWidget> createState() {
-    return BottomNavBarState(selected);
-  }
-}
-
-class BottomNavBarState extends State<BottomNavBar> {
-  int selected;
-
-  BottomNavBarState(this.selected);
+  BottomNavBar({required this.selected, required this.context});
 
   @override
   Widget build(BuildContext context) {
