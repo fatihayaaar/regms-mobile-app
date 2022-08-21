@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
 import 'package:regms_flutter_client/widgets/follow_user_widget.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
@@ -10,6 +11,32 @@ class UsersScreen extends StatefulWidget {
 }
 
 class _UsersScreenState extends State {
+  var users = [
+    UserListTile(
+      username: 'fayar',
+      avatar: "assets/images/dump_1.jpg",
+      nameAndSurname: "Fatih Ayar",
+      isFollow: false,
+      isStory: true,
+    ),
+    UserListTile(
+      username: 'berkcanoz',
+      avatar: "assets/images/dump_2.jpg",
+      nameAndSurname: "Berkercan",
+      isFollow: false,
+    ),
+    UserListTile(
+      username: 'damali',
+      avatar: "assets/images/dump_2.jpg",
+      isFollow: false,
+    ),
+    UserListTile(
+      username: 'polat',
+      avatar: "assets/images/dump_1.jpg",
+      isFollow: false,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +56,11 @@ class _UsersScreenState extends State {
         ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: 15,
+          itemCount: users.length,
           itemBuilder: (BuildContext context, int index) {
-            return FollowUser();
+            return FollowUser(
+              user: users[index],
+            );
           },
         ),
       ],

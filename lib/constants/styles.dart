@@ -344,3 +344,9 @@ final kUserListStatusTextStyle = GoogleFonts.rubik(
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
+
+final kUserListActionTextStyle = GoogleFonts.rubik(
+  color: kThemeColor,
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+);

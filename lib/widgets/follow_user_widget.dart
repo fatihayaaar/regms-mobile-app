@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
 class FollowUser extends StatelessWidget {
+  final UserListTile user;
+
+  FollowUser({required this.user});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 15, 0),
+      margin: EdgeInsets.fromLTRB(10, 5, 15, 5),
       child: ListTile(
         minVerticalPadding: 0,
         minLeadingWidth: 10,
@@ -15,8 +20,7 @@ class FollowUser extends StatelessWidget {
         dense: true,
         contentPadding: EdgeInsets.zero,
         leading: _buildAvatar(),
-        title: _buildUsername(),
-        subtitle: _buildStatus(),
+        title: _buildTitle(),
         trailing: _buildAction(),
       ),
     );
@@ -26,28 +30,43 @@ class FollowUser extends StatelessWidget {
     return Avatar(
       size: 28,
       borderColor: kThemeColor,
-      img: 'assets/images/dump_1.jpg',
+      img: user.avatar ?? "",
+      isStory: user.isStory ?? false,
+    );
+  }
+
+  _buildTitle() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _buildUsername(),
+        _buildNameAndSurname(),
+      ],
     );
   }
 
   _buildUsername() {
     return Text(
-      "fayar",
+      user.username,
       style: kUserListUsernameTextStyle,
     );
   }
 
-  _buildStatus() {
-    return Text(
-      "Fatih Ayar",
-      overflow: TextOverflow.ellipsis,
-      style: kUserListStatusTextStyle,
+  _buildNameAndSurname() {
+    return Visibility(
+      visible: user.nameAndSurname == null ? false : true,
+      child: Text(
+        user.nameAndSurname ?? "",
+        overflow: TextOverflow.ellipsis,
+        style: kUserListStatusTextStyle,
+      ),
     );
   }
 
   _buildAction() {
     return Container(
-      width: 90,
+      width: 80,
       height: 25,
       decoration: BoxDecoration(
         color: kAppbarColor,
@@ -57,7 +76,10 @@ class FollowUser extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         style: kTransparentButtonButtonStyle,
-        child: Text("Follow"),
+        child: Text(
+          "Follow",
+          style: kUserListActionTextStyle,
+        ),
       ),
     );
   }
