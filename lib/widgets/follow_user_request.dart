@@ -4,16 +4,15 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
-class FollowUser extends StatelessWidget {
+class FollowUserRequest extends StatelessWidget {
   final UserListTile user;
 
-  FollowUser({required this.user});
+  FollowUserRequest({required this.user});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      margin: EdgeInsets.fromLTRB(10, 5, 15, 5),
+      margin: EdgeInsets.fromLTRB(10, 7, 15, 7),
       child: ListTile(
         minVerticalPadding: 0,
         minLeadingWidth: 10,
@@ -22,19 +21,35 @@ class FollowUser extends StatelessWidget {
         contentPadding: EdgeInsets.zero,
         leading: _buildAvatar(),
         title: _buildTitle(),
-        trailing: _buildAction(),
       ),
     );
   }
 
   _buildAvatar() {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 5, 0),
-      child: Avatar(
-        size: 20,
-        borderColor: kThemeColor,
-        img: user.avatar ?? "",
-        isStory: user.isStory ?? false,
+      margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+      width: 54,
+      child: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Avatar(
+              size: 17,
+              borderColor: kThemeColor,
+              img: user.avatar ?? "",
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Avatar(
+              size: 17,
+              borderColor: kThemeColor,
+              img: user.avatar ?? "",
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -64,26 +79,6 @@ class FollowUser extends StatelessWidget {
         user.nameAndSurname ?? "",
         overflow: TextOverflow.ellipsis,
         style: kUserListStatusTextStyle,
-      ),
-    );
-  }
-
-  _buildAction() {
-    return Container(
-      width: 80,
-      height: 25,
-      decoration: BoxDecoration(
-        color: kAppbarColor,
-        border: Border.all(color: kThemeColor),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: kTransparentButtonButtonStyle,
-        child: Text(
-          "Follow",
-          style: kUserListActionTextStyle,
-        ),
       ),
     );
   }

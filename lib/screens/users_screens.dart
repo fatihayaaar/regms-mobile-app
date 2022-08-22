@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/models/user_list_tile.dart';
+import 'package:regms_flutter_client/widgets/follow_user_request.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
+import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/follow_user_widget.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
 import 'package:regms_flutter_client/widgets/search.dart';
@@ -42,7 +45,7 @@ class _UsersScreenState extends State {
     return Scaffold(
       appBar: AppBarWidget(title: "Followers", backButtonVisibility: true),
       body: PageWidget(child: _buildContent()),
-      //bottomNavigationBar: BottomNavBar(selected: -2),
+      bottomNavigationBar: BottomNavBar(selected: -2, context: context),
     );
   }
 
@@ -50,9 +53,10 @@ class _UsersScreenState extends State {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.fromLTRB(15, 10, 15, 5),
+          margin: EdgeInsets.fromLTRB(15, 15, 15, 10),
           child: Search(),
         ),
+        _buildFollowRequestItem(),
         ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
@@ -62,6 +66,25 @@ class _UsersScreenState extends State {
               user: users[index],
             );
           },
+        ),
+      ],
+    );
+  }
+
+  _buildFollowRequestItem() {
+    return Column(
+      children: [
+        FollowUserRequest(
+          user: UserListTile(
+            username: 'Folloer Request',
+            avatar: "assets/images/dump_1.jpg",
+            nameAndSurname: "Approve or delete requests",
+            isFollow: false,
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+          child: Divider(color: kBorderColor),
         ),
       ],
     );

@@ -17,17 +17,63 @@ class _SearchScreenState extends State {
     'Turkey Trend Topic',
     'Local Trend Topic',
   ];
+  var isSearch = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarSearchWidget(),
+      appBar: AppBarSearchWidget(
+        searchOnChanged: (value) {
+          _searchOnChange(value);
+        },
+      ),
       body: PageWidget(child: _buildContent()),
       bottomNavigationBar: BottomNavBar(selected: -2, context: context),
     );
   }
 
   _buildContent() {
+    switch (isSearch) {
+      case false:
+        return _buildTrendTopic();
+      case true:
+        return _buildSearchResult();
+    }
+  }
+
+  _buildSearchResult() {
+    return Column(
+      children: [
+        Container(
+          height: 30,
+          margin: EdgeInsets.fromLTRB(15, 10, 15, 10),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              _buildListTypeItem("User"),
+              SizedBox(width: 10),
+              _buildListTypeItem("Group"),
+              SizedBox(width: 10),
+              _buildListTypeItem("Post"),
+              SizedBox(width: 10),
+              _buildListTypeItem("Tags"),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  _buildListTypeItem(value) {
+    return Container(
+      width: 75,
+      decoration: kBoxDecorationListTypeItem,
+      alignment: Alignment.center,
+      child: Text(value, style: kListTypeItemTextStyle),
+    );
+  }
+
+  _buildTrendTopic() {
     return Column(
       children: [
         SizedBox(height: 15),
@@ -35,7 +81,7 @@ class _SearchScreenState extends State {
         ListView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: 15,
+          itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
             return Container(
               margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
@@ -95,5 +141,24 @@ class _SearchScreenState extends State {
         ),
       ),
     );
+  }
+
+  _searchOnChange(value) {
+    if (value == null) {
+      setState(() {
+        this.isSearch = false;
+      });
+      return;
+    }
+
+    if (value == "") {
+      setState(() {
+        this.isSearch = false;
+      });
+    } else {
+      setState(() {
+        this.isSearch = true;
+      });
+    }
   }
 }

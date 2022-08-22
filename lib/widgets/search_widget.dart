@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 
 class SearchWidget extends StatelessWidget {
+  final onChanged;
+
+  SearchWidget({this.onChanged});
+
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -12,6 +16,7 @@ class SearchWidget extends StatelessWidget {
           children: [
             Expanded(
               child: TextFormField(
+                onChanged: onChanged,
                 obscureText: false,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(

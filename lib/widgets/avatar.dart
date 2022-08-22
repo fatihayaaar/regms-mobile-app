@@ -16,16 +16,16 @@ class Avatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(isStory ? 2 : 0),
+      padding: EdgeInsets.all(2),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.red,
+        color: isStory ? Colors.red : Colors.transparent,
       ),
       child: Container(
         padding: EdgeInsets.all(2),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: borderColor,
+          color: Colors.white,
         ),
         child: CircleAvatar(
           backgroundColor: Colors.grey,

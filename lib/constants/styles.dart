@@ -350,3 +350,14 @@ final kUserListActionTextStyle = GoogleFonts.rubik(
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
+
+final Decoration kBoxDecorationListTypeItem = BoxDecoration(
+  color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.circular(10),
+);
+
+final kListTypeItemTextStyle = GoogleFonts.rubik(
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+  color: kAppbarColor.withOpacity(0.8),
+);

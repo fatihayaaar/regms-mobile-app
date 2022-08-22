@@ -5,6 +5,10 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/search_widget.dart';
 
 class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget {
+  final searchOnChanged;
+
+  AppBarSearchWidget({this.searchOnChanged});
+
   @override
   Size get preferredSize => const Size.fromHeight(50.0);
 
@@ -25,7 +29,7 @@ class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget 
         children: [
           _buildTitle("Search"),
           SizedBox(width: 15),
-          SearchWidget(),
+          SearchWidget(onChanged: searchOnChanged),
         ],
       ),
       backgroundColor: kMainAppbarColor,
