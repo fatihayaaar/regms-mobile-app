@@ -94,7 +94,13 @@ class _HomeScreenState extends State {
       ),
     ];
     return Scaffold(
-      appBar: AppBarWidget(title: "Home", backButtonVisibility: false),
+      appBar: AppBarWidget(
+        context: context,
+        title: "Home",
+        backButtonVisibility: false,
+        isShowNotificationIcon: true,
+        isShowMessagesIcon: true,
+      ),
       body: PageWidget(child: _buildContent()),
       bottomNavigationBar: BottomNavBar(selected: -2, context: context),
     );

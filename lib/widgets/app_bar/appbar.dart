@@ -3,25 +3,23 @@ import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 
-class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
+class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  final context;
   final String title;
   final bool backButtonVisibility;
+  final bool isShowNotificationIcon;
+  final bool isShowMessagesIcon;
 
-  AppBarWidget({this.title = "", this.backButtonVisibility = true});
-
-  @override
-  _AppBarWidgetState createState() =>
-      _AppBarWidgetState(title, backButtonVisibility);
+  AppBarWidget({
+    required this.context,
+    this.title = "",
+    this.backButtonVisibility = true,
+    this.isShowNotificationIcon = false,
+    this.isShowMessagesIcon = false,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(50.0);
-}
-
-class _AppBarWidgetState extends State {
-  String title;
-  final bool backButtonVisibility;
-
-  _AppBarWidgetState(this.title, this.backButtonVisibility);
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +39,7 @@ class _AppBarWidgetState extends State {
           _buildBackArrow(),
           _buildTitle(title),
           Flexible(child: Container()),
+          _buildActions(),
         ],
       ),
       backgroundColor: kMainAppbarColor,
@@ -80,6 +79,75 @@ class _AppBarWidgetState extends State {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  _buildActions() {
+    return Row(
+      children: [
+        _buildNotificationIcon(),
+        SizedBox(
+            width: isShowNotificationIcon
+                ? isShowMessagesIcon
+                    ? 20
+                    : 0
+                : 0),
+        _buildMessageIcon(),
+      ],
+    );
+  }
+
+  _buildNotificationIcon() {
+    return Visibility(
+      visible: isShowNotificationIcon,
+      child: Stack(
+        children: [
+          Icon(
+            Icons.notifications,
+            color: kThemeColor,
+          ),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              height: 10,
+              width: 10,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.red,
+              ),
+              alignment: Alignment.center,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildMessageIcon() {
+    return Visibility(
+      visible: isShowMessagesIcon,
+      child: Stack(
+        children: [
+          Icon(
+            Icons.chat,
+            color: kThemeColor,
+          ),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              height: 10,
+              width: 10,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.red,
+              ),
+              alignment: Alignment.center,
+            ),
+          ),
+        ],
       ),
     );
   }
