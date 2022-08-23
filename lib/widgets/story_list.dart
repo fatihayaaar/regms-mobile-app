@@ -15,12 +15,14 @@ class StoryList extends StatelessWidget {
     return Container(
       height: 120,
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: kBorderColor)),
+        border: Border(
+          bottom: BorderSide(color: kBorderColor.withOpacity(0.5)),
+        ),
         color: kThemeColor,
       ),
       child: ListView.builder(
         padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-        itemCount: 10,
+        itemCount: list.length,
         shrinkWrap: true,
         physics: ScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -28,14 +30,38 @@ class StoryList extends StatelessWidget {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                child: Avatar(
-                  borderColor: Colors.white,
-                  img: "assets/images/dump_1.jpg",
-                  size: 32,
-                  isStory: true,
-                ),
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    child: Avatar(
+                      borderColor: Colors.white,
+                      img: "assets/images/dump_1.jpg",
+                      size: 32,
+                      isStory: true,
+                    ),
+                  ),
+                  Visibility(
+                    visible: list[index].isVisibleAdd!,
+                    child: Positioned(
+                      right: 4,
+                      bottom: 4,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.indigoAccent,
+                        ),
+                        height: 22,
+                        width: 22,
+                        child: Icon(
+                          Icons.add,
+                          color: kThemeColor,
+                          size: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 5),
               Container(

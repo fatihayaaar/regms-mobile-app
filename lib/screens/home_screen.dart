@@ -3,6 +3,7 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
+import 'package:regms_flutter_client/models/story_list_item.dart';
 import 'package:regms_flutter_client/models/user.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
@@ -17,6 +18,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State {
   List<PostCard> posts = [];
+  var storyList = [
+    StoryListItem(isVisibleAdd: true),
+    StoryListItem(),
+    StoryListItem(),
+    StoryListItem(),
+    StoryListItem(),
+    StoryListItem(),
+    StoryListItem(),
+    StoryListItem(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +110,7 @@ class _HomeScreenState extends State {
   _buildPostView() {
     return Column(
       children: [
-        StoryList(list: []),
+        StoryList(list: storyList),
         ListView.builder(
           padding: EdgeInsets.all(0),
           physics: ScrollPhysics(),

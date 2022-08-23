@@ -139,7 +139,6 @@ class _AddPostScreenState extends State {
         padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
         child: TextFormField(
           controller: textController,
-          autofocus: true,
           maxLines: null,
           decoration: InputDecoration(
             hintText: 'Write something...',
