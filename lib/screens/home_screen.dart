@@ -91,7 +91,7 @@ class _HomeScreenState extends State {
 
   _buildContent() {
     return Container(
-      color: kBorderColor,
+      color: kThemeColor,
       child: _buildPostView(),
     );
   }

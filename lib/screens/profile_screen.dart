@@ -42,6 +42,7 @@ class _ProfileScreenState extends State {
   Widget build(BuildContext context) {
     posts = [
       PostCard(
+        isCommentVisible: false,
         post: Post(
           user: User(
             username: "fayar",
@@ -66,6 +67,7 @@ class _ProfileScreenState extends State {
         context: context,
       ),
       PostCard(
+        isCommentVisible: false,
         post: Post(
           user: User(
             username: "fayar",
@@ -79,6 +81,7 @@ class _ProfileScreenState extends State {
         context: context,
       ),
       PostCard(
+        isCommentVisible: false,
         post: Post(
           user: User(
             username: "fayar",
@@ -156,7 +159,7 @@ class _ProfileScreenState extends State {
     return LimitedBox(
       maxHeight: double.maxFinite,
       child: Container(
-        color: kBorderColor,
+        color: kBorderColor.withOpacity(0.5),
         child: ListView(
           padding: EdgeInsets.all(0),
           shrinkWrap: true,

@@ -10,10 +10,12 @@ import 'package:regms_flutter_client/widgets/comment_text_field.dart';
 class PostCard extends StatelessWidget {
   final Post post;
   final context;
+  final bool isCommentVisible;
 
   PostCard({
     required this.post,
     required this.context,
+    this.isCommentVisible = true,
   });
 
   @override
@@ -23,14 +25,12 @@ class PostCard extends StatelessWidget {
       color: kThemeColor,
       child: Column(
         children: [
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           _buildPostCardHeader(),
-          SizedBox(height: 5),
           _buildPostContent(),
-          SizedBox(height: 5),
           _buildPostMedia(),
+          SizedBox(height: 5),
           _buildPostFooter(),
-          SizedBox(height: 10),
         ],
       ),
     );
@@ -82,7 +82,7 @@ class PostCard extends StatelessWidget {
               ? false
               : true,
       child: Container(
-        margin: const EdgeInsets.fromLTRB(7, 0, 7, 7),
+        margin: const EdgeInsets.fromLTRB(7, 5, 7, 7),
         child: Text(
           "${post.text}",
           style: kPostContentTextStyle,
@@ -94,9 +94,12 @@ class PostCard extends StatelessWidget {
   _buildPostMedia() {
     return post.media == null
         ? Container()
-        : Image.asset(
-            "${post.media}",
-            fit: BoxFit.cover,
+        : Container(
+            margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Image.asset(
+              "${post.media}",
+              fit: BoxFit.cover,
+            ),
           );
   }
 
@@ -104,9 +107,16 @@ class PostCard extends StatelessWidget {
     return Column(
       children: [
         _buildActions(),
-        _buildComments(),
-        SizedBox(height: post.commentCount == 0 ? 5 : 0),
-        CommentTextField(avatar: post.user.profile.avatar),
+        Visibility(
+          visible: isCommentVisible,
+          child: Column(
+            children: [
+              _buildComments(),
+              SizedBox(height: post.commentCount == 0 ? 5 : 0),
+              CommentTextField(avatar: post.user.profile.avatar),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -123,7 +133,7 @@ class PostCard extends StatelessWidget {
 
   _buildActions() {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -132,6 +142,12 @@ class PostCard extends StatelessWidget {
             icon: (Icons.thumb_up_alt_outlined),
             onClick: () {},
             text: "${post.likeCount}",
+          ),
+          SizedBox(width: 20),
+          _buildAction(
+            icon: (Icons.messenger_outline),
+            onClick: () {},
+            text: "${post.commentCount}"
           ),
           SizedBox(width: 20),
           _buildAction(
@@ -186,7 +202,10 @@ class PostCard extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-        child: Icon(Icons.keyboard_control_rounded, color: kBodyTextColor,),
+        child: Icon(
+          Icons.keyboard_control_rounded,
+          color: kBodyTextColor,
+        ),
       ),
     );
   }
