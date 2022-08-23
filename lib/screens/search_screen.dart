@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar_search.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
+import 'package:regms_flutter_client/widgets/user_tile.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -42,31 +44,46 @@ class _SearchScreenState extends State {
   }
 
   _buildSearchResult() {
-    return Column(
-      children: [
-        Container(
-          height: 30,
-          margin: EdgeInsets.fromLTRB(15, 10, 15, 10),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              _buildListTypeItem("User"),
-              SizedBox(width: 10),
-              _buildListTypeItem("Group"),
-              SizedBox(width: 10),
-              _buildListTypeItem("Post"),
-              SizedBox(width: 10),
-              _buildListTypeItem("Tags"),
-            ],
-          ),
-        ),
-      ],
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      child: Column(
+        children: [
+          _buildListTypes(),
+          SizedBox(height: 10),
+          _buildResultAll(),
+        ],
+      ),
+    );
+  }
+
+  _buildListTypes() {
+    return Container(
+      height: 27,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          SizedBox(width: 15),
+          _buildListTypeItem("All"),
+          SizedBox(width: 10),
+          _buildListTypeItem("User"),
+          SizedBox(width: 10),
+          _buildListTypeItem("Group"),
+          SizedBox(width: 10),
+          _buildListTypeItem("Post"),
+          SizedBox(width: 10),
+          _buildListTypeItem("Tags"),
+          SizedBox(width: 10),
+          _buildListTypeItem("Video"),
+          SizedBox(width: 15),
+        ],
+      ),
     );
   }
 
   _buildListTypeItem(value) {
     return Container(
-      width: 75,
+      width: 70,
+      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
       decoration: kBoxDecorationListTypeItem,
       alignment: Alignment.center,
       child: Text(value, style: kListTypeItemTextStyle),
@@ -160,5 +177,31 @@ class _SearchScreenState extends State {
         this.isSearch = true;
       });
     }
+  }
+
+  _buildResultAll() {
+    return Visibility(
+      visible: true,
+      child: Column(
+        children: [
+          ListView.builder(
+            itemCount: 20,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              return UserTile(
+                user: UserListTile(
+                  username: "fayar",
+                  avatar: "assets/images/dump_1.jpg",
+                  isStory: true,
+                  nameAndSurname: "Fatih Ayar",
+                  isFollow: false,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -4,10 +4,10 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
-class FollowUserRequest extends StatelessWidget {
+class UserRequestTile extends StatelessWidget {
   final UserListTile user;
 
-  FollowUserRequest({required this.user});
+  UserRequestTile({required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,7 @@ class FollowUserRequest extends StatelessWidget {
         contentPadding: EdgeInsets.zero,
         leading: _buildAvatar(),
         title: _buildTitle(),
+        trailing: _buildCount(),
       ),
     );
   }
@@ -79,6 +80,24 @@ class FollowUserRequest extends StatelessWidget {
         user.nameAndSurname ?? "",
         overflow: TextOverflow.ellipsis,
         style: kUserListStatusTextStyle,
+      ),
+    );
+  }
+
+  _buildCount() {
+    return Container(
+      height: 20,
+      width: 40,
+      alignment: Alignment.center,
+      child: Container(
+        height: 20,
+        width: 20,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.red
+        ),
+        child: Text("5", style: kUserListActionTextStyle),
       ),
     );
   }

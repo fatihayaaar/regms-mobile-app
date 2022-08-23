@@ -4,10 +4,10 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
-class FollowUser extends StatelessWidget {
+class UserTile extends StatelessWidget {
   final UserListTile user;
 
-  FollowUser({required this.user});
+  UserTile({required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -69,22 +69,9 @@ class FollowUser extends StatelessWidget {
   }
 
   _buildAction() {
-    return Container(
-      width: 80,
-      height: 25,
-      decoration: BoxDecoration(
-        color: kAppbarColor,
-        border: Border.all(color: kThemeColor),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: kTransparentButtonButtonStyle,
-        child: Text(
-          "Follow",
-          style: kUserListActionTextStyle,
-        ),
-      ),
+    return Icon(
+      Icons.keyboard_control_rounded,
+      color: kBodyTextColor.withOpacity(0.5),
     );
   }
 }
