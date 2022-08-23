@@ -361,3 +361,8 @@ final kListTypeItemTextStyle = GoogleFonts.rubik(
   fontWeight: FontWeight.w500,
   color: kAppbarColor.withOpacity(0.8),
 );
+
+final kShowMoreTextStyle = GoogleFonts.rubik(
+  fontSize: 14,
+  color: kTextFieldLightColor,
+);

@@ -5,6 +5,7 @@ import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/app_bar/appbar_search.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
+import 'package:regms_flutter_client/widgets/show_more_widget.dart';
 import 'package:regms_flutter_client/widgets/user_tile.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -185,7 +186,7 @@ class _SearchScreenState extends State {
       child: Column(
         children: [
           ListView.builder(
-            itemCount: 20,
+            itemCount: 4,
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
@@ -200,8 +201,16 @@ class _SearchScreenState extends State {
               );
             },
           ),
+          _buildShowMore(),
         ],
       ),
+    );
+  }
+
+  _buildShowMore() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(20, 0, 15, 0),
+      child: ShowMore(),
     );
   }
 }
