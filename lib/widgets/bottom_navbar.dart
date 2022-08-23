@@ -42,7 +42,7 @@ class BottomNavBar extends StatelessWidget {
             flex: 1,
             child: _buildItem(
               page: LoginScreen(),
-              icon: Icons.messenger_outline,
+              icon: Icons.slow_motion_video,
             ),
           ),
           Expanded(

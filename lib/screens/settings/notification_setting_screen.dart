@@ -3,12 +3,12 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
 import 'package:regms_flutter_client/widgets/settings_drawer.dart';
 
-class NotificationScreen extends StatefulWidget {
+class NotificationSettingsScreen extends StatefulWidget {
   @override
-  _NotificationScreenState createState() => _NotificationScreenState();
+  _NotificationSettingsScreenState createState() => _NotificationSettingsScreenState();
 }
 
-class _NotificationScreenState extends State {
+class _NotificationSettingsScreenState extends State {
   bool? switchListTileValue;
 
   @override

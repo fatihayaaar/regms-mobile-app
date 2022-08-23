@@ -24,7 +24,7 @@ Widget buildDrawer({required context}) {
             buildDrawerListItem(context, "Account", AccountSettingsScreen()),
             Divider(color: kBorderColor),
             buildDrawerListItem(
-                context, "Notifications", NotificationScreen()),
+                context, "Notifications", NotificationSettingsScreen()),
             Divider(color: kBorderColor),
             buildDrawerListItem(context, "Appearance", AccountSettingsScreen()),
             Divider(color: kBorderColor),

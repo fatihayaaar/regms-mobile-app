@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/screens/notification_screen.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final context;
@@ -101,26 +102,32 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   _buildNotificationIcon() {
     return Visibility(
       visible: isShowNotificationIcon,
-      child: Stack(
-        children: [
-          Icon(
-            Icons.notifications,
-            color: kThemeColor,
-          ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Container(
-              height: 10,
-              width: 10,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.red,
-              ),
-              alignment: Alignment.center,
+      child: GestureDetector(
+        onTap: () {
+          var route = MaterialPageRoute(builder: (_) => NotificationScreen());
+          Navigator.push(context, route);
+        },
+        child: Stack(
+          children: [
+            Icon(
+              Icons.notifications,
+              color: kThemeColor,
             ),
-          ),
-        ],
+            Positioned(
+              top: 0,
+              right: 0,
+              child: Container(
+                height: 10,
+                width: 10,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.red,
+                ),
+                alignment: Alignment.center,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
