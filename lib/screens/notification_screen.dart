@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/models/user_list_tile.dart';
-import 'package:regms_flutter_client/widgets/app_bar/appbar_settings.dart';
-import 'package:regms_flutter_client/widgets/notification_tile.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
+import 'package:regms_flutter_client/widgets/tiles/notification_tile.dart';
 
 class NotificationScreen extends StatefulWidget {
   @override
@@ -18,10 +18,16 @@ class _NotificationScreenState extends State {
   }
 
   Widget _build() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 0),
-      child: SingleChildScrollView(
-        child: _buildNotifications(),
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overScroll) {
+        overScroll.disallowIndicator();
+        return false;
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 0),
+        child: SingleChildScrollView(
+          child: _buildNotifications(),
+        ),
       ),
     );
   }

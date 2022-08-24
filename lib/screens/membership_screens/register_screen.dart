@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/screens/profile_screen.dart';
-import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
+import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 import 'package:regms_flutter_client/widgets/shake.dart';
-import 'package:regms_flutter_client/widgets/slide_tile.dart';
+import 'package:regms_flutter_client/widgets/tiles/slide_tile.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -46,7 +46,7 @@ class _RegisterScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(),
+      appBar: AppBarTransparent(),
       body: Stack(
         children: [
           NotificationListener<OverscrollIndicatorNotification>(

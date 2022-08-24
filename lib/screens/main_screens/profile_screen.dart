@@ -6,11 +6,11 @@ import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/user.dart';
-import 'package:regms_flutter_client/widgets/app_bar/silver_app_bar.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_silver.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
-import 'package:regms_flutter_client/widgets/post_card.dart';
-import 'package:regms_flutter_client/widgets/profile_card.dart';
-import 'package:regms_flutter_client/widgets/settings_drawer.dart';
+import 'package:regms_flutter_client/widgets/cards/post_card.dart';
+import 'package:regms_flutter_client/widgets/cards/profile_card.dart';
+import 'package:regms_flutter_client/widgets/drawer/settings_drawer.dart';
 
 class ProfileScreen extends StatefulWidget {
   final bool? isMyProfile;
@@ -51,7 +51,7 @@ class _ProfileScreenState extends State {
           likeCount: 920,
           commentCount: 10,
           text:
-          "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
           sendDate: "3s",
           comment: Comment(
             user: User(
@@ -59,7 +59,7 @@ class _ProfileScreenState extends State {
               profile: Profile(avatar: "assets/images/dump_1.jpg"),
             ),
             text:
-            "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
             sendTime: "10sn",
           ),
           media: "assets/images/dump_2.jpg",
@@ -90,7 +90,7 @@ class _ProfileScreenState extends State {
           likeCount: 9220,
           commentCount: 0,
           text:
-          "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
           sendDate: "3s",
           comment: Comment(
             user: User(
@@ -98,7 +98,7 @@ class _ProfileScreenState extends State {
               profile: Profile(avatar: "assets/images/dump_1.jpg"),
             ),
             text:
-            "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
             sendTime: "10sn",
           ),
         ),
@@ -126,7 +126,7 @@ class _ProfileScreenState extends State {
       ),
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [
-          buildSilverApp(_buildProfileContent(), user.username, context),
+          MySilverAppBar(header: _buildProfileContent(), title: user.username),
         ];
       },
     );

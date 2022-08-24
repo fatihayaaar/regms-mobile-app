@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/widgets/photos_selection.dart';
 
 class AddPostScreen extends StatefulWidget {

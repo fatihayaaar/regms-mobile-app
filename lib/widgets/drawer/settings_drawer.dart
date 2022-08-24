@@ -3,7 +3,7 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/settings/account_setting_screen.dart';
 import 'package:regms_flutter_client/screens/settings/notification_setting_screen.dart';
-import 'package:regms_flutter_client/widgets/app_bar/appbar_settings.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
 import 'package:regms_flutter_client/widgets/search.dart';
 
 Widget buildDrawer({required context}) {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/models/user_list_tile.dart';
-import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
-import 'package:regms_flutter_client/widgets/follow_user_tile.dart';
+import 'package:regms_flutter_client/widgets/tiles/follow_user_tile.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
 import 'package:regms_flutter_client/widgets/search.dart';
-import 'package:regms_flutter_client/widgets/user_request_tile.dart';
+import 'package:regms_flutter_client/widgets/tiles/user_request_tile.dart';
 
 class UsersScreen extends StatefulWidget {
   @override

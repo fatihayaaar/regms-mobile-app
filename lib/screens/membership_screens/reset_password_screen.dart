@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _ResetPasswordScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(),
+      appBar: AppBarTransparent(),
       backgroundColor: kBackgroundColor,
       body: _buildBody(),
     );

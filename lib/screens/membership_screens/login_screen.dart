@@ -4,10 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/screens/forgot_password_screen.dart';
-import 'package:regms_flutter_client/screens/profile_screen.dart';
-import 'package:regms_flutter_client/screens/register_screen.dart';
-import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
+import 'package:regms_flutter_client/screens/membership_screens/forgot_password_screen.dart';
+import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
+import 'package:regms_flutter_client/screens/membership_screens/register_screen.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -27,7 +27,7 @@ class _LoginScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(),
+      appBar: AppBarTransparent(),
       backgroundColor: kBackgroundColor,
       body: Stack(
         children: [

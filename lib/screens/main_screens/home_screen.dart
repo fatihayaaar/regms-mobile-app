@@ -5,10 +5,10 @@ import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/story_list_item.dart';
 import 'package:regms_flutter_client/models/user.dart';
-import 'package:regms_flutter_client/widgets/app_bar/appbar.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
-import 'package:regms_flutter_client/widgets/post_card.dart';
+import 'package:regms_flutter_client/widgets/cards/post_card.dart';
 import 'package:regms_flutter_client/widgets/story_list.dart';
 
 class HomeScreen extends StatefulWidget {

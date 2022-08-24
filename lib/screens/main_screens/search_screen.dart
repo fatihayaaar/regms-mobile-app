@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user_list_tile.dart';
-import 'package:regms_flutter_client/widgets/app_bar/appbar_search.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_search.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
 import 'package:regms_flutter_client/widgets/show_more_widget.dart';
-import 'package:regms_flutter_client/widgets/user_tile.dart';
+import 'package:regms_flutter_client/widgets/tiles/user_tile.dart';
 
 class SearchScreen extends StatefulWidget {
   @override

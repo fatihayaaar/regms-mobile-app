@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/widgets/app_bar/title_appbar.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -15,13 +15,7 @@ class _EditProfileScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: titleAppBar(
-        "Edit Profile",
-        backToTap: () {
-          Navigator.pop(context);
-        },
-        onTap: () {},
-      ),
+      appBar: AppBarWidget(title: "Edit Profile", backButtonVisibility: true),
       body: _buildBody(),
     );
   }
