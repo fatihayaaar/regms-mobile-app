@@ -5,14 +5,12 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/notification_screen.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  final context;
   final String title;
   final bool backButtonVisibility;
   final bool isShowNotificationIcon;
   final bool isShowMessagesIcon;
 
   AppBarWidget({
-    required this.context,
     this.title = "",
     this.backButtonVisibility = true,
     this.isShowNotificationIcon = false,
@@ -24,10 +22,10 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _appBar(title);
+    return _appBar(title, context);
   }
 
-  _appBar(String title) {
+  _appBar(String title, context) {
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -37,10 +35,10 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 50,
       title: Row(
         children: [
-          _buildBackArrow(),
+          _buildBackArrow(context),
           _buildTitle(title),
           Flexible(child: Container()),
-          _buildActions(),
+          _buildActions(context),
         ],
       ),
       backgroundColor: kMainAppbarColor,
@@ -62,7 +60,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  _buildBackArrow() {
+  _buildBackArrow(context) {
     return Visibility(
       visible: backButtonVisibility,
       child: Container(
@@ -84,10 +82,10 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  _buildActions() {
+  _buildActions(context) {
     return Row(
       children: [
-        _buildNotificationIcon(),
+        _buildNotificationIcon(context),
         SizedBox(
             width: isShowNotificationIcon
                 ? isShowMessagesIcon
@@ -99,7 +97,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  _buildNotificationIcon() {
+  _buildNotificationIcon(context) {
     return Visibility(
       visible: isShowNotificationIcon,
       child: GestureDetector(

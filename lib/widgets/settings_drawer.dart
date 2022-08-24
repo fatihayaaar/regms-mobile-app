@@ -3,41 +3,46 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/settings/account_setting_screen.dart';
 import 'package:regms_flutter_client/screens/settings/notification_setting_screen.dart';
+import 'package:regms_flutter_client/widgets/app_bar/appbar_settings.dart';
 import 'package:regms_flutter_client/widgets/search.dart';
 
 Widget buildDrawer({required context}) {
   return Drawer(
     width: double.infinity,
-    child: NotificationListener<OverscrollIndicatorNotification>(
-      onNotification: (overScroll) {
-        overScroll.disallowIndicator();
-        return false;
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 30),
-        child: ListView(
-          children: [
-            buildDrawerHeader(context: context, title: "Settings"),
-            SizedBox(height: 10),
-            Search(),
-            SizedBox(height: 20),
-            buildDrawerListItem(context, "Account", AccountSettingsScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(
-                context, "Notifications", NotificationSettingsScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(context, "Appearance", AccountSettingsScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(
-                context, "Privacy & Security", AccountSettingsScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(
-                context, "Help and Support", AccountSettingsScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(context, "About", AccountSettingsScreen()),
-            Divider(color: kBorderColor),
-            buildDrawerListItem(context, "Log-out", AccountSettingsScreen()),
-          ],
+    child: Scaffold(
+      appBar: AppBarSettings(title: "Settings"),
+      body: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overScroll) {
+          overScroll.disallowIndicator();
+          return false;
+        },
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 25),
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              SizedBox(height: 10),
+              Search(),
+              SizedBox(height: 20),
+              buildDrawerListItem(context, "Account", AccountSettingsScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(
+                  context, "Notifications", NotificationSettingsScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(
+                  context, "Appearance", AccountSettingsScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(
+                  context, "Privacy & Security", AccountSettingsScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(
+                  context, "Help and Support", AccountSettingsScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(context, "About", AccountSettingsScreen()),
+              Divider(color: kBorderColor),
+              buildDrawerListItem(context, "Log-out", AccountSettingsScreen()),
+            ],
+          ),
         ),
       ),
     ),

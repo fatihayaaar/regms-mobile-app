@@ -95,7 +95,6 @@ class _HomeScreenState extends State {
     ];
     return Scaffold(
       appBar: AppBarWidget(
-        context: context,
         title: "Home",
         backButtonVisibility: false,
         isShowNotificationIcon: true,

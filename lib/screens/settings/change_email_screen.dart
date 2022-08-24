@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/screens/confirm_password_screen.dart';
-import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
-import 'package:regms_flutter_client/widgets/settings_drawer.dart';
+import 'package:regms_flutter_client/widgets/app_bar/appbar_settings.dart';
 
 class ChangeEmailScreen extends StatefulWidget {
   @override
@@ -16,17 +15,16 @@ class _ChangeEmailScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(),
+      appBar: AppBarSettings(title: "Change Email"),
       body: _build(),
     );
   }
 
   Widget _build() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         children: [
-          buildDrawerHeader(context: context, title: "Change Email"),
           SizedBox(height: 10),
           Expanded(
             child: Stack(
@@ -76,7 +74,8 @@ class _ChangeEmailScreen extends State {
         child: ElevatedButton(
           style: kLoginButtonButtonStyle,
           onPressed: () {
-            Route route = MaterialPageRoute(builder: (_) => ConfirmPasswordScreen());
+            Route route =
+                MaterialPageRoute(builder: (_) => ConfirmPasswordScreen());
             Navigator.push(context, route);
           },
           child: Text(

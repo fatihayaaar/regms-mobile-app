@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/widgets/app_bar/mini_app_bar.dart';
-import 'package:regms_flutter_client/widgets/settings_drawer.dart';
+import 'package:regms_flutter_client/widgets/app_bar/appbar_settings.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {
   @override
-  _NotificationSettingsScreenState createState() => _NotificationSettingsScreenState();
+  _NotificationSettingsScreenState createState() =>
+      _NotificationSettingsScreenState();
 }
 
 class _NotificationSettingsScreenState extends State {
@@ -14,17 +14,16 @@ class _NotificationSettingsScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: miniAppBar(),
+      appBar: AppBarSettings(title: "Notification"),
       body: _buildBody(),
     );
   }
 
   _buildBody() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         children: [
-          buildDrawerHeader(context: context, title: "Notification"),
           _buildNotificationItem('Messages'),
           _buildNotificationItem('Followers'),
           _buildNotificationItem('Posts'),
