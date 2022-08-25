@@ -9,12 +9,14 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool backButtonVisibility;
   final bool isShowNotificationIcon;
   final bool isShowMessagesIcon;
+  final onClickMessages;
 
   AppBarWidget({
     this.title = "",
     this.backButtonVisibility = true,
     this.isShowNotificationIcon = false,
     this.isShowMessagesIcon = false,
+    this.onClickMessages,
   });
 
   @override
@@ -133,26 +135,29 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   _buildMessageIcon() {
     return Visibility(
       visible: isShowMessagesIcon,
-      child: Stack(
-        children: [
-          Icon(
-            Icons.chat,
-            color: kThemeColor,
-          ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Container(
-              height: 10,
-              width: 10,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.red,
-              ),
-              alignment: Alignment.center,
+      child: GestureDetector(
+        onTap: onClickMessages,
+        child: Stack(
+          children: [
+            Icon(
+              Icons.chat,
+              color: kThemeColor,
             ),
-          ),
-        ],
+            Positioned(
+              top: 0,
+              right: 0,
+              child: Container(
+                height: 10,
+                width: 10,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.red,
+                ),
+                alignment: Alignment.center,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

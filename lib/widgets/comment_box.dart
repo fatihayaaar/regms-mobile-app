@@ -37,7 +37,7 @@ class CommentBox extends StatelessWidget {
       child: Avatar(
         borderColor: Colors.white.withOpacity(1),
         img: "${comment.user.profile.avatar}",
-        size: 14,
+        size: 15,
       ),
     );
   }
