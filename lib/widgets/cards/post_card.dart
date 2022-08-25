@@ -148,18 +148,19 @@ class PostCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildAction(
-            icon: (Icons.thumb_up_alt_outlined),
+            icon: (Icons.favorite_border),
             onClick: () {},
-            text: "${post.likeCount}",
+            text: post.likeCount > 0 ? "${post.likeCount}" : null,
           ),
           SizedBox(width: 15),
           _buildAction(
-              icon: (Icons.messenger_outline),
-              onClick: () {},
-              text: "${post.commentCount}"),
+            icon: (Icons.messenger_outline),
+            onClick: () {},
+            text: post.commentCount > 0 ? "${post.commentCount}" : null,
+          ),
           Expanded(child: Container()),
           _buildAction(
-            icon: (Icons.send),
+            icon: (Icons.ios_share),
             onClick: () {},
           ),
           SizedBox(width: 15),

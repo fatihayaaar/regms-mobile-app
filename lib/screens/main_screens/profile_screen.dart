@@ -109,7 +109,7 @@ class _ProfileScreenState extends State {
       length: 4,
       child: Scaffold(
         body: _buildBody(),
-        endDrawer: buildDrawer(context: context),
+        endDrawer: MyDrawer(),
         bottomNavigationBar: BottomNavBar(selected: -2, context: context),
       ),
     );

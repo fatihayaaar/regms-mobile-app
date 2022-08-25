@@ -4,7 +4,7 @@ import 'package:regms_flutter_client/screens/settings/change_email_screen.dart';
 import 'package:regms_flutter_client/screens/settings/change_password_screen.dart';
 import 'package:regms_flutter_client/screens/settings/change_username_screen.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
-import 'package:regms_flutter_client/widgets/drawer/settings_drawer.dart';
+import 'package:regms_flutter_client/widgets/drawer/drawer_list_item.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
   @override
@@ -33,14 +33,20 @@ class _AccountSettingsScreen extends State {
               shrinkWrap: true,
               children: [
                 SizedBox(height: 10),
-                buildDrawerListItem(
-                    context, "Change Username", ChangeUsernameScreen()),
+                DrawerListItem(
+                  text: "Change Username",
+                  page: ChangeUsernameScreen(),
+                ),
                 Divider(color: kBorderColor),
-                buildDrawerListItem(
-                    context, "Change Email Address", ChangeEmailScreen()),
+                DrawerListItem(
+                  text: "Change Email Address",
+                  page: ChangeEmailScreen(),
+                ),
                 Divider(color: kBorderColor),
-                buildDrawerListItem(
-                    context, "Change Password", ChangePasswordScreen()),
+                DrawerListItem(
+                  text: "Change Password",
+                  page: ChangePasswordScreen(),
+                ),
               ],
             ),
           ),
