@@ -37,7 +37,7 @@ class CommentTextField extends StatelessWidget {
   _buildAvatar() {
     return Container(
       alignment: Alignment.bottomLeft,
-      margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+      margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
       child: Avatar(
         borderColor: Colors.white.withOpacity(1),
         img: "$avatar",

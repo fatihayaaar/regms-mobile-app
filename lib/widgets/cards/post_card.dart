@@ -21,8 +21,11 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-      color: kThemeColor,
+      margin: const EdgeInsets.fromLTRB(10, 3.5, 10, 3.5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: kThemeColor,
+      ),
       child: Column(
         children: [
           SizedBox(height: 5),
@@ -31,6 +34,7 @@ class PostCard extends StatelessWidget {
           _buildPostMedia(),
           SizedBox(height: 5),
           _buildPostFooter(),
+          SizedBox(height: isCommentVisible ? 5 : 0),
         ],
       ),
     );
@@ -43,7 +47,7 @@ class PostCard extends StatelessWidget {
       child: Avatar(
         borderColor: Colors.white.withOpacity(1),
         img: "${post.user.profile.avatar}",
-        size: 20,
+        size: 15,
       ),
     );
   }
@@ -55,7 +59,7 @@ class PostCard extends StatelessWidget {
           child: Row(
             children: [
               _buildPostAvatar(),
-              SizedBox(width: 7),
+              SizedBox(width: 4),
               _buildPostUsername(),
               SizedBox(width: 7),
               _buildPostDate(),
@@ -82,7 +86,7 @@ class PostCard extends StatelessWidget {
               ? false
               : true,
       child: Container(
-        margin: const EdgeInsets.fromLTRB(7, 5, 7, 7),
+        margin: const EdgeInsets.fromLTRB(7, 3, 7, 7),
         child: Text(
           "${post.text}",
           style: kPostContentTextStyle,
@@ -96,9 +100,14 @@ class PostCard extends StatelessWidget {
         ? Container()
         : Container(
             margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-            child: Image.asset(
-              "${post.media}",
-              fit: BoxFit.cover,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(0),
+              child: Container(
+                child: Image.asset(
+                  "${post.media}",
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           );
   }
@@ -143,18 +152,17 @@ class PostCard extends StatelessWidget {
             onClick: () {},
             text: "${post.likeCount}",
           ),
-          SizedBox(width: 20),
+          SizedBox(width: 15),
           _buildAction(
-            icon: (Icons.messenger_outline),
-            onClick: () {},
-            text: "${post.commentCount}"
-          ),
-          SizedBox(width: 20),
+              icon: (Icons.messenger_outline),
+              onClick: () {},
+              text: "${post.commentCount}"),
+          Expanded(child: Container()),
           _buildAction(
             icon: (Icons.send),
             onClick: () {},
           ),
-          Expanded(child: Container()),
+          SizedBox(width: 15),
           _buildAction(
             icon: (Icons.bookmark_border),
             onClick: () {},
@@ -173,7 +181,7 @@ class PostCard extends StatelessWidget {
         Container(
           child: Icon(
             icon,
-            size: 25,
+            size: 20,
             color: kCommentActionIconColor,
           ),
         ),

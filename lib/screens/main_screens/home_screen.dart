@@ -107,7 +107,7 @@ class _HomeScreenState extends State {
 
   _buildContent() {
     return Container(
-      color: kThemeColor,
+      color: kBorderColor.withOpacity(0.5),
       child: _buildPostView(),
     );
   }
@@ -116,6 +116,7 @@ class _HomeScreenState extends State {
     return Column(
       children: [
         StoryList(list: storyList),
+        SizedBox(height: 5),
         ListView.builder(
           padding: EdgeInsets.all(0),
           physics: ScrollPhysics(),
@@ -125,6 +126,7 @@ class _HomeScreenState extends State {
             return posts.elementAt(index);
           },
         ),
+        SizedBox(height: 5),
       ],
     );
   }

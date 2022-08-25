@@ -191,7 +191,7 @@ final kLikeRichTextStyle = (color, weight) => GoogleFonts.rubik(
     );
 
 final kActionRichTextStyle = (color, weight) => GoogleFonts.rubik(
-      fontSize: 13,
+      fontSize: 12,
       color: color,
       fontWeight: weight,
     );
@@ -318,7 +318,7 @@ final kListTitleTextStyle = GoogleFonts.raleway(
 final kPostUsernameTextStyle = GoogleFonts.rubik(
   color: kAppbarColor,
   fontWeight: FontWeight.w600,
-  fontSize: 17,
+  fontSize: 16,
 );
 
 final kPostContentTextStyle = GoogleFonts.rubik(

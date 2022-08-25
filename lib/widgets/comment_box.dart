@@ -14,7 +14,7 @@ class CommentBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topLeft,
-      margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+      margin: const EdgeInsets.fromLTRB(5, 0, 10, 0),
       child: Column(
         children: [
           Row(

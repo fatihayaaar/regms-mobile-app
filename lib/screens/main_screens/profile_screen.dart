@@ -160,32 +160,15 @@ class _ProfileScreenState extends State {
       maxHeight: double.maxFinite,
       child: Container(
         color: kBorderColor.withOpacity(0.5),
+
         child: ListView(
           padding: EdgeInsets.all(0),
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: [
-            _buildTags(),
+            SizedBox(height: 5),
             _buildPostView(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  _buildTags() {
-    return Container(
-      color: kThemeColor,
-      child: Container(
-        margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-        alignment: Alignment.centerRight,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            _buildFilter(),
-            SizedBox(width: 10),
-            _buildListTag(),
+            SizedBox(height: 5),
           ],
         ),
       ),
