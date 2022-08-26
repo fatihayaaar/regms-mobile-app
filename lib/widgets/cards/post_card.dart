@@ -21,9 +21,9 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(10, 3.5, 10, 3.5),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(0),
         color: kThemeColor,
       ),
       child: Column(

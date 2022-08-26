@@ -106,7 +106,7 @@ class _ProfileScreenState extends State {
       ),
     ];
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
         body: _buildBody(),
         endDrawer: MyDrawer(),
@@ -147,7 +147,6 @@ class _ProfileScreenState extends State {
   _buildContent() {
     return TabBarView(
       children: [
-        _buildPosts(),
         _buildPosts(),
         _buildPosts(),
         _buildPosts(),

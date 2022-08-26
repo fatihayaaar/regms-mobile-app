@@ -19,7 +19,7 @@ class PageWidget extends StatelessWidget {
           color: kAppbarColor,
         ),
         ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(0)),
           child: _buildContent(),
         ),
       ],

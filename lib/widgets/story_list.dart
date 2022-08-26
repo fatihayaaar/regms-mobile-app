@@ -13,7 +13,7 @@ class StoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
+      height: 110,
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(color: kBorderColor.withOpacity(0.5)),
@@ -33,11 +33,11 @@ class StoryList extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    margin: EdgeInsets.fromLTRB(5, 0, 7.5, 0),
                     child: Avatar(
                       borderColor: Colors.white,
                       img: "assets/images/dump_1.jpg",
-                      size: 32,
+                      size: 28,
                       isStory: true,
                     ),
                   ),
@@ -49,14 +49,14 @@ class StoryList extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.indigoAccent,
+                          color: Colors.blue,
                         ),
-                        height: 22,
-                        width: 22,
+                        height: 19,
+                        width: 19,
                         child: Icon(
                           Icons.add,
                           color: kThemeColor,
-                          size: 18,
+                          size: 14,
                         ),
                       ),
                     ),
@@ -65,7 +65,7 @@ class StoryList extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Container(
-                width: 70,
+                width: 60,
                 alignment: Alignment.center,
                 child: Text(
                   "fayarrrrrrrrrrrr",

@@ -38,9 +38,6 @@ class MySilverAppBar extends StatelessWidget implements PreferredSizeWidget {
           height: 40,
           decoration: BoxDecoration(
             color: kThemeColor,
-            border: Border.symmetric(
-              horizontal: BorderSide(color: kBorderColor, width: 0.5),
-            ),
           ),
           child: TabBar(
             indicatorColor: kAppbarColor,
@@ -48,7 +45,6 @@ class MySilverAppBar extends StatelessWidget implements PreferredSizeWidget {
             tabs: [
               _buildPostsHeaderItem(icon: Icons.format_list_bulleted_sharp),
               _buildPostsHeaderItem(icon: Icons.play_circle_outlined),
-              _buildPostsHeaderItem(icon: Icons.favorite_border),
               _buildPostsHeaderItem(icon: Icons.bookmark_outline),
             ],
           ),

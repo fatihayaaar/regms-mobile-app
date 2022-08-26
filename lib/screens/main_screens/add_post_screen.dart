@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
+import 'package:regms_flutter_client/widgets/page.dart';
 import 'package:regms_flutter_client/widgets/photos_selection.dart';
 
 class AddPostScreen extends StatefulWidget {
@@ -34,15 +35,7 @@ class _AddPostScreenState extends State {
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: Stack(
-          children: [
-            Container(height: 30, color: kAppbarColor),
-            ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
-              child: _buildContent(),
-            ),
-          ],
-        ),
+        child: PageWidget(child: _buildContent()),
       ),
     );
   }
