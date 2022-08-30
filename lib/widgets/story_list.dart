@@ -21,7 +21,7 @@ class StoryList extends StatelessWidget {
         color: kThemeColor,
       ),
       child: ListView.builder(
-        padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
         itemCount: list.length,
         shrinkWrap: true,
         physics: ScrollPhysics(),

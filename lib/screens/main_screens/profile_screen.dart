@@ -6,11 +6,12 @@ import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/user.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_silver.dart';
+import 'package:regms_flutter_client/widgets/appbar/appbar_profile.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/cards/post_card.dart';
 import 'package:regms_flutter_client/widgets/cards/profile_card.dart';
 import 'package:regms_flutter_client/widgets/drawer/settings_drawer.dart';
+import 'package:regms_flutter_client/widgets/page.dart';
 
 class ProfileScreen extends StatefulWidget {
   final bool? isMyProfile;
@@ -108,7 +109,8 @@ class _ProfileScreenState extends State {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        body: _buildBody(),
+        appBar: ProfileAppBar(title: user.username),
+        body: PageWidget(child: _buildBody()),
         endDrawer: MyDrawer(),
         bottomNavigationBar: BottomNavBar(selected: -2, context: context),
       ),
@@ -116,58 +118,38 @@ class _ProfileScreenState extends State {
   }
 
   Widget _buildBody() {
-    return NestedScrollView(
-      body: NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (overScroll) {
-          overScroll.disallowIndicator();
-          return false;
-        },
-        child: _buildContent(),
-      ),
-      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return [
-          MySilverAppBar(header: _buildProfileContent(), title: user.username),
-        ];
-      },
+    return Column(
+      children: [
+        _buildProfileContent(),
+        _buildContent(),
+      ],
     );
   }
 
   Widget _buildProfileContent() {
-    return FlexibleSpaceBar(
-      background: Container(
-        color: kThemeColor,
-        margin: EdgeInsets.fromLTRB(
-            0, 40 + MediaQuery.of(context).viewPadding.top, 0, 0),
-        alignment: Alignment.centerLeft,
-        child: ProfileCard(user: user, context: context),
-      ),
+    return Container(
+      color: kThemeColor,
+      alignment: Alignment.centerLeft,
+      child: ProfileCard(user: user, context: context),
     );
   }
 
   _buildContent() {
-    return TabBarView(
-      children: [
-        _buildPosts(),
-        _buildPosts(),
-        _buildPosts(),
-      ],
-    );
+    return _buildPosts();
   }
 
   _buildPosts() {
     return LimitedBox(
       maxHeight: double.maxFinite,
       child: Container(
-        color: kBorderColor.withOpacity(0.5),
-
+        color: kBorderColor.withOpacity(0.3),
         child: ListView(
           padding: EdgeInsets.all(0),
           shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
           children: [
-            SizedBox(height: 5),
             _buildPostView(),
-            SizedBox(height: 5),
           ],
         ),
       ),

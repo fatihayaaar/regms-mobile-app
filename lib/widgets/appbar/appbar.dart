@@ -10,6 +10,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool isShowNotificationIcon;
   final bool isShowMessagesIcon;
   final onClickMessages;
+  final double height;
 
   AppBarWidget({
     this.title = "",
@@ -17,10 +18,11 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     this.isShowNotificationIcon = false,
     this.isShowMessagesIcon = false,
     this.onClickMessages,
+    this.height = 45.0,
   });
 
   @override
-  Size get preferredSize => const Size.fromHeight(50.0);
+  Size get preferredSize => Size.fromHeight(this.height);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         statusBarIconBrightness: Brightness.light,
       ),
       automaticallyImplyLeading: false,
-      toolbarHeight: 50,
+      toolbarHeight: this.height,
       title: Row(
         children: [
           _buildBackArrow(context),

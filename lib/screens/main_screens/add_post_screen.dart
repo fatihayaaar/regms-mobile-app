@@ -35,7 +35,10 @@ class _AddPostScreenState extends State {
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: PageWidget(child: _buildContent()),
+        child: PageWidget(
+          isRadius: false,
+          child: _buildContent(),
+        ),
       ),
     );
   }

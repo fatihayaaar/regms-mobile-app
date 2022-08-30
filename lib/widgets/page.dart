@@ -3,8 +3,9 @@ import 'package:regms_flutter_client/constants/colors.dart';
 
 class PageWidget extends StatelessWidget {
   final Widget child;
+  final isRadius;
 
-  PageWidget({required this.child});
+  PageWidget({required this.child, this.isRadius = false});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,9 @@ class PageWidget extends StatelessWidget {
           color: kAppbarColor,
         ),
         ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(0)),
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(isRadius ? 12 : 0),
+          ),
           child: _buildContent(),
         ),
       ],

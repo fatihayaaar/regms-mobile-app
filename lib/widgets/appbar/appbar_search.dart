@@ -10,7 +10,7 @@ class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget 
   AppBarSearchWidget({this.searchOnChanged});
 
   @override
-  Size get preferredSize => const Size.fromHeight(50.0);
+  Size get preferredSize => const Size.fromHeight(45.0);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget 
         statusBarIconBrightness: Brightness.light,
       ),
       automaticallyImplyLeading: false,
-      toolbarHeight: 50,
+      toolbarHeight: 45,
       title: Row(
         children: [
           _buildTitle("Search"),

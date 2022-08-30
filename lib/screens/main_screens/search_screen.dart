@@ -30,7 +30,10 @@ class _SearchScreenState extends State {
           _searchOnChange(value);
         },
       ),
-      body: PageWidget(child: _buildContent()),
+      body: PageWidget(
+        isRadius: false,
+        child: _buildContent(),
+      ),
       bottomNavigationBar: BottomNavBar(selected: -2, context: context),
     );
   }

@@ -29,7 +29,7 @@ class HomeTimeline extends StatelessWidget {
 
   _buildContent() {
     return Container(
-      color: kBorderColor.withOpacity(0.5),
+      color: kBorderColor.withOpacity(0.3),
       child: _buildPostView(),
     );
   }
@@ -48,7 +48,6 @@ class HomeTimeline extends StatelessWidget {
             return posts.elementAt(index);
           },
         ),
-        SizedBox(height: 5),
       ],
     );
   }
