@@ -12,6 +12,7 @@ import 'package:regms_flutter_client/widgets/cards/post_card.dart';
 import 'package:regms_flutter_client/widgets/cards/profile_card.dart';
 import 'package:regms_flutter_client/widgets/drawer/settings_drawer.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
+import 'package:regms_flutter_client/widgets/selection_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
   final bool? isMyProfile;
@@ -34,7 +35,12 @@ class _ProfileScreenState extends State {
     'Videos',
     'Text',
   ];
-
+  var selectList = [
+    "All",
+    "Videos",
+    "Photos",
+    "Text",
+  ];
   List<PostCard> posts = [];
 
   _ProfileScreenState(this.user, this.isMyProfile);
@@ -121,6 +127,8 @@ class _ProfileScreenState extends State {
     return Column(
       children: [
         _buildProfileContent(),
+        SelectionWidget(list: selectList),
+        SizedBox(height: 5),
         _buildContent(),
       ],
     );

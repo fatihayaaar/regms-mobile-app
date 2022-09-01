@@ -5,6 +5,7 @@ import 'package:regms_flutter_client/models/user_list_tile.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar_search.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/page.dart';
+import 'package:regms_flutter_client/widgets/selection_widget.dart';
 import 'package:regms_flutter_client/widgets/show_more_widget.dart';
 import 'package:regms_flutter_client/widgets/tiles/user_tile.dart';
 
@@ -19,6 +20,14 @@ class _SearchScreenState extends State {
     'Global Trend Topic',
     'Turkey Trend Topic',
     'Local Trend Topic',
+  ];
+  var searchList = [
+    "All",
+    "User",
+    "Group",
+    "Post",
+    "Tags",
+    "Video",
   ];
   var isSearch = false;
 
@@ -52,45 +61,11 @@ class _SearchScreenState extends State {
       margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: Column(
         children: [
-          _buildListTypes(),
+          SelectionWidget(list: searchList),
           SizedBox(height: 10),
           _buildResultAll(),
         ],
       ),
-    );
-  }
-
-  _buildListTypes() {
-    return Container(
-      height: 27,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          SizedBox(width: 15),
-          _buildListTypeItem("All"),
-          SizedBox(width: 10),
-          _buildListTypeItem("User"),
-          SizedBox(width: 10),
-          _buildListTypeItem("Group"),
-          SizedBox(width: 10),
-          _buildListTypeItem("Post"),
-          SizedBox(width: 10),
-          _buildListTypeItem("Tags"),
-          SizedBox(width: 10),
-          _buildListTypeItem("Video"),
-          SizedBox(width: 15),
-        ],
-      ),
-    );
-  }
-
-  _buildListTypeItem(value) {
-    return Container(
-      width: 70,
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-      decoration: kBoxDecorationListTypeItem,
-      alignment: Alignment.center,
-      child: Text(value, style: kListTypeItemTextStyle),
     );
   }
 
