@@ -39,7 +39,6 @@ class _ProfileScreenState extends State {
     "All",
     "Videos",
     "Photos",
-    "Text",
   ];
   List<PostCard> posts = [];
 

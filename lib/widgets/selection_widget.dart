@@ -26,7 +26,7 @@ class SelectionWidget extends StatelessWidget {
 
   _buildListTypeItem(value) {
     return Container(
-      width: 70,
+      width: 80,
       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
       margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
       decoration: kBoxDecorationListTypeItem,

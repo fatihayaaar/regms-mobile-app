@@ -16,7 +16,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State {
   var _pageViewController = PageController(initialPage: 1);
-
   List<PostCard> posts = [];
   var storyList = [
     StoryListItem(isVisibleAdd: true),

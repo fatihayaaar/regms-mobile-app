@@ -15,9 +15,6 @@ class StoryList extends StatelessWidget {
     return Container(
       height: 110,
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: kBorderColor.withOpacity(0.5)),
-        ),
         color: kThemeColor,
       ),
       child: ListView.builder(

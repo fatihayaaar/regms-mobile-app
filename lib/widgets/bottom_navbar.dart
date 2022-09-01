@@ -4,6 +4,7 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/screens/main_screens/add_post_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/home_screen.dart';
+import 'package:regms_flutter_client/screens/main_screens/videos_screen.dart';
 import 'package:regms_flutter_client/screens/membership_screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/search_screen.dart';
@@ -41,7 +42,7 @@ class BottomNavBar extends StatelessWidget {
           Expanded(
             flex: 1,
             child: _buildItem(
-              page: LoginScreen(),
+              page: VideosScreen(),
               icon: Icons.slow_motion_video,
             ),
           ),
