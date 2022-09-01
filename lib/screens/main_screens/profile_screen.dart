@@ -117,7 +117,7 @@ class _ProfileScreenState extends State {
         appBar: ProfileAppBar(title: user.username),
         body: PageWidget(child: _buildBody()),
         endDrawer: MyDrawer(),
-        bottomNavigationBar: BottomNavBar(selected: -2, context: context),
+        bottomNavigationBar: BottomNavBar(selected: -2),
       ),
     );
   }

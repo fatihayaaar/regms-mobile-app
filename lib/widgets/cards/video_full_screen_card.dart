@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/constants/colors.dart';
 
 class VideoFullScreenCard extends StatelessWidget {
   @override
@@ -24,6 +25,7 @@ class VideoFullScreenCard extends StatelessWidget {
       ],
     );
   }
+
 
   _buildActions() {
     return Row(

@@ -48,7 +48,7 @@ class _UsersScreenState extends State {
         backButtonVisibility: true,
       ),
       body: PageWidget(child: _buildContent()),
-      bottomNavigationBar: BottomNavBar(selected: -2, context: context),
+      bottomNavigationBar: BottomNavBar(selected: -2),
     );
   }
 

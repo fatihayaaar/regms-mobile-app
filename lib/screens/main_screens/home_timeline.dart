@@ -29,7 +29,7 @@ class HomeTimeline extends StatelessWidget {
         onClickMessages: onClickMessages,
       ),
       body: PageWidget(child: _buildContent()),
-      bottomNavigationBar: BottomNavBar(selected: -2, context: context),
+      bottomNavigationBar: BottomNavBar(selected: -2),
     );
   }
 

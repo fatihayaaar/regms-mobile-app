@@ -4,16 +4,15 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/screens/main_screens/add_post_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/home_screen.dart';
-import 'package:regms_flutter_client/screens/main_screens/videos_screen.dart';
-import 'package:regms_flutter_client/screens/membership_screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/search_screen.dart';
+import 'package:regms_flutter_client/screens/main_screens/videos_screen.dart';
+import 'package:regms_flutter_client/screens/membership_screens/login_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selected;
-  final context;
 
-  BottomNavBar({required this.selected, required this.context});
+  BottomNavBar({required this.selected});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +34,7 @@ class BottomNavBar extends StatelessWidget {
           Expanded(
             flex: 1,
             child: _buildItem(
+              context,
               page: HomeScreen(),
               icon: Icons.home_outlined,
             ),
@@ -42,6 +42,7 @@ class BottomNavBar extends StatelessWidget {
           Expanded(
             flex: 1,
             child: _buildItem(
+              context,
               page: VideosScreen(),
               icon: Icons.slow_motion_video,
             ),
@@ -49,6 +50,7 @@ class BottomNavBar extends StatelessWidget {
           Expanded(
             flex: 1,
             child: _buildItem(
+              context,
               page: AddPostScreen(),
               icon: Icons.add_circle_outline_sharp,
             ),
@@ -56,6 +58,7 @@ class BottomNavBar extends StatelessWidget {
           Expanded(
             flex: 1,
             child: _buildItem(
+              context,
               page: SearchScreen(),
               icon: Icons.search_rounded,
             ),
@@ -63,6 +66,7 @@ class BottomNavBar extends StatelessWidget {
           Expanded(
             flex: 1,
             child: _buildAvatarItem(
+              context,
               page: root.myUser != null
                   ? ProfileScreen(user: root.myUser!, isMyProfile: true)
                   : LoginScreen(),
@@ -73,7 +77,7 @@ class BottomNavBar extends StatelessWidget {
     );
   }
 
-  Widget _buildItem({required Widget page, required IconData icon}) {
+  Widget _buildItem(context, {required Widget page, required IconData icon}) {
     return ElevatedButton(
       style: kTransparentButtonButtonStyle,
       onPressed: () {
@@ -85,7 +89,7 @@ class BottomNavBar extends StatelessWidget {
     );
   }
 
-  Widget _buildAvatarItem({required Widget page}) {
+  Widget _buildAvatarItem(context, {required Widget page}) {
     return ElevatedButton(
       onPressed: () {
         Navigator.push(context, _createRoute(page));

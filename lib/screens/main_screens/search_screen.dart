@@ -43,7 +43,7 @@ class _SearchScreenState extends State {
         isRadius: false,
         child: _buildContent(),
       ),
-      bottomNavigationBar: BottomNavBar(selected: -2, context: context),
+      bottomNavigationBar: BottomNavBar(selected: -2),
     );
   }
 
