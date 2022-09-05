@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/models/post.dart';
+import 'package:regms_flutter_client/models/profile.dart';
+import 'package:regms_flutter_client/models/user.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/cards/video_full_screen_card.dart';
@@ -10,8 +13,51 @@ class VideosScreen extends StatefulWidget {
 }
 
 class _VideosScreenState extends State {
+  var posts = [];
+
   @override
   Widget build(BuildContext context) {
+    posts = [
+      VideoFullScreenCard(
+        post: Post(
+          user: User(
+            username: "fayar",
+            profile: Profile(avatar: "assets/images/dump_1.jpg"),
+          ),
+          likeCount: 920,
+          commentCount: 10,
+          text:
+              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+          sendDate: "3s",
+          media: "assets/images/dump_2.jpg",
+        ),
+      ),
+      VideoFullScreenCard(
+        post: Post(
+          user: User(
+            username: "fayar",
+            profile: Profile(avatar: "assets/images/dump_1.jpg"),
+          ),
+          likeCount: 920,
+          commentCount: 0,
+          sendDate: "3s",
+          media: "assets/images/dump_2.jpg",
+        ),
+      ),
+      VideoFullScreenCard(
+        post: Post(
+          user: User(
+            username: "fayar",
+            profile: Profile(avatar: "assets/images/dump_1.jpg"),
+          ),
+          likeCount: 9220,
+          commentCount: 0,
+          text:
+              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+          sendDate: "3s",
+        ),
+      ),
+    ];
     return Scaffold(
       appBar: AppBarTransparent(),
       body: _buildBody(),
@@ -24,9 +70,9 @@ class _VideosScreenState extends State {
       children: [
         PageView.builder(
           scrollDirection: Axis.vertical,
-          itemCount: 10,
+          itemCount: posts.length,
           itemBuilder: (BuildContext context, int index) {
-            return VideoFullScreenCard();
+            return posts[index];
           },
         ),
         Positioned(

@@ -40,18 +40,6 @@ class PostCard extends StatelessWidget {
     );
   }
 
-  _buildPostAvatar() {
-    return Container(
-      alignment: Alignment.bottomLeft,
-      margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-      child: Avatar(
-        borderColor: Colors.white.withOpacity(1),
-        img: "${post.user.profile.avatar}",
-        size: 15,
-      ),
-    );
-  }
-
   _buildPostCardHeader() {
     return Row(
       children: [
@@ -68,6 +56,18 @@ class PostCard extends StatelessWidget {
         ),
         _buildSheetBottomMenuOpenClick(),
       ],
+    );
+  }
+
+  _buildPostAvatar() {
+    return Container(
+      alignment: Alignment.bottomLeft,
+      margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+      child: Avatar(
+        borderColor: Colors.white.withOpacity(1),
+        img: "${post.user.profile.avatar}",
+        size: 15,
+      ),
     );
   }
 

@@ -29,3 +29,5 @@ const kPostActionTextColor = Color.fromRGBO(117, 117, 117, 1.0);
 
 const kBottomSheetColor = Color.fromRGBO(20, 24, 27, 1.0);
 const kAddPostActionIconColor = Color.fromRGBO(49, 49, 49, 1.0);
+
+const kFullScreenVideoIconColor = Color.fromRGBO(255, 255, 255, 1.0);

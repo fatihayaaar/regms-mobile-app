@@ -366,3 +366,15 @@ final kShowMoreTextStyle = GoogleFonts.rubik(
   fontSize: 14,
   color: kTextFieldLightColor,
 );
+
+final kFullScreenVideoUsernameTextStyle = GoogleFonts.rubik(
+  color: kThemeColor,
+  fontWeight: FontWeight.w600,
+  fontSize: 16,
+);
+
+final kFullScreenVideoContentTextStyle = GoogleFonts.rubik(
+  color: kThemeColor,
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+);
