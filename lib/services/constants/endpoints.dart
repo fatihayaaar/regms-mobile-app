@@ -4,5 +4,5 @@ class Endpoints {
   static const int receiveTimeout = 9999;
   static const int connectionTimeout = 9999;
 
-  static const String signUp = "/auth/sign-up";
+  static const String login = "/auth/login";
 }
