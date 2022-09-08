@@ -3,14 +3,22 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
+import 'package:video_player/video_player.dart';
 
+// ignore: must_be_immutable
 class VideoFullScreenCard extends StatelessWidget {
   final Post post;
+  late VideoPlayerController controller;
+  late double volume = 1.0;
 
   VideoFullScreenCard({required this.post});
 
   @override
   Widget build(BuildContext context) {
+    controller = VideoPlayerController.asset(post.media ?? "");
+    controller.initialize().then((value) {});
+    controller.play();
+    controller.setLooping(true);
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -24,13 +32,22 @@ class VideoFullScreenCard extends StatelessWidget {
   _buildContent(context) {
     return Stack(
       children: [
+        Container(
+          child: GestureDetector(
+            onTap: () {
+              volume = volume == 1.0 ? 0 : 1.0;
+              controller.setVolume(volume);
+            },
+            child: VideoPlayer(controller),
+          ),
+        ),
         Positioned(
           bottom: 20,
           left: 10,
           child: _buildActions(context),
         ),
         Positioned(
-          bottom: 20,
+          bottom: 35,
           right: 10,
           child: _buildListButton(),
         ),
@@ -45,6 +62,8 @@ class VideoFullScreenCard extends StatelessWidget {
         _buildProfileAction(context),
         SizedBox(height: 10),
         _buildVideoAction(),
+        SizedBox(height: 10),
+        _buildVideoProgressIndicator(context),
       ],
     );
   }
@@ -97,6 +116,7 @@ class VideoFullScreenCard extends StatelessWidget {
         child: Text(
           "${post.text}",
           style: kFullScreenVideoContentTextStyle,
+          overflow: TextOverflow.ellipsis,
         ),
       ),
     );
@@ -159,6 +179,23 @@ class VideoFullScreenCard extends StatelessWidget {
     return Icon(
       Icons.keyboard_control_rounded,
       color: kThemeColor,
+    );
+  }
+
+  _buildVideoProgressIndicator(context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+          height: 5,
+          width: MediaQuery.of(context).size.width - 20,
+          child: VideoProgressIndicator(controller,
+              allowScrubbing: true,
+              padding: EdgeInsets.zero,
+              colors: VideoProgressColors(
+                backgroundColor: Colors.transparent,
+                playedColor: Colors.white.withOpacity(0.6),
+                bufferedColor: Colors.grey.withOpacity(0.2),
+              ))),
     );
   }
 }

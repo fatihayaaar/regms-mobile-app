@@ -29,7 +29,7 @@ class _VideosScreenState extends State {
           text:
               "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
           sendDate: "3s",
-          media: "assets/images/dump_2.jpg",
+          media: "assets/videos/dump_video_1.mp4",
         ),
       ),
       VideoFullScreenCard(
@@ -41,7 +41,7 @@ class _VideosScreenState extends State {
           likeCount: 920,
           commentCount: 0,
           sendDate: "3s",
-          media: "assets/images/dump_2.jpg",
+          media: "assets/videos/dump_video_2.mp4",
         ),
       ),
       VideoFullScreenCard(
@@ -55,6 +55,7 @@ class _VideosScreenState extends State {
           text:
               "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
           sendDate: "3s",
+          media: "assets/videos/dump_video_1.mp4",
         ),
       ),
     ];
