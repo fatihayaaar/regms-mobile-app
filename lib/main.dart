@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/root.dart';
-import 'package:regms_flutter_client/screens/membership_screens/login_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
+import 'package:regms_flutter_client/screens/membership_screens/login_screen.dart';
+import 'package:regms_flutter_client/services/helpers/persist/persist_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 late SharedPreferences prefs;
+late PersistHelper preferences;
 late Root root;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
+  preferences = PersistHelper(prefs);
+
   root = Root();
 
   SystemChrome.setSystemUIOverlayStyle(

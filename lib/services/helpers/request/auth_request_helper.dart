@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:regms_flutter_client/constants/app.dart';
 import 'package:regms_flutter_client/services/constants/endpoints.dart';
-import 'package:regms_flutter_client/services/helpers/request_helper.dart';
+import 'package:regms_flutter_client/services/helpers/request/request_helper.dart';
 
 class AuthRequestHelper extends RequestHelper {
   AuthRequestHelper._();
