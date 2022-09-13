@@ -67,8 +67,8 @@ class BottomNavBar extends StatelessWidget {
             flex: 1,
             child: _buildAvatarItem(
               context,
-              page: root.myUser != null
-                  ? ProfileScreen(user: root.myUser!, isMyProfile: true)
+              page: appService.providerPersistHelper.myUser != null
+                  ? ProfileScreen(user: appService.providerPersistHelper.myUser!, isMyProfile: true)
                   : LoginScreen(),
             ),
           ),

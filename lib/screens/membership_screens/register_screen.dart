@@ -417,13 +417,13 @@ class _RegisterScreen extends State {
   }
 
   void submitButtonOnClick() async {
-    await prefs.setString("username", "fayar");
-    root.initMyUser();
+    await appService.providerPersistHelper.saveToken("fayar");
+    appService.providerPersistHelper.initMyUser();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) => ProfileScreen(
-          user: root.myUser!,
+          user: appService.providerPersistHelper.myUser!,
           isMyProfile: true,
         ),
       ),

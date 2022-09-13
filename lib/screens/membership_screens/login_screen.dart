@@ -231,11 +231,11 @@ class _LoginScreen extends State {
   }
 
   void _loginButtonOnClick() async {
-    await prefs.setString("username", "fayar");
-    root.initMyUser();
+    await appService.providerPersistHelper.saveToken("fayar");
+    appService.providerPersistHelper.initMyUser();
     Route route = MaterialPageRoute(
       builder: (_) => ProfileScreen(
-        user: root.myUser!,
+        user: appService.providerPersistHelper.myUser!,
         isMyProfile: true,
       ),
     );
