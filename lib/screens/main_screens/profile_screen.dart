@@ -15,6 +15,8 @@ import 'package:regms_flutter_client/widgets/page.dart';
 import 'package:regms_flutter_client/widgets/selection_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
+  static const routeName = '/profile';
+
   final bool? isMyProfile;
   final User user;
 

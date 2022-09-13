@@ -4,12 +4,14 @@ import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/story_list_item.dart';
 import 'package:regms_flutter_client/models/user.dart';
-import 'package:regms_flutter_client/screens/main_screens/home_timeline.dart';
-import 'package:regms_flutter_client/screens/main_screens/messages_screen.dart';
-import 'package:regms_flutter_client/screens/main_screens/story_camera_screen.dart';
+import 'package:regms_flutter_client/screens/main_screens/home_screen/pages/home_timeline.dart';
+import 'package:regms_flutter_client/screens/main_screens/home_screen/pages/messages_screen.dart';
+import 'package:regms_flutter_client/screens/main_screens/home_screen/pages/story_camera_screen.dart';
 import 'package:regms_flutter_client/widgets/cards/post_card.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const routeName = '/home';
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

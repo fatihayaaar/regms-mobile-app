@@ -7,6 +7,8 @@ import 'package:regms_flutter_client/widgets/page.dart';
 import 'package:regms_flutter_client/widgets/photos_selection.dart';
 
 class AddPostScreen extends StatefulWidget {
+  static const routeName = '/add_post';
+
   @override
   _AddPostScreenState createState() => _AddPostScreenState();
 }

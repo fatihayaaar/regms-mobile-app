@@ -5,6 +5,8 @@ import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/widgets/avatar.dart';
 
 class EditProfileScreen extends StatefulWidget {
+  static const routeName = '/profile/edit';
+
   @override
   _EditProfileScreen createState() => _EditProfileScreen();
 }

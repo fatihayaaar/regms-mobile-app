@@ -4,12 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/screens/membership_screens/forgot_password_screen.dart';
+import 'package:regms_flutter_client/route.dart';
 import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
+import 'package:regms_flutter_client/screens/membership_screens/forgot_password_screen.dart';
 import 'package:regms_flutter_client/screens/membership_screens/register_screen.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/login';
+
   @override
   _LoginScreen createState() => _LoginScreen();
 }
@@ -178,8 +181,7 @@ class _LoginScreen extends State {
       alignment: Alignment.topRight,
       child: GestureDetector(
         onTap: () {
-          Route route =
-              MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
+          var route = MyRoute.onGenerateRoute(ForgotPasswordScreen.routeName);
           Navigator.push(context, route);
         },
         child: Text(
@@ -205,12 +207,8 @@ class _LoginScreen extends State {
             style: tsRichTextStyle(kLoginButtonColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => RegisterScreen(),
-                  ),
-                );
+                var route = MyRoute.onGenerateRoute(RegisterScreen.routeName);
+                Navigator.push(context, route);
               },
           ),
         ],
@@ -233,12 +231,13 @@ class _LoginScreen extends State {
   void _loginButtonOnClick() async {
     await appService.providerPersistHelper.saveToken("fayar");
     appService.providerPersistHelper.initMyUser();
-    Route route = MaterialPageRoute(
-      builder: (_) => ProfileScreen(
-        user: appService.providerPersistHelper.myUser!,
-        isMyProfile: true,
-      ),
+    var route = MyRoute.onGenerateRoute(
+      ProfileScreen.routeName,
+      param: {
+        "user": appService.providerPersistHelper.myUser!,
+        "isMyProfile": true,
+      },
     );
-    Navigator.push(context, route);
+    Navigator.pushReplacement(context, route);
   }
 }

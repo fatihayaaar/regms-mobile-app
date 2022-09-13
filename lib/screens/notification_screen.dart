@@ -4,6 +4,8 @@ import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
 import 'package:regms_flutter_client/widgets/tiles/notification_tile.dart';
 
 class NotificationScreen extends StatefulWidget {
+  static const routeName = '/notifications';
+
   @override
   _NotificationScreenState createState() => _NotificationScreenState();
 }

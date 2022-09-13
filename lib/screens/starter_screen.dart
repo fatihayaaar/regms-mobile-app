@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 
 class StarterScreen extends StatefulWidget {
+  static const routeName = '/starter';
+
   @override
   _StarterScreenState createState() => _StarterScreenState();
 }

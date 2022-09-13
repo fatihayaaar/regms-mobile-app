@@ -4,6 +4,8 @@ import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
+  static const routeName = '/starter/forgot_password/reset_password';
+
   @override
   _ResetPasswordScreen createState() => _ResetPasswordScreen();
 }

@@ -10,6 +10,8 @@ import 'package:regms_flutter_client/widgets/show_more_widget.dart';
 import 'package:regms_flutter_client/widgets/tiles/user_tile.dart';
 
 class SearchScreen extends StatefulWidget {
+  static const routeName = '/search';
+
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }

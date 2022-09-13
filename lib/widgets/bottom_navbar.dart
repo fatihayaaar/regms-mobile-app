@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
+import 'package:regms_flutter_client/route.dart';
 import 'package:regms_flutter_client/screens/main_screens/add_post_screen.dart';
-import 'package:regms_flutter_client/screens/main_screens/home_screen.dart';
+import 'package:regms_flutter_client/screens/main_screens/home_screen/home_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/search_screen.dart';
 import 'package:regms_flutter_client/screens/main_screens/videos_screen.dart';
@@ -35,7 +36,7 @@ class BottomNavBar extends StatelessWidget {
             flex: 1,
             child: _buildItem(
               context,
-              page: HomeScreen(),
+              routeName: HomeScreen.routeName,
               icon: Icons.home_outlined,
             ),
           ),
@@ -43,7 +44,7 @@ class BottomNavBar extends StatelessWidget {
             flex: 1,
             child: _buildItem(
               context,
-              page: VideosScreen(),
+              routeName: VideosScreen.routeName,
               icon: Icons.slow_motion_video,
             ),
           ),
@@ -51,7 +52,7 @@ class BottomNavBar extends StatelessWidget {
             flex: 1,
             child: _buildItem(
               context,
-              page: AddPostScreen(),
+              routeName: AddPostScreen.routeName,
               icon: Icons.add_circle_outline_sharp,
             ),
           ),
@@ -59,29 +60,40 @@ class BottomNavBar extends StatelessWidget {
             flex: 1,
             child: _buildItem(
               context,
-              page: SearchScreen(),
+              routeName: SearchScreen.routeName,
               icon: Icons.search_rounded,
             ),
           ),
           Expanded(
             flex: 1,
-            child: _buildAvatarItem(
-              context,
-              page: appService.providerPersistHelper.myUser != null
-                  ? ProfileScreen(user: appService.providerPersistHelper.myUser!, isMyProfile: true)
-                  : LoginScreen(),
-            ),
+            child: appService.providerPersistHelper.myUser != null
+                ? _buildAvatarItem(
+                    context,
+                    routeName: ProfileScreen.routeName,
+                    param: {
+                      "user": appService.providerPersistHelper.myUser!,
+                      "isMyProfile": true,
+                    },
+                  )
+                : _buildAvatarItem(
+                    context,
+                    routeName: LoginScreen.routeName,
+                  ),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildItem(context, {required Widget page, required IconData icon}) {
+  Widget _buildItem(context, {required routeName, required icon, param}) {
     return ElevatedButton(
       style: kTransparentButtonButtonStyle,
       onPressed: () {
-        Navigator.push(context, _createRoute(page));
+        var route = MyRoute.onGenerateRoute(
+          routeName,
+          param: param,
+        );
+        Navigator.push(context, route);
       },
       child: selected == 1
           ? Icon(icon, size: 25, color: kAppbarColor)
@@ -89,10 +101,14 @@ class BottomNavBar extends StatelessWidget {
     );
   }
 
-  Widget _buildAvatarItem(context, {required Widget page}) {
+  Widget _buildAvatarItem(context, {required String routeName, param}) {
     return ElevatedButton(
       onPressed: () {
-        Navigator.push(context, _createRoute(page));
+        var route = MyRoute.onGenerateRoute(
+          routeName,
+          param: param,
+        );
+        Navigator.push(context, route);
       },
       style: kTransparentButtonButtonStyle,
       child: ClipRRect(
@@ -104,15 +120,6 @@ class BottomNavBar extends StatelessWidget {
           //child: Image.file(),
         ),
       ),
-    );
-  }
-
-  Route _createRoute(Widget page) {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => page,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return child;
-      },
     );
   }
 }

@@ -11,6 +11,8 @@ import 'package:regms_flutter_client/widgets/shake.dart';
 import 'package:regms_flutter_client/widgets/tiles/slide_tile.dart';
 
 class RegisterScreen extends StatefulWidget {
+  static const routeName = '/register';
+
   @override
   _RegisterScreen createState() => _RegisterScreen();
 }

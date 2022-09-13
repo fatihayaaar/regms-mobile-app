@@ -8,6 +8,8 @@ import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/widgets/cards/video_full_screen_card.dart';
 
 class VideosScreen extends StatefulWidget {
+  static const routeName = '/videos';
+
   @override
   _VideosScreenState createState() => _VideosScreenState();
 }

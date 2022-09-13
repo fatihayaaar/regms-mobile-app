@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: buildThemeData(),
+      initialRoute: '/',
       home: appService.providerPersistHelper.myUser == null
           ? LoginScreen()
           : ProfileScreen(user: appService.providerPersistHelper.myUser!),

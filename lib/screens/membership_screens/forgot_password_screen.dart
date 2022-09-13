@@ -5,6 +5,8 @@ import 'package:regms_flutter_client/screens/membership_screens/email_validate_s
 import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
+  static const routeName = '/starter/forgot_password';
+
   @override
   _ForgotPasswordScreen createState() => _ForgotPasswordScreen();
 }
