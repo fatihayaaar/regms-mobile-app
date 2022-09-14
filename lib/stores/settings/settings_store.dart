@@ -24,19 +24,13 @@ class SettingStore {
 
   void init() async {
     await restore();
-    Map<dynamic, dynamic> values = {
-      0: {"code": "en"},
-      1: {"code": "tr"},
-    };
-    List<Language> languages = values.keys
+    List<Language> languages = getLanguages.keys
         .map((key) {
-          final language = values[key];
-          String code = language['code'] ?? language['language_code'];
+          final language = getLanguages[key];
           return Language(
-            code: code.toUpperCase(),
-            locale: code,
-            language: language['native_name'],
-            dictionary: {},
+            code: language["code"].toUpperCase(),
+            locale: language["code"],
+            language: language['nativeName'],
           );
         })
         .toList()
@@ -69,6 +63,5 @@ List<Language> defaultLanguageSupport = languageSupport
           code: code,
           locale: code,
           language: getLanguages[code]['name'],
-          dictionary: {},
         ))
     .toList();

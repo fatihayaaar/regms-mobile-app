@@ -2,17 +2,15 @@ class Language {
   String code;
   String locale;
   String language;
-  Map<String, String> dictionary;
 
   Language({
     required this.code,
     required this.locale,
     required this.language,
-    required this.dictionary,
   });
 }
 
 Map get getLanguages => {
-  'en': {'name': 'English', 'nativeName': 'English'},
-  'tr': {'name': 'Turkish', 'nativeName': 'Turkish'},
+  'en': {'name': 'English', 'nativeName': 'English', "code" : "en"},
+  'tr': {'name': 'Turkish', 'nativeName': 'Turkish', "code": "tr"},
 };
