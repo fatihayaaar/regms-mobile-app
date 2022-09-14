@@ -6,8 +6,9 @@ import 'package:regms_flutter_client/services/helpers/persist/persist_helper.dar
 class SettingStore {
   final PersistHelper _persistHelper;
 
-  String _locale = defaultLanguage;
-  bool _darkMode = false;
+  var _locale = defaultLanguage;
+  var _darkMode = false;
+  var _supportedLanguages = ObservableList<Language>.of(defaultLanguageSupport);
 
   SettingStore(this._persistHelper) {
     init();
@@ -19,18 +20,14 @@ class SettingStore {
 
   ObservableList<Language> get supportedLanguages => _supportedLanguages;
 
-  ObservableList<Language> _supportedLanguages =
-      ObservableList<Language>.of(defaultLanguageSupport);
-
   void init() async {
     await restore();
     List<Language> languages = getLanguages.keys
         .map((key) {
-          final language = getLanguages[key];
           return Language(
-            code: language["code"].toUpperCase(),
-            locale: language["code"],
-            language: language['nativeName'],
+            code: getLanguages[key]["code"].toUpperCase(),
+            locale: getLanguages[key]["code"],
+            language: getLanguages[key]['nativeName'],
           );
         })
         .toList()
