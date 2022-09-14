@@ -1,6 +1,6 @@
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/models/profile.dart';
-import 'package:regms_flutter_client/models/user.dart';
+import 'package:regms_flutter_client/models/profile/profile.dart';
+import 'package:regms_flutter_client/models/user/user.dart';
 import 'package:regms_flutter_client/services/constants/preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
