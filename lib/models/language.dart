@@ -14,4 +14,5 @@ class Language {
 
 Map get getLanguages => {
   'en': {'name': 'English', 'nativeName': 'English'},
+  'tr': {'name': 'Turkish', 'nativeName': 'Turkish'},
 };

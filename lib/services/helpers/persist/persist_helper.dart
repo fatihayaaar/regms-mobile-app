@@ -22,6 +22,22 @@ class PersistHelper {
     return sharedPreferences.remove(Preferences.authToken);
   }
 
+  Future<bool> saveDarkMode(bool value) async {
+    return await sharedPreferences.setBool(Preferences.darkMode, value);
+  }
+
+  Future<bool> getDarkMode() async {
+    return sharedPreferences.getBool(Preferences.darkMode) ?? false;
+  }
+
+  Future<bool> saveLanguage(String value) async {
+    return await sharedPreferences.setString(Preferences.languageKey, value);
+  }
+
+  Future<String?> getLanguage() async {
+    return sharedPreferences.getString(Preferences.languageKey);
+  }
+
   void initMyUser() {
     var username = appService.providerPersistHelper.getToken() ?? "";
     if (username != "") {

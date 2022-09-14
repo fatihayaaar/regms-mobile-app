@@ -8,6 +8,7 @@ import 'package:regms_flutter_client/route.dart';
 import 'package:regms_flutter_client/screens/main_screens/profile_screen.dart';
 import 'package:regms_flutter_client/screens/membership_screens/forgot_password_screen.dart';
 import 'package:regms_flutter_client/screens/membership_screens/register_screen.dart';
+import 'package:regms_flutter_client/utils/app_localization.dart';
 import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreen extends State {
+  var translate;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -29,6 +31,7 @@ class _LoginScreen extends State {
 
   @override
   Widget build(BuildContext context) {
+    translate = AppLocalizations.of(context)!.translate;
     return Scaffold(
       appBar: AppBarTransparent(),
       backgroundColor: kBackgroundColor,
@@ -65,7 +68,7 @@ class _LoginScreen extends State {
       margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
       alignment: Alignment.center,
       child: Text(
-        "Login",
+        translate("login_title"),
         style: tLoginTitleTextStyle,
       ),
     );
