@@ -1,3 +1,7 @@
 {
-  "login_title" : "Login"
+  "login_title" : "login",
+  "login_button_text" : "login",
+  "username_text" : "username",
+  "email_address_text" : "email address",
+  "password_text" : "password"
 }

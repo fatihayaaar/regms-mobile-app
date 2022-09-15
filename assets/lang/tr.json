@@ -1,3 +1,7 @@
 {
-  "login_title" : "giriş yap"
+  "login_title" : "giriş",
+  "login_button_text" : "giriş yap",
+  "username_text" : "kullanıcı adı",
+  "email_address_text" : "eposta adresi",
+  "password_text" : "şifre"
 }
