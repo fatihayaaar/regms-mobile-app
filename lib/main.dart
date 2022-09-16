@@ -7,6 +7,7 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/services/app_service.dart';
 import 'package:regms_flutter_client/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/stores/settings/settings_store.dart';
+import 'package:regms_flutter_client/theme.dart';
 import 'package:regms_flutter_client/utils/app_localization.dart';
 import 'package:regms_flutter_client/views/screens/main_screens/profile_screen.dart';
 import 'package:regms_flutter_client/views/screens/membership_screens/login_screen.dart';
@@ -29,7 +30,7 @@ void main() async {
   runApp(appService.getApp);
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget with MyTheme {
   final SettingStore _settingStore = SettingStore(
     appService.providerPersistHelper,
   );
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         builder: (context, store, child) => Observer(
           builder: (_) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: buildThemeData(),
+            theme: buildTheme(store),
             initialRoute: '/',
             locale: Locale(store.locale),
             supportedLocales: store.supportedLanguages.map((language) {
@@ -73,20 +74,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
-
-ThemeData buildThemeData() {
-  return ThemeData(
-    appBarTheme: AppBarTheme(
-      systemOverlayStyle: SystemUiOverlayStyle.dark,
-    ),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-    scaffoldBackgroundColor: Colors.white,
-    textTheme: TextTheme(
-      bodyText1: TextStyle(color: kBodyTextColor),
-    ),
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      secondary: Color.fromRGBO(0, 0, 0, 0),
-    ),
-  );
 }

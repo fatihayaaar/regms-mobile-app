@@ -32,7 +32,7 @@ class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget 
           SearchWidget(onChanged: searchOnChanged),
         ],
       ),
-      backgroundColor: kMainAppbarColor,
+      backgroundColor: kAppbarColor,
       iconTheme: IconThemeData(color: kThemeColor),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );

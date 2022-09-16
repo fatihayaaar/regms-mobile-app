@@ -45,7 +45,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           _buildActions(context),
         ],
       ),
-      backgroundColor: kMainAppbarColor,
+      backgroundColor: kAppbarColor,
       iconTheme: IconThemeData(color: kThemeColor),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
