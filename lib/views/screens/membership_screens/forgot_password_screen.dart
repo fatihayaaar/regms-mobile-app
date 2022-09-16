@@ -50,7 +50,10 @@ class _ForgotPasswordScreen extends State {
 
   Widget _buildTitle() {
     return Container(
-      child: Text("Forgot\nPassword", style: tRegisterTitleTextStyle),
+      child: Text(
+        "Forgot\nPassword",
+        style: Theme.of(context).textTheme.headline2,
+      ),
       alignment: Alignment.bottomLeft,
     );
   }

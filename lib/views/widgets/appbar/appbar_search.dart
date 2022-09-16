@@ -14,10 +14,10 @@ class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget 
 
   @override
   Widget build(BuildContext context) {
-    return _appBar();
+    return _appBar(context);
   }
 
-  _appBar() {
+  _appBar(context) {
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -27,24 +27,24 @@ class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget 
       toolbarHeight: 45,
       title: Row(
         children: [
-          _buildTitle("Search"),
+          _buildTitle(context, "Search"),
           SizedBox(width: 15),
           SearchWidget(onChanged: searchOnChanged),
         ],
       ),
-      backgroundColor: kAppbarColor,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       iconTheme: IconThemeData(color: kThemeColor),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
   }
 
-  _buildTitle(String title) {
+  _buildTitle(context, String title) {
     return Container(
       alignment: Alignment.centerLeft,
       margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Text(
         title,
-        style: tAppbarTitleTextStyle,
+        style: Theme.of(context).appBarTheme.titleTextStyle,
       ),
     );
   }

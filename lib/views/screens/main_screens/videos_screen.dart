@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/post/post.dart';
 import 'package:regms_flutter_client/models/profile/profile.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
@@ -113,7 +112,7 @@ class _VideosScreenState extends State {
       alignment: Alignment.centerLeft,
       child: Text(
         title,
-        style: tAppbarTitleTextStyle,
+        style: Theme.of(context).appBarTheme.titleTextStyle,
       ),
     );
   }

@@ -141,7 +141,10 @@ class _RegisterScreen extends State {
         children: <Widget>[
           SizedBox(height: 40),
           Container(
-            child: Text("Start\nRegistering", style: tRegisterTitleTextStyle),
+            child: Text(
+              "Start\nRegistering",
+              style: Theme.of(context).textTheme.headline2,
+            ),
             alignment: Alignment.bottomLeft,
           ),
           SizedBox(height: 40),
@@ -169,7 +172,10 @@ class _RegisterScreen extends State {
       child: Column(
         children: <Widget>[
           SizedBox(height: 40),
-          Text("Complete The Registration", style: tRegisterTitleTextStyle),
+          Text(
+            "Complete The Registration",
+            style: Theme.of(context).textTheme.headline2,
+          ),
           SizedBox(height: 40),
           _buildEmailTextField(),
           SizedBox(height: 20),

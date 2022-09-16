@@ -19,7 +19,7 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromRGBO(255, 255, 255, 1),
+        color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         border: Border(
           top: BorderSide(
             color: kBorderColor,
@@ -96,8 +96,20 @@ class BottomNavBar extends StatelessWidget {
         Navigator.push(context, route);
       },
       child: selected == 1
-          ? Icon(icon, size: 25, color: kAppbarColor)
-          : Icon(icon, size: 25, color: kAppbarColor),
+          ? Icon(
+              icon,
+              size: 25,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedItemColor,
+            )
+          : Icon(
+              icon,
+              size: 25,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .unselectedItemColor,
+            ),
     );
   }
 

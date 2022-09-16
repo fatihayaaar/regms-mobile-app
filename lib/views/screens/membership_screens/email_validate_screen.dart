@@ -76,7 +76,10 @@ class _EmailValidateScreen extends State {
 
   Widget _buildTitle() {
     return Container(
-      child: Text("Email\nValidate", style: tRegisterTitleTextStyle),
+      child: Text(
+        "Email\nValidate",
+        style: Theme.of(context).textTheme.headline2,
+      ),
       alignment: Alignment.bottomLeft,
     );
   }

@@ -19,13 +19,13 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         statusBarIconBrightness: Brightness.light,
       ),
       shadowColor: Colors.transparent,
-      backgroundColor: kAppbarColor,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       toolbarHeight: 45,
-      title: _buildTitle(title),
+      title: _buildTitle(context, title),
     );
   }
 
-  _buildTitle(String title) {
+  _buildTitle(context, String title) {
     return Row(
       children: [
         Flexible(
@@ -33,7 +33,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               title,
-              style: tAppbarTitleTextStyle,
+              style: Theme.of(context).appBarTheme.titleTextStyle,
             ),
           ),
         ),

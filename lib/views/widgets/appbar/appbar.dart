@@ -40,25 +40,25 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         children: [
           _buildBackArrow(context),
-          _buildTitle(title),
+          _buildTitle(context, title),
           Flexible(child: Container()),
           _buildActions(context),
         ],
       ),
-      backgroundColor: kAppbarColor,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       iconTheme: IconThemeData(color: kThemeColor),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
   }
 
-  _buildTitle(String title) {
+  _buildTitle(context, String title) {
     return Flexible(
       child: Container(
         alignment: Alignment.centerLeft,
         margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Text(
           title,
-          style: tAppbarTitleTextStyle,
+          style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
       ),
     );

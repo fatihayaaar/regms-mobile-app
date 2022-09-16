@@ -2,30 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 
-final tLoginTitleTextStyle = GoogleFonts.raleway(
-  color: kLoginTitleColor,
-  fontWeight: FontWeight.bold,
-  fontSize: 48,
-);
-
-final tRegisterTitleTextStyle = GoogleFonts.raleway(
-  color: kLoginTitleColor,
-  fontWeight: FontWeight.bold,
-  fontSize: 33,
-);
-
-final kDraftButtonTitleTextStyle = GoogleFonts.raleway(
-  color: kLoginTitleColor,
-  fontWeight: FontWeight.bold,
-  fontSize: 15,
-);
-
-final kAddPostTitleTextStyle = GoogleFonts.raleway(
-  color: kThemeColor,
-  fontWeight: FontWeight.bold,
-  fontSize: 15,
-);
-
 final kLoginButtonButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all(kLoginButtonColor),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
@@ -238,12 +214,6 @@ final Decoration kBoxDecorationDropDownButton = BoxDecoration(
 final gSheetActionTextStyle = GoogleFonts.rubik(
   fontSize: 14,
   color: Color.fromRGBO(88, 80, 49, 1),
-);
-
-final tAppbarTitleTextStyle = GoogleFonts.raleway(
-  color: Colors.white,
-  fontWeight: FontWeight.bold,
-  fontSize: 19,
 );
 
 final tAppbarActionTextStyle = GoogleFonts.raleway(
