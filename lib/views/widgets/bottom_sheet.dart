@@ -13,7 +13,7 @@ class BottomSheetWidget extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-          color: Colors.white,
+          color: Theme.of(context).bottomSheetTheme.backgroundColor,
         ),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),

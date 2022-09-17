@@ -32,7 +32,7 @@ class UserTile extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(10, 0, 5, 0),
       child: Avatar(
         size: 20,
-        borderColor: kThemeColor,
+        borderColor: Colors.white,
         img: user.avatar ?? "",
         isStory: user.isStory ?? false,
       ),

@@ -15,7 +15,7 @@ class StoryList extends StatelessWidget {
     return Container(
       height: 110,
       decoration: BoxDecoration(
-        color: kThemeColor,
+        color: Theme.of(context).backgroundColor,
       ),
       child: ListView.builder(
         padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -52,7 +52,7 @@ class StoryList extends StatelessWidget {
                         width: 19,
                         child: Icon(
                           Icons.add,
-                          color: kThemeColor,
+                          color: Colors.white,
                           size: 14,
                         ),
                       ),

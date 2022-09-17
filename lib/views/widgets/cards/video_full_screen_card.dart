@@ -170,7 +170,7 @@ class VideoFullScreenCard extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(0, 2, 0, 0),
       child: Text(
         "$text",
-        style: kActionRichTextStyle(kThemeColor, FontWeight.normal),
+        style: kActionRichTextStyle(Colors.white, FontWeight.normal),
       ),
     );
   }
@@ -178,7 +178,7 @@ class VideoFullScreenCard extends StatelessWidget {
   _buildListButton() {
     return Icon(
       Icons.keyboard_control_rounded,
-      color: kThemeColor,
+      color: Colors.white,
     );
   }
 

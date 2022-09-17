@@ -137,7 +137,7 @@ class _ProfileScreenState extends State {
 
   Widget _buildProfileContent() {
     return Container(
-      color: kThemeColor,
+      color: Theme.of(context).backgroundColor,
       alignment: Alignment.centerLeft,
       child: ProfileCard(user: user, context: context),
     );

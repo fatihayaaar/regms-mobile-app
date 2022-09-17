@@ -9,27 +9,27 @@ class PageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildBody();
+    return _buildBody(context);
   }
 
-  _buildBody() {
+  _buildBody(context) {
     return Stack(
       children: [
         Container(
           height: 30,
-          color: kAppbarColor,
+          color: kThemeColor,
         ),
         ClipRRect(
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(isRadius ? 12 : 0),
           ),
-          child: _buildContent(),
+          child: _buildContent(context),
         ),
       ],
     );
   }
 
-  _buildContent() {
+  _buildContent(context) {
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (overScroll) {
         overScroll.disallowIndicator();
@@ -37,7 +37,7 @@ class PageWidget extends StatelessWidget {
       },
       child: SingleChildScrollView(
         child: Container(
-          color: kThemeColor,
+          color: Theme.of(context).backgroundColor,
           child: child,
         ),
       ),

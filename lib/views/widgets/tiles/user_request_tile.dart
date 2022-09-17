@@ -37,7 +37,7 @@ class UserRequestTile extends StatelessWidget {
             left: 0,
             child: Avatar(
               size: 17,
-              borderColor: kThemeColor,
+              borderColor: Colors.white,
               img: user.avatar ?? "",
             ),
           ),
@@ -46,7 +46,7 @@ class UserRequestTile extends StatelessWidget {
             right: 0,
             child: Avatar(
               size: 17,
-              borderColor: kThemeColor,
+              borderColor: Colors.white,
               img: user.avatar ?? "",
             ),
           ),

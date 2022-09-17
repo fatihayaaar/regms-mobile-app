@@ -23,7 +23,7 @@ class MyTheme {
           lightColor: SystemUiOverlayStyle.dark,
           darkColor: SystemUiOverlayStyle.light,
         ),
-        backgroundColor: kAppbarColor,
+        backgroundColor: kThemeColor,
         titleTextStyle: GoogleFonts.raleway(
           color: Colors.white,
           fontWeight: FontWeight.bold,
@@ -32,7 +32,20 @@ class MyTheme {
       );
   var bottomNavigationBarThemeData = BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
-    unselectedItemColor: kAppbarColor,
+    unselectedItemColor: kThemeColor,
+  );
+  var bottomSheetThemeData = BottomSheetThemeData(
+    backgroundColor: Colors.white,
+  );
+  var drawerThemeData = DrawerThemeData(
+    backgroundColor: kBackgroundColor,
+  );
+  var elevatedButtonThemeData = ElevatedButtonThemeData(
+    style: ButtonStyle(
+    ),
+  );
+  var floatActionButtonThemeData = FloatingActionButtonThemeData(
+    backgroundColor: kThemeColor,
   );
 
   ThemeData buildTheme(SettingStore store) {
@@ -40,10 +53,14 @@ class MyTheme {
     return base.copyWith(
       visualDensity: VisualDensity.adaptivePlatformDensity,
       scaffoldBackgroundColor: Colors.white,
+      backgroundColor: kBackgroundColor,
       textTheme: textTheme,
       appBarTheme: appBarTheme(base),
       bottomNavigationBarTheme: bottomNavigationBarThemeData,
-      backgroundColor: kBackgroundColor,
+      bottomSheetTheme: bottomSheetThemeData,
+      drawerTheme: drawerThemeData,
+      floatingActionButtonTheme: floatActionButtonThemeData,
+      elevatedButtonTheme: elevatedButtonThemeData,
     );
   }
 

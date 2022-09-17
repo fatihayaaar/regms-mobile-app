@@ -33,7 +33,7 @@ class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget 
         ],
       ),
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      iconTheme: IconThemeData(color: kThemeColor),
+      iconTheme: IconThemeData(color: Colors.white),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
   }

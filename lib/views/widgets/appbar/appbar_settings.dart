@@ -26,7 +26,7 @@ class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 60,
       title: _buildTitle(context),
       backgroundColor: Colors.transparent,
-      iconTheme: IconThemeData(color: kThemeColor),
+      iconTheme: IconThemeData(color: Colors.white),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
   }
@@ -64,7 +64,7 @@ class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
                 },
                 child: Icon(
                   Icons.arrow_back,
-                  color: kAppbarColor,
+                  color: kThemeColor,
                   size: 25,
                 ),
               ),
@@ -74,5 +74,4 @@ class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-
 }

@@ -164,7 +164,8 @@ class _AddPostScreenState extends State {
   _buildFAB() {
     return FloatingActionButton(
       onPressed: () {},
-      backgroundColor: kAppbarColor,
+      backgroundColor:
+          Theme.of(context).floatingActionButtonTheme.backgroundColor,
       elevation: 0,
       child: Icon(Icons.send),
     );

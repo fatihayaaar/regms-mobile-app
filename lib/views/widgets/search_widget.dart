@@ -31,7 +31,7 @@ class SearchWidget extends StatelessWidget {
                   fillColor: Colors.white.withOpacity(0.1),
                   prefixIcon: Icon(
                     Icons.search_sharp,
-                    color: kThemeColor,
+                    color: Colors.white,
                     size: 20,
                   ),
                 ),

@@ -46,7 +46,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      iconTheme: IconThemeData(color: kThemeColor),
+      iconTheme: IconThemeData(color: Colors.white),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
   }
@@ -113,7 +113,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Icon(
               Icons.notifications,
-              color: kThemeColor,
+              color: Colors.white,
             ),
             Positioned(
               top: 0,
@@ -143,7 +143,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Icon(
               Icons.chat,
-              color: kThemeColor,
+              color: Colors.white,
             ),
             Positioned(
               top: 0,

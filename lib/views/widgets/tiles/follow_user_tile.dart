@@ -32,7 +32,7 @@ class FollowUserTile extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(10, 0, 5, 0),
       child: Avatar(
         size: 20,
-        borderColor: kThemeColor,
+        borderColor: Colors.white,
         img: user.avatar ?? "",
         isStory: user.isStory ?? false,
       ),
@@ -73,8 +73,8 @@ class FollowUserTile extends StatelessWidget {
       width: 80,
       height: 25,
       decoration: BoxDecoration(
-        color: kAppbarColor,
-        border: Border.all(color: kThemeColor),
+        color: kThemeColor,
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(6),
       ),
       child: ElevatedButton(

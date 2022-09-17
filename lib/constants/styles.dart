@@ -86,7 +86,7 @@ final kLoginButtonContentTextStyle = GoogleFonts.raleway(
 final kProfileButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 13,
   fontWeight: FontWeight.bold,
-  color: kAppbarColor,
+  color: kThemeColor,
 );
 
 final tTextFieldBoxDecoration = BoxDecoration(
@@ -189,7 +189,7 @@ final Decoration kAddPostDraftBoxDecorationTextField = BoxDecoration(
 );
 
 final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
-  color: kAppbarColor,
+  color: kThemeColor,
   borderRadius: BorderRadius.circular(0),
 );
 
@@ -248,11 +248,11 @@ final kAddPostItemsTextStyle = GoogleFonts.rubik(
 final kAgendaTextStyle = GoogleFonts.rubik(
   fontSize: 18,
   fontWeight: FontWeight.w500,
-  color: kAppbarColor,
+  color: kThemeColor,
 );
 
 final kAgendaDetailTextStyle = GoogleFonts.rubik(
-  color: kAppbarColor.withOpacity(0.5),
+  color: kThemeColor.withOpacity(0.5),
   fontWeight: FontWeight.w400,
   fontSize: 12,
 );
@@ -266,7 +266,7 @@ final kFollowersCountTextStyle = GoogleFonts.rubik(
 final kFollowersCountSizeTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.bold,
-  color: kAppbarColor,
+  color: kThemeColor,
 );
 
 final kListTextStyle = GoogleFonts.raleway(
@@ -280,25 +280,25 @@ final Decoration kBoxDecorationSearchTextField = BoxDecoration(
 );
 
 final kListTitleTextStyle = GoogleFonts.raleway(
-  color: kAppbarColor,
+  color: kThemeColor,
   fontWeight: FontWeight.bold,
   fontSize: 19,
 );
 
 final kPostUsernameTextStyle = GoogleFonts.rubik(
-  color: kAppbarColor,
+  color: kThemeColor,
   fontWeight: FontWeight.w600,
   fontSize: 16,
 );
 
 final kPostContentTextStyle = GoogleFonts.rubik(
-  color: kAppbarColor,
+  color: kThemeColor,
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
 
 final kStoryMiniUsernameTextStyle = GoogleFonts.rubik(
-  color: kAppbarColor.withOpacity(0.65),
+  color: kThemeColor.withOpacity(0.65),
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
@@ -306,17 +306,17 @@ final kStoryMiniUsernameTextStyle = GoogleFonts.rubik(
 final kUserListUsernameTextStyle = GoogleFonts.rubik(
   fontSize: 16,
   fontWeight: FontWeight.w500,
-  color: kAppbarColor,
+  color: kThemeColor,
 );
 
 final kUserListStatusTextStyle = GoogleFonts.rubik(
-  color: kAppbarColor.withOpacity(0.6),
+  color: kThemeColor.withOpacity(0.6),
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
 
 final kUserListActionTextStyle = GoogleFonts.rubik(
-  color: kThemeColor,
+  color: Colors.white,
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
@@ -329,7 +329,7 @@ final Decoration kBoxDecorationListTypeItem = BoxDecoration(
 final kListTypeItemTextStyle = GoogleFonts.rubik(
   fontSize: 14,
   fontWeight: FontWeight.w500,
-  color: kAppbarColor.withOpacity(0.8),
+  color: kThemeColor.withOpacity(0.8),
 );
 
 final kShowMoreTextStyle = GoogleFonts.rubik(
@@ -338,13 +338,13 @@ final kShowMoreTextStyle = GoogleFonts.rubik(
 );
 
 final kFullScreenVideoUsernameTextStyle = GoogleFonts.rubik(
-  color: kThemeColor,
+  color: Colors.white,
   fontWeight: FontWeight.w600,
   fontSize: 16,
 );
 
 final kFullScreenVideoContentTextStyle = GoogleFonts.rubik(
-  color: kThemeColor,
+  color: Colors.white,
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );

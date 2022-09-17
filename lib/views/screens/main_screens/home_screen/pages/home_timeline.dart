@@ -28,26 +28,26 @@ class HomeTimeline extends StatelessWidget {
         isShowMessagesIcon: true,
         onClickMessages: onClickMessages,
       ),
-      body: PageWidget(child: _buildContent()),
+      body: PageWidget(child: _buildContent(context)),
       bottomNavigationBar: BottomNavBar(selected: -2),
     );
   }
 
-  _buildContent() {
+  _buildContent(context) {
     return Container(
       color: kBorderColor.withOpacity(0.3),
-      child: _buildPostView(),
+      child: _buildPostView(context),
     );
   }
 
-  _buildPostView() {
+  _buildPostView(context) {
     return Column(
       children: [
         StoryList(list: storyList),
         Column(
           children: [
             Container(
-              color: kThemeColor,
+              color: Theme.of(context).backgroundColor,
               padding: EdgeInsets.fromLTRB(0, 3, 0, 5),
               child: SelectionWidget(list: list),
             ),

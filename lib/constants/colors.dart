@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-// Colors
-const kThemeColor = Color.fromRGBO(255, 255, 255, 1.0);
-const kAppbarColor = Color.fromRGBO(23, 23, 44, 1.0);
 const kBackgroundColor = Color.fromRGBO(255, 255, 255, 1);
+const kThemeColor = Color.fromRGBO(23, 23, 44, 1.0);
 const kBodyTextColor = Color.fromRGBO(124, 125, 126, 1);
 
 const kLoginTitleColor = Color.fromRGBO(4, 4, 54, 1.0);

@@ -24,7 +24,7 @@ class _EditProfileScreen extends State {
 
   Widget _buildBody() {
     return Container(
-      color: kThemeColor,
+      color: Theme.of(context).backgroundColor,
       width: double.infinity,
       child: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
@@ -47,7 +47,7 @@ class _EditProfileScreen extends State {
         Container(
           width: double.maxFinite,
           decoration: BoxDecoration(
-            color: kAppbarColor,
+            color: kThemeColor,
           ),
           child: Column(
             children: [
@@ -60,7 +60,7 @@ class _EditProfileScreen extends State {
         Stack(
           children: [
             Container(
-              color: kAppbarColor,
+              color: kThemeColor,
               height: 30,
               width: double.infinity,
             ),
