@@ -21,7 +21,7 @@ class HomeTimeline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: MyAppBar(
         title: "Home",
         backButtonVisibility: false,
         isShowNotificationIcon: true,

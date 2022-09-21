@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
 import 'package:regms_flutter_client/views/screens/edit_profile_screen.dart';
@@ -24,19 +25,31 @@ class ProfileCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildAvatar(),
-              _buildNameAndSurname(),
               SizedBox(height: 5),
-              _buildBio(),
+              _buildNameAndSurname(),
               SizedBox(height: 10),
+              _buildBio(),
+              SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Icon(
+                    Icons.person,
+                    color: kRegisterRichTextAboutColor.withOpacity(0.5),
+                  ),
+                  SizedBox(width: 7.5),
                   _buildProfileFollowersText(
                     text: "Followers",
                     count: user.profile.followersCount.toString(),
                   ),
-                  SizedBox(width: 15),
+                  SizedBox(width: 10),
+                  Icon(
+                    Icons.circle,
+                    color: kRegisterRichTextAboutColor.withOpacity(0.5),
+                    size: 4,
+                  ),
+                  SizedBox(width: 10),
                   _buildProfileFollowersText(
                     text: "Following",
                     count: user.profile.followingCount.toString(),

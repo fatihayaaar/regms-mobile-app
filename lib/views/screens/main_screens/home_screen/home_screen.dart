@@ -55,7 +55,6 @@ class _HomeScreenState extends State {
           ),
           media: "assets/images/dump_2.jpg",
         ),
-        context: context,
       ),
       PostCard(
         post: Post(
@@ -68,7 +67,6 @@ class _HomeScreenState extends State {
           sendDate: "3s",
           media: "assets/images/dump_2.jpg",
         ),
-        context: context,
       ),
       PostCard(
         post: Post(
@@ -91,7 +89,6 @@ class _HomeScreenState extends State {
             sendTime: "10sn",
           ),
         ),
-        context: context,
       ),
     ];
 

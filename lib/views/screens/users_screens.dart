@@ -43,7 +43,7 @@ class _UsersScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: MyAppBar(
         title: "Followers",
         backButtonVisibility: true,
       ),

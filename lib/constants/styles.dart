@@ -222,7 +222,7 @@ final tAppbarActionTextStyle = GoogleFonts.raleway(
 );
 
 final kNameAndSurnameTextStyle = GoogleFonts.rubik(
-  fontSize: 27,
+  fontSize: 23,
   fontWeight: FontWeight.bold,
   color: kUsernameColor,
 );

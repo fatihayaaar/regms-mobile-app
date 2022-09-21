@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/post/post.dart';
+import 'package:regms_flutter_client/route.dart';
+import 'package:regms_flutter_client/views/screens/post_detail_screen.dart';
 import 'package:regms_flutter_client/views/widgets/avatar.dart';
 import 'package:regms_flutter_client/views/widgets/bottom_sheet.dart';
 import 'package:regms_flutter_client/views/widgets/comment_box.dart';
@@ -9,33 +11,48 @@ import 'package:regms_flutter_client/views/widgets/comment_text_field.dart';
 
 class PostCard extends StatelessWidget {
   final Post post;
-  final context;
   final bool isCommentVisible;
+  final bool isDetail;
+  var context;
 
   PostCard({
     required this.post,
-    required this.context,
+    this.isDetail = false,
     this.isCommentVisible = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(0),
-        color: Theme.of(context).backgroundColor,
-      ),
-      child: Column(
-        children: [
-          SizedBox(height: 5),
-          _buildPostCardHeader(),
-          _buildPostContent(),
-          _buildPostMedia(),
-          SizedBox(height: 5),
-          _buildPostFooter(),
-          SizedBox(height: isCommentVisible ? 5 : 0),
-        ],
+    this.context = context;
+    return GestureDetector(
+      onTap: () {
+        if (!isDetail) {
+          var route = MyRoute.onGenerateRoute(
+            PostDetailScreen.routeName,
+            param: {
+              "post": this.post,
+            },
+          );
+          Navigator.push(context, route);
+        }
+      },
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(0),
+          color: Theme.of(context).backgroundColor,
+        ),
+        child: Column(
+          children: [
+            SizedBox(height: 5),
+            _buildPostCardHeader(),
+            _buildPostContent(),
+            _buildPostMedia(),
+            SizedBox(height: 5),
+            _buildPostFooter(),
+            SizedBox(height: isCommentVisible ? 5 : 0),
+          ],
+        ),
       ),
     );
   }
@@ -120,9 +137,20 @@ class PostCard extends StatelessWidget {
           visible: isCommentVisible,
           child: Column(
             children: [
+              Visibility(
+                visible: isDetail,
+                child: CommentTextField(avatar: post.user.profile.avatar),
+              ),
+              Visibility(
+                visible: isDetail,
+                child: SizedBox(height: 5),
+              ),
               _buildComments(),
               SizedBox(height: post.commentCount == 0 ? 5 : 0),
-              CommentTextField(avatar: post.user.profile.avatar),
+              Visibility(
+                visible: !isDetail,
+                child: CommentTextField(avatar: post.user.profile.avatar),
+              ),
             ],
           ),
         ),
@@ -199,21 +227,24 @@ class PostCard extends StatelessWidget {
   }
 
   _buildSheetBottomMenuOpenClick() {
-    return GestureDetector(
-      onTap: () {
-        showModalBottomSheet<void>(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+    return Visibility(
+      visible: !isDetail,
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet<void>(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            context: context,
+            builder: (_) => BottomSheetWidget(),
+          );
+        },
+        child: Container(
+          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+          child: Icon(
+            Icons.keyboard_control_rounded,
+            color: kBodyTextColor,
           ),
-          context: context,
-          builder: (_) => BottomSheetWidget(),
-        );
-      },
-      child: Container(
-        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-        child: Icon(
-          Icons.keyboard_control_rounded,
-          color: kBodyTextColor,
         ),
       ),
     );
@@ -241,7 +272,11 @@ class PostCard extends StatelessWidget {
         ? Container()
         : CommentBox(
             comment: post.comment!,
-            detailText: post.commentCount > 0 ? "${post.commentCount}" : null,
+            detailText: isDetail
+                ? null
+                : post.commentCount > 0
+                    ? "${post.commentCount}"
+                    : null,
           );
   }
 }

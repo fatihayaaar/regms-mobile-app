@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/views/screens/notification_screen.dart';
 
-class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool backButtonVisibility;
   final bool isShowNotificationIcon;
@@ -12,7 +10,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final onClickMessages;
   final double height;
 
-  AppBarWidget({
+  MyAppBar({
     this.title = "",
     this.backButtonVisibility = true,
     this.isShowNotificationIcon = false,

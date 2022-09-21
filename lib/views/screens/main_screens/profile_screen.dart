@@ -72,7 +72,6 @@ class _ProfileScreenState extends State {
           ),
           media: "assets/images/dump_2.jpg",
         ),
-        context: context,
       ),
       PostCard(
         isCommentVisible: false,
@@ -86,7 +85,6 @@ class _ProfileScreenState extends State {
           sendDate: "3s",
           media: "assets/images/dump_2.jpg",
         ),
-        context: context,
       ),
       PostCard(
         isCommentVisible: false,
@@ -110,7 +108,6 @@ class _ProfileScreenState extends State {
             sendTime: "10sn",
           ),
         ),
-        context: context,
       ),
     ];
     return DefaultTabController(

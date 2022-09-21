@@ -17,7 +17,7 @@ class _EditProfileScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: "Edit Profile", backButtonVisibility: true),
+      appBar: MyAppBar(title: "Edit Profile", backButtonVisibility: true),
       body: _buildBody(),
     );
   }

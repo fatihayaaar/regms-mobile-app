@@ -12,6 +12,7 @@ import 'package:regms_flutter_client/views/screens/membership_screens/login_scre
 import 'package:regms_flutter_client/views/screens/membership_screens/register_screen.dart';
 import 'package:regms_flutter_client/views/screens/membership_screens/reset_password_screen.dart';
 import 'package:regms_flutter_client/views/screens/notification_screen.dart';
+import 'package:regms_flutter_client/views/screens/post_detail_screen.dart';
 import 'package:regms_flutter_client/views/screens/starter_screen.dart';
 
 class MyRoute {
@@ -35,6 +36,9 @@ class MyRoute {
             ),
         EditProfileScreen.routeName: (context) => EditProfileScreen(),
         NotificationScreen.routeName: (context) => NotificationScreen(),
+        PostDetailScreen.routeName: (context) => PostDetailScreen(
+              post: param["post"],
+            ),
       };
 
   static onGenerateRoute(dynamic routeName, {param}) {

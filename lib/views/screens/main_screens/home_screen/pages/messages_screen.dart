@@ -6,7 +6,7 @@ class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: MyAppBar(
         title: "Messages",
         backButtonVisibility: true,
       ),

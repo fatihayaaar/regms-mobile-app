@@ -21,7 +21,7 @@ class _AddPostScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: "Add"),
+      appBar: MyAppBar(title: "Add"),
       body: _buildBody(),
       floatingActionButton: _buildFAB(),
     );
