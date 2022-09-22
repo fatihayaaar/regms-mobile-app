@@ -16,6 +16,11 @@ class MyTheme {
       fontWeight: FontWeight.bold,
       fontSize: 33,
     ),
+    bodyText1: GoogleFonts.raleway(
+      fontSize: 15,
+      fontWeight: FontWeight.w600,
+      color: Color.fromRGBO(60, 60, 60, 1.0),
+    ),
   );
   var appBarTheme = (base) => AppBarTheme(
         systemOverlayStyle: _getColor(
@@ -27,6 +32,11 @@ class MyTheme {
         titleTextStyle: GoogleFonts.raleway(
           color: Colors.white,
           fontWeight: FontWeight.bold,
+          fontSize: 19,
+        ),
+        toolbarTextStyle: GoogleFonts.raleway(
+          color: Colors.white,
+          fontWeight: FontWeight.normal,
           fontSize: 19,
         ),
       );
@@ -41,8 +51,7 @@ class MyTheme {
     backgroundColor: kBackgroundColor,
   );
   var elevatedButtonThemeData = ElevatedButtonThemeData(
-    style: ButtonStyle(
-    ),
+    style: ButtonStyle(),
   );
   var floatActionButtonThemeData = FloatingActionButtonThemeData(
     backgroundColor: kThemeColor,

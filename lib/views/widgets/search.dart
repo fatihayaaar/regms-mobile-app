@@ -19,7 +19,7 @@ class Search extends StatelessWidget {
                     EdgeInsets.symmetric(vertical: 13, horizontal: 0),
                 border: InputBorder.none,
                 hintText: "Search",
-                hintStyle: kListTextStyle,
+                hintStyle: Theme.of(context).textTheme.bodyText1,
               ),
             ),
           ),

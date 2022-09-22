@@ -7,6 +7,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool backButtonVisibility;
   final bool isShowNotificationIcon;
   final bool isShowMessagesIcon;
+  final bool isSaveAction;
   final onClickMessages;
   final double height;
 
@@ -15,6 +16,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backButtonVisibility = true,
     this.isShowNotificationIcon = false,
     this.isShowMessagesIcon = false,
+    this.isSaveAction = false,
     this.onClickMessages,
     this.height = 45.0,
   });
@@ -87,6 +89,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   _buildActions(context) {
     return Row(
       children: [
+        _buildSaveAction(context),
         _buildNotificationIcon(context),
         SizedBox(
             width: isShowNotificationIcon
@@ -157,6 +160,27 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  _buildSaveAction(context) {
+    return Visibility(
+      visible: isSaveAction,
+      child: GestureDetector(
+        child: Container(
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          padding: EdgeInsets.fromLTRB(7.5, 5, 7.5, 5),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          child: Text(
+            "Save",
+            style: Theme.of(context).appBarTheme.toolbarTextStyle,
+          ),
         ),
       ),
     );

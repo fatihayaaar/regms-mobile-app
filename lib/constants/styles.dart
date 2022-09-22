@@ -269,11 +269,6 @@ final kFollowersCountSizeTextStyle = GoogleFonts.rubik(
   color: kThemeColor,
 );
 
-final kListTextStyle = GoogleFonts.raleway(
-  fontSize: 15,
-  fontWeight: FontWeight.w600,
-);
-
 final Decoration kBoxDecorationSearchTextField = BoxDecoration(
   color: kBorderColor,
   borderRadius: BorderRadius.circular(10),

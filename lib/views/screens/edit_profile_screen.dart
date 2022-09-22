@@ -17,7 +17,11 @@ class _EditProfileScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: "Edit Profile", backButtonVisibility: true),
+      appBar: MyAppBar(
+        title: "Edit Profile",
+        backButtonVisibility: true,
+        isSaveAction: true,
+      ),
       body: _buildBody(),
     );
   }
@@ -88,10 +92,14 @@ class _EditProfileScreen extends State {
             bottom: 15,
             right: 15,
             child: Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: kBackgroundColor,
+              ),
+              child: Icon(
+                Icons.camera_alt,
+                color: Theme.of(context).appBarTheme.backgroundColor,
               ),
             ),
           )
@@ -126,11 +134,11 @@ class _EditProfileScreen extends State {
       margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
       child: Column(
         children: [
-          SizedBox(height: 20),
-          _buildProfileProperty(),
           SizedBox(height: 25),
+          //_buildProfileProperty(),
+          //SizedBox(height: 25),
           _buildNameAndSurnameTextField(),
-          SizedBox(height: 20),
+          SizedBox(height: 25),
           _buildBioTextField(),
           SizedBox(height: 7),
           _buildBioLength(),
@@ -147,7 +155,7 @@ class _EditProfileScreen extends State {
           margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
           child: Text(
             "Name And Surname",
-            style: kHintTextStyle,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
         Container(
@@ -181,7 +189,7 @@ class _EditProfileScreen extends State {
           margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
           child: Text(
             "About Me",
-            style: kHintTextStyle,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
         Container(

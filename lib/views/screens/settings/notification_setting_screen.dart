@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/views/widgets/appbar/appbar_settings.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {
@@ -39,7 +38,10 @@ class _NotificationSettingsScreenState extends State {
         contentPadding: EdgeInsets.all(0),
         value: switchListTileValue ??= true,
         onChanged: (newValue) => setState(() => switchListTileValue = newValue),
-        title: Text(text, style: kListTextStyle),
+        title: Text(
+          text,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
         dense: true,
         controlAffinity: ListTileControlAffinity.trailing,
       ),
