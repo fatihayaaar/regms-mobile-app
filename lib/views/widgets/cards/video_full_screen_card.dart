@@ -37,10 +37,8 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
   void initState() {
     controller = VideoPlayerController.asset(post.media ?? "");
     controller.initialize().then((value) {
-      setState(() {
-        controller.play();
-        controller.setLooping(true);
-      });
+      controller.play();
+      controller.setLooping(true);
     });
     widget.controller = controller;
     super.initState();

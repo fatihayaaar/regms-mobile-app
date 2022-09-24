@@ -7,8 +7,15 @@ class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
   final isBackArrow;
   final isAction;
   var height = 0.0;
+  var statusBarIconBrightness;
+  var systemNavigationBarColor;
 
-  AppBarTransparent({this.isBackArrow = false, this.isAction = false}) {
+  AppBarTransparent({
+    this.isBackArrow = false,
+    this.isAction = false,
+    this.statusBarIconBrightness = Brightness.dark,
+    this.systemNavigationBarColor = Colors.white,
+  }) {
     height = this.isBackArrow ? 45 : 0.0;
   }
 
@@ -20,7 +27,8 @@ class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarIconBrightness: statusBarIconBrightness,
+        systemNavigationBarColor: systemNavigationBarColor,
       ),
       toolbarHeight: height,
       title: Row(

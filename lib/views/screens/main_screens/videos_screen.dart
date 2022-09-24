@@ -60,6 +60,11 @@ class _VideosScreenState extends State {
   ];
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   void dispose() {
     posts = [];
     super.dispose();
@@ -75,9 +80,7 @@ class _VideosScreenState extends State {
         onPressed: () {
           for (var post in posts) {
             if (post.controller != null) {
-              setState(() {
                 post.controller.pause();
-              });
             }
           }
         },
