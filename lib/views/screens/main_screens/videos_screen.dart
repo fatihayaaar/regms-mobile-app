@@ -14,56 +14,74 @@ class VideosScreen extends StatefulWidget {
 }
 
 class _VideosScreenState extends State {
-  var posts = [];
+  var currentPost;
+  var _pageViewController = PageController(initialPage: 0);
+  var posts = [
+    VideoFullScreenCard(
+      post: Post(
+        user: User(
+          username: "fayar",
+          profile: Profile(avatar: "assets/images/dump_1.jpg"),
+        ),
+        likeCount: 920,
+        commentCount: 10,
+        text:
+            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+        sendDate: "3s",
+        media: "assets/videos/dump_video_1.mp4",
+      ),
+    ),
+    VideoFullScreenCard(
+      post: Post(
+        user: User(
+          username: "fayar",
+          profile: Profile(avatar: "assets/images/dump_1.jpg"),
+        ),
+        likeCount: 920,
+        commentCount: 0,
+        sendDate: "3s",
+        media: "assets/videos/dump_video_2.mp4",
+      ),
+    ),
+    VideoFullScreenCard(
+      post: Post(
+        user: User(
+          username: "fayar",
+          profile: Profile(avatar: "assets/images/dump_1.jpg"),
+        ),
+        likeCount: 9220,
+        commentCount: 0,
+        text:
+            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+        sendDate: "3s",
+        media: "assets/videos/dump_video_1.mp4",
+      ),
+    ),
+  ];
+
+  @override
+  void dispose() {
+    posts = [];
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    posts = [
-      VideoFullScreenCard(
-        post: Post(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          likeCount: 920,
-          commentCount: 10,
-          text:
-              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-          sendDate: "3s",
-          media: "assets/videos/dump_video_1.mp4",
-        ),
-      ),
-      VideoFullScreenCard(
-        post: Post(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          likeCount: 920,
-          commentCount: 0,
-          sendDate: "3s",
-          media: "assets/videos/dump_video_2.mp4",
-        ),
-      ),
-      VideoFullScreenCard(
-        post: Post(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          likeCount: 9220,
-          commentCount: 0,
-          text:
-              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-          sendDate: "3s",
-          media: "assets/videos/dump_video_1.mp4",
-        ),
-      ),
-    ];
     return Scaffold(
       appBar: AppBarTransparent(),
       body: _buildBody(),
-      bottomNavigationBar: BottomNavBar(selected: -2),
+      bottomNavigationBar: BottomNavBar(
+        selected: -2,
+        onPressed: () {
+          for (var post in posts) {
+            if (post.controller != null) {
+              setState(() {
+                post.controller.pause();
+              });
+            }
+          }
+        },
+      ),
     );
   }
 
@@ -71,6 +89,7 @@ class _VideosScreenState extends State {
     return Stack(
       children: [
         PageView.builder(
+          controller: _pageViewController,
           scrollDirection: Axis.vertical,
           itemCount: posts.length,
           itemBuilder: (BuildContext context, int index) {

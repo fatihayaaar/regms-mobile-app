@@ -5,20 +5,55 @@ import 'package:regms_flutter_client/models/post/post.dart';
 import 'package:regms_flutter_client/views/widgets/avatar.dart';
 import 'package:video_player/video_player.dart';
 
-// ignore: must_be_immutable
-class VideoFullScreenCard extends StatelessWidget {
+class VideoFullScreenCard extends StatefulWidget {
+  final Post post;
+  final double volume;
+  var controller;
+
+  VideoFullScreenCard({
+    Key? key,
+    required this.post,
+    this.volume = 1.0,
+  }) : super(key: key);
+
+  @override
+  State<VideoFullScreenCard> createState() => _VideoFullScreenCardState(
+        post: post,
+        volume: volume,
+      );
+}
+
+class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
   final Post post;
   late VideoPlayerController controller;
-  late double volume = 1.0;
+  late double volume;
 
-  VideoFullScreenCard({required this.post});
+  _VideoFullScreenCardState({
+    required this.post,
+    required this.volume,
+  });
+
+  @override
+  void initState() {
+    controller = VideoPlayerController.asset(post.media ?? "");
+    controller.initialize().then((value) {
+      setState(() {
+        controller.play();
+        controller.setLooping(true);
+      });
+    });
+    widget.controller = controller;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    controller = VideoPlayerController.asset(post.media ?? "");
-    controller.initialize().then((value) {});
-    controller.play();
-    controller.setLooping(true);
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -186,16 +221,19 @@ class VideoFullScreenCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Container(
-          height: 5,
-          width: MediaQuery.of(context).size.width - 20,
-          child: VideoProgressIndicator(controller,
-              allowScrubbing: true,
-              padding: EdgeInsets.zero,
-              colors: VideoProgressColors(
-                backgroundColor: Colors.transparent,
-                playedColor: Colors.white.withOpacity(0.6),
-                bufferedColor: Colors.grey.withOpacity(0.2),
-              ))),
+        height: 5,
+        width: MediaQuery.of(context).size.width - 20,
+        child: VideoProgressIndicator(
+          controller,
+          allowScrubbing: true,
+          padding: EdgeInsets.zero,
+          colors: VideoProgressColors(
+            backgroundColor: Colors.transparent,
+            playedColor: Colors.white.withOpacity(0.6),
+            bufferedColor: Colors.grey.withOpacity(0.2),
+          ),
+        ),
+      ),
     );
   }
 }

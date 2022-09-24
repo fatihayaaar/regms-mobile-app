@@ -12,14 +12,18 @@ import 'package:regms_flutter_client/views/screens/membership_screens/login_scre
 
 class BottomNavBar extends StatelessWidget {
   final int selected;
+  Function? onPressed;
 
-  BottomNavBar({required this.selected});
+  BottomNavBar({required this.selected, this.onPressed()?});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        color: Theme
+            .of(context)
+            .bottomNavigationBarTheme
+            .backgroundColor,
         border: Border(
           top: BorderSide(
             color: kBorderColor,
@@ -28,7 +32,10 @@ class BottomNavBar extends StatelessWidget {
         ),
       ),
       height: 45,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
@@ -68,17 +75,17 @@ class BottomNavBar extends StatelessWidget {
             flex: 1,
             child: appService.providerPersistHelper.myUser != null
                 ? _buildAvatarItem(
-                    context,
-                    routeName: ProfileScreen.routeName,
-                    param: {
-                      "user": appService.providerPersistHelper.myUser!,
-                      "isMyProfile": true,
-                    },
-                  )
+              context,
+              routeName: ProfileScreen.routeName,
+              param: {
+                "user": appService.providerPersistHelper.myUser!,
+                "isMyProfile": true,
+              },
+            )
                 : _buildAvatarItem(
-                    context,
-                    routeName: LoginScreen.routeName,
-                  ),
+              context,
+              routeName: LoginScreen.routeName,
+            ),
           ),
         ],
       ),
@@ -89,6 +96,9 @@ class BottomNavBar extends StatelessWidget {
     return ElevatedButton(
       style: kTransparentButtonButtonStyle,
       onPressed: () {
+        if (onPressed != null) {
+          onPressed!();
+        }
         var route = MyRoute.onGenerateRoute(
           routeName,
           param: param,
@@ -97,25 +107,30 @@ class BottomNavBar extends StatelessWidget {
       },
       child: selected == 1
           ? Icon(
-              icon,
-              size: 25,
-              color: Theme.of(context)
-                  .bottomNavigationBarTheme
-                  .unselectedItemColor,
-            )
+        icon,
+        size: 25,
+        color: Theme
+            .of(context)
+            .bottomNavigationBarTheme
+            .unselectedItemColor,
+      )
           : Icon(
-              icon,
-              size: 25,
-              color: Theme.of(context)
-                  .bottomNavigationBarTheme
-                  .unselectedItemColor,
-            ),
+        icon,
+        size: 25,
+        color: Theme
+            .of(context)
+            .bottomNavigationBarTheme
+            .unselectedItemColor,
+      ),
     );
   }
 
   Widget _buildAvatarItem(context, {required String routeName, param}) {
     return ElevatedButton(
       onPressed: () {
+        if (onPressed != null) {
+          onPressed!();
+        }
         var route = MyRoute.onGenerateRoute(
           routeName,
           param: param,

@@ -1,9 +1,9 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/services/app_service.dart';
 import 'package:regms_flutter_client/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/stores/settings/settings_store.dart';
@@ -14,6 +14,7 @@ import 'package:regms_flutter_client/views/screens/membership_screens/login_scre
 import 'package:shared_preferences/shared_preferences.dart';
 
 late AppService appService;
+late List<CameraDescription> cameras;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +27,7 @@ void main() async {
     PreferenceModule(sharedPref: sharedPref),
   );
   appService.providerPersistHelper.initMyUser();
+  cameras = await availableCameras();
 
   runApp(appService.getApp);
 }
