@@ -4,8 +4,14 @@ import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/views/widgets/appbar/appbar_transparent.dart';
 
 class StoryCameraScreen extends StatefulWidget {
+  final onClickBackPage;
+
+  StoryCameraScreen({
+    required this.onClickBackPage,
+  });
+
   @override
-  State<StatefulWidget> createState() => _StoryCameraScreenState();
+  State<StoryCameraScreen> createState() => _StoryCameraScreenState();
 }
 
 class _StoryCameraScreenState extends State<StoryCameraScreen> {
@@ -53,53 +59,28 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
                   CameraPreview(controller),
                   _buildShutter(),
                   _buildGallery(),
-                  _buildEffect(),
+                  _buildCameraTurn(),
                 ],
               ),
             ),
           ),
-          _buildCameraTurn(),
+          _buildClose(),
           _buildFlash(),
         ],
       ),
     );
   }
 
-  _buildShutter() {
+  _buildClose() {
     return Positioned(
-      bottom: 15,
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: Container(
-          height: 72,
-          width: 72,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                blurRadius: 4,
-                offset: Offset(2, 2),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  _buildCameraTurn() {
-    return GestureDetector(
-      onTap: () {
-      },
-      child: Positioned(
-        right: 15,
-        top: 15,
+      right: 15,
+      top: 15,
+      child: GestureDetector(
+        onTap: widget.onClickBackPage,
         child: Icon(
-          Icons.sync_sharp,
+          Icons.close,
           color: Colors.white,
-          size: 40,
+          size: 30,
         ),
       ),
     );
@@ -112,31 +93,60 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
       child: Icon(
         Icons.flash_on,
         color: Colors.white,
-        size: 40,
+        size: 30,
       ),
     );
   }
 
   _buildGallery() {
     return Positioned(
-      left: 15,
       bottom: 15,
+      left: 15,
       child: Icon(
-        Icons.auto_awesome_motion,
+        Icons.crop_original,
         color: Colors.white,
-        size: 40,
+        size: 30,
       ),
     );
   }
 
-  _buildEffect() {
+  _buildCameraTurn() {
     return Positioned(
-      right: 15,
       bottom: 15,
+      right: 15,
       child: Icon(
-        Icons.edit_outlined,
+        Icons.sync_sharp,
         color: Colors.white,
-        size: 40,
+        size: 30,
+      ),
+    );
+  }
+
+  _buildShutter() {
+    return Positioned(
+      bottom: 15,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.transparent,
+            border: Border.all(
+              color: Colors.white,
+              style: BorderStyle.solid,
+              width: 2,
+            ),
+          ),
+          child: Container(
+            height: 60,
+            width: 60,
+            margin: EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }

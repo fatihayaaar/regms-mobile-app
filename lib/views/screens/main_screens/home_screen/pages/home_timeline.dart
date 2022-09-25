@@ -10,13 +10,18 @@ class HomeTimeline extends StatelessWidget {
   final storyList;
   final posts;
   final onClickMessages;
+  final onClickStoryAdd;
   final list = [
     "Timeline",
     "Groups",
   ];
 
-  HomeTimeline(
-      {required this.storyList, required this.posts, this.onClickMessages});
+  HomeTimeline({
+    required this.storyList,
+    required this.posts,
+    this.onClickMessages,
+    this.onClickStoryAdd,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +48,10 @@ class HomeTimeline extends StatelessWidget {
   _buildPostView(context) {
     return Column(
       children: [
-        StoryList(list: storyList),
+        StoryList(
+          list: storyList,
+          onClickAddStory: onClickStoryAdd,
+        ),
         Column(
           children: [
             Container(

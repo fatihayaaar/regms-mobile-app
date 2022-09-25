@@ -9,6 +9,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isShowMessagesIcon;
   final bool isSaveAction;
   final onClickMessages;
+  final onClickBackButton;
   final double height;
 
   MyAppBar({
@@ -18,6 +19,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.isShowMessagesIcon = false,
     this.isSaveAction = false,
     this.onClickMessages,
+    this.onClickBackButton,
     this.height = 45.0,
   });
 
@@ -73,7 +75,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           alignment: Alignment.centerLeft,
           child: GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              if (onClickBackButton != null) {
+                onClickBackButton();
+              } else {
+                Navigator.pop(context);
+              }
             },
             child: Icon(
               Icons.arrow_back,

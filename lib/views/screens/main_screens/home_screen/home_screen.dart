@@ -100,21 +100,36 @@ class _HomeScreenState extends State {
       child: PageView(
         controller: _pageViewController,
         children: [
-          StoryCameraScreen(),
+          StoryCameraScreen(
+            onClickBackPage: () {
+              _pageChange(1);
+            },
+          ),
           HomeTimeline(
             storyList: storyList,
             posts: posts,
             onClickMessages: () {
-              _pageViewController.animateToPage(
-                2,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
+              _pageChange(2);
+            },
+            onClickStoryAdd: () {
+              _pageChange(0);
             },
           ),
-          MessagesScreen(),
+          MessagesScreen(
+            onClickBackPage: () {
+              _pageChange(1);
+            },
+          ),
         ],
       ),
+    );
+  }
+
+  _pageChange(index) {
+    _pageViewController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
     );
   }
 }
