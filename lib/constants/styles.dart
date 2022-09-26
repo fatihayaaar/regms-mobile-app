@@ -343,3 +343,14 @@ final kFullScreenVideoContentTextStyle = GoogleFonts.rubik(
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
+
+final kUserListUsernameMessageTextStyle = GoogleFonts.rubik(
+  fontSize: 18,
+  fontWeight: FontWeight.w500,
+  color: kThemeColor,
+);
+
+final kTimeMessageTextStyle = GoogleFonts.rubik(
+  fontSize: 13,
+  color: kTextFieldLightColor,
+);
