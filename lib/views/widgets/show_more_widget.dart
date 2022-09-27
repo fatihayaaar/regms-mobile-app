@@ -3,6 +3,10 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 
 class ShowMore extends StatelessWidget {
+  final text;
+
+  ShowMore({this.text = "Show More"});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -12,7 +16,7 @@ class ShowMore extends StatelessWidget {
           color: kTextFieldLightColor,
         ),
         Text(
-          "Show More",
+          text,
           style: kShowMoreTextStyle,
         ),
       ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user/user_message_list_tile.dart';
 import 'package:regms_flutter_client/views/widgets/avatar.dart';
@@ -15,34 +15,42 @@ class UserMessageTile extends StatelessWidget {
   }
 
   _buildBody() {
-    return Container(
-      margin: EdgeInsets.fromLTRB(0, 2.5, 0, 2.5),
-      padding: EdgeInsets.fromLTRB(15, 2.5, 15, 2.5),
-      decoration: BoxDecoration(
-        color: user.newMessageCount == null
-            ? Colors.transparent
-            : user.newMessageCount == 0
-                ? Colors.transparent
-                : Colors.grey.withOpacity(0.03),
-      ),
-      child: Row(
+    return Slidable(
+      endActionPane: ActionPane(
+        extentRatio: 1 / 5,
+        motion: ScrollMotion(),
         children: [
-          _buildAvatar(),
-          SizedBox(width: 3),
-          _buildMessageContent(),
-          _buildStatus(),
+          SlidableAction(
+            onPressed: (context) {},
+            foregroundColor: Colors.white,
+            icon: Icons.delete,
+            backgroundColor: Colors.redAccent,
+          ),
         ],
+      ),
+      child: Container(
+        margin: EdgeInsets.fromLTRB(0, 2.5, 0, 2.5),
+        padding: EdgeInsets.fromLTRB(10, 2.5, 10, 2.5),
+        child: Row(
+          children: [
+            _buildAvatar(),
+            SizedBox(width: 3),
+            _buildMessageContent(),
+            _buildStatus(),
+          ],
+        ),
       ),
     );
   }
 
   _buildAvatar() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
+      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
       child: Avatar(
-        size: 27,
+        size: 24,
         borderColor: Colors.white,
         img: "${user.avatar}",
+        isStory: user.isStory ?? false,
       ),
     );
   }
@@ -54,13 +62,7 @@ class UserMessageTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              _buildUsername(),
-              SizedBox(width: 7),
-              _buildPostDate(),
-            ],
-          ),
+          _buildUsername(),
           SizedBox(height: 2),
           _buildMessage(),
         ],
@@ -71,31 +73,37 @@ class UserMessageTile extends StatelessWidget {
   _buildUsername() {
     return Text(
       "${user.username}",
-      style: kUserListUsernameMessageTextStyle,
+      style: kUserListUsernameMessageTextStyle(user.newMessageCount == null
+          ? false
+          : user.newMessageCount! > 0
+              ? true
+              : false),
     );
   }
 
   _buildPostDate() {
-    return Row(
-      children: [
-        Icon(
-          Icons.access_time,
-          size: 10,
-          color: kBodyTextColor,
-        ),
-        SizedBox(width: 3),
-        Text(
-          "${user.date}",
-          style: kTimeMessageTextStyle,
-        ),
-      ],
+    return Container(
+      width: 40,
+      alignment: Alignment.center,
+      child: Text(
+        "${user.date}",
+        style: kTimeMessageTextStyle(user.newMessageCount == null
+            ? false
+            : user.newMessageCount! > 0
+                ? true
+                : false),
+      ),
     );
   }
 
   _buildMessage() {
     return Text(
       "${user.messageContent}",
-      style: kUserListStatusTextStyle,
+      style: kUserListMessageTextStyle(user.newMessageCount == null
+          ? false
+          : user.newMessageCount! > 0
+              ? true
+              : false),
       overflow: TextOverflow.ellipsis,
     );
   }
@@ -103,6 +111,15 @@ class UserMessageTile extends StatelessWidget {
   _buildStatus() {
     return Column(
       children: [
+        _buildPostDate(),
+        Visibility(
+          visible: user.newMessageCount == null
+              ? false
+              : user.newMessageCount! > 0
+                  ? true
+                  : false,
+          child: SizedBox(height: 5),
+        ),
         _buildCount(),
       ],
     );
@@ -120,10 +137,14 @@ class UserMessageTile extends StatelessWidget {
                   height: 20,
                   width: 20,
                   alignment: Alignment.center,
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.red),
-                  child: Text("${user.newMessageCount}",
-                      style: kUserListActionTextStyle),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.red,
+                  ),
+                  child: Text(
+                    "${user.newMessageCount}",
+                    style: kUserListActionTextStyle,
+                  ),
                 ),
               )
             : Container();
