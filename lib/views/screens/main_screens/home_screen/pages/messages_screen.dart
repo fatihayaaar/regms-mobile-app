@@ -81,7 +81,7 @@ class MessagesScreen extends StatelessWidget {
     return Column(
       children: [
         _buildSearch(),
-        _buildRequests(),
+        //_buildRequests(),
         _buildMessages(),
       ],
     );

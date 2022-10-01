@@ -8,6 +8,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isShowNotificationIcon;
   final bool isShowMessagesIcon;
   final bool isSaveAction;
+  final String saveActionText;
   final onClickMessages;
   final onClickBackButton;
   final double height;
@@ -18,6 +19,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.isShowNotificationIcon = false,
     this.isShowMessagesIcon = false,
     this.isSaveAction = false,
+    this.saveActionText = "Save",
     this.onClickMessages,
     this.onClickBackButton,
     this.height = 45.0,
@@ -184,7 +186,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: EdgeInsets.fromLTRB(7.5, 5, 7.5, 5),
           margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Text(
-            "Save",
+            this.saveActionText,
             style: Theme.of(context).appBarTheme.toolbarTextStyle,
           ),
         ),

@@ -196,7 +196,7 @@ final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
 final Decoration kFilterBoxDecorationTextField = BoxDecoration(
   color: Color.fromRGBO(255, 255, 255, 1.0),
   borderRadius: BorderRadius.circular(15),
-  border: Border.all(color: kBorderColor),
+  border: Border.all(color: kBorderColor.withOpacity(0.5)),
 );
 
 final kAddPostItemBoxDecorationTextField = BoxDecoration(

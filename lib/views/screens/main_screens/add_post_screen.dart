@@ -13,17 +13,26 @@ class AddPostScreen extends StatefulWidget {
   _AddPostScreenState createState() => _AddPostScreenState();
 }
 
-class _AddPostScreenState extends State {
+class _AddPostScreenState extends State<AddPostScreen> {
   var photos = ["assets/images/dump_1.jpg", "assets/images/dump_1.jpg"];
-
+  var items = [
+    'My Profile',
+    'Group 1',
+    'Group 2',
+    'Group 3',
+  ];
+  String _selectedTag = "My Profile";
   TextEditingController? textController;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: "Add"),
+      appBar: MyAppBar(
+        title: "New Post",
+        isSaveAction: true,
+        saveActionText: "Send",
+      ),
       body: _buildBody(),
-      floatingActionButton: _buildFAB(),
     );
   }
 
@@ -58,14 +67,66 @@ class _AddPostScreenState extends State {
             color: Colors.white,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 5),
+              _buildContentHeader(),
               _buildTextField(),
               _buildPhotos(),
               SizedBox(height: 20),
               _buildAddPostIconItems(),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  _buildContentHeader() {
+    return Container(
+      width: double.infinity,
+      height: 40,
+      color: kBorderColor.withOpacity(0.4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          _buildSelection(),
+        ],
+      ),
+    );
+  }
+
+  _buildSelection() {
+    return Container(
+      decoration: kFilterBoxDecorationTextField,
+      margin: EdgeInsets.fromLTRB(15, 0, 0, 0),
+      padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
+      child: SizedBox(
+        height: 20,
+        width: 200,
+        child: DropdownButton(
+          value: _selectedTag,
+          items: items.map((String items) {
+            return DropdownMenuItem(
+              value: items,
+              child: Text(items),
+            );
+          }).toList(),
+          icon: Icon(
+            Icons.arrow_drop_down,
+            size: 20,
+          ),
+          onChanged: (String? value) {
+            setState(() {
+              _selectedTag = value!;
+            });
+          },
+          isExpanded: true,
+          underline: Container(),
+          style: kLabelTextStyle,
+          elevation: 1,
         ),
       ),
     );
@@ -159,15 +220,5 @@ class _AddPostScreenState extends State {
 
   _buildPhotos() {
     return PhotosSelection(photos: photos);
-  }
-
-  _buildFAB() {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor:
-          Theme.of(context).floatingActionButtonTheme.backgroundColor,
-      elevation: 0,
-      child: Icon(Icons.send),
-    );
   }
 }
