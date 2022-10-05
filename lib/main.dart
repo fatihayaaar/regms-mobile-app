@@ -9,8 +9,8 @@ import 'package:regms_flutter_client/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/stores/settings/settings_store.dart';
 import 'package:regms_flutter_client/theme.dart';
 import 'package:regms_flutter_client/utils/app_localization.dart';
-import 'package:regms_flutter_client/views/screens/main_screens/profile_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/login_screen.dart';
+import 'package:regms_flutter_client/mvvm/views/screens/main_screens/profile_screen.dart';
+import 'package:regms_flutter_client/mvvm/views/screens/membership_screens/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 late AppService appService;
