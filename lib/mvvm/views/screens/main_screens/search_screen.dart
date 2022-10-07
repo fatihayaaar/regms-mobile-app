@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/mvvm/models/user/user_list_tile.dart';
-import 'package:regms_flutter_client/mvvm/viewmodels/search_viewmodel.dart';
+import 'package:regms_flutter_client/mvvm/view_models/search_view_model.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar_search.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/page.dart';

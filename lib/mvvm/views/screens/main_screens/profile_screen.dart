@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/mvvm/models/comment/comment.dart';
 import 'package:regms_flutter_client/mvvm/models/post/post.dart';
 import 'package:regms_flutter_client/mvvm/models/profile/profile.dart';
 import 'package:regms_flutter_client/mvvm/models/user/user.dart';
+import 'package:regms_flutter_client/mvvm/view_models/profile_view_model.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar_profile.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/cards/post_card.dart';
@@ -14,129 +15,128 @@ import 'package:regms_flutter_client/mvvm/views/widgets/drawer/settings_drawer.d
 import 'package:regms_flutter_client/mvvm/views/widgets/page.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/selection_widget.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends StatelessWidget {
   static const routeName = '/profile';
+  final user;
+  final isMyProfile;
 
-  final bool? isMyProfile;
-  final User user;
-
-  ProfileScreen({required this.user, this.isMyProfile});
-
-  @override
-  _ProfileScreenState createState() => _ProfileScreenState(user, isMyProfile);
-}
-
-class _ProfileScreenState extends State {
-  bool? isMyProfile;
-  User user;
-
-  String _selectedTag = "All";
-  var items = [
-    'All',
-    'Photos',
-    'Videos',
-    'Text',
-  ];
-  var selectList = [
-    "All",
-    "Videos",
-    "Photos",
-  ];
-  List<PostCard> posts = [];
-
-  _ProfileScreenState(this.user, this.isMyProfile);
+  ProfileScreen({this.user, this.isMyProfile});
 
   @override
   Widget build(BuildContext context) {
-    posts = [
-      PostCard(
-        isCommentVisible: false,
-        post: Post(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          likeCount: 920,
-          commentCount: 10,
-          text:
-              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-          sendDate: "3s",
-          comment: Comment(
-            user: User(
-              username: "fayar",
-              profile: Profile(avatar: "assets/images/dump_1.jpg"),
+    return ChangeNotifierProvider(
+      create: (BuildContext context) {
+        return ProfileViewModel(
+          [
+            PostCard(
+              isCommentVisible: false,
+              post: Post(
+                user: User(
+                  username: "fayar",
+                  profile: Profile(avatar: "assets/images/dump_1.jpg"),
+                ),
+                likeCount: 920,
+                commentCount: 10,
+                text:
+                    "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+                sendDate: "3s",
+                comment: Comment(
+                  user: User(
+                    username: "fayar",
+                    profile: Profile(avatar: "assets/images/dump_1.jpg"),
+                  ),
+                  text:
+                      "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                  sendTime: "10sn",
+                ),
+                media: "assets/images/dump_2.jpg",
+              ),
             ),
-            text:
-                "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
-            sendTime: "10sn",
-          ),
-          media: "assets/images/dump_2.jpg",
-        ),
-      ),
-      PostCard(
-        isCommentVisible: false,
-        post: Post(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          likeCount: 920,
-          commentCount: 0,
-          sendDate: "3s",
-          media: "assets/images/dump_2.jpg",
-        ),
-      ),
-      PostCard(
-        isCommentVisible: false,
-        post: Post(
-          user: User(
-            username: "fayar",
-            profile: Profile(avatar: "assets/images/dump_1.jpg"),
-          ),
-          likeCount: 9220,
-          commentCount: 0,
-          text:
-              "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-          sendDate: "3s",
-          comment: Comment(
-            user: User(
-              username: "fayar",
-              profile: Profile(avatar: "assets/images/dump_1.jpg"),
+            PostCard(
+              isCommentVisible: false,
+              post: Post(
+                user: User(
+                  username: "fayar",
+                  profile: Profile(avatar: "assets/images/dump_1.jpg"),
+                ),
+                likeCount: 920,
+                commentCount: 0,
+                sendDate: "3s",
+                media: "assets/images/dump_2.jpg",
+              ),
             ),
-            text:
-                "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
-            sendTime: "10sn",
-          ),
+            PostCard(
+              isCommentVisible: false,
+              post: Post(
+                user: User(
+                  username: "fayar",
+                  profile: Profile(avatar: "assets/images/dump_1.jpg"),
+                ),
+                likeCount: 9220,
+                commentCount: 0,
+                text:
+                    "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+                sendDate: "3s",
+                comment: Comment(
+                  user: User(
+                    username: "fayar",
+                    profile: Profile(avatar: "assets/images/dump_1.jpg"),
+                  ),
+                  text:
+                      "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                  sendTime: "10sn",
+                ),
+              ),
+            ),
+          ],
+          user,
+          isMyProfile,
+        );
+      },
+      child: DefaultTabController(
+        length: 3,
+        child: Consumer<ProfileViewModel>(
+          builder: (BuildContext context, value, Widget? child) {
+            return Scaffold(
+              appBar: ProfileAppBar(title: value.user.username),
+              body: child,
+              endDrawer: MyDrawer(),
+              bottomNavigationBar: BottomNavBar(selected: -2),
+            );
+          },
+          child: PageWidget(child: _buildBody(context)),
         ),
-      ),
-    ];
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: ProfileAppBar(title: user.username),
-        body: PageWidget(child: _buildBody()),
-        endDrawer: MyDrawer(),
-        bottomNavigationBar: BottomNavBar(selected: -2),
       ),
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(BuildContext context) {
     return Column(
       children: [
-        _buildProfileContent(),
-        SelectionWidget(list: selectList),
+        _buildProfileContent(context),
+        Consumer<ProfileViewModel>(
+          builder: (BuildContext context, value, Widget? child) {
+            return SelectionWidget(list: value.selectList);
+          },
+        ),
         SizedBox(height: 5),
         _buildContent(),
       ],
     );
   }
 
-  Widget _buildProfileContent() {
+  Widget _buildProfileContent(BuildContext context) {
     return Container(
       color: Theme.of(context).backgroundColor,
       alignment: Alignment.centerLeft,
-      child: ProfileCard(user: user, context: context),
+      child: Consumer<ProfileViewModel>(
+        builder: (BuildContext context, value, Widget? child) {
+          return ProfileCard(
+            user: value.user,
+            context: context,
+          );
+        },
+      ),
     );
   }
 
@@ -163,77 +163,18 @@ class _ProfileScreenState extends State {
   }
 
   _buildPostView() {
-    return Container(
-      child: ListView.builder(
-        padding: EdgeInsets.all(0),
-        physics: NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: posts.length,
-        itemBuilder: (BuildContext context, int index) {
-          return posts.elementAt(index);
-        },
-      ),
-    );
-  }
-
-  _buildListTag() {
-    return Container(
-      decoration: kBoxDecorationTextField,
-      padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
-      child: SizedBox(
-        height: 30,
-        width: 105,
-        child: DropdownButton(
-          value: _selectedTag,
-          items: items.map((String items) {
-            return DropdownMenuItem(
-              value: items,
-              child: Text(items),
-            );
-          }).toList(),
-          onChanged: (String? value) {
-            setState(() {
-              _selectedTag = value!;
-            });
+    return Consumer<ProfileViewModel>(
+      builder: (BuildContext context, value, Widget? child) {
+        return ListView.builder(
+          padding: EdgeInsets.all(0),
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: value.posts.length,
+          itemBuilder: (BuildContext context, int index) {
+            return value.posts.elementAt(index);
           },
-          isExpanded: true,
-          underline: Container(),
-          style: kLabelTextStyle,
-          elevation: 1,
-        ),
-      ),
-    );
-  }
-
-  _buildFilter() {
-    return Expanded(
-      child: Container(
-        decoration: kFilterBoxDecorationTextField,
-        padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
-        child: SizedBox(
-          height: 30,
-          width: 105,
-          child: DropdownButton(
-            value: _selectedTag,
-            items: items.map((String items) {
-              return DropdownMenuItem(
-                value: items,
-                child: Text(items),
-              );
-            }).toList(),
-            icon: Icon(Icons.filter_list),
-            onChanged: (String? value) {
-              setState(() {
-                _selectedTag = value!;
-              });
-            },
-            isExpanded: true,
-            underline: Container(),
-            style: kLabelTextStyle,
-            elevation: 1,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
