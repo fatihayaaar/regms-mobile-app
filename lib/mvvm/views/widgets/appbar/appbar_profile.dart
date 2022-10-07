@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   final title;
