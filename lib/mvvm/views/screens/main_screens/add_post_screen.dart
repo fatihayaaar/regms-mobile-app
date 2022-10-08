@@ -1,48 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/mvvm/view_models/add_post_view_model.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/page.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/photos_selection.dart';
 
-class AddPostScreen extends StatefulWidget {
-  static const routeName = '/add_post';
-
-  @override
-  _AddPostScreenState createState() => _AddPostScreenState();
-}
-
-class _AddPostScreenState extends State<AddPostScreen> {
-  var photos = ["assets/images/dump_1.jpg", "assets/images/dump_1.jpg"];
-  var items = [
-    'My Profile',
-    'Group 1',
-    'Group 2',
-    'Group 3',
-  ];
-  String _selectedTag = "My Profile";
-  TextEditingController? textController;
+class AddPostScreen extends StatelessWidget {
+  static const routeName = '/add-post';
+  final TextEditingController? textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MyAppBar(
-        title: "New Post",
-        isSaveAction: true,
-        saveActionText: "Send",
+    return ChangeNotifierProvider(
+      create: (BuildContext context) {
+        return AddPostViewModel();
+      },
+      child: Scaffold(
+        appBar: MyAppBar(
+          title: "New Post",
+          isSaveAction: true,
+          saveActionText: "Send",
+        ),
+        body: _buildBody(context),
       ),
-      body: _buildBody(),
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-    textController = TextEditingController();
-  }
-
-  _buildBody() {
+  _buildBody(context) {
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -106,27 +93,27 @@ class _AddPostScreenState extends State<AddPostScreen> {
       child: SizedBox(
         height: 20,
         width: 200,
-        child: DropdownButton(
-          value: _selectedTag,
-          items: items.map((String items) {
-            return DropdownMenuItem(
-              value: items,
-              child: Text(items),
+        child: Consumer<AddPostViewModel>(
+          builder: (BuildContext context, value, Widget? child) {
+            return DropdownButton(
+              value: value.selectedTag,
+              items: value.items.map<DropdownMenuItem<String>>((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              icon: Icon(
+                Icons.arrow_drop_down,
+                size: 20,
+              ),
+              onChanged: (val) => value.dropDownButtonOnChanges(val),
+              isExpanded: true,
+              underline: Container(),
+              style: kLabelTextStyle,
+              elevation: 1,
             );
-          }).toList(),
-          icon: Icon(
-            Icons.arrow_drop_down,
-            size: 20,
-          ),
-          onChanged: (String? value) {
-            setState(() {
-              _selectedTag = value!;
-            });
           },
-          isExpanded: true,
-          underline: Container(),
-          style: kLabelTextStyle,
-          elevation: 1,
         ),
       ),
     );
@@ -219,6 +206,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
   }
 
   _buildPhotos() {
-    return PhotosSelection(photos: photos);
+    return Consumer<AddPostViewModel>(
+      builder: (BuildContext context, value, Widget? child) {
+        return PhotosSelection(photos: value.photos);
+      },
+    );
   }
 }
