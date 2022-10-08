@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/mvvm/view_models/edit_profile_view_model.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/avatar.dart';
 
-class EditProfileScreen extends StatefulWidget {
+class EditProfileScreen extends StatelessWidget {
   static const routeName = '/profile/edit';
 
   @override
-  _EditProfileScreen createState() => _EditProfileScreen();
-}
-
-class _EditProfileScreen extends State {
-  int _length = 0;
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MyAppBar(
-        title: "Edit Profile",
-        backButtonVisibility: true,
-        isSaveAction: true,
+    return ChangeNotifierProvider(
+      create: (BuildContext context) {
+        return EditProfileViewModel();
+      },
+      child: Scaffold(
+        appBar: MyAppBar(
+          title: "Edit Profile",
+          backButtonVisibility: true,
+          isSaveAction: true,
+        ),
+        body: _buildBody(context),
       ),
-      body: _buildBody(),
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(context) {
     return Container(
       color: Theme.of(context).backgroundColor,
       width: double.infinity,
@@ -38,14 +38,14 @@ class _EditProfileScreen extends State {
         child: SingleChildScrollView(
           child: Container(
             width: double.infinity,
-            child: _buildContent(),
+            child: _buildContent(context),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(context) {
     return Column(
       children: [
         Container(
@@ -56,7 +56,7 @@ class _EditProfileScreen extends State {
           child: Column(
             children: [
               SizedBox(height: 15),
-              _buildAvatarEdit(),
+              _buildAvatarEdit(context),
               SizedBox(height: 40),
             ],
           ),
@@ -68,14 +68,14 @@ class _EditProfileScreen extends State {
               height: 30,
               width: double.infinity,
             ),
-            _buildForm(),
+            _buildForm(context),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildAvatarEdit() {
+  Widget _buildAvatarEdit(context) {
     return Container(
       width: 200,
       child: Stack(
@@ -108,7 +108,7 @@ class _EditProfileScreen extends State {
     );
   }
 
-  Widget _buildForm() {
+  Widget _buildForm(context) {
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (overScroll) {
         overScroll.disallowIndicator();
@@ -122,13 +122,13 @@ class _EditProfileScreen extends State {
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
           ),
-          child: _buildFormContent(),
+          child: _buildFormContent(context),
         ),
       ),
     );
   }
 
-  Widget _buildFormContent() {
+  Widget _buildFormContent(context) {
     return Container(
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
@@ -137,9 +137,9 @@ class _EditProfileScreen extends State {
           SizedBox(height: 25),
           //_buildProfileProperty(),
           //SizedBox(height: 25),
-          _buildNameAndSurnameTextField(),
+          _buildNameAndSurnameTextField(context),
           SizedBox(height: 25),
-          _buildBioTextField(),
+          _buildBioTextField(context),
           SizedBox(height: 7),
           _buildBioLength(),
         ],
@@ -147,7 +147,7 @@ class _EditProfileScreen extends State {
     );
   }
 
-  Widget _buildNameAndSurnameTextField() {
+  Widget _buildNameAndSurnameTextField(context) {
     return Column(
       children: [
         Container(
@@ -181,7 +181,7 @@ class _EditProfileScreen extends State {
     );
   }
 
-  Widget _buildBioTextField() {
+  Widget _buildBioTextField(context) {
     return Column(
       children: [
         Container(
@@ -194,28 +194,28 @@ class _EditProfileScreen extends State {
         ),
         Container(
           decoration: tTextFieldBoxDecoration,
-          child: TextFormField(
-            //focusNode: _usernameFocus,
-            textInputAction: TextInputAction.go,
-            minLines: 5,
-            maxLines: 10,
-            onChanged: (value) {
-              setState(() {
-                _length = value.length;
-              });
+          child: Consumer<EditProfileViewModel>(
+            builder: (BuildContext context, value, Widget? child) {
+              return TextFormField(
+                //focusNode: _usernameFocus,
+                textInputAction: TextInputAction.go,
+                minLines: 5,
+                maxLines: 10,
+                onChanged: (val) => value.textFormFieldOnChanges(val.length),
+                //controller: _usernameController,
+                onFieldSubmitted: (term) {
+                  //_fieldFocusChange(context, _usernameFocus, _passwordFocus);
+                },
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return "* Required";
+                  } else
+                    return null;
+                },
+                decoration: tTextFieldInputDecoration(
+                    "You should write your biography! People may have opinions about you."),
+              );
             },
-            //controller: _usernameController,
-            onFieldSubmitted: (term) {
-              //_fieldFocusChange(context, _usernameFocus, _passwordFocus);
-            },
-            validator: (value) {
-              if (value!.isEmpty) {
-                return "* Required";
-              } else
-                return null;
-            },
-            decoration: tTextFieldInputDecoration(
-                "You should write your biography! People may have opinions about you."),
           ),
         ),
       ],
@@ -226,10 +226,14 @@ class _EditProfileScreen extends State {
     return Container(
       alignment: Alignment.centerRight,
       margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-      child: Text(
-        "$_length/300",
-        style: kHintTextStyle,
-        textAlign: TextAlign.left,
+      child: Consumer<EditProfileViewModel>(
+        builder: (BuildContext context, value, Widget? child) {
+          return Text(
+            "${value.length}/300",
+            style: kHintTextStyle,
+            textAlign: TextAlign.left,
+          );
+        },
       ),
     );
   }
