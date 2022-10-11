@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/mvvm/models/comment/comment.dart';
 import 'package:regms_flutter_client/mvvm/models/user/user.dart';
 
-class Post {
+class Post with ChangeNotifier {
   User user;
   String? text;
   int likeCount;

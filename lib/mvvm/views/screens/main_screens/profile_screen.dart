@@ -28,64 +28,55 @@ class ProfileScreen extends StatelessWidget {
       create: (BuildContext context) {
         return ProfileViewModel(
           [
-            PostCard(
-              isCommentVisible: false,
-              post: Post(
-                user: User(
-                  username: "fayar",
-                  profile: Profile(avatar: "assets/images/dump_1.jpg"),
-                ),
-                likeCount: 920,
-                commentCount: 10,
-                text:
-                    "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-                sendDate: "3s",
-                comment: Comment(
-                  user: User(
-                    username: "fayar",
-                    profile: Profile(avatar: "assets/images/dump_1.jpg"),
-                  ),
-                  text:
-                      "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
-                  sendTime: "10sn",
-                ),
-                media: "assets/images/dump_2.jpg",
+            Post(
+              user: User(
+                username: "fayar",
+                profile: Profile(avatar: "assets/images/dump_1.jpg"),
               ),
-            ),
-            PostCard(
-              isCommentVisible: false,
-              post: Post(
+              likeCount: 920,
+              commentCount: 10,
+              text:
+                  "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              sendDate: "3s",
+              comment: Comment(
                 user: User(
                   username: "fayar",
                   profile: Profile(avatar: "assets/images/dump_1.jpg"),
                 ),
-                likeCount: 920,
-                commentCount: 0,
-                sendDate: "3s",
-                media: "assets/images/dump_2.jpg",
-              ),
-            ),
-            PostCard(
-              isCommentVisible: false,
-              post: Post(
-                user: User(
-                  username: "fayar",
-                  profile: Profile(avatar: "assets/images/dump_1.jpg"),
-                ),
-                likeCount: 9220,
-                commentCount: 0,
                 text:
-                    "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
-                sendDate: "3s",
-                comment: Comment(
-                  user: User(
-                    username: "fayar",
-                    profile: Profile(avatar: "assets/images/dump_1.jpg"),
-                  ),
-                  text:
-                      "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
-                  sendTime: "10sn",
+                    "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                sendTime: "10sn",
+              ),
+              media: "assets/images/dump_2.jpg",
+            ),
+            Post(
+              user: User(
+                username: "fayar",
+                profile: Profile(avatar: "assets/images/dump_1.jpg"),
+              ),
+              likeCount: 920,
+              commentCount: 0,
+              sendDate: "3s",
+              media: "assets/images/dump_2.jpg",
+            ),
+            Post(
+              user: User(
+                username: "fayar",
+                profile: Profile(avatar: "assets/images/dump_1.jpg"),
+              ),
+              likeCount: 9220,
+              commentCount: 0,
+              text:
+                  "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              sendDate: "3s",
+              comment: Comment(
+                user: User(
+                  username: "fayar",
+                  profile: Profile(avatar: "assets/images/dump_1.jpg"),
                 ),
+                text:
+                    "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                sendTime: "10sn",
               ),
             ),
           ],
@@ -141,24 +132,9 @@ class ProfileScreen extends StatelessWidget {
   }
 
   _buildContent() {
-    return _buildPosts();
-  }
-
-  _buildPosts() {
-    return LimitedBox(
-      maxHeight: double.maxFinite,
-      child: Container(
-        color: kBorderColor.withOpacity(0.3),
-        child: ListView(
-          padding: EdgeInsets.all(0),
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          children: [
-            _buildPostView(),
-          ],
-        ),
-      ),
+    return Container(
+      color: kBorderColor.withOpacity(0.3),
+      child: _buildPostView(),
     );
   }
 
@@ -171,7 +147,17 @@ class ProfileScreen extends StatelessWidget {
           shrinkWrap: true,
           itemCount: value.posts.length,
           itemBuilder: (BuildContext context, int index) {
-            return value.posts.elementAt(index);
+            return ChangeNotifierProvider.value(
+              value: value.posts.elementAt(index),
+              child: Consumer<Post>(
+                builder: (BuildContext context, post, Widget? child) {
+                  return PostCard(
+                    isCommentVisible: false,
+                    post: post,
+                  );
+                },
+              ),
+            );
           },
         );
       },

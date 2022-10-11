@@ -1,4 +1,6 @@
-class UserListTile {
+import 'package:flutter/material.dart';
+
+class UserListTile with ChangeNotifier {
   String username;
   String? nameAndSurname;
   String? avatar;

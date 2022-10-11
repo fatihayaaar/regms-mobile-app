@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/mvvm/models/models.dart';
 
 class ProfileViewModel with ChangeNotifier {
   var _isMyProfile;
   var _user;
   var _selectList = ["All", "Videos", "Photos"];
-  var _posts = [];
+  List<Post> _posts = [];
 
   ProfileViewModel(this._posts, this._user, this._isMyProfile);
 
@@ -29,7 +30,7 @@ class ProfileViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  get posts => _posts;
+  List<Post> get posts => _posts;
 
   set posts(posts) {
     _posts = posts;
