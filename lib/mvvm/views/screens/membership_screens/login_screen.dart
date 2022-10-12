@@ -1,15 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/route.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/main_screens/profile_screen.dart';
+import 'package:regms_flutter_client/mvvm/view_models/membership/login_view_model.dart';
 import 'package:regms_flutter_client/mvvm/views/screens/membership_screens/forgot_password_screen.dart';
 import 'package:regms_flutter_client/mvvm/views/screens/membership_screens/register_screen.dart';
-import 'package:regms_flutter_client/utils/app_localization.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar_transparent.dart';
+import 'package:regms_flutter_client/route.dart';
+import 'package:regms_flutter_client/utils/app_localization.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
@@ -32,13 +33,18 @@ class _LoginScreen extends State {
   @override
   Widget build(BuildContext context) {
     translate = AppLocalizations.of(context)!.translate;
-    return Scaffold(
-      appBar: AppBarTransparent(),
-      backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          _buildBody(),
-        ],
+    return ChangeNotifierProvider(
+      create: (BuildContext context) {
+        return LoginViewModel(appService: appService);
+      },
+      child: Scaffold(
+        appBar: AppBarTransparent(),
+        backgroundColor: kBackgroundColor,
+        body: Stack(
+          children: [
+            _buildBody(),
+          ],
+        ),
       ),
     );
   }
@@ -148,7 +154,10 @@ class _LoginScreen extends State {
         controller: _passwordController,
         onFieldSubmitted: (value) {
           _passwordFocus.unfocus();
-          _loginButtonOnClick();
+          Provider.of<LoginViewModel>(
+            context,
+            listen: false,
+          ).loginButtonOnClick(context);
         },
         validator: (value) {
           if (value!.isEmpty) {
@@ -168,7 +177,10 @@ class _LoginScreen extends State {
       child: ElevatedButton(
         style: kLoginButtonButtonStyle,
         onPressed: () {
-          _loginButtonOnClick();
+          Provider.of<LoginViewModel>(
+            context,
+            listen: false,
+          ).loginButtonOnClick(context);
         },
         child: Text(
           "Login",
@@ -229,18 +241,5 @@ class _LoginScreen extends State {
     setState(() {
       _isHiddenPassword = !_isHiddenPassword;
     });
-  }
-
-  void _loginButtonOnClick() async {
-    await appService.providerPersistHelper.saveToken("fayar");
-    appService.providerPersistHelper.initMyUser();
-    var route = MyRoute.onGenerateRoute(
-      ProfileScreen.routeName,
-      param: {
-        "user": appService.providerPersistHelper.myUser!,
-        "isMyProfile": true,
-      },
-    );
-    Navigator.pushReplacement(context, route);
   }
 }
