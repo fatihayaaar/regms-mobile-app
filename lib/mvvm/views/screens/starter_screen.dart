@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:regms_flutter_client/mvvm/view_models/starter_view_model.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar_transparent.dart';
 
 class StarterScreen extends StatefulWidget {
@@ -11,12 +13,15 @@ class StarterScreen extends StatefulWidget {
 class _StarterScreenState extends State {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarTransparent(),
-      body: Stack(
-        children: [
-
-        ],
+    return ChangeNotifierProvider(
+      create: (BuildContext context) {
+        return StarterViewModel();
+      },
+      child: Scaffold(
+        appBar: AppBarTransparent(),
+        body: Stack(
+          children: [],
+        ),
       ),
     );
   }

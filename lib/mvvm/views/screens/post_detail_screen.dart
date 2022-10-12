@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:regms_flutter_client/mvvm/view_models/post_detail_view_model.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar_transparent.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/cards/post_card.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/page.dart';
@@ -20,12 +22,17 @@ class _PostDetailScreenState extends State {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarTransparent(
-        isBackArrow: true,
-        isAction: true,
+    return ChangeNotifierProvider(
+      create: (BuildContext context) {
+        return PostDetailViewModel(post: post);
+      },
+      child: Scaffold(
+        appBar: AppBarTransparent(
+          isBackArrow: true,
+          isAction: true,
+        ),
+        body: _buildBody(),
       ),
-      body: _buildBody(),
     );
   }
 
