@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/mvvm/models/post/post.dart';
-import 'package:regms_flutter_client/route.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/post_detail_screen.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/avatar.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/bottom_sheet.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/comment_box.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/comment_text_field.dart';
+import 'package:regms_flutter_client/services/constants/navigation.dart';
 
 class PostCard extends StatelessWidget {
   final Post post;
@@ -27,13 +27,10 @@ class PostCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (!isDetail) {
-          var route = MyRoute.onGenerateRoute(
-            PostDetailScreen.routeName,
-            param: {
-              "post": this.post,
-            },
+          appService.providerNavigationHelper.navigateToPage(
+            path: Navigation.POST_DETAIL_PAGE,
+            object: post,
           );
-          Navigator.push(context, route);
         }
       },
       child: Container(

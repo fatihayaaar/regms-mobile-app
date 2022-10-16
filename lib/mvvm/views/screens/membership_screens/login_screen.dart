@@ -6,10 +6,8 @@ import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/mvvm/view_models/membership/login_view_model.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/membership_screens/forgot_password_screen.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/membership_screens/register_screen.dart';
 import 'package:regms_flutter_client/mvvm/views/widgets/appbar/appbar_transparent.dart';
-import 'package:regms_flutter_client/route.dart';
+import 'package:regms_flutter_client/services/constants/navigation.dart';
 import 'package:regms_flutter_client/utils/app_localization.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -196,8 +194,9 @@ class _LoginScreen extends State {
       alignment: Alignment.topRight,
       child: GestureDetector(
         onTap: () {
-          var route = MyRoute.onGenerateRoute(ForgotPasswordScreen.routeName);
-          Navigator.push(context, route);
+          appService.providerNavigationHelper.navigateToPage(
+            path: Navigation.FORGOT_PASSWORD_PAGE,
+          );
         },
         child: Text(
           'Forgot password?',
@@ -222,8 +221,9 @@ class _LoginScreen extends State {
             style: tsRichTextStyle(kLoginButtonColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                var route = MyRoute.onGenerateRoute(RegisterScreen.routeName);
-                Navigator.push(context, route);
+                appService.providerNavigationHelper.navigateToPage(
+                  path: Navigation.REGISTER_PAGE,
+                );
               },
           ),
         ],

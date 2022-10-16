@@ -5,6 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/services/app_service.dart';
+import 'package:regms_flutter_client/services/helpers/navigation/navigation_route.dart';
+import 'package:regms_flutter_client/services/modules/navigation_module.dart';
 import 'package:regms_flutter_client/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/stores/settings/settings_store.dart';
 import 'package:regms_flutter_client/theme.dart';
@@ -28,6 +30,7 @@ void main() async {
   var sharedPref = await SharedPreferences.getInstance();
   appService = await AppServiceInject.create(
     PreferenceModule(sharedPref: sharedPref),
+    NavigatorModule(),
   );
   appService.providerPersistHelper.initMyUser();
   cameras = await availableCameras();
@@ -52,6 +55,8 @@ class MyApp extends StatelessWidget with MyTheme {
             debugShowCheckedModeBanner: false,
             theme: buildTheme(store),
             initialRoute: '/',
+            onGenerateRoute: NavigationRoute.instance.generateRoute,
+            navigatorKey: appService.providerNavigationHelper.navigatorKey,
             locale: Locale(store.locale),
             supportedLocales: store.supportedLanguages.map((language) {
               return Locale.fromSubtags(languageCode: language.locale);

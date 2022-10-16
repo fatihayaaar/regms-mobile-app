@@ -2,13 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/route.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/main_screens/add_post_screen.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/main_screens/home_screen/home_screen.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/main_screens/profile_screen.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/main_screens/search_screen.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/main_screens/videos_screen.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/membership_screens/login_screen.dart';
+import 'package:regms_flutter_client/services/constants/navigation.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selected;
@@ -20,10 +14,7 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme
-            .of(context)
-            .bottomNavigationBarTheme
-            .backgroundColor,
+        color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         border: Border(
           top: BorderSide(
             color: kBorderColor,
@@ -32,119 +23,103 @@ class BottomNavBar extends StatelessWidget {
         ),
       ),
       height: 45,
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
-          Expanded(
-            flex: 1,
-            child: _buildItem(
-              context,
-              routeName: HomeScreen.routeName,
-              icon: Icons.home_outlined,
-            ),
+          _buildItem(
+            context,
+            routeName: Navigation.HOME_PAGE,
+            icon: Icons.home_outlined,
           ),
-          Expanded(
-            flex: 1,
-            child: _buildItem(
-              context,
-              routeName: VideosScreen.routeName,
-              icon: Icons.slow_motion_video,
-            ),
+          _buildItem(
+            context,
+            routeName: Navigation.VIDEOS_PAGE,
+            icon: Icons.slow_motion_video,
           ),
-          Expanded(
-            flex: 1,
-            child: _buildItem(
-              context,
-              routeName: AddPostScreen.routeName,
-              icon: Icons.add_circle_outline_sharp,
-            ),
+          _buildItem(
+            context,
+            routeName: Navigation.ADD_POST_PAGE,
+            icon: Icons.add_circle_outline_sharp,
           ),
-          Expanded(
-            flex: 1,
-            child: _buildItem(
-              context,
-              routeName: SearchScreen.routeName,
-              icon: Icons.search_rounded,
-            ),
+          _buildItem(
+            context,
+            routeName: Navigation.SEARCH_PAGE,
+            icon: Icons.search_rounded,
           ),
-          Expanded(
-            flex: 1,
-            child: appService.providerPersistHelper.myUser != null
-                ? _buildAvatarItem(
-              context,
-              routeName: ProfileScreen.routeName,
-              param: {
-                "user": appService.providerPersistHelper.myUser!,
-                "isMyProfile": true,
-              },
-            )
-                : _buildAvatarItem(
-              context,
-              routeName: LoginScreen.routeName,
-            ),
-          ),
+          appService.providerPersistHelper.myUser != null
+              ? _buildAvatarItem(
+                  context,
+                  routeName: Navigation.PROFILE_PAGE,
+                  param: {
+                    "user": appService.providerPersistHelper.myUser!,
+                    "isMyProfile": true,
+                  },
+                )
+              : _buildAvatarItem(
+                  context,
+                  routeName: Navigation.LOGIN_PAGE,
+                ),
         ],
       ),
     );
   }
 
   Widget _buildItem(context, {required routeName, required icon, param}) {
-    return ElevatedButton(
-      style: kTransparentButtonButtonStyle,
-      onPressed: () {
-        if (onPressed != null) {
-          onPressed!();
-        }
-        var route = MyRoute.onGenerateRoute(
-          routeName,
-          param: param,
-        );
-        Navigator.push(context, route);
-      },
-      child: selected == 1
-          ? Icon(
-        icon,
-        size: 25,
-        color: Theme
-            .of(context)
-            .bottomNavigationBarTheme
-            .unselectedItemColor,
-      )
-          : Icon(
-        icon,
-        size: 25,
-        color: Theme
-            .of(context)
-            .bottomNavigationBarTheme
-            .unselectedItemColor,
+    return Expanded(
+      flex: 1,
+      child: ElevatedButton(
+        style: kTransparentButtonButtonStyle,
+        onPressed: () {
+          if (onPressed != null) {
+            onPressed!();
+          }
+          appService.providerNavigationHelper.navigateToPage(
+            path: routeName,
+            object: param,
+          );
+        },
+        child: selected == 1
+            ? Icon(
+                icon,
+                size: 25,
+                color: Theme.of(context)
+                    .bottomNavigationBarTheme
+                    .unselectedItemColor,
+              )
+            : Icon(
+                icon,
+                size: 25,
+                color: Theme.of(context)
+                    .bottomNavigationBarTheme
+                    .unselectedItemColor,
+              ),
       ),
     );
   }
 
   Widget _buildAvatarItem(context, {required String routeName, param}) {
-    return ElevatedButton(
-      onPressed: () {
-        if (onPressed != null) {
-          onPressed!();
-        }
-        var route = MyRoute.onGenerateRoute(
-          routeName,
-          param: param,
-        );
-        Navigator.push(context, route);
-      },
-      style: kTransparentButtonButtonStyle,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(100),
-        child: CircleAvatar(
-          backgroundColor: Colors.grey.withOpacity(0.5),
-          radius: 15,
-          backgroundImage: AssetImage("assets/images/dump_1.jpg"),
-          //child: Image.file(),
+    return Expanded(
+      flex: 1,
+      child: ElevatedButton(
+        onPressed: () {
+          if (onPressed != null) {
+            onPressed!();
+          }
+          appService.providerNavigationHelper.navigateToPage(
+            path: routeName,
+            object: param,
+          );
+        },
+        style: kTransparentButtonButtonStyle,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: CircleAvatar(
+            backgroundColor: Colors.grey.withOpacity(0.5),
+            radius: 15,
+            backgroundImage: AssetImage("assets/images/dump_1.jpg"),
+            //child: Image.file(),
+          ),
         ),
       ),
     );

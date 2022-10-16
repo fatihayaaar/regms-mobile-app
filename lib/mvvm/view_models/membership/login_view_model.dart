@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/mvvm/views/screens/main_screens/profile_screen.dart';
-import 'package:regms_flutter_client/route.dart';
+import 'package:regms_flutter_client/services/constants/navigation.dart';
 
 class LoginViewModel with ChangeNotifier {
   var _appService;
@@ -12,14 +11,13 @@ class LoginViewModel with ChangeNotifier {
   void loginButtonOnClick(BuildContext context) async {
     await appService.providerPersistHelper.saveToken("fayar");
     appService.providerPersistHelper.initMyUser();
-    var route = MyRoute.onGenerateRoute(
-      ProfileScreen.routeName,
-      param: {
+    appService.providerNavigationHelper.navigateToReplacementPage(
+      path: Navigation.PROFILE_PAGE,
+      object: {
         "user": appService.providerPersistHelper.myUser!,
         "isMyProfile": true,
       },
     );
-    Navigator.pushReplacement(context, route);
   }
 
   get appService => _appService;
