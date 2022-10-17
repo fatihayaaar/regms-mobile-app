@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/theme/app_theme.dart';
+import 'package:regms_flutter_client/core/theme/app_theme.dart';
 
 class AppThemeLight extends AppTheme {
   static AppThemeLight? _instance;

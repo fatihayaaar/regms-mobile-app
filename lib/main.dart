@@ -10,7 +10,7 @@ import 'package:regms_flutter_client/core/services/modules/navigation_module.dar
 import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';
 import 'package:regms_flutter_client/core/utils/app_localization.dart';
-import 'package:regms_flutter_client/theme/app_theme_container.dart';
+import 'package:regms_flutter_client/core/theme/app_theme_container.dart';
 import 'package:regms_flutter_client/view/screens/profile_screen.dart';
 import 'package:regms_flutter_client/view/screens/authenticate/view/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';

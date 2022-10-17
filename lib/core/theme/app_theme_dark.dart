@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/theme/app_theme.dart';
+import 'package:regms_flutter_client/core/theme/app_theme.dart';
 
 class AppThemeDark extends AppTheme {
   static AppThemeDark? _instance;
@@ -12,5 +12,5 @@ class AppThemeDark extends AppTheme {
 
   AppThemeDark._init();
 
-  ThemeData get theme => ThemeData();
+  ThemeData get theme => ThemeData.dark().copyWith();
 }

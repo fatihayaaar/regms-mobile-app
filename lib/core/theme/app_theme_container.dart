@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';
-import 'package:regms_flutter_client/theme/app_theme.dart';
-import 'package:regms_flutter_client/theme/app_theme_dark.dart';
-import 'package:regms_flutter_client/theme/app_theme_light.dart';
-import 'package:regms_flutter_client/theme/enum/theme_name.dart';
+import 'package:regms_flutter_client/core/theme/app_theme.dart';
+import 'package:regms_flutter_client/core/theme/app_theme_dark.dart';
+import 'package:regms_flutter_client/core/theme/app_theme_light.dart';
+import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 
 class AppThemeContainer {
   static AppThemeContainer? _instance;
