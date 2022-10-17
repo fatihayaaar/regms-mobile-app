@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/stores/settings/settings_store.dart';
+import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';
 
 class MyTheme {
   var textTheme = TextTheme(
