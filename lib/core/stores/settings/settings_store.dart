@@ -1,12 +1,12 @@
 import 'package:mobx/mobx.dart';
-import 'package:regms_flutter_client/constants/app.dart';
+import 'package:regms_flutter_client/constants/application_constant.dart';
 import 'package:regms_flutter_client/models/language.dart';
 import 'package:regms_flutter_client/core/services/helpers/persist/persist_helper.dart';
 
 class SettingStore {
   final PersistHelper _persistHelper;
 
-  var _locale = defaultLanguage;
+  var _locale = ApplicationConstant.DEFAULT_LANGUAGE;
   var _darkMode = false;
   var _supportedLanguages = ObservableList<Language>.of(defaultLanguageSupport);
 
@@ -55,7 +55,7 @@ class SettingStore {
   }
 }
 
-List<Language> defaultLanguageSupport = languageSupport
+List<Language> defaultLanguageSupport = ApplicationConstant.LANGUAGE_SUPPORT
     .map((code) => Language(
           code: code,
           locale: code,
