@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/post/post.dart';
-import 'package:regms_flutter_client/models/profile/profile.dart';
+import 'package:regms_flutter_client/models/post.dart';
+import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
 import 'package:regms_flutter_client/views/widgets/appbar/appbar_transparent.dart';
 import 'package:regms_flutter_client/views/widgets/bottom_navbar.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/comment/comment.dart';
+import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
 
 class Post with ChangeNotifier {

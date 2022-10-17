@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/post/post.dart';
+import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/views/widgets/avatar.dart';
 import 'package:video_player/video_player.dart';
 

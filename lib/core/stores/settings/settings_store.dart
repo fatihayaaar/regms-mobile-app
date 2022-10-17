@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:regms_flutter_client/constants/app.dart';
-import 'package:regms_flutter_client/models/language/language.dart';
+import 'package:regms_flutter_client/models/language.dart';
 import 'package:regms_flutter_client/core/services/helpers/persist/persist_helper.dart';
 
 class SettingStore {

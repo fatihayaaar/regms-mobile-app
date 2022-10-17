@@ -1,4 +1,4 @@
-import 'package:regms_flutter_client/models/profile/profile.dart';
+import 'package:regms_flutter_client/models/profile.dart';
 
 class User {
   String username;
