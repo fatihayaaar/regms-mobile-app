@@ -29,7 +29,7 @@ class PostCard extends StatelessWidget {
         if (!isDetail) {
           appService.providerNavigationHelper.navigateToPage(
             path: Navigation.POST_DETAIL_PAGE,
-            object: post,
+            object: {"post": post},
           );
         }
       },

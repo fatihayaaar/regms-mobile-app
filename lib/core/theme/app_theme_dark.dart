@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:regms_flutter_client/core/theme/app_theme.dart';
 
 class AppThemeDark extends AppTheme {
@@ -12,5 +14,22 @@ class AppThemeDark extends AppTheme {
 
   AppThemeDark._init();
 
-  ThemeData get theme => ThemeData.dark().copyWith();
+  var appBarTheme = AppBarTheme(
+    systemOverlayStyle: SystemUiOverlayStyle.dark,
+    backgroundColor: Colors.amber,
+    titleTextStyle: GoogleFonts.raleway(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 19,
+    ),
+    toolbarTextStyle: GoogleFonts.raleway(
+      color: Colors.white,
+      fontWeight: FontWeight.normal,
+      fontSize: 19,
+    ),
+  );
+
+  ThemeData get theme => ThemeData.dark().copyWith(
+        appBarTheme: appBarTheme,
+      );
 }

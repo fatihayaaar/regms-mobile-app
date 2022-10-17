@@ -1,3 +1,4 @@
+import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
@@ -22,12 +23,21 @@ class PersistHelper {
     return sharedPreferences.remove(Preferences.authToken);
   }
 
-  Future<bool> saveDarkMode(bool value) async {
-    return await sharedPreferences.setBool(Preferences.darkMode, value);
+  Future<bool> saveThemeMode(ThemeName value) async {
+    return await sharedPreferences.setString(
+      Preferences.themeMode,
+      value.name,
+    );
   }
 
-  Future<bool> getDarkMode() async {
-    return sharedPreferences.getBool(Preferences.darkMode) ?? false;
+  Future<ThemeName> getThemeMode() async {
+    String? themeMode = sharedPreferences.getString(Preferences.themeMode);
+    if (themeMode == ThemeName.LIGHT.name) {
+      return ThemeName.LIGHT;
+    } else if (themeMode == ThemeName.DARK.name) {
+      return ThemeName.DARK;
+    }
+    return ThemeName.LIGHT;
   }
 
   Future<bool> saveLanguage(String value) async {

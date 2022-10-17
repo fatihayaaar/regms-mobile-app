@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';
 import 'package:regms_flutter_client/core/theme/app_theme.dart';
 import 'package:regms_flutter_client/core/theme/app_theme_dark.dart';
 import 'package:regms_flutter_client/core/theme/app_theme_light.dart';
@@ -16,10 +14,8 @@ class AppThemeContainer {
 
   AppThemeContainer._init();
 
-  AppTheme getAppTheme(SettingStore store) {
-    final base = store.darkMode ? ThemeName.DARK : ThemeName.LIGHT;
-
-    switch (base) {
+  AppTheme getAppTheme(ThemeName theme) {
+    switch (theme) {
       case ThemeName.LIGHT:
         return AppThemeLight.instance;
       case ThemeName.DARK:

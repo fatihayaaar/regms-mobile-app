@@ -6,7 +6,7 @@ import 'package:regms_flutter_client/core/services/constants/navigation.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selected;
-  Function? onPressed;
+  final Function? onPressed;
 
   BottomNavBar({required this.selected, this.onPressed()?});
 

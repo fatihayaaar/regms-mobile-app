@@ -53,7 +53,8 @@ class MyApp extends StatelessWidget {
         builder: (context, store, child) => Observer(
           builder: (_) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: AppThemeContainer.instance.getAppTheme(store).theme,
+            theme:
+                AppThemeContainer.instance.getAppTheme(store.themeMode).theme,
             initialRoute: '/',
             onGenerateRoute: NavigationRoute.instance.generateRoute,
             navigatorKey: appService.providerNavigationHelper.navigatorKey,

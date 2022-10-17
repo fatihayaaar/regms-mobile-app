@@ -1,5 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:regms_flutter_client/constants/application_constant.dart';
+import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/models/language.dart';
 import 'package:regms_flutter_client/core/services/helpers/persist/persist_helper.dart';
 
@@ -7,14 +8,14 @@ class SettingStore {
   final PersistHelper _persistHelper;
 
   var _locale = ApplicationConstant.DEFAULT_LANGUAGE;
-  var _darkMode = false;
+  var _themeMode = ApplicationConstant.DEFAULT_THEME;
   var _supportedLanguages = ObservableList<Language>.of(defaultLanguageSupport);
 
   SettingStore(this._persistHelper) {
     init();
   }
 
-  bool get darkMode => _darkMode;
+  ThemeName get themeMode => _themeMode;
 
   String get locale => _locale;
 
@@ -36,7 +37,7 @@ class SettingStore {
   }
 
   Future<void> restore() async {
-    _darkMode = await _persistHelper.getDarkMode();
+    _themeMode = await _persistHelper.getThemeMode();
 
     String? lang = await _persistHelper.getLanguage();
     if (lang != "" && lang.runtimeType == String) {
@@ -49,9 +50,9 @@ class SettingStore {
     await _persistHelper.saveLanguage(value);
   }
 
-  Future<void> setDarkMode({required bool value}) async {
-    await _persistHelper.saveDarkMode(value);
-    _darkMode = value;
+  Future<void> setThemeMode({required ThemeName value}) async {
+    await _persistHelper.saveThemeMode(value);
+    _themeMode = value;
   }
 }
 
