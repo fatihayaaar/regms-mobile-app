@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/views/screens/edit_profile_screen.dart';
-import 'package:regms_flutter_client/views/screens/add_post_screen.dart';
-import 'package:regms_flutter_client/views/screens/home_screen/home_screen.dart';
-import 'package:regms_flutter_client/views/screens/profile_screen.dart';
-import 'package:regms_flutter_client/views/screens/search_screen.dart';
-import 'package:regms_flutter_client/views/screens/videos_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/confirm_password_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/email_validate_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/forgot_password_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/login_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/register_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/reset_password_screen.dart';
-import 'package:regms_flutter_client/views/screens/notification_screen.dart';
-import 'package:regms_flutter_client/views/screens/post_detail_screen.dart';
-import 'package:regms_flutter_client/views/screens/starter_screen.dart';
+import 'package:regms_flutter_client/view/screens/edit_profile_screen.dart';
+import 'package:regms_flutter_client/view/screens/add_post_screen.dart';
+import 'package:regms_flutter_client/view/screens/home_screen/home_screen.dart';
+import 'package:regms_flutter_client/view/screens/profile_screen.dart';
+import 'package:regms_flutter_client/view/screens/search_screen.dart';
+import 'package:regms_flutter_client/view/screens/videos_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/view/confirm_password_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/view/email_validate_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/view/forgot_password_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/view/login_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/view/register_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/view/reset_password_screen.dart';
+import 'package:regms_flutter_client/view/screens/notification_screen.dart';
+import 'package:regms_flutter_client/view/screens/post_detail_screen.dart';
+import 'package:regms_flutter_client/view/screens/starter_screen.dart';
 import 'package:regms_flutter_client/core/services/constants/navigation.dart';
 
 class NavigationRoute {

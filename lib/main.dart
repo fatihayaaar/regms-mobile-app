@@ -9,10 +9,10 @@ import 'package:regms_flutter_client/core/services/helpers/navigation/navigation
 import 'package:regms_flutter_client/core/services/modules/navigation_module.dart';
 import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';
-import 'package:regms_flutter_client/theme.dart';
 import 'package:regms_flutter_client/core/utils/app_localization.dart';
-import 'package:regms_flutter_client/views/screens/profile_screen.dart';
-import 'package:regms_flutter_client/views/screens/membership_screens/login_screen.dart';
+import 'package:regms_flutter_client/theme/app_theme_container.dart';
+import 'package:regms_flutter_client/view/screens/profile_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/view/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 late AppService appService;
@@ -38,7 +38,7 @@ void main() async {
   runApp(appService.getApp);
 }
 
-class MyApp extends StatelessWidget with MyTheme {
+class MyApp extends StatelessWidget {
   final SettingStore _settingStore = SettingStore(
     appService.providerPersistHelper,
   );
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget with MyTheme {
         builder: (context, store, child) => Observer(
           builder: (_) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: buildTheme(store),
+            theme: AppThemeContainer.instance.getAppTheme(store).theme,
             initialRoute: '/',
             onGenerateRoute: NavigationRoute.instance.generateRoute,
             navigatorKey: appService.providerNavigationHelper.navigatorKey,
