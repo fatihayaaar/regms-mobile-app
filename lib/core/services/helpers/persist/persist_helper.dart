@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/constants/application_constant.dart';
 import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/models/profile.dart';
@@ -32,12 +34,13 @@ class PersistHelper {
 
   Future<ThemeName> getThemeMode() async {
     String? themeMode = sharedPreferences.getString(Preferences.themeMode);
-    if (themeMode == ThemeName.LIGHT.name) {
-      return ThemeName.LIGHT;
-    } else if (themeMode == ThemeName.DARK.name) {
-      return ThemeName.DARK;
-    }
-    return ThemeName.LIGHT;
+    ThemeName theme = ThemeName.LIGHT;
+    ApplicationConstant.THEME_SUPPORT.forEach((ThemeName element) {
+      if (themeMode == element.name) {
+        theme = element;
+      }
+    });
+    return theme;
   }
 
   Future<bool> saveLanguage(String value) async {

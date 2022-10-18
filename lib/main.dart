@@ -9,8 +9,10 @@ import 'package:regms_flutter_client/core/services/helpers/navigation/navigation
 import 'package:regms_flutter_client/core/services/modules/navigation_module.dart';
 import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';
+import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/core/utils/app_localization.dart';
 import 'package:regms_flutter_client/core/theme/app_theme_container.dart';
+import 'package:regms_flutter_client/product/theme/app_theme_data.dart';
 import 'package:regms_flutter_client/view/screens/profile_screen.dart';
 import 'package:regms_flutter_client/view/screens/authenticate/view/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -53,8 +55,13 @@ class MyApp extends StatelessWidget {
         builder: (context, store, child) => Observer(
           builder: (_) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme:
-                AppThemeContainer.instance.getAppTheme(store.themeMode).theme,
+            theme: AppThemeContainer.instance.getAppTheme(
+              theme: store.themeMode,
+              themeData: {
+                ThemeName.LIGHT: AppThemeData.instance.themeModeLight.themeData,
+                ThemeName.DARK: AppThemeData.instance.themeModeDark.themeData,
+              },
+            ).theme,
             initialRoute: '/',
             onGenerateRoute: NavigationRoute.instance.generateRoute,
             navigatorKey: appService.providerNavigationHelper.navigatorKey,
