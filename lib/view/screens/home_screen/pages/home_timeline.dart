@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/view/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/view/widgets/page.dart';
@@ -40,7 +40,7 @@ class HomeTimeline extends StatelessWidget {
 
   _buildContent(context) {
     return Container(
-      color: kBorderColor.withOpacity(0.3),
+      color: ColorSchemeLight.kBorderColor.withOpacity(0.3),
       child: _buildPostView(context),
     );
   }

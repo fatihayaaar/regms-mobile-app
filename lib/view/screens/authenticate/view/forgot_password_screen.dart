@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/screens/authenticate/view/email_validate_screen.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_transparent.dart';
 
@@ -16,7 +16,7 @@ class _ForgotPasswordScreen extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarTransparent(),
-      backgroundColor: kBackgroundColor,
+      backgroundColor: ColorSchemeLight.kBackgroundColor,
       body: _buildBody(),
     );
   }

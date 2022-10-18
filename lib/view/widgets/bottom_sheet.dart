@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 class BottomSheetWidget extends StatelessWidget {
   const BottomSheetWidget({Key? key}) : super(key: key);
@@ -25,7 +25,7 @@ class BottomSheetWidget extends StatelessWidget {
               _buildItem("Share", Icons.share_rounded),
               _buildItem("Get Link", Icons.insert_link),
               _buildItem("Edit", Icons.mode_edit),
-              Divider(color: kBorderColor),
+              Divider(color: ColorSchemeLight.kBorderColor),
               _buildItem("Delete", Icons.delete_outline),
             ],
           ),

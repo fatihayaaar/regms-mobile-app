@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/bottom_sheet.dart';
 
 class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
@@ -39,7 +39,7 @@ class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
       ),
       backgroundColor: Colors.transparent,
       iconTheme: IconThemeData(
-        color: kTextContentColor,
+        color: ColorSchemeLight.kTextContentColor,
       ),
       shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );

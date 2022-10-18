@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
   final title;
@@ -64,7 +64,7 @@ class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
                 },
                 child: Icon(
                   Icons.arrow_back,
-                  color: kThemeColor,
+                  color: ColorSchemeLight.kThemeColor,
                   size: 25,
                 ),
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/screens/settings/view/change_email_screen.dart';
 import 'package:regms_flutter_client/view/screens/settings/view/change_password_screen.dart';
 import 'package:regms_flutter_client/view/screens/settings/view/change_username_screen.dart';
@@ -37,12 +37,12 @@ class _AccountSettingsScreen extends State {
                   text: "Change Username",
                   page: ChangeUsernameScreen(),
                 ),
-                Divider(color: kBorderColor),
+                Divider(color: ColorSchemeLight.kBorderColor),
                 DrawerListItem(
                   text: "Change Email Address",
                   page: ChangeEmailScreen(),
                 ),
-                Divider(color: kBorderColor),
+                Divider(color: ColorSchemeLight.kBorderColor),
                 DrawerListItem(
                   text: "Change Password",
                   page: ChangePasswordScreen(),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user/user_list_tile.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 
 class UserTile extends StatelessWidget {
@@ -71,7 +71,7 @@ class UserTile extends StatelessWidget {
   _buildAction() {
     return Icon(
       Icons.keyboard_control_rounded,
-      color: kBodyTextColor.withOpacity(0.5),
+      color: ColorSchemeLight.kBodyTextColor.withOpacity(0.5),
     );
   }
 }

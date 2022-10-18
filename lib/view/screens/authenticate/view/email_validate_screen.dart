@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/screens/authenticate/view/reset_password_screen.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_transparent.dart';
 
@@ -38,7 +38,7 @@ class _EmailValidateScreen extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarTransparent(),
-      backgroundColor: kBackgroundColor,
+      backgroundColor: ColorSchemeLight.kBackgroundColor,
       body: _buildBody(),
     );
   }
@@ -110,12 +110,13 @@ class _EmailValidateScreen extends State {
         children: [
           TextSpan(
             text: "If you didn't receive a code! ",
-            style: tsRichTextStyle(kBodyTextColor),
+            style: tsRichTextStyle(ColorSchemeLight.kBodyTextColor),
           ),
           TextSpan(
             text: 'Resend',
-            style:
-                tsRichTextStyle(_g == true ? kLoginButtonColor : kBorderColor),
+            style: tsRichTextStyle(_g == true
+                ? ColorSchemeLight.kLoginButtonColor
+                : ColorSchemeLight.kBorderColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 if (_start == 0) {
@@ -169,10 +170,10 @@ class _EmailValidateScreen extends State {
       padding: EdgeInsets.fromLTRB(14, 0, 15, 0),
       decoration: kBoxDecorationTextField,
       child: VerificationCode(
-        fillColor: kTextFieldColor,
+        fillColor: ColorSchemeLight.kTextFieldColor,
         textStyle: kHintTextStyle,
         keyboardType: TextInputType.number,
-        underlineColor: kBorderColor,
+        underlineColor: ColorSchemeLight.kBorderColor,
         length: 4,
         onCompleted: (String value) {
           setState(() {});

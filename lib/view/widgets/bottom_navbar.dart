@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/core/services/constants/navigation.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selected;
@@ -17,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
         color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
         border: Border(
           top: BorderSide(
-            color: kBorderColor,
+            color: ColorSchemeLight.kBorderColor,
             width: 0.5,
           ),
         ),

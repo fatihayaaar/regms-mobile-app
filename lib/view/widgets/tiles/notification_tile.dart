@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user/user_list_tile.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 
 class NotificationTile extends StatelessWidget {
@@ -73,7 +73,7 @@ class NotificationTile extends StatelessWidget {
       width: 80,
       height: 25,
       decoration: BoxDecoration(
-        color: kThemeColor,
+        color: ColorSchemeLight.kThemeColor,
         border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(6),
       ),

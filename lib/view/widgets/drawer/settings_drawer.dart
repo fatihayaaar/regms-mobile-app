@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/screens/settings/view/account_setting_screen.dart';
 import 'package:regms_flutter_client/view/screens/settings/view/notification_setting_screen.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_settings.dart';
@@ -37,32 +37,32 @@ class MyDrawer extends StatelessWidget {
             text: "Account",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: kBorderColor),
+          Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Notifications",
             page: NotificationSettingsScreen(),
           ),
-          Divider(color: kBorderColor),
+          Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Appearance",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: kBorderColor),
+          Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Privacy & Security",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: kBorderColor),
+          Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Help and Support",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: kBorderColor),
+          Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "About",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: kBorderColor),
+          Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Log-out",
             page: AccountSettingsScreen(),

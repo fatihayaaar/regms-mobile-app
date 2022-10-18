@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 class DrawerListItem extends StatelessWidget {
   final text;
@@ -30,7 +30,7 @@ class DrawerListItem extends StatelessWidget {
             ),
             Icon(
               Icons.arrow_forward_ios,
-              color: kBodyTextColor,
+              color: ColorSchemeLight.kBodyTextColor,
               size: 16,
             ),
           ],

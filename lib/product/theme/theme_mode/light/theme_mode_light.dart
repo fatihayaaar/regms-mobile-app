@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/text_theme_light.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/app_theme_mode.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/abstract/theme_mode_light_interface.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
-class ThemeModeLight implements AppThemeMode {
-  TextThemeLight? textThemeLight;
+class ThemeModeLight extends AppThemeMode with IThemeModeLight {
+  static ThemeModeLight? _instance;
+
+  static ThemeModeLight get instance {
+    if (_instance == null) {
+      _instance = ThemeModeLight._();
+    }
+    return _instance!;
+  }
+
+  ThemeModeLight._();
 
   var textTheme = TextTheme(
     headline1: GoogleFonts.raleway(
-      color: kLoginTitleColor,
+      color: ColorSchemeLight.kLoginTitleColor,
       fontWeight: FontWeight.bold,
       fontSize: 48,
     ),
     headline2: GoogleFonts.raleway(
-      color: kLoginTitleColor,
+      color: ColorSchemeLight.kLoginTitleColor,
       fontWeight: FontWeight.bold,
       fontSize: 33,
     ),
@@ -27,7 +36,7 @@ class ThemeModeLight implements AppThemeMode {
   );
   var appBarTheme = AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle.dark,
-    backgroundColor: kThemeColor,
+    backgroundColor: ColorSchemeLight.kThemeColor,
     titleTextStyle: GoogleFonts.raleway(
       color: Colors.white,
       fontWeight: FontWeight.bold,
@@ -41,25 +50,25 @@ class ThemeModeLight implements AppThemeMode {
   );
   var bottomNavigationBarThemeData = BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
-    unselectedItemColor: kThemeColor,
+    unselectedItemColor: ColorSchemeLight.kThemeColor,
   );
   var bottomSheetThemeData = BottomSheetThemeData(
     backgroundColor: Colors.white,
   );
   var drawerThemeData = DrawerThemeData(
-    backgroundColor: kBackgroundColor,
+    backgroundColor: ColorSchemeLight.kBackgroundColor,
   );
   var elevatedButtonThemeData = ElevatedButtonThemeData(
     style: ButtonStyle(),
   );
   var floatActionButtonThemeData = FloatingActionButtonThemeData(
-    backgroundColor: kThemeColor,
+    backgroundColor: ColorSchemeLight.kThemeColor,
   );
 
   ThemeData get themeData => ThemeData.light().copyWith(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,
-        backgroundColor: kBackgroundColor,
+        backgroundColor: ColorSchemeLight.kBackgroundColor,
         textTheme: textTheme,
         appBarTheme: appBarTheme,
         bottomNavigationBarTheme: bottomNavigationBarThemeData,

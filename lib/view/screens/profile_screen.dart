@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/models/comment.dart';
 import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view_models/profile_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_profile.dart';
 import 'package:regms_flutter_client/view/widgets/bottom_navbar.dart';
@@ -133,7 +133,7 @@ class ProfileScreen extends StatelessWidget {
 
   _buildContent() {
     return Container(
-      color: kBorderColor.withOpacity(0.3),
+      color: ColorSchemeLight.kBorderColor.withOpacity(0.3),
       child: _buildPostView(),
     );
   }

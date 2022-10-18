@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/models/post.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 import 'package:regms_flutter_client/view/widgets/bottom_sheet.dart';
 import 'package:regms_flutter_client/view/widgets/comment_box.dart';
@@ -160,7 +160,8 @@ class PostCard extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(0, 2, 0, 0),
       child: Text(
         "$text",
-        style: kActionRichTextStyle(kPostActionTextColor, FontWeight.normal),
+        style: kActionRichTextStyle(
+            ColorSchemeLight.kPostActionTextColor, FontWeight.normal),
       ),
     );
   }
@@ -208,7 +209,7 @@ class PostCard extends StatelessWidget {
           child: Icon(
             icon,
             size: 20,
-            color: kCommentActionIconColor,
+            color: ColorSchemeLight.kCommentActionIconColor,
           ),
         ),
         Visibility(
@@ -240,7 +241,7 @@ class PostCard extends StatelessWidget {
           margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
           child: Icon(
             Icons.keyboard_control_rounded,
-            color: kBodyTextColor,
+            color: ColorSchemeLight.kBodyTextColor,
           ),
         ),
       ),
@@ -253,7 +254,7 @@ class PostCard extends StatelessWidget {
         Icon(
           Icons.access_time,
           size: 10,
-          color: kBodyTextColor,
+          color: ColorSchemeLight.kBodyTextColor,
         ),
         SizedBox(width: 3),
         Text(

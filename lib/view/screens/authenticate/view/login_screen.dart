@@ -2,9 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/screens/authenticate/viewmodel/login_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_transparent.dart';
 import 'package:regms_flutter_client/core/services/constants/navigation.dart';
@@ -37,7 +37,7 @@ class _LoginScreen extends State {
       },
       child: Scaffold(
         appBar: AppBarTransparent(),
-        backgroundColor: kBackgroundColor,
+        backgroundColor: ColorSchemeLight.kBackgroundColor,
         body: Stack(
           children: [
             _buildBody(),
@@ -214,11 +214,12 @@ class _LoginScreen extends State {
         children: [
           TextSpan(
             text: 'Don\'t you have an account? ',
-            style: tsRichTextStyle(kRegisterRichTextAboutColor),
+            style:
+                tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
           ),
           TextSpan(
             text: 'Register',
-            style: tsRichTextStyle(kLoginButtonColor),
+            style: tsRichTextStyle(ColorSchemeLight.kLoginButtonColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 appService.providerNavigationHelper.navigateToPage(

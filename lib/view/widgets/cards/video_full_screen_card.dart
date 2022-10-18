@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/post.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 import 'package:video_player/video_player.dart';
 
@@ -183,7 +183,7 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
           child: Icon(
             icon,
             size: 25,
-            color: kFullScreenVideoIconColor,
+            color: ColorSchemeLight.kFullScreenVideoIconColor,
           ),
         ),
         Visibility(

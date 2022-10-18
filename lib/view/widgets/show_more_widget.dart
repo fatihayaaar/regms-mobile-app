@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 class ShowMore extends StatelessWidget {
   final text;
@@ -13,7 +13,7 @@ class ShowMore extends StatelessWidget {
       children: [
         Icon(
           Icons.arrow_drop_down_rounded,
-          color: kTextFieldLightColor,
+          color: ColorSchemeLight.kTextFieldLightColor,
         ),
         Text(
           text,

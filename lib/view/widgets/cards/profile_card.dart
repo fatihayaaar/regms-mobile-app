@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/screens/edit_profile_screen.dart';
 import 'package:regms_flutter_client/view/screens/users_screens.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
@@ -36,7 +36,8 @@ class ProfileCard extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.person,
-                    color: kRegisterRichTextAboutColor.withOpacity(0.5),
+                    color: ColorSchemeLight.kRegisterRichTextAboutColor
+                        .withOpacity(0.5),
                   ),
                   SizedBox(width: 7.5),
                   _buildProfileFollowersText(
@@ -46,7 +47,8 @@ class ProfileCard extends StatelessWidget {
                   SizedBox(width: 10),
                   Icon(
                     Icons.circle,
-                    color: kRegisterRichTextAboutColor.withOpacity(0.5),
+                    color: ColorSchemeLight.kRegisterRichTextAboutColor
+                        .withOpacity(0.5),
                     size: 4,
                   ),
                   SizedBox(width: 10),

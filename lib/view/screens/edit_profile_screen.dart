@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view_models/edit_profile_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
@@ -51,7 +51,7 @@ class EditProfileScreen extends StatelessWidget {
         Container(
           width: double.maxFinite,
           decoration: BoxDecoration(
-            color: kThemeColor,
+            color: ColorSchemeLight.kThemeColor,
           ),
           child: Column(
             children: [
@@ -64,7 +64,7 @@ class EditProfileScreen extends StatelessWidget {
         Stack(
           children: [
             Container(
-              color: kThemeColor,
+              color: ColorSchemeLight.kThemeColor,
               height: 30,
               width: double.infinity,
             ),
@@ -95,7 +95,7 @@ class EditProfileScreen extends StatelessWidget {
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: kBackgroundColor,
+                color: ColorSchemeLight.kBackgroundColor,
               ),
               child: Icon(
                 Icons.camera_alt,
@@ -118,7 +118,7 @@ class EditProfileScreen extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: kBackgroundColor,
+            color: ColorSchemeLight.kBackgroundColor,
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
           ),

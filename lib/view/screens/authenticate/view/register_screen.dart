@@ -2,9 +2,9 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/screens/profile_screen.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_transparent.dart';
 import 'package:regms_flutter_client/view/widgets/shake.dart';
@@ -242,7 +242,8 @@ class _RegisterScreen extends State {
           children: [
             TextSpan(
               text: 'By signing up for the application, you accept the ',
-              style: tsRichTextStyle(kRegisterRichTextAboutColor),
+              style:
+                  tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
             ),
             TextSpan(
               text: 'Confidentiality Agreement ',
@@ -251,7 +252,8 @@ class _RegisterScreen extends State {
             ),
             TextSpan(
               text: 'and ',
-              style: tsRichTextStyle(kRegisterRichTextAboutColor),
+              style:
+                  tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
             ),
             TextSpan(
               text: 'User Agreement.',
@@ -271,11 +273,12 @@ class _RegisterScreen extends State {
         children: [
           TextSpan(
             text: 'Do you already have an account? ',
-            style: tsRichTextStyle(kRegisterRichTextAboutColor),
+            style:
+                tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
           ),
           TextSpan(
             text: 'Login',
-            style: tsRichTextStyle(kLoginButtonColor),
+            style: tsRichTextStyle(ColorSchemeLight.kLoginButtonColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 Navigator.pop(context);

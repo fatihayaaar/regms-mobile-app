@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 class PageWidget extends StatelessWidget {
   final Widget child;
@@ -17,7 +17,7 @@ class PageWidget extends StatelessWidget {
       children: [
         Container(
           height: 30,
-          color: kThemeColor,
+          color: ColorSchemeLight.kThemeColor,
         ),
         ClipRRect(
           borderRadius: BorderRadius.vertical(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view_models/add_post_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/view/widgets/page.dart';
@@ -73,7 +73,7 @@ class AddPostScreen extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 40,
-      color: kBorderColor.withOpacity(0.4),
+      color: ColorSchemeLight.kBorderColor.withOpacity(0.4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +132,7 @@ class AddPostScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-            child: Divider(color: kBorderColor),
+            child: Divider(color: ColorSchemeLight.kBorderColor),
           ),
           _buildIconButtonItem(
             Icons.location_on,
@@ -141,7 +141,7 @@ class AddPostScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-            child: Divider(color: kBorderColor),
+            child: Divider(color: ColorSchemeLight.kBorderColor),
           ),
           _buildIconButtonItem(
             Icons.discount,

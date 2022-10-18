@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 final kLoginButtonButtonStyle = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all(kLoginButtonColor),
+  backgroundColor:
+      MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -13,7 +14,8 @@ final kLoginButtonButtonStyle = ButtonStyle(
 );
 
 final kRegisterButtonButtonStyle = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all(kLoginButtonColor),
+  backgroundColor:
+      MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -30,7 +32,7 @@ final kDatePickerButtonButtonStyle = ButtonStyle(
     RoundedRectangleBorder(
       side: BorderSide(
         width: 1,
-        color: kBorderColor,
+        color: ColorSchemeLight.kBorderColor,
         style: BorderStyle.solid,
       ),
       borderRadius: BorderRadius.circular(15.0),
@@ -50,7 +52,7 @@ final kTransparentButtonButtonStyle = ButtonStyle(
 );
 
 final kProfileButtonButtonStyle = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all(kTextFieldColor),
+  backgroundColor: MaterialStateProperty.all(ColorSchemeLight.kTextFieldColor),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -68,7 +70,7 @@ final kProfileHeaderDecoration = BoxDecoration(
 );
 
 final kCommentBoxDecoration = BoxDecoration(
-  color: kTextFieldColor,
+  color: ColorSchemeLight.kTextFieldColor,
   borderRadius: BorderRadius.only(
     topLeft: Radius.zero,
     topRight: Radius.circular(12),
@@ -80,13 +82,13 @@ final kCommentBoxDecoration = BoxDecoration(
 final kLoginButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 17,
   fontWeight: FontWeight.bold,
-  color: kButtonContentTextColor,
+  color: ColorSchemeLight.kButtonContentTextColor,
 );
 
 final kProfileButtonContentTextStyle = GoogleFonts.raleway(
   fontSize: 13,
   fontWeight: FontWeight.bold,
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
 );
 
 final tTextFieldBoxDecoration = BoxDecoration(
@@ -110,7 +112,8 @@ final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
       isDense: true,
       contentPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: kBorderColor, width: 1.0),
+        borderSide:
+            BorderSide(color: ColorSchemeLight.kBorderColor, width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       hintText: hintText,
@@ -119,32 +122,32 @@ final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
 
 final kTimeTextStyle = GoogleFonts.rubik(
   fontSize: 13,
-  color: kTextFieldLightColor,
+  color: ColorSchemeLight.kTextFieldLightColor,
 );
 
 final kCommentTimeTextStyle = GoogleFonts.rubik(
   fontSize: 13,
-  color: kTextFieldLightColor,
+  color: ColorSchemeLight.kTextFieldLightColor,
 );
 
 final kHintTextStyle = GoogleFonts.raleway(
   fontSize: 14,
-  color: kTextFieldLightColor,
+  color: ColorSchemeLight.kTextFieldLightColor,
 );
 
 final kBioTextStyle = GoogleFonts.rubik(
   fontSize: 14,
-  color: kTextBioColor,
+  color: ColorSchemeLight.kTextBioColor,
 );
 
 final kLabelTextStyle = GoogleFonts.rubik(
   fontSize: 14,
-  color: kTextBioColor,
+  color: ColorSchemeLight.kTextBioColor,
 );
 
 final kSubTitleTextStyle = GoogleFonts.raleway(
   fontSize: 18,
-  color: kTextFieldLightColor,
+  color: ColorSchemeLight.kTextFieldLightColor,
 );
 
 final tsRichTextStyle = (color) => GoogleFonts.raleway(
@@ -175,7 +178,7 @@ final kActionRichTextStyle = (color, weight) => GoogleFonts.rubik(
 final tForgotPasswordTextStyle = GoogleFonts.raleway(
   height: 1.4,
   fontSize: 13,
-  color: kLoginButtonColor,
+  color: ColorSchemeLight.kLoginButtonColor,
 );
 
 final Decoration kBoxDecorationTextField = BoxDecoration(
@@ -189,14 +192,14 @@ final Decoration kAddPostDraftBoxDecorationTextField = BoxDecoration(
 );
 
 final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
   borderRadius: BorderRadius.circular(0),
 );
 
 final Decoration kFilterBoxDecorationTextField = BoxDecoration(
   color: Color.fromRGBO(255, 255, 255, 1.0),
   borderRadius: BorderRadius.circular(15),
-  border: Border.all(color: kBorderColor.withOpacity(0.5)),
+  border: Border.all(color: ColorSchemeLight.kBorderColor.withOpacity(0.5)),
 );
 
 final kAddPostItemBoxDecorationTextField = BoxDecoration(
@@ -207,7 +210,7 @@ final kAddPostItemBoxDecorationTextField = BoxDecoration(
 
 final Decoration kBoxDecorationDropDownButton = BoxDecoration(
   color: Color.fromRGBO(255, 255, 255, 1.0),
-  border: Border.all(color: kBorderColor),
+  border: Border.all(color: ColorSchemeLight.kBorderColor),
   borderRadius: BorderRadius.circular(15),
 );
 
@@ -224,35 +227,35 @@ final tAppbarActionTextStyle = GoogleFonts.raleway(
 final kNameAndSurnameTextStyle = GoogleFonts.rubik(
   fontSize: 23,
   fontWeight: FontWeight.bold,
-  color: kUsernameColor,
+  color: ColorSchemeLight.kUsernameColor,
 );
 
 final kUsernameTextStyle = GoogleFonts.rubik(
   fontSize: 17,
   fontWeight: FontWeight.w400,
-  color: kNameAndSurnameColor,
+  color: ColorSchemeLight.kNameAndSurnameColor,
 );
 
 final kBottomSheetTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.w400,
-  color: kBottomSheetColor,
+  color: ColorSchemeLight.kBottomSheetColor,
 );
 
 final kAddPostItemsTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.w400,
-  color: kBottomSheetColor,
+  color: ColorSchemeLight.kBottomSheetColor,
 );
 
 final kAgendaTextStyle = GoogleFonts.rubik(
   fontSize: 18,
   fontWeight: FontWeight.w500,
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
 );
 
 final kAgendaDetailTextStyle = GoogleFonts.rubik(
-  color: kThemeColor.withOpacity(0.5),
+  color: ColorSchemeLight.kThemeColor.withOpacity(0.5),
   fontWeight: FontWeight.w400,
   fontSize: 12,
 );
@@ -260,40 +263,40 @@ final kAgendaDetailTextStyle = GoogleFonts.rubik(
 final kFollowersCountTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.normal,
-  color: kRegisterRichTextAboutColor,
+  color: ColorSchemeLight.kRegisterRichTextAboutColor,
 );
 
 final kFollowersCountSizeTextStyle = GoogleFonts.rubik(
   fontSize: 15,
   fontWeight: FontWeight.bold,
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
 );
 
 final Decoration kBoxDecorationSearchTextField = BoxDecoration(
-  color: kBorderColor,
+  color: ColorSchemeLight.kBorderColor,
   borderRadius: BorderRadius.circular(10),
 );
 
 final kListTitleTextStyle = GoogleFonts.raleway(
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
   fontWeight: FontWeight.bold,
   fontSize: 19,
 );
 
 final kPostUsernameTextStyle = GoogleFonts.rubik(
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
   fontWeight: FontWeight.w600,
   fontSize: 16,
 );
 
 final kPostContentTextStyle = GoogleFonts.rubik(
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
 
 final kStoryMiniUsernameTextStyle = GoogleFonts.rubik(
-  color: kThemeColor.withOpacity(0.65),
+  color: ColorSchemeLight.kThemeColor.withOpacity(0.65),
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
@@ -301,11 +304,11 @@ final kStoryMiniUsernameTextStyle = GoogleFonts.rubik(
 final kUserListUsernameTextStyle = GoogleFonts.rubik(
   fontSize: 16,
   fontWeight: FontWeight.w500,
-  color: kThemeColor,
+  color: ColorSchemeLight.kThemeColor,
 );
 
 final kUserListStatusTextStyle = GoogleFonts.rubik(
-  color: kThemeColor.withOpacity(0.6),
+  color: ColorSchemeLight.kThemeColor.withOpacity(0.6),
   fontWeight: FontWeight.w400,
   fontSize: 14,
 );
@@ -324,12 +327,12 @@ final Decoration kBoxDecorationListTypeItem = BoxDecoration(
 final kListTypeItemTextStyle = GoogleFonts.rubik(
   fontSize: 14,
   fontWeight: FontWeight.w500,
-  color: kThemeColor.withOpacity(0.8),
+  color: ColorSchemeLight.kThemeColor.withOpacity(0.8),
 );
 
 final kShowMoreTextStyle = GoogleFonts.rubik(
   fontSize: 14,
-  color: kTextFieldLightColor,
+  color: ColorSchemeLight.kTextFieldLightColor,
 );
 
 final kFullScreenVideoUsernameTextStyle = GoogleFonts.rubik(
@@ -345,19 +348,19 @@ final kFullScreenVideoContentTextStyle = GoogleFonts.rubik(
 );
 
 kUserListUsernameMessageTextStyle(onMessage) => GoogleFonts.rubik(
-  fontSize: 18,
-  fontWeight: onMessage ? FontWeight.w500 : FontWeight.w400,
-  color: kThemeColor,
-);
+      fontSize: 18,
+      fontWeight: onMessage ? FontWeight.w500 : FontWeight.w400,
+      color: ColorSchemeLight.kThemeColor,
+    );
 
 kUserListMessageTextStyle(onMessage) => GoogleFonts.rubik(
-  color: kThemeColor.withOpacity(0.6),
-  fontWeight: onMessage ? FontWeight.w500 : FontWeight.w400,
-  fontSize: 14,
-);
+      color: ColorSchemeLight.kThemeColor.withOpacity(0.6),
+      fontWeight: onMessage ? FontWeight.w500 : FontWeight.w400,
+      fontSize: 14,
+    );
 
 kTimeMessageTextStyle(onMessage) => GoogleFonts.rubik(
-  fontSize: 13,
-  fontWeight: onMessage ? FontWeight.w500 : FontWeight.w400,
-  color: kTextFieldLightColor,
-);
+      fontSize: 13,
+      fontWeight: onMessage ? FontWeight.w500 : FontWeight.w400,
+      color: ColorSchemeLight.kTextFieldLightColor,
+    );

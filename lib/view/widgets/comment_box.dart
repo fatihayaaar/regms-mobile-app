@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/colors.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/comment.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 
 class CommentBox extends StatelessWidget {
@@ -72,7 +72,7 @@ class CommentBox extends StatelessWidget {
     return Text(
       '${comment.user.username}',
       style: kCommentRichTextStyle(
-        kCommentUsernameColor,
+        ColorSchemeLight.kCommentUsernameColor,
         FontWeight.bold,
       ),
     );
@@ -82,7 +82,7 @@ class CommentBox extends StatelessWidget {
     return Text(
       '${comment.text}',
       style: kCommentRichTextStyle(
-        kCommentTextColor,
+        ColorSchemeLight.kCommentTextColor,
         FontWeight.normal,
       ),
     );
@@ -105,7 +105,7 @@ class CommentBox extends StatelessWidget {
               child: Text(
                 "See ${detailText!} comment",
                 style: kCommentRichTextStyle(
-                  kBodyTextColor,
+                  ColorSchemeLight.kBodyTextColor,
                   FontWeight.normal,
                 ),
                 textAlign: TextAlign.left,
