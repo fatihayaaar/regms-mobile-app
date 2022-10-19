@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/view/screens/authenticate/viewmodel/login_view_model.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/login/viewmodel/login_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_transparent.dart';
 import 'package:regms_flutter_client/core/services/constants/navigation.dart';
 import 'package:regms_flutter_client/core/utils/app_localization.dart';

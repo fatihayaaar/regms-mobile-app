@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/view/screens/authenticate/view/confirm_password_screen.dart';
+import 'package:regms_flutter_client/view/screens/authenticate/forgot_password/view/confirm_password_screen.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_settings.dart';
 
 class ChangeEmailScreen extends StatefulWidget {

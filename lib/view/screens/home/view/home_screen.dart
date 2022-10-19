@@ -4,9 +4,9 @@ import 'package:regms_flutter_client/models/post.dart';
 import 'package:regms_flutter_client/models/profile.dart';
 import 'package:regms_flutter_client/models/story_list_item.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
-import 'package:regms_flutter_client/view/screens/home_screen/pages/home_timeline.dart';
-import 'package:regms_flutter_client/view/screens/home_screen/pages/messages_screen.dart';
-import 'package:regms_flutter_client/view/screens/home_screen/pages/story_camera_screen.dart';
+import 'package:regms_flutter_client/view/screens/home/view/pages/view/home_timeline.dart';
+import 'package:regms_flutter_client/view/screens/home/view/pages/view/messages_screen.dart';
+import 'package:regms_flutter_client/view/screens/home/view/pages/view/story_camera_screen.dart';
 import 'package:regms_flutter_client/view/widgets/cards/post_card.dart';
 
 class HomeScreen extends StatefulWidget {
