@@ -5,7 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/core/services/app_service.dart';
-import 'package:regms_flutter_client/core/services/helpers/navigation/navigation_route.dart';
+import 'package:regms_flutter_client/product/navigation/navigation_route.dart';
 import 'package:regms_flutter_client/core/services/modules/navigation_module.dart';
 import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
 import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';

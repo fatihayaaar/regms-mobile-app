@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/view_models/starter_view_model.dart';
+import 'package:regms_flutter_client/view/screens/starter/viewmodel/starter_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar_transparent.dart';
 
 class StarterScreen extends StatefulWidget {

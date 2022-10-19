@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/view_models/add_post_view_model.dart';
+import 'package:regms_flutter_client/view/screens/post/viewmodel/add_post_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/view/widgets/page.dart';
 import 'package:regms_flutter_client/view/widgets/photos_selection.dart';

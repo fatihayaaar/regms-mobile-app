@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/view_models/edit_profile_view_model.dart';
+import 'package:regms_flutter_client/view/screens/profile/viewmodel/edit_profile_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 
