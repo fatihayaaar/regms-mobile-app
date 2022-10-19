@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/models/user/user_list_tile.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/view_models/users_view_model.dart';
+import 'package:regms_flutter_client/view/screens/other/viewmodel/users_view_model.dart';
 import 'package:regms_flutter_client/view/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/view/widgets/bottom_navbar.dart';
 import 'package:regms_flutter_client/view/widgets/page.dart';

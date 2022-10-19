@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/view/screens/notification_screen.dart';
+import 'package:regms_flutter_client/view/screens/other/view/notification_screen.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

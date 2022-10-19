@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+import 'package:regms_flutter_client/view/screens/other/view/users_screens.dart';
 import 'package:regms_flutter_client/view/screens/profile/view/edit_profile_screen.dart';
-import 'package:regms_flutter_client/view/screens/users_screens.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 
 class ProfileCard extends StatelessWidget {
