@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/post.dart';
+import 'package:regms_flutter_client/models/post/post.dart';
 
 class ProfileViewModel with ChangeNotifier {
   var _isMyProfile;

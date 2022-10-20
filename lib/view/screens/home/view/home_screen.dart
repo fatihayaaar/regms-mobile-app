@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/comment.dart';
-import 'package:regms_flutter_client/models/post.dart';
-import 'package:regms_flutter_client/models/profile.dart';
+import 'package:regms_flutter_client/models/comment/comment.dart';
+import 'package:regms_flutter_client/models/post/post.dart';
+import 'package:regms_flutter_client/models/profile/profile.dart';
 import 'package:regms_flutter_client/models/story_list_item.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
 import 'package:regms_flutter_client/view/screens/home/view/pages/view/home_timeline.dart';

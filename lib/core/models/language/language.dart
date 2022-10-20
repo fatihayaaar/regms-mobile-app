@@ -1,3 +1,7 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'language.g.dart';
+
 class Language {
   String code;
   String locale;
@@ -10,7 +14,5 @@ class Language {
   });
 }
 
-Map get getLanguages => {
-  'en': {'name': 'English', 'nativeName': 'English', "code" : "en"},
-  'tr': {'name': 'Turkish', 'nativeName': 'Turkish', "code": "tr"},
-};
+@JsonLiteral('data.json')
+Map get getLanguages => _$getLanguagesJsonLiteral;

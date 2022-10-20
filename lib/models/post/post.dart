@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/comment.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:regms_flutter_client/models/comment/comment.dart';
 import 'package:regms_flutter_client/models/user/user.dart';
 
+part 'post.g.dart';
+
+@JsonSerializable()
 class Post with ChangeNotifier {
   User user;
   String? text;
@@ -20,4 +24,8 @@ class Post with ChangeNotifier {
     this.media,
     required this.sendDate,
   });
+
+  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PostToJson(this);
 }

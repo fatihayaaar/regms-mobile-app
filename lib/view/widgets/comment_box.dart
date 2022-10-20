@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/comment.dart';
+import 'package:regms_flutter_client/models/comment/comment.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/view/widgets/avatar.dart';
 

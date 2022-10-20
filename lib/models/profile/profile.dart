@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'profile.g.dart';
+
+@JsonSerializable()
 class Profile {
   String? avatar;
   String? nameAndSurname;
@@ -14,4 +19,9 @@ class Profile {
     this.followersCount,
     this.followingCount,
   });
+
+  factory Profile.fromJson(Map<String, dynamic> json) =>
+      _$ProfileFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProfileToJson(this);
 }
