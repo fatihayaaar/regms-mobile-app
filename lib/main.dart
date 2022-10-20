@@ -13,8 +13,8 @@ import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/core/utils/app_localization.dart';
 import 'package:regms_flutter_client/core/theme/app_theme_container.dart';
 import 'package:regms_flutter_client/product/theme/app_theme_data.dart';
-import 'package:regms_flutter_client/view/screens/profile/view/profile_screen.dart';
-import 'package:regms_flutter_client/view/screens/authenticate/login/view/login_screen.dart';
+import 'package:regms_flutter_client/feature/screens/profile/view/profile_screen.dart';
+import 'package:regms_flutter_client/feature/screens/authenticate/login/view/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 late AppService appService;
