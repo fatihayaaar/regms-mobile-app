@@ -34,47 +34,17 @@ class ThemeModeLight extends AppThemeMode with IThemeModeLight {
       color: Color.fromRGBO(60, 60, 60, 1.0),
     ),
   );
-  var appBarTheme = AppBarTheme(
-    systemOverlayStyle: SystemUiOverlayStyle.dark,
-    backgroundColor: ColorSchemeLight.kThemeColor,
-    titleTextStyle: GoogleFonts.raleway(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 19,
-    ),
-    toolbarTextStyle: GoogleFonts.raleway(
-      color: Colors.white,
-      fontWeight: FontWeight.normal,
-      fontSize: 19,
-    ),
-  );
-  var bottomNavigationBarThemeData = BottomNavigationBarThemeData(
-    backgroundColor: Colors.white,
-    unselectedItemColor: ColorSchemeLight.kThemeColor,
-  );
-  var bottomSheetThemeData = BottomSheetThemeData(
-    backgroundColor: Colors.white,
-  );
-  var drawerThemeData = DrawerThemeData(
-    backgroundColor: ColorSchemeLight.kBackgroundColor,
-  );
-  var elevatedButtonThemeData = ElevatedButtonThemeData(
-    style: ButtonStyle(),
-  );
-  var floatActionButtonThemeData = FloatingActionButtonThemeData(
-    backgroundColor: ColorSchemeLight.kThemeColor,
-  );
 
   ThemeData get themeData => ThemeData.light().copyWith(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,
         backgroundColor: ColorSchemeLight.kBackgroundColor,
         textTheme: textTheme,
-        appBarTheme: appBarTheme,
-        bottomNavigationBarTheme: bottomNavigationBarThemeData,
-        bottomSheetTheme: bottomSheetThemeData,
-        drawerTheme: drawerThemeData,
-        floatingActionButtonTheme: floatActionButtonThemeData,
-        elevatedButtonTheme: elevatedButtonThemeData,
+        appBarTheme: appBarThemeLight.data,
+        bottomNavigationBarTheme: bottomNavigationBarThemeLight.data,
+        bottomSheetTheme: bottomSheetThemeLight.data,
+        drawerTheme: drawerThemeLight.data,
+        floatingActionButtonTheme: floatActionButtonThemeLight.data,
+        elevatedButtonTheme: elevatedButtonThemeLight.data,
       );
 }

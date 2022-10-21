@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class ElevatedButtonThemeLight {
   static ElevatedButtonThemeLight? _instance;
 
@@ -9,4 +11,8 @@ class ElevatedButtonThemeLight {
   }
 
   ElevatedButtonThemeLight._();
+
+  ElevatedButtonThemeData get data => ElevatedButtonThemeData(
+        style: ButtonStyle(),
+      );
 }

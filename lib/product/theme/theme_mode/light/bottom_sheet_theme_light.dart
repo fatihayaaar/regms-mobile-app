@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class BottomSheetThemeLight {
   static BottomSheetThemeLight? _instance;
 
@@ -9,4 +11,8 @@ class BottomSheetThemeLight {
   }
 
   BottomSheetThemeLight._();
+
+  BottomSheetThemeData get data => BottomSheetThemeData(
+        backgroundColor: Colors.white,
+      );
 }
