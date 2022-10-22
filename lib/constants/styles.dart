@@ -79,18 +79,6 @@ final kCommentBoxDecoration = BoxDecoration(
   ),
 );
 
-final kLoginButtonContentTextStyle = GoogleFonts.raleway(
-  fontSize: 17,
-  fontWeight: FontWeight.bold,
-  color: ColorSchemeLight.kButtonContentTextColor,
-);
-
-final kProfileButtonContentTextStyle = GoogleFonts.raleway(
-  fontSize: 13,
-  fontWeight: FontWeight.bold,
-  color: ColorSchemeLight.kThemeColor,
-);
-
 final tTextFieldBoxDecoration = BoxDecoration(
   color: Color.fromRGBO(245, 245, 245, 1.0),
   borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -120,6 +108,67 @@ final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
       hintStyle: kHintTextStyle,
     );
 
+final kHintTextStyle = GoogleFonts.raleway(
+  fontSize: 14,
+  color: ColorSchemeLight.kTextFieldLightColor,
+);
+final Decoration kBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.circular(15),
+);
+
+final Decoration kAddPostDraftBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.circular(0),
+);
+
+final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
+  color: ColorSchemeLight.kThemeColor,
+  borderRadius: BorderRadius.circular(0),
+);
+
+final Decoration kFilterBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(255, 255, 255, 1.0),
+  borderRadius: BorderRadius.circular(15),
+  border: Border.all(color: ColorSchemeLight.kBorderColor.withOpacity(0.5)),
+);
+
+final kAddPostItemBoxDecorationTextField = BoxDecoration(
+  color: Color.fromRGBO(254, 254, 254, 1.0),
+  borderRadius: BorderRadius.circular(0),
+  border: Border.all(color: Colors.white.withOpacity(0.0)),
+);
+
+final Decoration kBoxDecorationDropDownButton = BoxDecoration(
+  color: Color.fromRGBO(255, 255, 255, 1.0),
+  border: Border.all(color: ColorSchemeLight.kBorderColor),
+  borderRadius: BorderRadius.circular(15),
+);
+
+final Decoration kBoxDecorationSearchTextField = BoxDecoration(
+  color: ColorSchemeLight.kBorderColor,
+  borderRadius: BorderRadius.circular(10),
+);
+
+final Decoration kBoxDecorationListTypeItem = BoxDecoration(
+  color: Color.fromRGBO(245, 245, 245, 1.0),
+  borderRadius: BorderRadius.circular(10),
+);
+
+//--------------------STYLES--------------------------------------
+
+final kLoginButtonContentTextStyle = GoogleFonts.raleway(
+  fontSize: 17,
+  fontWeight: FontWeight.bold,
+  color: ColorSchemeLight.kButtonContentTextColor,
+);
+
+final kProfileButtonContentTextStyle = GoogleFonts.raleway(
+  fontSize: 13,
+  fontWeight: FontWeight.bold,
+  color: ColorSchemeLight.kThemeColor,
+);
+
 final kTimeTextStyle = GoogleFonts.rubik(
   fontSize: 13,
   color: ColorSchemeLight.kTextFieldLightColor,
@@ -128,16 +177,6 @@ final kTimeTextStyle = GoogleFonts.rubik(
 final kCommentTimeTextStyle = GoogleFonts.rubik(
   fontSize: 13,
   color: ColorSchemeLight.kTextFieldLightColor,
-);
-
-final kHintTextStyle = GoogleFonts.raleway(
-  fontSize: 14,
-  color: ColorSchemeLight.kTextFieldLightColor,
-);
-
-final kBioTextStyle = GoogleFonts.rubik(
-  fontSize: 14,
-  color: ColorSchemeLight.kTextBioColor,
 );
 
 final kLabelTextStyle = GoogleFonts.rubik(
@@ -181,39 +220,6 @@ final tForgotPasswordTextStyle = GoogleFonts.raleway(
   color: ColorSchemeLight.kLoginButtonColor,
 );
 
-final Decoration kBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(245, 245, 245, 1.0),
-  borderRadius: BorderRadius.circular(15),
-);
-
-final Decoration kAddPostDraftBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(245, 245, 245, 1.0),
-  borderRadius: BorderRadius.circular(0),
-);
-
-final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
-  color: ColorSchemeLight.kThemeColor,
-  borderRadius: BorderRadius.circular(0),
-);
-
-final Decoration kFilterBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(255, 255, 255, 1.0),
-  borderRadius: BorderRadius.circular(15),
-  border: Border.all(color: ColorSchemeLight.kBorderColor.withOpacity(0.5)),
-);
-
-final kAddPostItemBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(254, 254, 254, 1.0),
-  borderRadius: BorderRadius.circular(0),
-  border: Border.all(color: Colors.white.withOpacity(0.0)),
-);
-
-final Decoration kBoxDecorationDropDownButton = BoxDecoration(
-  color: Color.fromRGBO(255, 255, 255, 1.0),
-  border: Border.all(color: ColorSchemeLight.kBorderColor),
-  borderRadius: BorderRadius.circular(15),
-);
-
 final gSheetActionTextStyle = GoogleFonts.rubik(
   fontSize: 14,
   color: Color.fromRGBO(88, 80, 49, 1),
@@ -222,12 +228,6 @@ final gSheetActionTextStyle = GoogleFonts.rubik(
 final tAppbarActionTextStyle = GoogleFonts.raleway(
   color: Colors.white,
   fontSize: 19,
-);
-
-final kNameAndSurnameTextStyle = GoogleFonts.rubik(
-  fontSize: 23,
-  fontWeight: FontWeight.bold,
-  color: ColorSchemeLight.kUsernameColor,
 );
 
 final kUsernameTextStyle = GoogleFonts.rubik(
@@ -272,11 +272,6 @@ final kFollowersCountSizeTextStyle = GoogleFonts.rubik(
   color: ColorSchemeLight.kThemeColor,
 );
 
-final Decoration kBoxDecorationSearchTextField = BoxDecoration(
-  color: ColorSchemeLight.kBorderColor,
-  borderRadius: BorderRadius.circular(10),
-);
-
 final kListTitleTextStyle = GoogleFonts.raleway(
   color: ColorSchemeLight.kThemeColor,
   fontWeight: FontWeight.bold,
@@ -287,12 +282,6 @@ final kPostUsernameTextStyle = GoogleFonts.rubik(
   color: ColorSchemeLight.kThemeColor,
   fontWeight: FontWeight.w600,
   fontSize: 16,
-);
-
-final kPostContentTextStyle = GoogleFonts.rubik(
-  color: ColorSchemeLight.kThemeColor,
-  fontWeight: FontWeight.w400,
-  fontSize: 14,
 );
 
 final kStoryMiniUsernameTextStyle = GoogleFonts.rubik(
@@ -317,11 +306,6 @@ final kUserListActionTextStyle = GoogleFonts.rubik(
   color: Colors.white,
   fontWeight: FontWeight.w400,
   fontSize: 14,
-);
-
-final Decoration kBoxDecorationListTypeItem = BoxDecoration(
-  color: Color.fromRGBO(245, 245, 245, 1.0),
-  borderRadius: BorderRadius.circular(10),
 );
 
 final kListTypeItemTextStyle = GoogleFonts.rubik(

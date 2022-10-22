@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+
 class TextThemeLight {
   static TextThemeLight? _instance;
 
@@ -9,4 +13,69 @@ class TextThemeLight {
   }
 
   TextThemeLight._();
+
+  TextStyle? displayLarge = GoogleFonts.rubik(
+    color: ColorSchemeLight.kThemeColor,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+  //TextStyle? displayMedium = TextStyle();
+  TextStyle? displaySmall = GoogleFonts.rubik(
+    color: ColorSchemeLight.kThemeColor,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+
+  //TextStyle? headlineMedium = TextStyle();
+  TextStyle? headlineSmall = GoogleFonts.raleway(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 19,
+  );
+
+  //TextStyle? titleLarge = TextStyle();
+  TextStyle? titleMedium = GoogleFonts.rubik(
+    fontSize: 23,
+    fontWeight: FontWeight.bold,
+    color: ColorSchemeLight.kUsernameColor,
+  );
+  TextStyle? titleSmall = GoogleFonts.rubik(
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+    color: ColorSchemeLight.kThemeColor,
+  );
+
+  //TextStyle? bodyLarge = TextStyle();
+  TextStyle? bodyMedium = GoogleFonts.raleway(
+    color: Colors.white,
+    fontWeight: FontWeight.normal,
+    fontSize: 19,
+  );
+  TextStyle? bodySmall = GoogleFonts.rubik(
+    fontSize: 14,
+    color: ColorSchemeLight.kTextBioColor,
+  );
+
+  //TextStyle? labelLarge = TextStyle();
+  TextStyle? labelSmall = GoogleFonts.raleway(
+    fontSize: 17,
+    fontWeight: FontWeight.bold,
+    color: ColorSchemeLight.kButtonContentTextColor,
+  );
+
+  TextTheme get data => TextTheme(
+        //displayLarge: displayLarge,
+        //displayMedium: displayMedium,
+        displaySmall: displaySmall,
+        //headlineMedium: headlineMedium,
+        headlineSmall: headlineSmall,
+        //titleLarge: titleLarge,
+        titleMedium: titleMedium,
+        titleSmall: titleSmall,
+        //bodyLarge: bodyLarge,
+        bodyMedium: bodyMedium,
+        //bodySmall: bodySmall,
+        //labelLarge: labelLarge,
+        labelSmall: labelSmall,
+      );
 }

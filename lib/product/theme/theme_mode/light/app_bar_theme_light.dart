@@ -16,8 +16,12 @@ class AppBarThemeLight {
   AppBarThemeLight._();
 
   AppBarTheme get data => AppBarTheme(
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.light,
+        ),
         backgroundColor: ColorSchemeLight.kThemeColor,
+        shadowColor: Color.fromRGBO(0, 0, 0, 0),
         titleTextStyle: GoogleFonts.raleway(
           color: Colors.white,
           fontWeight: FontWeight.bold,
@@ -28,5 +32,6 @@ class AppBarThemeLight {
           fontWeight: FontWeight.normal,
           fontSize: 19,
         ),
+        iconTheme: IconThemeData(color: Colors.white),
       );
 }

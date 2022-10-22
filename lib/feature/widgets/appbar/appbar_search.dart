@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/feature/widgets/search_widget.dart';
 
 class AppBarSearchWidget extends StatelessWidget
@@ -18,10 +17,6 @@ class AppBarSearchWidget extends StatelessWidget
 
   _appBar(context) {
     return AppBar(
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
-      ),
       automaticallyImplyLeading: false,
       toolbarHeight: 45,
       title: Row(
@@ -31,9 +26,6 @@ class AppBarSearchWidget extends StatelessWidget
           SearchWidget(onChanged: searchOnChanged),
         ],
       ),
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      iconTheme: IconThemeData(color: Colors.white),
-      shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
   }
 
@@ -41,10 +33,7 @@ class AppBarSearchWidget extends StatelessWidget
     return Container(
       alignment: Alignment.centerLeft,
       margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-      child: Text(
-        title,
-        style: Theme.of(context).appBarTheme.titleTextStyle,
-      ),
+      child: Text(title),
     );
   }
 }

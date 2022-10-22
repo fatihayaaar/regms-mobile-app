@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:regms_flutter_client/feature/screens/other/view/notification_screen.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -30,15 +29,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _appBar(title, context);
-  }
-
-  _appBar(String title, context) {
     return AppBar(
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
-      ),
       automaticallyImplyLeading: false,
       toolbarHeight: this.height,
       title: Row(
@@ -49,9 +40,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           _buildActions(context),
         ],
       ),
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      iconTheme: IconThemeData(color: Colors.white),
-      shadowColor: Color.fromRGBO(0, 0, 0, 0),
     );
   }
 
@@ -60,10 +48,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: Container(
         alignment: Alignment.centerLeft,
         margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        child: Text(
-          title,
-          style: Theme.of(context).appBarTheme.titleTextStyle,
-        ),
+        child: Text(title),
       ),
     );
   }
@@ -85,7 +70,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
             child: Icon(
               Icons.arrow_back,
-              color: Colors.white,
               size: 25,
             ),
           ),
@@ -120,10 +104,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
         child: Stack(
           children: [
-            Icon(
-              Icons.notifications,
-              color: Colors.white,
-            ),
+            Icon(Icons.notifications),
             Positioned(
               top: 0,
               right: 0,
@@ -150,10 +131,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         onTap: onClickMessages,
         child: Stack(
           children: [
-            Icon(
-              Icons.chat,
-              color: Colors.white,
-            ),
+            Icon(Icons.chat),
             Positioned(
               top: 0,
               right: 0,

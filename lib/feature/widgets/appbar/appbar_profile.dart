@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   final title;
@@ -12,12 +11,6 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
-      ),
-      shadowColor: Colors.transparent,
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       toolbarHeight: 45,
       title: _buildTitle(context, title),
     );
@@ -29,10 +22,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         Flexible(
           child: Container(
             alignment: Alignment.centerLeft,
-            child: Text(
-              title,
-              style: Theme.of(context).appBarTheme.titleTextStyle,
-            ),
+            child: Text(title),
           ),
         ),
       ],

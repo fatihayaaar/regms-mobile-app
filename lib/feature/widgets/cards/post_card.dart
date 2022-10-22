@@ -103,7 +103,7 @@ class PostCard extends StatelessWidget {
         margin: const EdgeInsets.fromLTRB(10, 3, 10, 7),
         child: Text(
           "${post.text}",
-          style: kPostContentTextStyle,
+          style: Theme.of(context).textTheme.displaySmall,
         ),
       ),
     );

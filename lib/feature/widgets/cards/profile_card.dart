@@ -89,14 +89,14 @@ class ProfileCard extends StatelessWidget {
   _buildNameAndSurname() {
     return Text(
       user.profile.nameAndSurname!,
-      style: kNameAndSurnameTextStyle,
+      style: Theme.of(context).textTheme.titleMedium,
     );
   }
 
   _buildBio() {
     return Text(
       user.profile.bio!,
-      style: kBioTextStyle,
+      style: Theme.of(context).textTheme.displaySmall,
     );
   }
 
