@@ -1,34 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
+import 'package:regms_flutter_client/core/mixins/screen_mixin.dart';
+import 'package:regms_flutter_client/core/models/base/base_view.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/feature/screens/profile/viewmodel/edit_profile_view_model.dart';
 import 'package:regms_flutter_client/feature/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/feature/widgets/avatar.dart';
 
-class EditProfileScreen extends StatelessWidget {
-  static const routeName = '/profile/edit';
-
+//ignore: must_be_immutable
+class EditProfileScreen extends StatelessWidget with ScreenMixin {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (BuildContext context) {
-        return EditProfileViewModel();
+    return BaseView<EditProfileViewModel>(
+      viewModel: EditProfileViewModel(),
+      onModelReady: onModelReady,
+      initialState: initialState,
+      builder: (context, viewModel, child) {
+        this.context = context;
+        return _buildScreen(child);
       },
-      child: Scaffold(
-        appBar: MyAppBar(
-          title: "Edit Profile",
-          backButtonVisibility: true,
-          isSaveAction: true,
-        ),
-        body: _buildBody(context),
-      ),
+      //child: _buildBody(),
     );
   }
 
-  Widget _buildBody(context) {
+  onModelReady(viewModel) {
+    this.viewModel = viewModel;
+  }
+
+  initialState(theme, translate) {
+    this.theme = theme;
+    this.translate = translate;
+  }
+
+  _buildScreen(child) {
+    return Scaffold(
+      appBar: MyAppBar(
+        title: "Edit Profile",
+        backButtonVisibility: true,
+        isSaveAction: true,
+      ),
+      body: _buildBody(),
+    );
+  }
+
+  Widget _buildBody() {
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: theme.backgroundColor,
       width: double.infinity,
       child: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
@@ -38,14 +56,14 @@ class EditProfileScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Container(
             width: double.infinity,
-            child: _buildContent(context),
+            child: _buildContent(),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildContent(context) {
+  Widget _buildContent() {
     return Column(
       children: [
         Container(
@@ -56,7 +74,7 @@ class EditProfileScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 15),
-              _buildAvatarEdit(context),
+              _buildAvatarEdit(),
               SizedBox(height: 40),
             ],
           ),
@@ -68,14 +86,14 @@ class EditProfileScreen extends StatelessWidget {
               height: 30,
               width: double.infinity,
             ),
-            _buildForm(context),
+            _buildForm(),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildAvatarEdit(context) {
+  Widget _buildAvatarEdit() {
     return Container(
       width: 200,
       child: Stack(
@@ -99,7 +117,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
               child: Icon(
                 Icons.camera_alt,
-                color: Theme.of(context).appBarTheme.backgroundColor,
+                color: theme.appBarTheme.backgroundColor,
               ),
             ),
           )
@@ -108,7 +126,7 @@ class EditProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildForm(context) {
+  Widget _buildForm() {
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (overScroll) {
         overScroll.disallowIndicator();
@@ -120,15 +138,17 @@ class EditProfileScreen extends StatelessWidget {
           decoration: BoxDecoration(
             color: ColorSchemeLight.kBackgroundColor,
             borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+              topRight: Radius.circular(20),
+              topLeft: Radius.circular(20),
+            ),
           ),
-          child: _buildFormContent(context),
+          child: _buildFormContent(),
         ),
       ),
     );
   }
 
-  Widget _buildFormContent(context) {
+  Widget _buildFormContent() {
     return Container(
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
@@ -137,9 +157,9 @@ class EditProfileScreen extends StatelessWidget {
           SizedBox(height: 25),
           //_buildProfileProperty(),
           //SizedBox(height: 25),
-          _buildNameAndSurnameTextField(context),
+          _buildNameAndSurnameTextField(),
           SizedBox(height: 25),
-          _buildBioTextField(context),
+          _buildBioTextField(),
           SizedBox(height: 7),
           _buildBioLength(),
         ],
@@ -147,7 +167,7 @@ class EditProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildNameAndSurnameTextField(context) {
+  Widget _buildNameAndSurnameTextField() {
     return Column(
       children: [
         Container(
@@ -155,7 +175,7 @@ class EditProfileScreen extends StatelessWidget {
           margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
           child: Text(
             "Name And Surname",
-            style: Theme.of(context).textTheme.bodyText1,
+            style: theme.textTheme.bodySmall,
           ),
         ),
         Container(
@@ -181,7 +201,7 @@ class EditProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBioTextField(context) {
+  Widget _buildBioTextField() {
     return Column(
       children: [
         Container(
@@ -189,7 +209,7 @@ class EditProfileScreen extends StatelessWidget {
           margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
           child: Text(
             "About Me",
-            style: Theme.of(context).textTheme.bodyText1,
+            style: theme.textTheme.bodySmall,
           ),
         ),
         Container(

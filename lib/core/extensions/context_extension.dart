@@ -9,5 +9,5 @@ extension ThemeExtension on BuildContext {
 }
 
 extension LocalizationsExtension on BuildContext {
-  Function get translate => AppLocalizations.of(this)!.translate;
+  Function(String) get translate => AppLocalizations.of(this)!.translate;
 }
