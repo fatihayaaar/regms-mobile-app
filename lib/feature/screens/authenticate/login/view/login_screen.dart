@@ -73,7 +73,7 @@ class _LoginScreen extends State {
       alignment: Alignment.center,
       child: Text(
         translate("login_title"),
-        style: Theme.of(context).textTheme.headline1,
+        style: Theme.of(context).textTheme.headlineLarge,
       ),
     );
   }

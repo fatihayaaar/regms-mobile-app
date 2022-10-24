@@ -143,7 +143,7 @@ class _RegisterScreen extends State {
           Container(
             child: Text(
               "Start\nRegistering",
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             alignment: Alignment.bottomLeft,
           ),
@@ -174,7 +174,7 @@ class _RegisterScreen extends State {
           SizedBox(height: 40),
           Text(
             "Complete The Registration",
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           SizedBox(height: 40),
           _buildEmailTextField(),

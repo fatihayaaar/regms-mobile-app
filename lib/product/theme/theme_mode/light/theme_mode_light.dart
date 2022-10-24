@@ -20,6 +20,7 @@ class ThemeModeLight extends AppThemeMode with IThemeModeLight {
         scaffoldBackgroundColor: Colors.white,
         backgroundColor: ColorSchemeLight.kBackgroundColor,
         textTheme: textThemeLight.data,
+        primaryTextTheme: textThemeLight.dataPrimary,
         appBarTheme: appBarThemeLight.data,
         bottomNavigationBarTheme: bottomNavigationBarThemeLight.data,
         bottomSheetTheme: bottomSheetThemeLight.data,

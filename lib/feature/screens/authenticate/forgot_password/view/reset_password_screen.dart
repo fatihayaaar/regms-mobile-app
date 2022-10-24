@@ -55,7 +55,7 @@ class _ResetPasswordScreen extends State {
     return Container(
       child: Text(
         "Reset\nPassword",
-        style: Theme.of(context).textTheme.headline2,
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
       alignment: Alignment.bottomLeft,
     );

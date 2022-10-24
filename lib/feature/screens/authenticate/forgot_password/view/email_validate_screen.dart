@@ -78,7 +78,7 @@ class _EmailValidateScreen extends State {
     return Container(
       child: Text(
         "Email\nValidate",
-        style: Theme.of(context).textTheme.headline2,
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
       alignment: Alignment.bottomLeft,
     );

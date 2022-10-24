@@ -25,8 +25,16 @@ class TextThemeLight {
     fontWeight: FontWeight.w400,
     fontSize: 14,
   );
-
-  //TextStyle? headlineMedium = TextStyle();
+  TextStyle? headlineLarge = GoogleFonts.raleway(
+    color: ColorSchemeLight.kLoginTitleColor,
+    fontWeight: FontWeight.bold,
+    fontSize: 48,
+  );
+  TextStyle? headlineMedium = GoogleFonts.raleway(
+    color: ColorSchemeLight.kLoginTitleColor,
+    fontWeight: FontWeight.bold,
+    fontSize: 33,
+  );
   TextStyle? headlineSmall = GoogleFonts.raleway(
     color: Colors.white,
     fontWeight: FontWeight.bold,
@@ -67,15 +75,23 @@ class TextThemeLight {
         //displayLarge: displayLarge,
         //displayMedium: displayMedium,
         displaySmall: displaySmall,
-        //headlineMedium: headlineMedium,
+
+        headlineLarge: headlineLarge,
+        headlineMedium: headlineMedium,
         headlineSmall: headlineSmall,
+
         //titleLarge: titleLarge,
         titleMedium: titleMedium,
         titleSmall: titleSmall,
+
         //bodyLarge: bodyLarge,
         bodyMedium: bodyMedium,
         //bodySmall: bodySmall,
+
         //labelLarge: labelLarge,
+        //labelMedium: ,
         labelSmall: labelSmall,
       );
+
+  TextTheme get dataPrimary => TextTheme();
 }
