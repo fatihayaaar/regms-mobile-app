@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/core/models/base/base_state.dart';
 import 'package:regms_flutter_client/core/models/base/base_view_model.dart';
 
 class BaseView<T extends BaseViewModel> extends StatefulWidget {
-  final Widget Function(BuildContext context, T model, dynamic child) builder;
+  final Widget Function(BuildContext context, T model) builder;
   final T viewModel;
   final Function(T) onModelReady;
-  final Function(ThemeData theme, Function translate) initialState;
+  final Function(ThemeData theme, Function(String) translate) initialState;
   final child;
 
   BaseView({
@@ -38,12 +37,6 @@ class _BaseViewState<T extends BaseViewModel> extends BaseState<BaseView<T>> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<T>(
-      create: (context) => widget.viewModel,
-      child: Consumer<T>(
-        builder: widget.builder,
-        child: widget.child,
-      ),
-    );
+    return widget.builder(context, widget.viewModel);
   }
 }

@@ -14,26 +14,28 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
   Widget build(BuildContext context) {
     return BaseView<EditProfileViewModel>(
       viewModel: EditProfileViewModel(),
-      onModelReady: onModelReady,
-      initialState: initialState,
-      builder: (context, viewModel, child) {
-        this.context = context;
-        return _buildScreen(child);
+      onModelReady: (viewModel) {
+        this.viewModel = viewModel;
       },
-      //child: _buildBody(),
+      initialState: (theme, translate) {
+        this.theme = theme;
+        this.translate = translate;
+      },
+      builder: (context, viewModel) {
+        this.context = context;
+        return _build();
+      },
     );
   }
 
-  onModelReady(viewModel) {
-    this.viewModel = viewModel;
+  _build() {
+    return ChangeNotifierProvider<EditProfileViewModel>.value(
+      value: viewModel as EditProfileViewModel,
+      builder: (context, child) => _buildScaffold(),
+    );
   }
 
-  initialState(theme, translate) {
-    this.theme = theme;
-    this.translate = translate;
-  }
-
-  _buildScreen(child) {
+  _buildScaffold() {
     return Scaffold(
       appBar: MyAppBar(
         title: "Edit Profile",
@@ -44,7 +46,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildBody() {
+  _buildBody() {
     return Container(
       color: theme.backgroundColor,
       width: double.infinity,
