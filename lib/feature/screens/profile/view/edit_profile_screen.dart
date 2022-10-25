@@ -8,7 +8,6 @@ import 'package:regms_flutter_client/feature/screens/profile/viewmodel/edit_prof
 import 'package:regms_flutter_client/feature/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/feature/widgets/avatar.dart';
 
-//ignore: must_be_immutable
 class EditProfileScreen extends StatelessWidget with ScreenMixin {
   @override
   Widget build(BuildContext context) {
@@ -23,15 +22,11 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
       },
       builder: (context, viewModel) {
         this.context = context;
-        return _build();
+        return ChangeNotifierProvider<EditProfileViewModel>.value(
+          value: viewModel,
+          builder: (context, child) => _buildScaffold(),
+        );
       },
-    );
-  }
-
-  _build() {
-    return ChangeNotifierProvider<EditProfileViewModel>.value(
-      value: viewModel as EditProfileViewModel,
-      builder: (context, child) => _buildScaffold(),
     );
   }
 
@@ -65,7 +60,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildContent() {
+  _buildContent() {
     return Column(
       children: [
         Container(
@@ -95,7 +90,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildAvatarEdit() {
+  _buildAvatarEdit() {
     return Container(
       width: 200,
       child: Stack(
@@ -128,7 +123,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildForm() {
+  _buildForm() {
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (overScroll) {
         overScroll.disallowIndicator();
@@ -150,7 +145,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildFormContent() {
+  _buildFormContent() {
     return Container(
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
@@ -169,7 +164,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildNameAndSurnameTextField() {
+  _buildNameAndSurnameTextField() {
     return Column(
       children: [
         Container(
@@ -203,7 +198,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildBioTextField() {
+  _buildBioTextField() {
     return Column(
       children: [
         Container(
@@ -244,7 +239,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildBioLength() {
+  _buildBioLength() {
     return Container(
       alignment: Alignment.centerRight,
       margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
@@ -260,7 +255,7 @@ class EditProfileScreen extends StatelessWidget with ScreenMixin {
     );
   }
 
-  Widget _buildProfileProperty() {
+  _buildProfileProperty() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
