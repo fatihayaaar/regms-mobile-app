@@ -14,7 +14,7 @@ import 'package:regms_flutter_client/feature/screens/authenticate/register/view/
 import 'package:regms_flutter_client/feature/screens/authenticate/forgot_password/view/reset_password_screen.dart';
 import 'package:regms_flutter_client/feature/screens/post/view/post_detail_screen.dart';
 import 'package:regms_flutter_client/feature/screens/starter/view/starter_screen.dart';
-import 'package:regms_flutter_client/core/services/constants/navigation.dart';
+import 'package:regms_flutter_client/product/navigation/navigation.dart';
 
 class NavigationRoute {
   static NavigationRoute _instance = NavigationRoute._init();

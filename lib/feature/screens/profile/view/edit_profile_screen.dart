@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/core/mixins/screen_mixin.dart';
+import 'package:regms_flutter_client/core/models/base/base_stateless_widget.dart';
 import 'package:regms_flutter_client/core/models/base/base_view.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 import 'package:regms_flutter_client/feature/screens/profile/viewmodel/edit_profile_view_model.dart';
 import 'package:regms_flutter_client/feature/widgets/appbar/appbar.dart';
 import 'package:regms_flutter_client/feature/widgets/avatar.dart';
 
-class EditProfileScreen extends StatelessWidget with ScreenMixin {
+class EditProfileScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView<EditProfileViewModel>(
       viewModel: EditProfileViewModel(),
-      onModelReady: (viewModel) {
-        this.viewModel = viewModel;
-      },
-      initialState: (theme, translate) {
-        this.theme = theme;
-        this.translate = translate;
-      },
+      onModelReady: onModelReady,
+      initialState: initialState,
       builder: (context, viewModel) {
         this.context = context;
         return ChangeNotifierProvider<EditProfileViewModel>.value(
           value: viewModel,
-          builder: (context, child) => _buildScaffold(),
+          builder: (context, child) {
+            return Scaffold(
+              appBar: _buildAppBar(),
+              body: _buildBody(),
+            );
+          },
         );
       },
     );
   }
 
-  _buildScaffold() {
-    return Scaffold(
-      appBar: MyAppBar(
-        title: "Edit Profile",
-        backButtonVisibility: true,
-        isSaveAction: true,
-      ),
-      body: _buildBody(),
+  MyAppBar _buildAppBar() {
+    return MyAppBar(
+      title: "Edit Profile",
+      backButtonVisibility: true,
+      isSaveAction: true,
     );
   }
 
