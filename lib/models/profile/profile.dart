@@ -1,9 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
 
 part 'profile.g.dart';
 
 @JsonSerializable()
-class Profile {
+class Profile extends BaseNetworkModel {
   String? avatar;
   String? nameAndSurname;
   String? bio;
@@ -23,5 +24,11 @@ class Profile {
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$ProfileToJson(this);
+
+  @override
+  fromJson(Map<String, Object> json) {
+    return Profile.fromJson(json);
+  }
 }

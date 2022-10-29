@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
 
 part 'user_message_item.g.dart';
 
 @JsonSerializable()
-class UserMessageItem with ChangeNotifier {
+class UserMessageItem extends BaseNetworkModel with ChangeNotifier {
   String username;
   String? nameAndSurname;
   String? avatar;
@@ -28,5 +29,11 @@ class UserMessageItem with ChangeNotifier {
   factory UserMessageItem.fromJson(Map<String, dynamic> json) =>
       _$UserMessageItemFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$UserMessageItemToJson(this);
+
+  @override
+  fromJson(Map<String, Object> json) {
+    return UserMessageItem.fromJson(json);
+  }
 }

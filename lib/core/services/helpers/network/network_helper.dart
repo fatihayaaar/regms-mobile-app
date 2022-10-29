@@ -6,16 +6,24 @@ import 'package:regms_flutter_client/core/services/modules/preference_module.dar
 class NetworkHelper {
   final PreferenceModule _preferenceModule;
 
-  ICoreDioNullSafety? coreDio;
+  ICoreDioNullSafety? api;
 
-  NetworkHelper(this._preferenceModule, baseUrl) {
+  NetworkHelper(
+    this._preferenceModule,
+    baseUrl,
+    receiveTimeout,
+    connectTimeout,
+  ) {
     final baseOptions = BaseOptions(
       baseUrl: baseUrl,
+      receiveTimeout: receiveTimeout,
+      //sendTimeout: sendTimeout,
+      connectTimeout: connectTimeout,
       headers: {
         'val': _preferenceModule.providerPersistHelper().getToken(),
       },
     );
 
-    coreDio = CoreDio(baseOptions);
+    api = CoreDio(baseOptions);
   }
 }

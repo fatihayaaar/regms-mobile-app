@@ -4,7 +4,7 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:regms_flutter_client/core/extensions/network_extension.dart';
 import 'package:regms_flutter_client/core/services/helpers/network/models/base/base_error.dart';
-import 'package:regms_flutter_client/core/models/base/base_model.dart';
+import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
 import 'package:regms_flutter_client/core/services/helpers/network/dio/core_dio_interface.dart';
 import 'package:regms_flutter_client/core/services/helpers/network/enum/http_types.dart';
 import 'package:regms_flutter_client/core/services/helpers/network/models/reponse_interface.dart';
@@ -22,7 +22,7 @@ class CoreDio with DioMixin implements Dio, ICoreDioNullSafety {
   }
 
   @override
-  Future<IResponseModel<R>> send<R, T extends BaseModel>(
+  Future<IResponseModel<R>> send<R, T extends BaseNetworkModel>(
     String path, {
     required HttpTypes type,
     required T parseModel,

@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:regms_flutter_client/constants/application_constant.dart';
+import 'package:regms_flutter_client/constants/endpoints.dart';
 import 'package:regms_flutter_client/core/services/app_service.dart';
 import 'package:regms_flutter_client/core/services/modules/network_module.dart';
 import 'package:regms_flutter_client/product/navigation/navigation_route.dart';
@@ -15,8 +16,8 @@ import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/core/utils/app_localization.dart';
 import 'package:regms_flutter_client/core/theme/app_theme_container.dart';
 import 'package:regms_flutter_client/product/theme/app_theme_data.dart';
-import 'package:regms_flutter_client/feature/screens/profile/view/profile_screen.dart';
-import 'package:regms_flutter_client/feature/screens/authenticate/login/view/login_screen.dart';
+import 'package:regms_flutter_client/screens/profile/view/profile_screen.dart';
+import 'package:regms_flutter_client/screens/authenticate/login/view/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 late AppService appService;
@@ -35,9 +36,12 @@ void main() async {
 
   var preferenceModule = PreferenceModule(sharedPref: sharedPref);
   var navigatorModule = NavigatorModule();
+
   var networksModule = NetworksModule(
     preferenceModule: preferenceModule,
     baseUrl: ApplicationConstant.API_URL,
+    receiveTimeout: Endpoints.RECEIVE_TIMEOUT,
+    connectTimeout: Endpoints.CONNECT_TIMEOUT,
   );
 
   appService = await AppServiceInject.create(

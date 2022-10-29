@@ -1,9 +1,9 @@
-import 'package:regms_flutter_client/core/models/base/base_model.dart';
+import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
 import 'package:regms_flutter_client/core/services/helpers/network/enum/http_types.dart';
 import 'package:regms_flutter_client/core/services/helpers/network/models/reponse_interface.dart';
 
 abstract class ICoreDio {
-  Future<IResponseModel<R>> fetch<R, T extends BaseModel>(
+  Future<IResponseModel<R>> fetch<R, T extends BaseNetworkModel>(
     String path, {
     required HttpTypes type,
     required T parseModel,
@@ -14,7 +14,7 @@ abstract class ICoreDio {
 }
 
 abstract class ICoreDioNullSafety {
-  Future<IResponseModel<R>> send<R, T extends BaseModel>(
+  Future<IResponseModel<R>> send<R, T extends BaseNetworkModel>(
     String path, {
     required HttpTypes type,
     required T parseModel,
@@ -25,7 +25,7 @@ abstract class ICoreDioNullSafety {
 }
 
 abstract class ICoreDioFull extends ICoreDio {
-  Future<IResponseModel<R>> fetchNoNetwork<R, T extends BaseModel>(
+  Future<IResponseModel<R>> fetchNoNetwork<R, T extends BaseNetworkModel>(
     String path, {
     required HttpTypes type,
     required T parseModel,
@@ -36,7 +36,7 @@ abstract class ICoreDioFull extends ICoreDio {
 }
 
 abstract class ICoreDioFullNulSafetyFull extends ICoreDioNullSafety {
-  Future<IResponseModel<R>> fetchNoNetwork<R, T extends BaseModel>(
+  Future<IResponseModel<R>> fetchNoNetwork<R, T extends BaseNetworkModel>(
     String path, {
     required HttpTypes type,
     required T parseModel,
