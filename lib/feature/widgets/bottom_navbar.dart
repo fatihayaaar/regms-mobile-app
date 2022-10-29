@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/styles.dart';
 import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/core/services/constants/navigation.dart';
+import 'package:regms_flutter_client/product/navigation/navigation.dart';
 import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
 
 class BottomNavBar extends StatelessWidget {

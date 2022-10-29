@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/core/services/constants/navigation.dart';
+import 'package:regms_flutter_client/product/navigation/navigation.dart';
 
 class LoginViewModel with ChangeNotifier {
   var _appService;

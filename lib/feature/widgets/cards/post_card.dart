@@ -7,7 +7,7 @@ import 'package:regms_flutter_client/feature/widgets/avatar.dart';
 import 'package:regms_flutter_client/feature/widgets/bottom_sheet.dart';
 import 'package:regms_flutter_client/feature/widgets/comment_box.dart';
 import 'package:regms_flutter_client/feature/widgets/comment_text_field.dart';
-import 'package:regms_flutter_client/core/services/constants/navigation.dart';
+import 'package:regms_flutter_client/product/navigation/navigation.dart';
 
 class PostCard extends StatelessWidget {
   final Post post;

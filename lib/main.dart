@@ -4,7 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:regms_flutter_client/constants/application_constant.dart';
 import 'package:regms_flutter_client/core/services/app_service.dart';
+import 'package:regms_flutter_client/core/services/modules/network_module.dart';
 import 'package:regms_flutter_client/product/navigation/navigation_route.dart';
 import 'package:regms_flutter_client/core/services/modules/navigation_module.dart';
 import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
@@ -30,9 +32,18 @@ void main() async {
   );
 
   var sharedPref = await SharedPreferences.getInstance();
+
+  var preferenceModule = PreferenceModule(sharedPref: sharedPref);
+  var navigatorModule = NavigatorModule();
+  var networksModule = NetworksModule(
+    preferenceModule: preferenceModule,
+    baseUrl: ApplicationConstant.API_URL,
+  );
+
   appService = await AppServiceInject.create(
-    PreferenceModule(sharedPref: sharedPref),
-    NavigatorModule(),
+    preferenceModule,
+    navigatorModule,
+    networksModule,
   );
   appService.providerPersistHelper.initMyUser();
   cameras = await availableCameras();

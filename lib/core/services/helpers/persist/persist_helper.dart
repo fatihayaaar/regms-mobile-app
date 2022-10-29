@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/constants/application_constant.dart';
 import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/main.dart';
