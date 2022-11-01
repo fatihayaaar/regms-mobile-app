@@ -15,6 +15,7 @@ import 'package:regms_flutter_client/core/stores/settings/settings_store.dart';
 import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
 import 'package:regms_flutter_client/core/utils/app_localization.dart';
 import 'package:regms_flutter_client/core/theme/app_theme_container.dart';
+import 'package:regms_flutter_client/product/network/network_manager.dart';
 import 'package:regms_flutter_client/product/theme/app_theme_data.dart';
 import 'package:regms_flutter_client/screens/profile/view/profile_screen.dart';
 import 'package:regms_flutter_client/screens/authenticate/login/view/login_screen.dart';
@@ -60,11 +61,16 @@ class MyApp extends StatelessWidget {
     appService.providerPersistHelper,
   );
 
+  final NetworkManager _networkManager = NetworkManager.instance(
+    appService.providerNetworkHelper.api,
+  );
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         Provider<SettingStore>(create: (_) => _settingStore),
+        Provider<NetworkManager>(create: (_) => _networkManager),
       ],
       child: Consumer<SettingStore>(
         builder: (context, store, child) => Observer(
