@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/core/models/base/base_view_model.dart';
+import 'package:regms_flutter_client/product/base/base_service.dart';
 
 class EditProfileViewModel extends BaseViewModel {
   var context;
@@ -20,4 +21,7 @@ class EditProfileViewModel extends BaseViewModel {
   void setContext(BuildContext context) {
     this.context = context;
   }
+
+  @override
+  void setService(BaseService? service) {}
 }

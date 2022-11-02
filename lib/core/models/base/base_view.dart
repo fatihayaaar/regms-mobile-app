@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:regms_flutter_client/core/models/base/base_state.dart';
 import 'package:regms_flutter_client/core/models/base/base_view_model.dart';
 
+import '../../../product/network/network_manager.dart';
+
 class BaseView<T extends BaseViewModel> extends StatefulWidget {
   final Widget Function(BuildContext context, T model) builder;
   final T viewModel;
   final Function(T) onModelReady;
-  final Function(ThemeData theme, Function(String) translate) initialState;
+  final Function(ThemeData theme, Function(String) translate,
+      NetworkManager networkManager) initialState;
   final child;
 
   BaseView({
@@ -32,7 +35,7 @@ class _BaseViewState<T extends BaseViewModel> extends BaseState<BaseView<T>> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    widget.initialState(theme, translate);
+    widget.initialState(theme, translate, networkManager);
   }
 
   @override

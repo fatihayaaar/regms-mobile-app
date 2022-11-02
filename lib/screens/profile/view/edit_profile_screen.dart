@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/core/models/base/base_stateless_widget.dart';
-import 'package:regms_flutter_client/core/models/base/base_view.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/profile/viewmodel/edit_profile_view_model.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
+
+import '../../../constants/styles.dart';
+import '../../../core/models/base/base_stateless_widget.dart';
+import '../../../core/models/base/base_view.dart';
+import '../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../viewmodel/edit_profile_view_model.dart';
+import '../../../widgets/appbar/appbar.dart';
+import '../../../widgets/avatar.dart';
 
 class EditProfileScreen extends BaseStatelessWidget {
   @override

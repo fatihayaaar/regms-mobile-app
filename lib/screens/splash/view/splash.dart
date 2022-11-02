@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/core/models/base/base_stateless_widget.dart';
-import 'package:regms_flutter_client/core/models/base/base_view.dart';
-import 'package:regms_flutter_client/screens/splash/viewmodel/splash_model_view.dart';
+
+import '../../../core/models/base/base_stateless_widget.dart';
+import '../../../core/models/base/base_view.dart';
+import '../viewmodel/splash_model_view.dart';
 
 class Splash extends BaseStatelessWidget {
   @override
@@ -18,7 +18,6 @@ class Splash extends BaseStatelessWidget {
           value: viewModel,
           builder: (context, child) {
             return Scaffold(
-              appBar: _buildAppBar(),
               body: _buildBody(),
             );
           },
@@ -27,7 +26,14 @@ class Splash extends BaseStatelessWidget {
     );
   }
 
-  _buildAppBar() {}
+  _buildBody() => SafeArea(
+        child: Container(
+          color: theme.backgroundColor,
+          child: Center(
+            child: _buildLogo(),
+          ),
+        ),
+      );
 
-  _buildBody() {}
+  _buildLogo() => Container();
 }

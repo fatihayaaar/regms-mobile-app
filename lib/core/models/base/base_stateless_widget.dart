@@ -6,8 +6,9 @@ abstract class BaseStatelessWidget extends StatelessWidget with ScreenMixin {
     this.viewModel = viewModel;
   }
 
-  initialState(theme, translate) {
+  initialState(theme, translate, networkManager) {
     this.theme = theme;
     this.translate = translate;
+    this.networkManager = networkManager;
   }
 }
