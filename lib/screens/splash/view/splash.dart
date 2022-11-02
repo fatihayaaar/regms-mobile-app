@@ -35,5 +35,7 @@ class Splash extends BaseStatelessWidget {
         ),
       );
 
-  _buildLogo() => Container();
+  _buildLogo() => Container(
+        child: CircularProgressIndicator(),
+      );
 }

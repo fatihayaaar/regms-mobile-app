@@ -82,7 +82,6 @@ class MyApp extends StatelessWidget {
                 ThemeName.DARK: AppThemeData.instance.themeModeDark.themeData,
               },
             ).theme,
-            initialRoute: '/',
             onGenerateRoute: NavigationRoute.instance.generateRoute,
             navigatorKey: appService.providerNavigationHelper.navigatorKey,
             locale: Locale(store.locale),

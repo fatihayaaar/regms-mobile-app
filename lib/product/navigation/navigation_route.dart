@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/screens/home/view/home_screen.dart';
-import 'package:regms_flutter_client/screens/other/view/notification_screen.dart';
-import 'package:regms_flutter_client/screens/other/view/search_screen.dart';
-import 'package:regms_flutter_client/screens/other/view/videos_screen.dart';
-import 'package:regms_flutter_client/screens/profile/view/edit_profile_screen.dart';
-import 'package:regms_flutter_client/screens/post/view/add_post_screen.dart';
-import 'package:regms_flutter_client/screens/profile/view/profile_screen.dart';
-import 'package:regms_flutter_client/screens/authenticate/forgot_password/view/confirm_password_screen.dart';
-import 'package:regms_flutter_client/screens/authenticate/forgot_password/view/email_validate_screen.dart';
-import 'package:regms_flutter_client/screens/authenticate/forgot_password/view/forgot_password_screen.dart';
-import 'package:regms_flutter_client/screens/authenticate/login/view/login_screen.dart';
-import 'package:regms_flutter_client/screens/authenticate/register/view/register_screen.dart';
-import 'package:regms_flutter_client/screens/authenticate/forgot_password/view/reset_password_screen.dart';
-import 'package:regms_flutter_client/screens/post/view/post_detail_screen.dart';
-import 'package:regms_flutter_client/screens/starter/view/starter_screen.dart';
-import 'package:regms_flutter_client/product/navigation/navigation.dart';
+
+import '../../screens/home/view/home_screen.dart';
+import '../../screens/other/view/notification_screen.dart';
+import '../../screens/other/view/search_screen.dart';
+import '../../screens/other/view/videos_screen.dart';
+import '../../screens/profile/view/edit_profile_screen.dart';
+import '../../screens/post/view/add_post_screen.dart';
+import '../../screens/profile/view/profile_screen.dart';
+import '../../screens/authenticate/forgot_password/view/confirm_password_screen.dart';
+import '../../screens/authenticate/forgot_password/view/email_validate_screen.dart';
+import '../../screens/authenticate/forgot_password/view/forgot_password_screen.dart';
+import '../../screens/authenticate/login/view/login_screen.dart';
+import '../../screens/authenticate/register/view/register_screen.dart';
+import '../../screens/authenticate/forgot_password/view/reset_password_screen.dart';
+import '../../screens/post/view/post_detail_screen.dart';
+import '../../screens/splash/view/splash.dart';
+import '../../screens/starter/view/starter_screen.dart';
+import 'navigation.dart';
 
 class NavigationRoute {
   static NavigationRoute _instance = NavigationRoute._init();
@@ -27,6 +29,8 @@ class NavigationRoute {
     Map? data = settings.arguments as Map;
 
     switch (settings.name) {
+      case Navigation.DEFAULT:
+        return navigate(Splash());
       case Navigation.STARTER_PAGE:
         return navigate(StarterScreen());
       case Navigation.LOGIN_PAGE:

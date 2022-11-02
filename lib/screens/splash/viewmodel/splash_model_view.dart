@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/extensions/context_extension.dart';
 
+import '../../../product/extensions/context_extension.dart';
 import '../../../product/base/base_service.dart';
 import '../services/splash_service.dart';
 import '../../../core/models/base/base_view_model.dart';
@@ -20,17 +20,12 @@ class SplashViewModel extends BaseViewModel<SplashService> {
 
   void navigateToPage() {
     var token = appService.providerPersistHelper.getToken();
-
     tokenCheck(token).then((value) {
       if (value) {
-        appService.providerNavigationHelper.navigateToPage(
-          path: Navigation.HOME_PAGE,
-        );
+        navigateToHome();
         return;
       }
-      appService.providerNavigationHelper.navigateToPage(
-        path: Navigation.LOGIN_PAGE,
-      );
+      navigateToLogin();
     });
   }
 
@@ -41,6 +36,18 @@ class SplashViewModel extends BaseViewModel<SplashService> {
       }
     }
     return false;
+  }
+
+  void navigateToLogin() {
+    appService.providerNavigationHelper.navigateToPage(
+      path: Navigation.LOGIN_PAGE,
+    );
+  }
+
+  void navigateToHome() {
+    appService.providerNavigationHelper.navigateToPage(
+      path: Navigation.HOME_PAGE,
+    );
   }
 
   @override
