@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/core/models/base/base_view_model.dart';
-import 'package:regms_flutter_client/product/base/base_service.dart';
+
+import '../../../core/models/base/base_view_model.dart';
+import '../../../product/base/base_service.dart';
 
 class EditProfileViewModel extends BaseViewModel {
   var context;

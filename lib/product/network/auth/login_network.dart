@@ -1,8 +1,8 @@
-import 'package:regms_flutter_client/constants/endpoints.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/enum/http_types.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/models/reponse_interface.dart';
-import 'package:regms_flutter_client/product/network/auth/models/login_model/login_response_model/login_response_model.dart';
-import 'package:regms_flutter_client/product/network/mixin/mixin_network.dart';
+import '../../../constants/endpoints.dart';
+import '../../../core/services/helpers/network/enum/http_types.dart';
+import '../../../core/services/helpers/network/models/reponse_interface.dart';
+import 'models/login_model/login_response_model/login_response_model.dart';
+import '../mixin/mixin_network.dart';
 
 class LoginNetwork<T> with MixinNetwork {
   static LoginNetwork? _instance;

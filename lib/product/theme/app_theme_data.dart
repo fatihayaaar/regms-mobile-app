@@ -1,5 +1,5 @@
-import 'package:regms_flutter_client/product/theme/theme_mode/dark/theme_mode_dark.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/theme_mode_light.dart';
+import 'theme_mode/dark/theme_mode_dark.dart';
+import 'theme_mode/light/theme_mode_light.dart';
 
 class AppThemeData {
   static AppThemeData? _instance;

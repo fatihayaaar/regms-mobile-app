@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+
+import '../../constants/styles.dart';
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
 
 class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
   final title;

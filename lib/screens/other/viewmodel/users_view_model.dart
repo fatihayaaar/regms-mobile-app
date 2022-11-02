@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/user/user_list_item.dart';
+
+import '../../../models/user/user_list_item.dart';
 
 class UsersViewModel with ChangeNotifier {
   List<UserListItem> _users = [

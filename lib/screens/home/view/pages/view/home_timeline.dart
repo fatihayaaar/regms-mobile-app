@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
-import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
-import 'package:regms_flutter_client/widgets/page.dart';
-import 'package:regms_flutter_client/widgets/selection_widget.dart';
-import 'package:regms_flutter_client/widgets/story_list.dart';
+
+import '../../../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../../../../../widgets/appbar/appbar.dart';
+import '../../../../../widgets/bottom_navbar.dart';
+import '../../../../../widgets/page.dart';
+import '../../../../../widgets/selection_widget.dart';
+import '../../../../../widgets/story_list.dart';
 
 class HomeTimeline extends StatelessWidget {
   final storyList;

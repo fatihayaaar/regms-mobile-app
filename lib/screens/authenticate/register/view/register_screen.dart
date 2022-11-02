@@ -2,13 +2,14 @@ import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/profile/view/profile_screen.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
-import 'package:regms_flutter_client/widgets/shake.dart';
-import 'package:regms_flutter_client/widgets/tiles/slide_tile.dart';
+
+import '../../../../constants/styles.dart';
+import '../../../../main.dart';
+import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../../../profile/view/profile_screen.dart';
+import '../../../../widgets/appbar/appbar_transparent.dart';
+import '../../../../widgets/shake.dart';
+import '../../../../widgets/tiles/slide_tile.dart';
 
 class RegisterScreen extends StatefulWidget {
   static const routeName = '/register';

@@ -1,5 +1,6 @@
-import 'package:regms_flutter_client/core/services/helpers/persist/persist_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../helpers/persist/persist_helper.dart';
 
 abstract class PersisModule {
   PersistHelper get providerPersistHelper;

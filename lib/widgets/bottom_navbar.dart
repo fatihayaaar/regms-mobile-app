@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/product/navigation/navigation.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+
+import '../constants/styles.dart';
+import '../main.dart';
+import '../product/navigation/navigation.dart';
+import '../product/theme/theme_mode/light/color_scheme_light.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selected;

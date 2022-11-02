@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/post/viewmodel/add_post_view_model.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
-import 'package:regms_flutter_client/widgets/page.dart';
-import 'package:regms_flutter_client/widgets/photos_selection.dart';
+
+import '../../../constants/styles.dart';
+import '../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../viewmodel/add_post_view_model.dart';
+import '../../../widgets/appbar/appbar.dart';
+import '../../../widgets/page.dart';
+import '../../../widgets/photos_selection.dart';
 
 class AddPostScreen extends StatelessWidget {
   static const routeName = '/add-post';

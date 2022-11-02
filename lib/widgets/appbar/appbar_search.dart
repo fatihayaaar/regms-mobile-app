@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/widgets/search_widget.dart';
+
+import '../search_widget.dart';
 
 class AppBarSearchWidget extends StatelessWidget
     implements PreferredSizeWidget {

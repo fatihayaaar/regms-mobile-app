@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/authenticate/forgot_password/view/email_validate_screen.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
+
+import '../../../../constants/styles.dart';
+import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import 'email_validate_screen.dart';
+import '../../../../widgets/appbar/appbar_transparent.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   static const routeName = '/starter/forgot_password';

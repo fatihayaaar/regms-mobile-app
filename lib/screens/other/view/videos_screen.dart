@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/post/post.dart';
-import 'package:regms_flutter_client/models/profile/profile.dart';
-import 'package:regms_flutter_client/models/user/user.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
-import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
-import 'package:regms_flutter_client/widgets/cards/video_full_screen_card.dart';
+
+import '../../../models/post/post.dart';
+import '../../../models/profile/profile.dart';
+import '../../../models/user/user.dart';
+import '../../../widgets/appbar/appbar_transparent.dart';
+import '../../../widgets/bottom_navbar.dart';
+import '../../../widgets/cards/video_full_screen_card.dart';
 
 class VideosScreen extends StatefulWidget {
   static const routeName = '/videos';

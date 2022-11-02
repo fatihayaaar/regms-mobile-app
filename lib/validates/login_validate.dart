@@ -1,5 +1,3 @@
-import 'package:regms_flutter_client/validates/validate.dart';
+import 'validate.dart';
 
-class LoginValidate extends Validate {
-
-}
+class LoginValidate extends Validate {}

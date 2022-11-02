@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
+
+import '../../../../constants/styles.dart';
+import '../../../../widgets/appbar/appbar_settings.dart';
 
 class ConfirmPasswordScreen extends StatefulWidget {
   static const routeName = '/starter/forgot_password/confirm_password';

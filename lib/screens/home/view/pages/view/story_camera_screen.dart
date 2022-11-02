@@ -1,7 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
+
+import '../../../../../main.dart';
+import '../../../../../widgets/appbar/appbar_transparent.dart';
 
 class StoryCameraScreen extends StatefulWidget {
   final onClickBackPage;

@@ -1,8 +1,9 @@
 import 'package:mobx/mobx.dart';
-import 'package:regms_flutter_client/constants/application_constant.dart';
-import 'package:regms_flutter_client/core/models/language/language.dart';
-import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
-import 'package:regms_flutter_client/core/services/helpers/persist/persist_helper.dart';
+
+import '../../../constants/application_constant.dart';
+import '../../models/language/language.dart';
+import '../../theme/enum/theme_name.dart';
+import '../../services/helpers/persist/persist_helper.dart';
 
 class SettingStore {
   final PersistHelper _persistHelper;

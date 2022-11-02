@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/dio/core_dio.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/dio/core_dio_interface.dart';
-import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
+
+import 'dio/core_dio.dart';
+import 'dio/core_dio_interface.dart';
+import '../../modules/preference_module.dart';
 
 class NetworkHelper {
   final PreferenceModule _preferenceModule;

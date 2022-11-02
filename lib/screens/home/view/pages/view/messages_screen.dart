@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/user/user_message_item.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
-import 'package:regms_flutter_client/widgets/page.dart';
-import 'package:regms_flutter_client/widgets/search.dart';
-import 'package:regms_flutter_client/widgets/show_more_widget.dart';
-import 'package:regms_flutter_client/widgets/tiles/user_message_tile.dart';
+
+import '../../../../../constants/styles.dart';
+import '../../../../../models/user/user_message_item.dart';
+import '../../../../../widgets/appbar/appbar.dart';
+import '../../../../../widgets/page.dart';
+import '../../../../../widgets/search.dart';
+import '../../../../../widgets/show_more_widget.dart';
+import '../../../../../widgets/tiles/user_message_tile.dart';
 
 class MessagesScreen extends StatelessWidget {
   final onClickBackPage;

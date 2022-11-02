@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
+
+import '../../core/models/base/base_network_model.dart';
 
 part 'user_list_item.g.dart';
 

@@ -1,10 +1,10 @@
-import 'package:regms_flutter_client/core/services/helpers/network/network_helper.dart';
-import 'package:regms_flutter_client/core/services/modules/network_module.dart';
-import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/core/services/helpers/navigation/navigation_helper.dart';
-import 'package:regms_flutter_client/core/services/helpers/persist/persist_helper.dart';
-import 'package:regms_flutter_client/core/services/modules/navigation_module.dart';
-import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
+import 'helpers/network/network_helper.dart';
+import 'modules/network_module.dart';
+import '../../main.dart';
+import 'helpers/navigation/navigation_helper.dart';
+import 'helpers/persist/persist_helper.dart';
+import 'modules/navigation_module.dart';
+import 'modules/preference_module.dart';
 
 abstract class AppService
     implements PersisModule, NavigationModule, NetworkModule {

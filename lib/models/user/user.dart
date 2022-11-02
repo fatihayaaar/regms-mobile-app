@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
-import 'package:regms_flutter_client/models/profile/profile.dart';
+
+import '../../core/models/base/base_network_model.dart';
+import '../profile/profile.dart';
 
 part 'user.g.dart';
 

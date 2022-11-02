@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/core/utils/app_localization.dart';
+
+import '../utils/app_localization.dart';
 
 extension ContextExtension on BuildContext {}
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
+
+import '../constants/styles.dart';
 
 class Search extends StatelessWidget {
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/widgets/photo.dart';
+
+import 'photo.dart';
 
 class PhotosSelection extends StatelessWidget {
   final photos;

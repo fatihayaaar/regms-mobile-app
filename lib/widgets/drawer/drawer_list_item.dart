@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
 
 class DrawerListItem extends StatelessWidget {
   final text;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
+
+import '../../../widgets/appbar/appbar_settings.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {
   @override

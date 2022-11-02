@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/screens/starter/viewmodel/starter_view_model.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
+
+import '../viewmodel/starter_view_model.dart';
+import '../../../widgets/appbar/appbar_transparent.dart';
 
 class StarterScreen extends StatefulWidget {
   static const routeName = '/starter';

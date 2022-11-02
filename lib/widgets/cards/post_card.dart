@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/models/post/post.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
-import 'package:regms_flutter_client/widgets/bottom_sheet.dart';
-import 'package:regms_flutter_client/widgets/comment_box.dart';
-import 'package:regms_flutter_client/widgets/comment_text_field.dart';
-import 'package:regms_flutter_client/product/navigation/navigation.dart';
+
+import '../../constants/styles.dart';
+import '../../main.dart';
+import '../../models/post/post.dart';
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../avatar.dart';
+import '../bottom_sheet.dart';
+import '../comment_box.dart';
+import '../comment_text_field.dart';
+import '../../product/navigation/navigation.dart';
 
 class PostCard extends StatelessWidget {
   final Post post;

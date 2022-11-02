@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
+
+import '../constants/styles.dart';
+import 'avatar.dart';
 
 class CommentTextField extends StatelessWidget {
   final String? avatar;

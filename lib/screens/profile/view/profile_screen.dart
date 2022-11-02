@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/models/comment/comment.dart';
-import 'package:regms_flutter_client/models/post/post.dart';
-import 'package:regms_flutter_client/models/profile/profile.dart';
-import 'package:regms_flutter_client/models/user/user.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/profile/viewmodel/profile_view_model.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_profile.dart';
-import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
-import 'package:regms_flutter_client/widgets/cards/post_card.dart';
-import 'package:regms_flutter_client/widgets/cards/profile_card.dart';
-import 'package:regms_flutter_client/widgets/drawer/settings_drawer.dart';
-import 'package:regms_flutter_client/widgets/page.dart';
-import 'package:regms_flutter_client/widgets/selection_widget.dart';
+
+import '../../../models/comment/comment.dart';
+import '../../../models/post/post.dart';
+import '../../../models/profile/profile.dart';
+import '../../../models/user/user.dart';
+import '../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../viewmodel/profile_view_model.dart';
+import '../../../widgets/appbar/appbar_profile.dart';
+import '../../../widgets/bottom_navbar.dart';
+import '../../../widgets/cards/post_card.dart';
+import '../../../widgets/cards/profile_card.dart';
+import '../../../widgets/drawer/settings_drawer.dart';
+import '../../../widgets/page.dart';
+import '../../../widgets/selection_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const routeName = '/profile';

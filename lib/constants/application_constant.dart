@@ -1,4 +1,4 @@
-import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
+import '../core/theme/enum/theme_name.dart';
 
 class ApplicationConstant {
   static const String DEFAULT_LANGUAGE = 'en';

@@ -2,13 +2,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/main.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/authenticate/login/viewmodel/login_view_model.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
-import 'package:regms_flutter_client/product/navigation/navigation.dart';
-import 'package:regms_flutter_client/core/utils/app_localization.dart';
+
+import '../../../../constants/styles.dart';
+import '../../../../main.dart';
+import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../viewmodel/login_view_model.dart';
+import '../../../../widgets/appbar/appbar_transparent.dart';
+import '../../../../product/navigation/navigation.dart';
+import '../../../../core/utils/app_localization.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';

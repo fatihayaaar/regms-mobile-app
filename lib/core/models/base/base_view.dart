@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/core/models/base/base_state.dart';
-import 'package:regms_flutter_client/core/models/base/base_view_model.dart';
 
+import 'base_state.dart';
+import 'base_view_model.dart';
 import '../../../product/network/network_manager.dart';
 
 class BaseView<T extends BaseViewModel> extends StatefulWidget {

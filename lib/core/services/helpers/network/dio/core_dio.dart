@@ -1,15 +1,15 @@
 import 'dart:io';
-
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:regms_flutter_client/core/extensions/network_extension.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/models/base/base_error.dart';
-import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/dio/core_dio_interface.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/enum/http_types.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/models/reponse_interface.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/models/response.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/dio/extensions/core_dio_extension.dart';
+
+import '../../../../extensions/network_extension.dart';
+import '../models/base/base_error.dart';
+import '../../../../models/base/base_network_model.dart';
+import 'core_dio_interface.dart';
+import '../enum/http_types.dart';
+import '../models/reponse_interface.dart';
+import '../models/response.dart';
+import 'extensions/core_dio_extension.dart';
 
 class CoreDio with DioMixin implements Dio, ICoreDioNullSafety {
   @override

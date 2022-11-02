@@ -1,4 +1,4 @@
-import 'package:regms_flutter_client/core/services/helpers/navigation/navigation_helper.dart';
+import '../helpers/navigation/navigation_helper.dart';
 
 abstract class NavigationModule {
   NavigationHelper get providerNavigationHelper;

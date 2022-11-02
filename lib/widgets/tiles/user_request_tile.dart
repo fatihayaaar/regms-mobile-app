@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/user/user_list_item.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
+
+import '../../constants/styles.dart';
+import '../../models/user/user_list_item.dart';
+import '../avatar.dart';
 
 class UserRequestTile extends StatelessWidget {
   final UserListItem user;

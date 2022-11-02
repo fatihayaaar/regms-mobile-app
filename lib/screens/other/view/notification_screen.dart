@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/models/user/user_list_item.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
-import 'package:regms_flutter_client/widgets/tiles/notification_tile.dart';
+
+import '../../../models/user/user_list_item.dart';
+import '../../../widgets/appbar/appbar_settings.dart';
+import '../../../widgets/tiles/notification_tile.dart';
 
 class NotificationScreen extends StatefulWidget {
   static const routeName = '/notifications';

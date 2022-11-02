@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/user/user.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/other/view/users_screens.dart';
-import 'package:regms_flutter_client/screens/profile/view/edit_profile_screen.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
+
+import '../../constants/styles.dart';
+import '../../models/user/user.dart';
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../../screens/other/view/users_screens.dart';
+import '../../screens/profile/view/edit_profile_screen.dart';
+import '../avatar.dart';
 
 class ProfileCard extends StatelessWidget {
   final User user;

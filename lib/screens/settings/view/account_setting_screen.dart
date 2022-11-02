@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/settings/view/change_email_screen.dart';
-import 'package:regms_flutter_client/screens/settings/view/change_password_screen.dart';
-import 'package:regms_flutter_client/screens/settings/view/change_username_screen.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
-import 'package:regms_flutter_client/widgets/drawer/drawer_list_item.dart';
+
+import '../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import 'change_email_screen.dart';
+import 'change_password_screen.dart';
+import 'change_username_screen.dart';
+import '../../../widgets/appbar/appbar_settings.dart';
+import '../../../widgets/drawer/drawer_list_item.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
   @override

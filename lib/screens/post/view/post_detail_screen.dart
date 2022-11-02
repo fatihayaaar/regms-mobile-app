@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/screens/post/viewmodel/post_detail_view_model.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_transparent.dart';
-import 'package:regms_flutter_client/widgets/cards/post_card.dart';
-import 'package:regms_flutter_client/widgets/page.dart';
+
+import '../viewmodel/post_detail_view_model.dart';
+import '../../../widgets/appbar/appbar_transparent.dart';
+import '../../../widgets/cards/post_card.dart';
+import '../../../widgets/page.dart';
 
 class PostDetailScreen extends StatefulWidget {
   static const routeName = '/post_detail_screen';

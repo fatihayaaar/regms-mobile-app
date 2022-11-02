@@ -1,5 +1,4 @@
-import 'package:regms_flutter_client/product/network/auth/models/token_check_model/token_check_model.dart';
-
+import '../../../../product/network/auth/models/token_check_model/token_check_model.dart';
 import '../../../../product/network/network_manager.dart';
 import '../../../../product/base/base_service.dart';
 

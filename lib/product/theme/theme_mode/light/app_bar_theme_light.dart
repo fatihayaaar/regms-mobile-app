@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+
+import 'color_scheme_light.dart';
 
 class AppBarThemeLight {
   static AppBarThemeLight? _instance;

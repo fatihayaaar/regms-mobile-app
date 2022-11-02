@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/models/user/user_list_item.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/other/viewmodel/users_view_model.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar.dart';
-import 'package:regms_flutter_client/widgets/bottom_navbar.dart';
-import 'package:regms_flutter_client/widgets/page.dart';
-import 'package:regms_flutter_client/widgets/search.dart';
-import 'package:regms_flutter_client/widgets/tiles/follow_user_tile.dart';
-import 'package:regms_flutter_client/widgets/tiles/user_request_tile.dart';
+
+import '../../../models/user/user_list_item.dart';
+import '../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../viewmodel/users_view_model.dart';
+import '../../../widgets/appbar/appbar.dart';
+import '../../../widgets/bottom_navbar.dart';
+import '../../../widgets/page.dart';
+import '../../../widgets/search.dart';
+import '../../../widgets/tiles/follow_user_tile.dart';
+import '../../../widgets/tiles/user_request_tile.dart';
 
 class UsersScreen extends StatefulWidget {
   @override

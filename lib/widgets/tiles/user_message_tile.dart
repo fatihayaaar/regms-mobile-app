@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/user/user_message_item.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
+
+import '../../constants/styles.dart';
+import '../../models/user/user_message_item.dart';
+import '../avatar.dart';
 
 class UserMessageTile extends StatelessWidget {
   final UserMessageItem user;

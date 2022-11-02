@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/post/post.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
 import 'package:video_player/video_player.dart';
+
+import '../../constants/styles.dart';
+import '../../models/post/post.dart';
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../avatar.dart';
 
 class VideoFullScreenCard extends StatefulWidget {
   final Post post;

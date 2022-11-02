@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/app_theme_mode.dart';
+
+import '../app_theme_mode.dart';
 
 class ThemeModeDark implements AppThemeMode {
   static ThemeModeDark? _instance;

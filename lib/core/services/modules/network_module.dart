@@ -1,5 +1,5 @@
-import 'package:regms_flutter_client/core/services/helpers/network/network_helper.dart';
-import 'package:regms_flutter_client/core/services/modules/preference_module.dart';
+import '../helpers/network/network_helper.dart';
+import 'preference_module.dart';
 
 abstract class NetworkModule {
   NetworkHelper get providerNetworkHelper;

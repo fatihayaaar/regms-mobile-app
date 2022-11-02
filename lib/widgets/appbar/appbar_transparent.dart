@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/widgets/bottom_sheet.dart';
+
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../bottom_sheet.dart';
 
 class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
   final isBackArrow;

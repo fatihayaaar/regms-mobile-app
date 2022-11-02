@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/core/theme/app_theme.dart';
-import 'package:regms_flutter_client/core/theme/app_theme_dark.dart';
-import 'package:regms_flutter_client/core/theme/app_theme_light.dart';
-import 'package:regms_flutter_client/core/theme/enum/theme_name.dart';
+
+import 'app_theme.dart';
+import 'app_theme_dark.dart';
+import 'app_theme_light.dart';
+import 'enum/theme_name.dart';
 
 class AppThemeContainer {
   static AppThemeContainer? _instance;

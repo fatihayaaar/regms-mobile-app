@@ -1,6 +1,6 @@
-import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/enum/http_types.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/models/reponse_interface.dart';
+import '../../../../models/base/base_network_model.dart';
+import '../enum/http_types.dart';
+import '../models/reponse_interface.dart';
 
 abstract class ICoreDio {
   Future<IResponseModel<R>> fetch<R, T extends BaseNetworkModel>(

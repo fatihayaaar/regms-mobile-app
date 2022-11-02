@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:regms_flutter_client/core/models/base/base_network_model.dart';
-import 'package:regms_flutter_client/models/comment/comment.dart';
-import 'package:regms_flutter_client/models/user/user.dart';
+
+import '../../core/models/base/base_network_model.dart';
+import '../comment/comment.dart';
+import '../user/user.dart';
 
 part 'post.g.dart';
 

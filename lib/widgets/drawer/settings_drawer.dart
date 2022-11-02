@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/screens/settings/view/account_setting_screen.dart';
-import 'package:regms_flutter_client/screens/settings/view/notification_setting_screen.dart';
-import 'package:regms_flutter_client/widgets/appbar/appbar_settings.dart';
-import 'package:regms_flutter_client/widgets/drawer/drawer_list_item.dart';
-import 'package:regms_flutter_client/widgets/search.dart';
+
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../../screens/settings/view/account_setting_screen.dart';
+import '../../screens/settings/view/notification_setting_screen.dart';
+import '../appbar/appbar_settings.dart';
+import 'drawer_list_item.dart';
+import '../search.dart';
 
 class MyDrawer extends StatelessWidget {
   @override

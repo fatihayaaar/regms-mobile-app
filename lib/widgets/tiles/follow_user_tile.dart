@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/constants/styles.dart';
-import 'package:regms_flutter_client/models/user/user_list_item.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/widgets/avatar.dart';
+
+import '../../constants/styles.dart';
+import '../../models/user/user_list_item.dart';
+import '../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../avatar.dart';
 
 class FollowUserTile extends StatelessWidget {
   final UserListItem user;

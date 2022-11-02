@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/app_theme_mode.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/abstract/theme_mode_light_interface.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+
+import '../app_theme_mode.dart';
+import 'abstract/theme_mode_light_interface.dart';
+import 'color_scheme_light.dart';
 
 class ThemeModeLight extends AppThemeMode with IThemeModeLight {
   static ThemeModeLight? _instance;

@@ -1,4 +1,4 @@
-import 'package:regms_flutter_client/core/services/helpers/network/enum/http_types.dart';
+import '../services/helpers/network/enum/http_types.dart';
 
 extension NetworkTypeExtension on HttpTypes? {
   String get rawValue {

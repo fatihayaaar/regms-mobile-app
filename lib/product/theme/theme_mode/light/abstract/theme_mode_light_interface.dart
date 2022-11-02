@@ -1,11 +1,11 @@
-import 'package:regms_flutter_client/product/theme/theme_mode/light/app_bar_theme_light.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/bottom_navigation_bar_theme_light.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/bottom_sheet_theme_light.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/drawer_theme_light.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/elevated_button_theme_light.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/float_action_button_theme_light.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/text_theme_light.dart';
+import '../app_bar_theme_light.dart';
+import '../bottom_navigation_bar_theme_light.dart';
+import '../bottom_sheet_theme_light.dart';
+import '../color_scheme_light.dart';
+import '../drawer_theme_light.dart';
+import '../elevated_button_theme_light.dart';
+import '../float_action_button_theme_light.dart';
+import '../text_theme_light.dart';
 
 abstract class IThemeModeLight {
   ColorSchemeLight colorSchemeLight = ColorSchemeLight.instance;
