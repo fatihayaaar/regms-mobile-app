@@ -1,17 +1,33 @@
 import 'package:flutter/material.dart';
 
+import '../../../../product/network/auth/models/login_model/login_response_model/login_response_model.dart';
+import '../../../../product/extensions/context_extension.dart';
+import '../../../../core/models/base/base_view_model.dart';
+import '../../../../main.dart';
+import '../../../../product/base/base_service.dart';
 import '../../../../product/navigation/navigation.dart';
+import '../services/login_service.dart';
 
-class LoginViewModel with ChangeNotifier {
-  var _appService;
-
-  LoginViewModel({required appService}) {
-    this._appService = appService;
+class LoginViewModel extends BaseViewModel<LoginService> {
+  void loginButtonOnClick({required String username, required String password}) async {
+    if (service != null) {
+      login(username: username, password: password).then((value) {
+        LoginResponseModel loginResponseModel = value;
+        if (loginResponseModel.token != null) {
+          if (loginResponseModel.token != "") {
+            appService.providerPersistHelper.saveToken(loginResponseModel.token!);
+            navigateToProfile();
+          }
+        }
+      });
+    }
   }
 
-  void loginButtonOnClick(BuildContext context) async {
-    await appService.providerPersistHelper.saveToken("fayar");
-    appService.providerPersistHelper.initMyUser();
+  login({required username, required password}) async {
+    service!.login(username: username, password: password);
+  }
+
+  navigateToProfile() {
     appService.providerNavigationHelper.navigateToReplacementPage(
       path: Navigation.PROFILE_PAGE,
       object: {
@@ -21,10 +37,15 @@ class LoginViewModel with ChangeNotifier {
     );
   }
 
-  get appService => _appService;
+  @override
+  void setContext(BuildContext context) {
+    this.context = context;
+  }
 
-  set appService(value) {
-    _appService = value;
-    notifyListeners();
+  @override
+  void setService(BaseService? service) {
+    service = LoginService(
+      networkManager: context!.networkManager,
+    );
   }
 }

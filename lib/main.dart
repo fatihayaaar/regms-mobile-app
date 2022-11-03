@@ -49,7 +49,6 @@ void main() async {
     navigatorModule,
     networksModule,
   );
-  appService.providerPersistHelper.initMyUser();
   cameras = await availableCameras();
 
   runApp(appService.getApp);

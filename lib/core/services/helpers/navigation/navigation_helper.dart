@@ -14,8 +14,7 @@ class NavigationHelper {
     await navigatorKey.currentState?.pushNamed(path, arguments: object);
   }
 
-  Future<void> navigateToReplacementPage(
-      {required path, Object? object}) async {
+  Future<void> navigateToReplacementPage({required path, Object? object}) async {
     await navigatorKey.currentState?.pushReplacementNamed(
       path,
       arguments: object,

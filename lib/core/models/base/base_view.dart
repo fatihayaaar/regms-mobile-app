@@ -8,8 +8,7 @@ class BaseView<T extends BaseViewModel> extends StatefulWidget {
   final Widget Function(BuildContext context, T model) builder;
   final T viewModel;
   final Function(T) onModelReady;
-  final Function(ThemeData theme, Function(String) translate,
-      NetworkManager networkManager) initialState;
+  final Function(ThemeData theme, Function(String) translate, NetworkManager networkManager) initialState;
   final child;
 
   BaseView({

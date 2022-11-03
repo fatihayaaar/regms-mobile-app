@@ -17,8 +17,7 @@ class Comment extends BaseNetworkModel {
     required this.text,
   });
 
-  factory Comment.fromJson(Map<String, dynamic> json) =>
-      _$CommentFromJson(json);
+  factory Comment.fromJson(Map<String, dynamic> json) => _$CommentFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$CommentToJson(this);

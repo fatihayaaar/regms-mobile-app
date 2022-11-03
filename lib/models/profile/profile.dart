@@ -22,8 +22,7 @@ class Profile extends BaseNetworkModel {
     this.followingCount,
   });
 
-  factory Profile.fromJson(Map<String, dynamic> json) =>
-      _$ProfileFromJson(json);
+  factory Profile.fromJson(Map<String, dynamic> json) => _$ProfileFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$ProfileToJson(this);

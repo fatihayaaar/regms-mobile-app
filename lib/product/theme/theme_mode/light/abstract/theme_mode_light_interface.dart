@@ -11,12 +11,9 @@ abstract class IThemeModeLight {
   ColorSchemeLight colorSchemeLight = ColorSchemeLight.instance;
   TextThemeLight textThemeLight = TextThemeLight.instance;
   AppBarThemeLight appBarThemeLight = AppBarThemeLight.instance;
-  BottomNavigationBarThemeLight bottomNavigationBarThemeLight =
-      BottomNavigationBarThemeLight.instance;
+  BottomNavigationBarThemeLight bottomNavigationBarThemeLight = BottomNavigationBarThemeLight.instance;
   BottomSheetThemeLight bottomSheetThemeLight = BottomSheetThemeLight.instance;
   DrawerThemeLight drawerThemeLight = DrawerThemeLight.instance;
-  ElevatedButtonThemeLight elevatedButtonThemeLight =
-      ElevatedButtonThemeLight.instance;
-  FloatActionButtonThemeLight floatActionButtonThemeLight =
-      FloatActionButtonThemeLight.instance;
+  ElevatedButtonThemeLight elevatedButtonThemeLight = ElevatedButtonThemeLight.instance;
+  FloatActionButtonThemeLight floatActionButtonThemeLight = FloatActionButtonThemeLight.instance;
 }

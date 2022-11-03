@@ -1,5 +1,4 @@
 import '../../../core/services/helpers/network/enum/http_types.dart';
-import '../../../core/services/helpers/network/models/reponse_interface.dart';
 import 'models/register_model/register_response_model/register_response_model.dart';
 import '../mixin/mixin_network.dart';
 
@@ -15,12 +14,18 @@ class RegisterNetwork<T> with MixinNetwork {
 
   RegisterNetwork._(api);
 
-  Future<IResponseModel<T>?> register({required registerModel}) async {
-    return await api?.send(
+  Future<RegisterResponseModel?> register({required registerModel}) async {
+    final response = await api?.send<RegisterResponseModel, RegisterResponseModel>(
       "path",
       type: HttpTypes.POST,
       parseModel: RegisterResponseModel(),
-      data: registerModel.toJson(),
+      data: registerModel,
     );
+
+    if (response?.data is RegisterResponseModel) {
+      return response?.data;
+    } else {
+      return null;
+    }
   }
 }

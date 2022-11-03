@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../constants/styles.dart';
@@ -34,7 +33,7 @@ class _LoginScreen extends State {
     translate = AppLocalizations.of(context)!.translate;
     return ChangeNotifierProvider(
       create: (BuildContext context) {
-        return LoginViewModel(appService: appService);
+        return LoginViewModel();
       },
       child: Scaffold(
         appBar: AppBarTransparent(),
@@ -156,7 +155,7 @@ class _LoginScreen extends State {
           Provider.of<LoginViewModel>(
             context,
             listen: false,
-          ).loginButtonOnClick(context);
+          ).loginButtonOnClick(username: "", password: "");
         },
         validator: (value) {
           if (value!.isEmpty) {
@@ -179,7 +178,7 @@ class _LoginScreen extends State {
           Provider.of<LoginViewModel>(
             context,
             listen: false,
-          ).loginButtonOnClick(context);
+          ).loginButtonOnClick(username: "", password: "");
         },
         child: Text(
           "Login",
@@ -215,8 +214,7 @@ class _LoginScreen extends State {
         children: [
           TextSpan(
             text: 'Don\'t you have an account? ',
-            style:
-                tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
+            style: tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
           ),
           TextSpan(
             text: 'Register',
@@ -233,8 +231,7 @@ class _LoginScreen extends State {
     );
   }
 
-  void _fieldFocusChange(
-      BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+  void _fieldFocusChange(BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
     currentFocus.unfocus();
     FocusScope.of(context).requestFocus(nextFocus);
   }

@@ -6,8 +6,7 @@ import 'helpers/persist/persist_helper.dart';
 import 'modules/navigation_module.dart';
 import 'modules/preference_module.dart';
 
-abstract class AppService
-    implements PersisModule, NavigationModule, NetworkModule {
+abstract class AppService implements PersisModule, NavigationModule, NetworkModule {
   static Future<AppService> create(
     PreferenceModule preferenceModule,
     NavigatorModule navigatorModule,
@@ -55,20 +54,17 @@ class AppServiceInject implements AppService {
 
   MyApp _createApp() => MyApp();
 
-  PersistHelper _createPersistHelper() =>
-      _singletonPersistHelper ??= _preferenceModule.providerPersistHelper();
+  PersistHelper _createPersistHelper() => _singletonPersistHelper ??= _preferenceModule.providerPersistHelper();
 
   @override
   PersistHelper get providerPersistHelper => _createPersistHelper();
 
-  NavigationHelper _createNavigatorHelper() => _singletonNavigationHelper ??=
-      _navigatorModule.providerNavigationHelper();
+  NavigationHelper _createNavigatorHelper() => _singletonNavigationHelper ??= _navigatorModule.providerNavigationHelper();
 
   @override
   NavigationHelper get providerNavigationHelper => _createNavigatorHelper();
 
-  NetworkHelper _createNetworkHelper() =>
-      _singletonNetworkHelper ??= _networksModule.providerNetworkHelper();
+  NetworkHelper _createNetworkHelper() => _singletonNetworkHelper ??= _networksModule.providerNetworkHelper();
 
   @override
   NetworkHelper get providerNetworkHelper => _createNetworkHelper();

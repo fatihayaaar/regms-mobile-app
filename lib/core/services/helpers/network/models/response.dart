@@ -1,5 +1,5 @@
-import 'package:regms_flutter_client/core/services/helpers/network/models/error_interface.dart';
-import 'package:regms_flutter_client/core/services/helpers/network/models/reponse_interface.dart';
+import 'error_interface.dart';
+import 'reponse_interface.dart';
 
 class ResponseModel<T> extends IResponseModel<T> {
   @override

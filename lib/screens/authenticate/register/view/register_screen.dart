@@ -429,8 +429,6 @@ class _RegisterScreen extends State {
   }
 
   void submitButtonOnClick() async {
-    await appService.providerPersistHelper.saveToken("fayar");
-    appService.providerPersistHelper.initMyUser();
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(

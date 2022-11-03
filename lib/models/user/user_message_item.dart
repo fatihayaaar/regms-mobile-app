@@ -27,8 +27,7 @@ class UserMessageItem extends BaseNetworkModel with ChangeNotifier {
     this.date,
   });
 
-  factory UserMessageItem.fromJson(Map<String, dynamic> json) =>
-      _$UserMessageItemFromJson(json);
+  factory UserMessageItem.fromJson(Map<String, dynamic> json) => _$UserMessageItemFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$UserMessageItemToJson(this);

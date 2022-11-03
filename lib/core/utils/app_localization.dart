@@ -39,8 +39,7 @@ class AppLocalizations {
     return true;
   }
 
-  static String replace(txt, [Map<String, String>? options]) =>
-      txt.replaceAllMapped(
+  static String replace(txt, [Map<String, String>? options]) => txt.replaceAllMapped(
         exp,
         (Match m) {
           if (m.group(0) == null || m.group(1) == null) {
@@ -60,15 +59,13 @@ class AppLocalizations {
   }
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   final String tag = "AppLocalizations";
 
   const _AppLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) =>
-      kMaterialSupportedLanguages.contains(locale.languageCode);
+  bool isSupported(Locale locale) => kMaterialSupportedLanguages.contains(locale.languageCode);
 
   @override
   Future<AppLocalizations> load(Locale locale) async {

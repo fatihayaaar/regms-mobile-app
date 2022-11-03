@@ -16,10 +16,7 @@ class AppThemeContainer {
 
   AppThemeContainer._init();
 
-  AppTheme getAppTheme(
-      {required ThemeName theme,
-      Map<ThemeName, ThemeData>? themeData,
-      required}) {
+  AppTheme getAppTheme({required ThemeName theme, Map<ThemeName, ThemeData>? themeData, required}) {
     switch (theme) {
       case ThemeName.LIGHT:
         return AppThemeLight.instance(themeData: themeData?[ThemeName.LIGHT]);

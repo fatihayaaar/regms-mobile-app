@@ -2,8 +2,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../constants/application_constant.dart';
 import '../../../theme/enum/theme_name.dart';
-import '../../../../main.dart';
-import '../../../../models/profile/profile.dart';
 import '../../../../models/user/user.dart';
 import '../../constants/preferences.dart';
 
@@ -49,22 +47,5 @@ class PersistHelper {
 
   Future<String?> getLanguage() async {
     return sharedPreferences.getString(Preferences.languageKey);
-  }
-
-  void initMyUser() {
-    var username = appService.providerPersistHelper.getToken() ?? "";
-    if (username != "") {
-      myUser = User(
-        username: username,
-        profile: Profile(
-          avatar: "assets/images/dump_1.jpg",
-          nameAndSurname: "Fatih Ayar",
-          bio: "Software Developer :) fayardev founder",
-          followersCount: 203,
-          followingCount: 1,
-          coverPhoto: "assets/images/dump_2.jpg",
-        ),
-      );
-    }
   }
 }

@@ -21,8 +21,7 @@ class UserListItem extends BaseNetworkModel with ChangeNotifier {
     this.isStory,
   });
 
-  factory UserListItem.fromJson(Map<String, dynamic> json) =>
-      _$UserListItemFromJson(json);
+  factory UserListItem.fromJson(Map<String, dynamic> json) => _$UserListItemFromJson(json);
 
   @override
   Map<String, dynamic> toJson() => _$UserListItemToJson(this);

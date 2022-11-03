@@ -7,6 +7,7 @@ class SplashService implements BaseService {
   late final NetworkManager? networkManager;
 
   late final tokenCheckService;
+
   SplashService({this.networkManager}) {
     tokenCheckService = TokenCheckService(networkManager: networkManager);
   }

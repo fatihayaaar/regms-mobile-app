@@ -1,8 +1,5 @@
-import 'package:regms_flutter_client/product/network/auth/models/token_check_model/token_check_model.dart';
-import 'package:regms_flutter_client/product/network/auth/models/token_check_model/token_check_response_model/token_check_response_model.dart';
-
+import 'models/token_check_model/token_check_response_model/token_check_response_model.dart';
 import '../../../core/services/helpers/network/enum/http_types.dart';
-import '../../../core/services/helpers/network/models/reponse_interface.dart';
 import '../mixin/mixin_network.dart';
 
 class TokenCheckNetwork<T> with MixinNetwork {
@@ -17,12 +14,18 @@ class TokenCheckNetwork<T> with MixinNetwork {
 
   TokenCheckNetwork._(api);
 
-  Future<IResponseModel<T>?> check({required tokenCheckModel}) async {
-    return await api?.send(
+  Future<TokenCheckResponseModel?> check({required tokenCheckModel}) async {
+    final response = await api?.send<TokenCheckResponseModel, TokenCheckResponseModel>(
       "path",
       type: HttpTypes.POST,
       parseModel: TokenCheckResponseModel(),
-      data: tokenCheckModel.toJson(),
+      data: tokenCheckModel,
     );
+
+    if (response?.data is TokenCheckResponseModel) {
+      return response?.data;
+    } else {
+      return null;
+    }
   }
 }

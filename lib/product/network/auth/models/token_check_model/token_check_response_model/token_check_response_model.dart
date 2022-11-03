@@ -5,11 +5,10 @@ import '../../../../../../core/models/base/base_network_model.dart';
 part 'token_check_response_model.g.dart';
 
 @JsonSerializable()
-class TokenCheckResponseModel
-    extends BaseNetworkModel<TokenCheckResponseModel> {
-  final String? token;
+class TokenCheckResponseModel extends BaseNetworkModel<TokenCheckResponseModel> {
+  final bool? isToken;
 
-  TokenCheckResponseModel({this.token});
+  TokenCheckResponseModel({this.isToken});
 
   @override
   TokenCheckResponseModel fromJson(Map<String, Object> json) {
