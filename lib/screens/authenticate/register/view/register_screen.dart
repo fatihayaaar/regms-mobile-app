@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../../constants/styles.dart';
 import '../../../../main.dart';
 import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../../../../root.dart';
 import '../../../profile/view/profile_screen.dart';
 import '../../../../widgets/appbar/appbar_transparent.dart';
 import '../../../../widgets/shake.dart';
@@ -243,8 +244,7 @@ class _RegisterScreen extends State {
           children: [
             TextSpan(
               text: 'By signing up for the application, you accept the ',
-              style:
-                  tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
+              style: tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
             ),
             TextSpan(
               text: 'Confidentiality Agreement ',
@@ -253,8 +253,7 @@ class _RegisterScreen extends State {
             ),
             TextSpan(
               text: 'and ',
-              style:
-                  tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
+              style: tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
             ),
             TextSpan(
               text: 'User Agreement.',
@@ -274,8 +273,7 @@ class _RegisterScreen extends State {
         children: [
           TextSpan(
             text: 'Do you already have an account? ',
-            style:
-                tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
+            style: tsRichTextStyle(ColorSchemeLight.kRegisterRichTextAboutColor),
           ),
           TextSpan(
             text: 'Login',
@@ -433,7 +431,7 @@ class _RegisterScreen extends State {
       context,
       MaterialPageRoute(
         builder: (context) => ProfileScreen(
-          user: appService.providerPersistHelper.myUser!,
+          user: Root.instance.myUser!,
           isMyProfile: true,
         ),
       ),

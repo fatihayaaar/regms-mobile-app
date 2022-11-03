@@ -8,12 +8,16 @@ part 'user.g.dart';
 @JsonSerializable()
 class User extends BaseNetworkModel {
   String username;
-  Profile profile;
+  late Profile profile;
 
   User({
     required this.username,
     required this.profile,
   });
+
+  User.empty({this.username = ""}) {
+    this.profile = Profile();
+  }
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 

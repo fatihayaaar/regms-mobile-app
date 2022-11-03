@@ -4,6 +4,7 @@ import '../constants/styles.dart';
 import '../main.dart';
 import '../product/navigation/navigation.dart';
 import '../product/theme/theme_mode/light/color_scheme_light.dart';
+import '../root.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selected;
@@ -48,12 +49,12 @@ class BottomNavBar extends StatelessWidget {
             routeName: Navigation.SEARCH_PAGE,
             icon: Icons.search_rounded,
           ),
-          appService.providerPersistHelper.myUser != null
+          Root.instance.myUser != null
               ? _buildAvatarItem(
                   context,
                   routeName: Navigation.PROFILE_PAGE,
                   param: {
-                    "user": appService.providerPersistHelper.myUser!,
+                    "user": Root.instance.myUser!,
                     "isMyProfile": true,
                   },
                 )
@@ -84,16 +85,12 @@ class BottomNavBar extends StatelessWidget {
             ? Icon(
                 icon,
                 size: 25,
-                color: Theme.of(context)
-                    .bottomNavigationBarTheme
-                    .unselectedItemColor,
+                color: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
               )
             : Icon(
                 icon,
                 size: 25,
-                color: Theme.of(context)
-                    .bottomNavigationBarTheme
-                    .unselectedItemColor,
+                color: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
               ),
       ),
     );

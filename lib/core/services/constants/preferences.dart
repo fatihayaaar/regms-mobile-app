@@ -1,7 +1,8 @@
 class Preferences {
   Preferences._();
 
-  static const String authToken = "auth_token";
-  static const String themeMode = "theme_mode";
-  static const String languageKey = "language";
+  static const String AUTH_TOKEN = "auth_token";
+  static const String USERNAME = "username";
+  static const String THEME_MODE = "theme_mode";
+  static const String LANGUAGE_KEY = "language";
 }

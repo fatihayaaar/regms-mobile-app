@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/root.dart';
 
 import '../../../../product/network/auth/models/login_model/login_response_model/login_response_model.dart';
 import '../../../../product/extensions/context_extension.dart';
@@ -16,6 +17,7 @@ class LoginViewModel extends BaseViewModel<LoginService> {
         if (loginResponseModel.token != null) {
           if (loginResponseModel.token != "") {
             appService.providerPersistHelper.saveToken(loginResponseModel.token!);
+            // Root.instance.myUser =
             navigateToProfile();
           }
         }
@@ -31,7 +33,7 @@ class LoginViewModel extends BaseViewModel<LoginService> {
     appService.providerNavigationHelper.navigateToReplacementPage(
       path: Navigation.PROFILE_PAGE,
       object: {
-        "user": appService.providerPersistHelper.myUser!,
+        "user": Root.instance.myUser,
         "isMyProfile": true,
       },
     );
