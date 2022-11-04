@@ -6,9 +6,9 @@ part 'register_response_model.g.dart';
 
 @JsonSerializable()
 class RegisterResponseModel extends BaseNetworkModel<RegisterResponseModel> {
-  final String? username;
+  final String? token;
 
-  RegisterResponseModel({this.username});
+  RegisterResponseModel({this.token});
 
   @override
   RegisterResponseModel fromJson(Map<String, Object?> json) {

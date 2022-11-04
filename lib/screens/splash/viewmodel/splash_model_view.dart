@@ -51,9 +51,7 @@ class SplashViewModel extends BaseViewModel<SplashService> {
   }
 
   @override
-  void setContext(BuildContext context) {
-    this.context = context;
-  }
+  void setContext(BuildContext? context) => this.context = context;
 
   @override
   void setService(BaseService? service) {

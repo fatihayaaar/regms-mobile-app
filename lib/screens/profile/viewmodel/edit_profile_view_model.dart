@@ -19,9 +19,7 @@ class EditProfileViewModel extends BaseViewModel {
   }
 
   @override
-  void setContext(BuildContext context) {
-    this.context = context;
-  }
+  void setContext(BuildContext? context) => this.context = context;
 
   @override
   void setService(BaseService? service) {}

@@ -9,8 +9,7 @@ class LoginService implements BaseService {
 
   LoginService({this.networkManager});
 
-  Future<LoginResponseModel?> login({required username, required password}) async {
-    LoginModel loginModel = LoginModel(username: username, password: password);
+  Future<LoginResponseModel?> login({required LoginModel loginModel}) async {
     if (networkManager != null) {
       return await networkManager!.loginNetwork.login(loginModel: loginModel);
     }
