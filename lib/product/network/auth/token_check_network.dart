@@ -1,3 +1,4 @@
+import '../../../core/services/helpers/network/models/error_model/error_response_model.dart';
 import 'models/token_check_model/token_check_response_model/token_check_response_model.dart';
 import '../../../core/services/helpers/network/enum/http_types.dart';
 import '../mixin/mixin_network.dart';
@@ -15,10 +16,11 @@ class TokenCheckNetwork<T> with MixinNetwork {
   TokenCheckNetwork._(api);
 
   Future<TokenCheckResponseModel?> check({required tokenCheckModel}) async {
-    final response = await api?.send<TokenCheckResponseModel, TokenCheckResponseModel>(
+    final response = await api?.send<TokenCheckResponseModel, TokenCheckResponseModel, ErrorResponseModel>(
       "path",
       type: HttpTypes.POST,
       parseModel: TokenCheckResponseModel(),
+      errorParseModel: ErrorResponseModel(),
       data: tokenCheckModel,
     );
 

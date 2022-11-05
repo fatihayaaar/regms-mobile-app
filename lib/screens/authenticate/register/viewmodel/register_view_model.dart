@@ -76,19 +76,20 @@ class RegisterViewModel extends BaseViewModel<RegisterService> {
   }
 
   Future<RegisterResponseModel?> register({required RegisterModel registerModel}) async {
-    return await service!.register(registerModel: registerModel);
+    return await service!.register(
+      registerModel: registerModel,
+      onResponse: (response) {
+        saveUser(response);
+        navigateToProfile();
+      },
+      onError: (message) {},
+    );
   }
 
   void registerButtonOnClick() async {
     final registerModel = RegisterModel();
     if (service != null) {
-      register(registerModel: registerModel).then((value) {
-        RegisterResponseModel? registerResponseModel = value;
-        if (registerResponseModel != null) {
-          saveUser(registerResponseModel);
-          navigateToProfile();
-        }
-      });
+      register(registerModel: registerModel).then((value) {});
     }
   }
 

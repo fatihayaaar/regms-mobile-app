@@ -1,5 +1,6 @@
 import '../../../constants/endpoints.dart';
 import '../../../core/services/helpers/network/enum/http_types.dart';
+import '../../../core/services/helpers/network/models/error_model/error_response_model.dart';
 import 'models/login_model/login_response_model/login_response_model.dart';
 import '../mixin/mixin_network.dart';
 
@@ -16,10 +17,11 @@ class LoginNetwork<T> with MixinNetwork {
   LoginNetwork._(api);
 
   Future<LoginResponseModel?> login({required loginModel}) async {
-    final response = await api?.send<LoginResponseModel, LoginResponseModel>(
+    final response = await api?.send<LoginResponseModel, LoginResponseModel, ErrorResponseModel>(
       Endpoints.LOGIN_ENDPOINT,
       type: HttpTypes.POST,
       parseModel: LoginResponseModel(),
+      errorParseModel: ErrorResponseModel(),
       data: loginModel,
     );
 

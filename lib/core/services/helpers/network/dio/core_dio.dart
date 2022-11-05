@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 
+import '../models/error_model/error_response_model.dart';
 import '../../../../extensions/network_extension.dart';
-import '../models/base/base_error.dart';
 import '../../../../models/base/base_network_model.dart';
 import 'core_dio_interface.dart';
 import '../enum/http_types.dart';
@@ -22,10 +22,11 @@ class CoreDio with DioMixin implements Dio, ICoreDioNullSafety {
   }
 
   @override
-  Future<IResponseModel<R>> send<R, T extends BaseNetworkModel>(
+  Future<IResponseModel<R>> send<R, T extends BaseNetworkModel, E extends BaseNetworkModel>(
     String path, {
     required HttpTypes type,
     required T parseModel,
+    required E errorParseModel,
     dynamic data,
     Map<String, dynamic>? queryParameters,
     void Function(int, int)? onReceiveProgress,
@@ -41,7 +42,8 @@ class CoreDio with DioMixin implements Dio, ICoreDioNullSafety {
         final model = responseParser<R, T>(parseModel, response.data);
         return ResponseModel<R>(data: model);
       default:
-        return ResponseModel(error: BaseError('message'));
+        final model = errorResponseParser<R, E>(errorParseModel, response.data);
+        return ResponseModel<R>(error: model);
     }
   }
 }

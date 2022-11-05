@@ -6,10 +6,14 @@ part of 'token_check_response_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TokenCheckResponseModel _$TokenCheckResponseModelFromJson(Map<String, dynamic> json) => TokenCheckResponseModel(
+TokenCheckResponseModel _$TokenCheckResponseModelFromJson(
+        Map<String, dynamic> json) =>
+    TokenCheckResponseModel(
       isToken: json['isToken'] as bool?,
     );
 
-Map<String, dynamic> _$TokenCheckResponseModelToJson(TokenCheckResponseModel instance) => <String, dynamic>{
-      'token': instance.isToken,
+Map<String, dynamic> _$TokenCheckResponseModelToJson(
+        TokenCheckResponseModel instance) =>
+    <String, dynamic>{
+      'isToken': instance.isToken,
     };

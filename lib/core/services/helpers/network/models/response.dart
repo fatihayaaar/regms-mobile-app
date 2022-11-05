@@ -1,11 +1,11 @@
-import 'error_interface.dart';
+import 'error_model/error_response_model.dart';
 import 'reponse_interface.dart';
 
 class ResponseModel<T> extends IResponseModel<T> {
   @override
   final T? data;
   @override
-  final IErrorModel? error;
+  final ErrorResponseModel? error;
 
   ResponseModel({this.data, this.error});
 }

@@ -1,6 +1,6 @@
-import 'error_interface.dart';
+import 'error_model/error_response_model.dart';
 
 abstract class IResponseModel<T> {
   T? data;
-  IErrorModel? error;
+  ErrorResponseModel? error;
 }
