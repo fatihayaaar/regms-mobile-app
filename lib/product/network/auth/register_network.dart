@@ -1,7 +1,7 @@
 import '../../../core/services/helpers/network/enum/http_types.dart';
 import '../../../core/services/helpers/network/models/error_model/error_response_model.dart';
-import 'models/register_model/register_response_model/register_response_model.dart';
 import '../mixin/mixin_network.dart';
+import 'models/register_model/register_response_model/register_response_model.dart';
 
 class RegisterNetwork<T> with MixinNetwork {
   static RegisterNetwork? _instance;

@@ -4,13 +4,13 @@ import 'package:provider/provider.dart';
 import '../../../constants/styles.dart';
 import '../../../models/user/user_list_item.dart';
 import '../../../product/theme/theme_mode/light/color_scheme_light.dart';
-import '../viewmodel/search_view_model.dart';
 import '../../../widgets/appbar/appbar_search.dart';
 import '../../../widgets/bottom_navbar.dart';
 import '../../../widgets/page.dart';
 import '../../../widgets/selection_widget.dart';
 import '../../../widgets/show_more_widget.dart';
 import '../../../widgets/tiles/user_tile.dart';
+import '../viewmodel/search_view_model.dart';
 
 class SearchScreen extends StatelessWidget {
   static const routeName = '/search';

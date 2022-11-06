@@ -13,7 +13,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final onClickBackButton;
   final double height;
 
-  MyAppBar({
+  const MyAppBar({
+    super.key,
     this.title = "",
     this.backButtonVisibility = true,
     this.isShowNotificationIcon = false,
@@ -26,13 +27,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   });
 
   @override
-  Size get preferredSize => Size.fromHeight(this.height);
+  Size get preferredSize => Size.fromHeight(height);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      toolbarHeight: this.height,
+      toolbarHeight: height,
       title: Row(
         children: [
           _buildBackArrow(context),
@@ -48,7 +49,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Flexible(
       child: Container(
         alignment: Alignment.centerLeft,
-        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Text(title),
       ),
     );
@@ -58,7 +59,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Visibility(
       visible: backButtonVisibility,
       child: Container(
-        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+        margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
         child: Align(
           alignment: Alignment.centerLeft,
           child: GestureDetector(
@@ -69,7 +70,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Navigator.pop(context);
               }
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back,
               size: 25,
             ),
@@ -105,14 +106,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
         child: Stack(
           children: [
-            Icon(Icons.notifications),
+            const Icon(Icons.notifications),
             Positioned(
               top: 0,
               right: 0,
               child: Container(
                 height: 10,
                 width: 10,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.red,
                 ),
@@ -132,14 +133,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         onTap: onClickMessages,
         child: Stack(
           children: [
-            Icon(Icons.chat),
+            const Icon(Icons.chat),
             Positioned(
               top: 0,
               right: 0,
               child: Container(
                 height: 10,
                 width: 10,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.red,
                 ),
@@ -162,10 +163,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.white.withOpacity(0.1),
             borderRadius: BorderRadius.circular(10.0),
           ),
-          padding: EdgeInsets.fromLTRB(7.5, 5, 7.5, 5),
-          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          padding: const EdgeInsets.fromLTRB(7.5, 5, 7.5, 5),
+          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Text(
-            this.saveActionText,
+            saveActionText,
             style: Theme.of(context).appBarTheme.toolbarTextStyle,
           ),
         ),

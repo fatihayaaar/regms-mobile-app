@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/styles.dart';
-import '../../authenticate/forgot_password/view/confirm_password_screen.dart';
 import '../../../widgets/appbar/appbar_settings.dart';
+import '../../authenticate/forgot_password/view/confirm_password_screen.dart';
 
 class ChangeEmailScreen extends StatefulWidget {
   @override
@@ -75,8 +75,7 @@ class _ChangeEmailScreen extends State {
         child: ElevatedButton(
           style: kLoginButtonButtonStyle,
           onPressed: () {
-            Route route =
-                MaterialPageRoute(builder: (_) => ConfirmPasswordScreen());
+            Route route = MaterialPageRoute(builder: (_) => ConfirmPasswordScreen());
             Navigator.push(context, route);
           },
           child: Text(

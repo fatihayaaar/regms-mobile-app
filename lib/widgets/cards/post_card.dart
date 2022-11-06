@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../constants/styles.dart';
 import '../../main.dart';
 import '../../models/post/post.dart';
+import '../../product/navigation/navigation.dart';
 import '../../product/theme/theme_mode/light/color_scheme_light.dart';
 import '../avatar.dart';
 import '../bottom_sheet.dart';
 import '../comment_box.dart';
 import '../comment_text_field.dart';
-import '../../product/navigation/navigation.dart';
 
 class PostCard extends StatelessWidget {
   final Post post;
@@ -161,8 +161,7 @@ class PostCard extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(0, 2, 0, 0),
       child: Text(
         "$text",
-        style: kActionRichTextStyle(
-            ColorSchemeLight.kPostActionTextColor, FontWeight.normal),
+        style: kActionRichTextStyle(ColorSchemeLight.kPostActionTextColor, FontWeight.normal),
       ),
     );
   }
@@ -200,8 +199,7 @@ class PostCard extends StatelessWidget {
     );
   }
 
-  _buildAction(
-      {String? text, required IconData icon, required void onClick()}) {
+  _buildAction({String? text, required IconData icon, required void onClick()}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,

@@ -1,9 +1,9 @@
-import 'helpers/network/network_helper.dart';
-import 'modules/network_module.dart';
 import '../../main.dart';
 import 'helpers/navigation/navigation_helper.dart';
+import 'helpers/network/network_helper.dart';
 import 'helpers/persist/persist_helper.dart';
 import 'modules/navigation_module.dart';
+import 'modules/network_module.dart';
 import 'modules/preference_module.dart';
 
 abstract class AppService implements PersisModule, NavigationModule, NetworkModule {

@@ -1,4 +1,4 @@
-import 'package:regms_flutter_client/core/services/helpers/network/models/error_model/error_response_model.dart';
+import '../../models/error_model/error_response_model.dart';
 
 import '../../../../../models/base/base_network_model.dart';
 import '../core_dio.dart';

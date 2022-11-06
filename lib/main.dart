@@ -9,14 +9,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'constants/application_constant.dart';
 import 'constants/endpoints.dart';
 import 'core/services/app_service.dart';
-import 'core/services/modules/network_module.dart';
-import 'product/navigation/navigation_route.dart';
 import 'core/services/modules/navigation_module.dart';
+import 'core/services/modules/network_module.dart';
 import 'core/services/modules/preference_module.dart';
 import 'core/stores/settings/settings_store.dart';
+import 'core/theme/app_theme_container.dart';
 import 'core/theme/enum/theme_name.dart';
 import 'core/utils/app_localization.dart';
-import 'core/theme/app_theme_container.dart';
+import 'product/navigation/navigation_route.dart';
 import 'product/network/network_manager.dart';
 import 'product/theme/app_theme_data.dart';
 

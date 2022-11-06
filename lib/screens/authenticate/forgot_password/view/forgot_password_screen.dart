@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../constants/styles.dart';
 import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
-import 'email_validate_screen.dart';
 import '../../../../widgets/appbar/appbar_transparent.dart';
+import 'email_validate_screen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   static const routeName = '/starter/forgot_password';
@@ -88,8 +88,7 @@ class _ForgotPasswordScreen extends State {
       child: ElevatedButton(
         style: kLoginButtonButtonStyle,
         onPressed: () {
-          Route route =
-              MaterialPageRoute(builder: (_) => EmailValidateScreen());
+          Route route = MaterialPageRoute(builder: (_) => EmailValidateScreen());
           Navigator.pushReplacement(context, route);
         },
         child: Text(

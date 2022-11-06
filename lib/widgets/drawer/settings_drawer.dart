@@ -4,8 +4,8 @@ import '../../product/theme/theme_mode/light/color_scheme_light.dart';
 import '../../screens/settings/view/account_setting_screen.dart';
 import '../../screens/settings/view/notification_setting_screen.dart';
 import '../appbar/appbar_settings.dart';
-import 'drawer_list_item.dart';
 import '../search.dart';
+import 'drawer_list_item.dart';
 
 class MyDrawer extends StatelessWidget {
   @override

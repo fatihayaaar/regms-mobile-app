@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:regms_flutter_client/product/theme/theme_mode/light/color_scheme_light.dart';
+import '../product/theme/theme_mode/light/color_scheme_light.dart';
 
 final kLoginButtonButtonStyle = ButtonStyle(
-  backgroundColor:
-      MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
+  backgroundColor: MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -14,8 +13,7 @@ final kLoginButtonButtonStyle = ButtonStyle(
 );
 
 final kRegisterButtonButtonStyle = ButtonStyle(
-  backgroundColor:
-      MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
+  backgroundColor: MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -25,8 +23,7 @@ final kRegisterButtonButtonStyle = ButtonStyle(
 );
 
 final kDatePickerButtonButtonStyle = ButtonStyle(
-  backgroundColor:
-      MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 1.0)),
+  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 1.0)),
   shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
@@ -100,8 +97,7 @@ final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
       isDense: true,
       contentPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
       enabledBorder: OutlineInputBorder(
-        borderSide:
-            BorderSide(color: ColorSchemeLight.kBorderColor, width: 1.0),
+        borderSide: BorderSide(color: ColorSchemeLight.kBorderColor, width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       hintText: hintText,
