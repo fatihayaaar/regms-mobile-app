@@ -63,6 +63,8 @@ class MyApp extends StatelessWidget {
     appService.providerNetworkHelper.api,
   );
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

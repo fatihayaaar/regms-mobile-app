@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import '../../../models/comment/comment.dart';
@@ -92,7 +91,7 @@ class ProfileScreen extends StatelessWidget {
             return Scaffold(
               appBar: ProfileAppBar(title: value.user.username),
               body: child,
-              endDrawer: MyDrawer(),
+              endDrawer: const MyDrawer(),
               bottomNavigationBar: const BottomNavBar(selected: -2),
             );
           },

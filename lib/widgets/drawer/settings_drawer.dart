@@ -8,6 +8,8 @@ import '../search.dart';
 import 'drawer_list_item.dart';
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(

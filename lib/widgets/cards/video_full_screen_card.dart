@@ -66,14 +66,12 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
   _buildContent(context) {
     return Stack(
       children: [
-        Container(
-          child: GestureDetector(
-            onTap: () {
-              volume = volume == 1.0 ? 0 : 1.0;
-              controller.setVolume(volume);
-            },
-            child: VideoPlayer(controller),
-          ),
+        GestureDetector(
+          onTap: () {
+            volume = volume == 1.0 ? 0 : 1.0;
+            controller.setVolume(volume);
+          },
+          child: VideoPlayer(controller),
         ),
         Positioned(
           bottom: 20,
