@@ -7,7 +7,8 @@ class StoryList extends StatelessWidget {
   final list;
   final onClickAddStory;
 
-  StoryList({
+  const StoryList({
+    super.key,
     required this.list,
     this.onClickAddStory,
   });
@@ -20,10 +21,10 @@ class StoryList extends StatelessWidget {
         color: Theme.of(context).backgroundColor,
       ),
       child: ListView.builder(
-        padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+        padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
         itemCount: list.length,
         shrinkWrap: true,
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
@@ -38,8 +39,8 @@ class StoryList extends StatelessWidget {
                 Stack(
                   children: [
                     Container(
-                      margin: EdgeInsets.fromLTRB(5, 0, 7.5, 0),
-                      child: Avatar(
+                      margin: const EdgeInsets.fromLTRB(5, 0, 7.5, 0),
+                      child: const Avatar(
                         borderColor: Colors.white,
                         img: "assets/images/dump_1.jpg",
                         size: 28,
@@ -52,13 +53,13 @@ class StoryList extends StatelessWidget {
                         right: 4,
                         bottom: 4,
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.blue,
                           ),
                           height: 19,
                           width: 19,
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                             color: Colors.white,
                             size: 14,
@@ -68,7 +69,7 @@ class StoryList extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Container(
                   width: 60,
                   alignment: Alignment.center,

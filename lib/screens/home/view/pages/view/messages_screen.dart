@@ -62,6 +62,7 @@ class MessagesScreen extends StatelessWidget {
   ];
 
   MessagesScreen({
+    super.key,
     required this.onClickBackPage,
   });
 
@@ -90,23 +91,23 @@ class MessagesScreen extends StatelessWidget {
 
   _buildSearch() {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-      child: Search(),
+      margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+      child: const Search(),
     );
   }
 
   _buildRequests() {
     return Container(
-      margin: EdgeInsets.fromLTRB(5, 0, 0, 5),
+      margin: const EdgeInsets.fromLTRB(5, 0, 0, 5),
       child: Row(
         children: [
-          ShowMore(text: "Message Requests"),
+          const ShowMore(text: "Message Requests"),
           Container(
             width: 30,
             alignment: Alignment.center,
             child: Container(
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.black38,
               ),
@@ -124,7 +125,7 @@ class MessagesScreen extends StatelessWidget {
   _buildMessages() {
     return ListView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: messages.length,
       itemBuilder: (BuildContext context, int index) {
         return UserMessageTile(
@@ -142,7 +143,7 @@ class MessagesScreen extends StatelessWidget {
         shape: BoxShape.circle,
         color: Theme.of(context).appBarTheme.backgroundColor,
       ),
-      child: Icon(
+      child: const Icon(
         Icons.message,
         color: Colors.white,
       ),

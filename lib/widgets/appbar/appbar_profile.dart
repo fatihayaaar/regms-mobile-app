@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final title;
+  final String title;
 
-  ProfileAppBar({this.title = ""});
+  const ProfileAppBar({
+    super.key,
+    this.title = "",
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(45.0);

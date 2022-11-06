@@ -46,7 +46,7 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
   }
 
   _buildBody(context) {
-    return Container(
+    return SizedBox(
       height: double.infinity,
       width: double.infinity,
       child: Stack(
@@ -78,7 +78,7 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
       top: 15,
       child: GestureDetector(
         onTap: widget.onClickBackPage,
-        child: Icon(
+        child: const Icon(
           Icons.close,
           color: Colors.white,
           size: 30,
@@ -88,7 +88,7 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
   }
 
   _buildFlash() {
-    return Positioned(
+    return const Positioned(
       left: 15,
       top: 15,
       child: Icon(
@@ -100,7 +100,7 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
   }
 
   _buildGallery() {
-    return Positioned(
+    return const Positioned(
       bottom: 15,
       left: 15,
       child: Icon(
@@ -112,7 +112,7 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
   }
 
   _buildCameraTurn() {
-    return Positioned(
+    return const Positioned(
       bottom: 15,
       right: 15,
       child: Icon(
@@ -141,8 +141,8 @@ class _StoryCameraScreenState extends State<StoryCameraScreen> {
           child: Container(
             height: 60,
             width: 60,
-            margin: EdgeInsets.all(3),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.all(3),
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.white,
             ),

@@ -8,7 +8,8 @@ import '../../../main.dart';
 import '../../../product/navigation/navigation.dart';
 
 class SplashViewModel extends BaseViewModel<SplashService> {
-  var context;
+  @override
+  BuildContext? context;
 
   SplashViewModel() {
     init();

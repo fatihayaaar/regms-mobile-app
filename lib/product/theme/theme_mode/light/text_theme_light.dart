@@ -7,9 +7,7 @@ class TextThemeLight {
   static TextThemeLight? _instance;
 
   static TextThemeLight get instance {
-    if (_instance == null) {
-      _instance = TextThemeLight._();
-    }
+    _instance ??= TextThemeLight._();
     return _instance!;
   }
 
@@ -94,5 +92,5 @@ class TextThemeLight {
         labelSmall: labelSmall,
       );
 
-  TextTheme get dataPrimary => TextTheme();
+  TextTheme get dataPrimary => const TextTheme();
 }

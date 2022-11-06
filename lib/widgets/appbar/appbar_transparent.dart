@@ -12,12 +12,13 @@ class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
   var systemNavigationBarColor;
 
   AppBarTransparent({
+    super.key,
     this.isBackArrow = false,
     this.isAction = false,
     this.statusBarIconBrightness = Brightness.dark,
     this.systemNavigationBarColor = Colors.white,
   }) {
-    height = this.isBackArrow ? 45 : 0.0;
+    height = isBackArrow ? 45 : 0.0;
   }
 
   @override
@@ -39,16 +40,16 @@ class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       backgroundColor: Colors.transparent,
-      iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: ColorSchemeLight.kTextContentColor,
       ),
-      shadowColor: Color.fromRGBO(0, 0, 0, 0),
+      shadowColor: const Color.fromRGBO(0, 0, 0, 0),
     );
   }
 
   _buildAction(context) {
     return Visibility(
-      visible: this.isAction,
+      visible: isAction,
       child: GestureDetector(
         onTap: () {
           showModalBottomSheet<void>(
@@ -56,12 +57,12 @@ class AppBarTransparent extends StatelessWidget implements PreferredSizeWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
             context: context,
-            builder: (_) => BottomSheetWidget(),
+            builder: (_) => const BottomSheetWidget(),
           );
         },
         child: Container(
-          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-          child: Icon(
+          margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+          child: const Icon(
             Icons.keyboard_control_rounded,
             color: Colors.black,
           ),

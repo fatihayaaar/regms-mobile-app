@@ -13,7 +13,7 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       width: double.infinity,
       child: Scaffold(
-        appBar: AppBarSettings(title: "Settings"),
+        appBar: const AppBarSettings(title: "Settings"),
         body: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (overScroll) {
             overScroll.disallowIndicator();
@@ -27,43 +27,44 @@ class MyDrawer extends StatelessWidget {
 
   _buildList() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      margin: const EdgeInsets.symmetric(horizontal: 25),
       child: ListView(
         shrinkWrap: true,
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
+          // ignore: prefer_const_constructors
           Search(),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           DrawerListItem(
             text: "Account",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: ColorSchemeLight.kBorderColor),
+          const Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Notifications",
             page: NotificationSettingsScreen(),
           ),
-          Divider(color: ColorSchemeLight.kBorderColor),
+          const Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Appearance",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: ColorSchemeLight.kBorderColor),
+          const Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Privacy & Security",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: ColorSchemeLight.kBorderColor),
+          const Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Help and Support",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: ColorSchemeLight.kBorderColor),
+          const Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "About",
             page: AccountSettingsScreen(),
           ),
-          Divider(color: ColorSchemeLight.kBorderColor),
+          const Divider(color: ColorSchemeLight.kBorderColor),
           DrawerListItem(
             text: "Log-out",
             page: AccountSettingsScreen(),

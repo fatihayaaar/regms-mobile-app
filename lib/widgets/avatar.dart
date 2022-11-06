@@ -6,7 +6,8 @@ class Avatar extends StatelessWidget {
   final double size;
   final bool isStory;
 
-  Avatar({
+  const Avatar({
+    super.key,
     required this.borderColor,
     required this.img,
     required this.size,
@@ -16,14 +17,14 @@ class Avatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(2),
+      padding: const EdgeInsets.all(2),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: isStory ? Colors.red : Colors.transparent,
       ),
       child: Container(
-        padding: EdgeInsets.all(2),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(2),
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white,
         ),

@@ -7,12 +7,15 @@ import '../avatar.dart';
 class UserRequestTile extends StatelessWidget {
   final UserListItem user;
 
-  UserRequestTile({required this.user});
+  const UserRequestTile({
+    super.key,
+    required this.user,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 7, 15, 7),
+      margin: const EdgeInsets.fromLTRB(10, 7, 15, 7),
       child: ListTile(
         minVerticalPadding: 0,
         minLeadingWidth: 10,
@@ -28,7 +31,7 @@ class UserRequestTile extends StatelessWidget {
 
   _buildAvatar() {
     return Container(
-      margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+      margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
       width: 54,
       child: Stack(
         children: [
@@ -93,7 +96,7 @@ class UserRequestTile extends StatelessWidget {
         height: 20,
         width: 20,
         alignment: Alignment.center,
-        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+        decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.red),
         child: Text("5", style: kUserListActionTextStyle),
       ),
     );

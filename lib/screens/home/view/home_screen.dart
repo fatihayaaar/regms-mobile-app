@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State {
-  var _pageViewController = PageController(initialPage: 1);
+  final _pageViewController = PageController(initialPage: 1);
   List<PostCard> posts = [
     PostCard(
       post: Post(
@@ -28,16 +28,14 @@ class _HomeScreenState extends State {
         ),
         likeCount: 920,
         commentCount: 10,
-        text:
-            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+        text: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
         sendDate: "3s",
         comment: Comment(
           user: User(
             username: "fayar",
             profile: Profile(avatar: "assets/images/dump_1.jpg"),
           ),
-          text:
-              "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+          text: "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
           sendTime: "10sn",
         ),
         media: "assets/images/dump_2.jpg",
@@ -63,16 +61,14 @@ class _HomeScreenState extends State {
         ),
         likeCount: 9220,
         commentCount: 0,
-        text:
-            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+        text: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
         sendDate: "3s",
         comment: Comment(
           user: User(
             username: "fayar",
             profile: Profile(avatar: "assets/images/dump_1.jpg"),
           ),
-          text:
-              "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+          text: "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
           sendTime: "10sn",
         ),
       ),

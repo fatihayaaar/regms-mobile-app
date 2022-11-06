@@ -7,9 +7,7 @@ class TokenCheckNetwork<T> with MixinNetwork {
   static TokenCheckNetwork? _instance;
 
   static TokenCheckNetwork instance(api) {
-    if (_instance == null) {
-      _instance = TokenCheckNetwork._(api);
-    }
+    _instance ??= TokenCheckNetwork._(api);
     return _instance!;
   }
 

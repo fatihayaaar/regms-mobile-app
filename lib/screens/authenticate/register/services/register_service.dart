@@ -11,7 +11,7 @@ class RegisterService implements BaseService {
   RegisterService({this.networkManager});
 
   Future<RegisterResponseModel?> register(
-      {required RegisterModel registerModel, required void onResponse(response), required void onError(String message)}) async {
+      {required RegisterModel registerModel, required void onResponse(response), required void Function(String message) onError}) async {
     if (networkManager != null) {
       final response = await networkManager!.registerNetwork.register(registerModel: registerModel);
       onResponse(response);

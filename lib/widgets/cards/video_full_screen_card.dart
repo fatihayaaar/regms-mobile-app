@@ -56,7 +56,7 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.black,
       ),
       child: _buildContent(context),
@@ -94,9 +94,9 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildProfileAction(context),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildVideoAction(),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildVideoProgressIndicator(context),
       ],
     );
@@ -109,11 +109,11 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
         Row(
           children: [
             _buildAvatar(),
-            SizedBox(width: 7.5),
+            const SizedBox(width: 7.5),
             _buildUsername(),
           ],
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         _buildPostContent(context),
       ],
     );
@@ -132,7 +132,7 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
 
   _buildUsername() {
     return Text(
-      "${post.user.username}",
+      post.user.username,
       style: kFullScreenVideoUsernameTextStyle,
     );
   }
@@ -164,7 +164,7 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
           onClick: () {},
           text: post.likeCount > 0 ? "${post.likeCount}" : null,
         ),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         _buildAction(
           icon: (Icons.messenger_outline),
           onClick: () {},
@@ -174,22 +174,19 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
     );
   }
 
-  _buildAction(
-      {String? text, required IconData icon, required void onClick()}) {
+  _buildAction({String? text, required IconData icon, required void Function() onClick}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          child: Icon(
-            icon,
-            size: 25,
-            color: ColorSchemeLight.kFullScreenVideoIconColor,
-          ),
+        Icon(
+          icon,
+          size: 25,
+          color: ColorSchemeLight.kFullScreenVideoIconColor,
         ),
         Visibility(
           visible: text == null ? false : true,
-          child: SizedBox(width: 5),
+          child: const SizedBox(width: 5),
         ),
         Visibility(
           visible: text == null ? false : true,
@@ -210,7 +207,7 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
   }
 
   _buildListButton() {
-    return Icon(
+    return const Icon(
       Icons.keyboard_control_rounded,
       color: Colors.white,
     );
@@ -219,7 +216,7 @@ class _VideoFullScreenCardState extends State<VideoFullScreenCard> {
   _buildVideoProgressIndicator(context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: Container(
+      child: SizedBox(
         height: 5,
         width: MediaQuery.of(context).size.width - 20,
         child: VideoProgressIndicator(

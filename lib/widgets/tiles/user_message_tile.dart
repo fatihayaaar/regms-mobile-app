@@ -8,7 +8,10 @@ import '../avatar.dart';
 class UserMessageTile extends StatelessWidget {
   final UserMessageItem user;
 
-  UserMessageTile({required this.user});
+  const UserMessageTile({
+    super.key,
+    required this.user,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class UserMessageTile extends StatelessWidget {
     return Slidable(
       endActionPane: ActionPane(
         extentRatio: 1 / 5,
-        motion: ScrollMotion(),
+        motion: const ScrollMotion(),
         children: [
           SlidableAction(
             onPressed: (context) {},
@@ -30,12 +33,12 @@ class UserMessageTile extends StatelessWidget {
         ],
       ),
       child: Container(
-        margin: EdgeInsets.fromLTRB(0, 2.5, 0, 2.5),
-        padding: EdgeInsets.fromLTRB(10, 2.5, 10, 2.5),
+        margin: const EdgeInsets.fromLTRB(0, 2.5, 0, 2.5),
+        padding: const EdgeInsets.fromLTRB(10, 2.5, 10, 2.5),
         child: Row(
           children: [
             _buildAvatar(),
-            SizedBox(width: 3),
+            const SizedBox(width: 3),
             _buildMessageContent(),
             _buildStatus(),
           ],
@@ -46,7 +49,7 @@ class UserMessageTile extends StatelessWidget {
 
   _buildAvatar() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
       child: Avatar(
         size: 24,
         borderColor: Colors.white,
@@ -64,7 +67,7 @@ class UserMessageTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildUsername(),
-          SizedBox(height: 2),
+          const SizedBox(height: 2),
           _buildMessage(),
         ],
       ),
@@ -73,7 +76,7 @@ class UserMessageTile extends StatelessWidget {
 
   _buildUsername() {
     return Text(
-      "${user.username}",
+      user.username,
       style: kUserListUsernameMessageTextStyle(user.newMessageCount == null
           ? false
           : user.newMessageCount! > 0
@@ -119,7 +122,7 @@ class UserMessageTile extends StatelessWidget {
               : user.newMessageCount! > 0
                   ? true
                   : false,
-          child: SizedBox(height: 5),
+          child: const SizedBox(height: 5),
         ),
         _buildCount(),
       ],
@@ -138,7 +141,7 @@ class UserMessageTile extends StatelessWidget {
                   height: 20,
                   width: 20,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.red,
                   ),

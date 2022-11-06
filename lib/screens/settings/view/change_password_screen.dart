@@ -16,17 +16,17 @@ class _ChangePasswordScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarSettings(title: "Change Password"),
+      appBar: const AppBarSettings(title: "Change Password"),
       body: _build(),
     );
   }
 
   Widget _build() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      margin: const EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: Stack(
               children: [
@@ -35,9 +35,9 @@ class _ChangePasswordScreen extends State {
                   child: Column(
                     children: [
                       _buildCurrentPasswordTextField(),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       _buildPasswordTextField(),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       _buildRePasswordTextField(),
                     ],
                   ),
@@ -66,8 +66,9 @@ class _ChangePasswordScreen extends State {
         validator: (value) {
           if (value!.isEmpty) {
             return "* Required";
-          } else
+          } else {
             return null;
+          }
         },
         decoration: tTextFieldInputDecoration("Current Password"),
       ),
@@ -89,8 +90,9 @@ class _ChangePasswordScreen extends State {
         validator: (value) {
           if (value!.isEmpty) {
             return "* Required";
-          } else
+          } else {
             return null;
+          }
         },
         decoration: tTextFieldInputDecoration("New Password"),
       ),
@@ -112,8 +114,9 @@ class _ChangePasswordScreen extends State {
         validator: (value) {
           if (value!.isEmpty) {
             return "* Required";
-          } else
+          } else {
             return null;
+          }
         },
         decoration: tTextFieldInputDecoration("Re-Password"),
       ),
@@ -124,7 +127,7 @@ class _ChangePasswordScreen extends State {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 30),
+        margin: const EdgeInsets.symmetric(vertical: 30),
         height: 50,
         width: double.infinity,
         child: ElevatedButton(

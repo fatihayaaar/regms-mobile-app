@@ -36,7 +36,7 @@ class SearchScreen extends StatelessWidget {
             bottomNavigationBar: child,
           );
         },
-        child: BottomNavBar(selected: -2),
+        child: const BottomNavBar(selected: -2),
       ),
     );
   }
@@ -58,7 +58,7 @@ class SearchScreen extends StatelessWidget {
 
   _buildSearchResult() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: Column(
         children: [
           Consumer<SearchViewModel>(
@@ -66,7 +66,7 @@ class SearchScreen extends StatelessWidget {
               return SelectionWidget(list: value.searchList);
             },
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           _buildResultAll(),
         ],
       ),
@@ -76,15 +76,15 @@ class SearchScreen extends StatelessWidget {
   _buildTrendTopic() {
     return Column(
       children: [
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         _buildFilter(),
         ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+              margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
@@ -115,8 +115,8 @@ class SearchScreen extends StatelessWidget {
   _buildFilter() {
     return Container(
       decoration: kFilterBoxDecorationTextField,
-      padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
+      margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       child: SizedBox(
         height: 30,
         width: double.infinity,
@@ -130,7 +130,7 @@ class SearchScreen extends StatelessWidget {
                   child: Text(items),
                 );
               }).toList(),
-              icon: Icon(Icons.arrow_drop_down_sharp),
+              icon: const Icon(Icons.arrow_drop_down_sharp),
               onChanged: (val) {
                 value.dropDownButtonOnChanges(val);
               },
@@ -153,7 +153,7 @@ class SearchScreen extends StatelessWidget {
           ListView.builder(
             itemCount: 4,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (BuildContext context, int index) {
               return UserTile(
                 user: UserListItem(
@@ -174,8 +174,8 @@ class SearchScreen extends StatelessWidget {
 
   _buildShowMore() {
     return Container(
-      margin: EdgeInsets.fromLTRB(20, 0, 15, 0),
-      child: ShowMore(),
+      margin: const EdgeInsets.fromLTRB(20, 0, 15, 0),
+      child: const ShowMore(),
     );
   }
 }

@@ -16,17 +16,17 @@ class _ChangeEmailScreen extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarSettings(title: "Change Email"),
+      appBar: const AppBarSettings(title: "Change Email"),
       body: _build(),
     );
   }
 
   Widget _build() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      margin: const EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: Stack(
               children: [
@@ -56,8 +56,9 @@ class _ChangeEmailScreen extends State {
           validator: (value) {
             if (value!.isEmpty) {
               return "* Required";
-            } else
+            } else {
               return null;
+            }
           },
           decoration: tTextFieldInputDecoration("New Email Address"),
         ),
@@ -69,7 +70,7 @@ class _ChangeEmailScreen extends State {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 30),
+        margin: const EdgeInsets.symmetric(vertical: 30),
         height: 50,
         width: double.infinity,
         child: ElevatedButton(

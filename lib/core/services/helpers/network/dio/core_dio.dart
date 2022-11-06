@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 
-import '../models/error_model/error_response_model.dart';
 import '../../../../extensions/network_extension.dart';
 import '../../../../models/base/base_network_model.dart';
 import 'core_dio_interface.dart';

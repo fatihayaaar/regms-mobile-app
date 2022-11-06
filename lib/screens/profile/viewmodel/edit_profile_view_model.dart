@@ -4,7 +4,8 @@ import '../../../core/models/base/base_view_model.dart';
 import '../../../product/base/base_service.dart';
 
 class EditProfileViewModel extends BaseViewModel {
-  var context;
+  @override
+  BuildContext? context;
   var _length = 0;
 
   void textFormFieldOnChanges(val) {

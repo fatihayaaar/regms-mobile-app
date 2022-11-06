@@ -6,9 +6,7 @@ class ThemeModeDark implements AppThemeMode {
   static ThemeModeDark? _instance;
 
   static ThemeModeDark get instance {
-    if (_instance == null) {
-      _instance = ThemeModeDark._();
-    }
+    _instance ??= ThemeModeDark._();
     return _instance!;
   }
 

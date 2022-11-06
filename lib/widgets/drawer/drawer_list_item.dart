@@ -6,7 +6,11 @@ class DrawerListItem extends StatelessWidget {
   final text;
   final page;
 
-  DrawerListItem({required this.text, required this.page});
+  const DrawerListItem({
+    super.key,
+    required this.text,
+    required this.page,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class DrawerListItem extends StatelessWidget {
         Navigator.push(context, route);
       },
       child: Container(
-        margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+        margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
         child: Row(
           children: [
             Expanded(
@@ -29,7 +33,7 @@ class DrawerListItem extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1,
               ),
             ),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
               color: ColorSchemeLight.kBodyTextColor,
               size: 16,

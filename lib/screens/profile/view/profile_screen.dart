@@ -21,7 +21,11 @@ class ProfileScreen extends StatelessWidget {
   final user;
   final isMyProfile;
 
-  ProfileScreen({this.user, this.isMyProfile});
+  const ProfileScreen({
+    super.key,
+    this.user,
+    this.isMyProfile,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +40,14 @@ class ProfileScreen extends StatelessWidget {
               ),
               likeCount: 920,
               commentCount: 10,
-              text:
-                  "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              text: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
               sendDate: "3s",
               comment: Comment(
                 user: User(
                   username: "fayar",
                   profile: Profile(avatar: "assets/images/dump_1.jpg"),
                 ),
-                text:
-                    "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                text: "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
                 sendTime: "10sn",
               ),
               media: "assets/images/dump_2.jpg",
@@ -67,16 +69,14 @@ class ProfileScreen extends StatelessWidget {
               ),
               likeCount: 9220,
               commentCount: 0,
-              text:
-                  "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+              text: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
               sendDate: "3s",
               comment: Comment(
                 user: User(
                   username: "fayar",
                   profile: Profile(avatar: "assets/images/dump_1.jpg"),
                 ),
-                text:
-                    "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
+                text: "Any an immutable class add after it final to next line of flutter code, this will solve your problem",
                 sendTime: "10sn",
               ),
             ),
@@ -93,7 +93,7 @@ class ProfileScreen extends StatelessWidget {
               appBar: ProfileAppBar(title: value.user.username),
               body: child,
               endDrawer: MyDrawer(),
-              bottomNavigationBar: BottomNavBar(selected: -2),
+              bottomNavigationBar: const BottomNavBar(selected: -2),
             );
           },
           child: PageWidget(child: _buildBody(context)),
@@ -111,7 +111,7 @@ class ProfileScreen extends StatelessWidget {
             return SelectionWidget(list: value.selectList);
           },
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         _buildContent(),
       ],
     );
@@ -143,8 +143,8 @@ class ProfileScreen extends StatelessWidget {
     return Consumer<ProfileViewModel>(
       builder: (BuildContext context, value, Widget? child) {
         return ListView.builder(
-          padding: EdgeInsets.all(0),
-          physics: NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(0),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: value.posts.length,
           itemBuilder: (BuildContext context, int index) {

@@ -5,7 +5,10 @@ import '../constants/styles.dart';
 class SelectionWidget extends StatelessWidget {
   final list;
 
-  SelectionWidget({required this.list});
+  const SelectionWidget({
+    super.key,
+    required this.list,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class SelectionWidget extends StatelessWidget {
   }
 
   _buildBody() {
-    return Container(
+    return SizedBox(
       height: 27,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -28,8 +31,8 @@ class SelectionWidget extends StatelessWidget {
   _buildListTypeItem(value) {
     return Container(
       width: 80,
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-      margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+      margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
       decoration: kBoxDecorationListTypeItem,
       alignment: Alignment.center,
       child: Text(value, style: kListTypeItemTextStyle),

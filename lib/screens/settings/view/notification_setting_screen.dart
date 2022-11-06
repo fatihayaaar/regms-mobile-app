@@ -4,8 +4,7 @@ import '../../../widgets/appbar/appbar_settings.dart';
 
 class NotificationSettingsScreen extends StatefulWidget {
   @override
-  _NotificationSettingsScreenState createState() =>
-      _NotificationSettingsScreenState();
+  _NotificationSettingsScreenState createState() => _NotificationSettingsScreenState();
 }
 
 class _NotificationSettingsScreenState extends State {
@@ -14,14 +13,14 @@ class _NotificationSettingsScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarSettings(title: "Notification"),
+      appBar: const AppBarSettings(title: "Notification"),
       body: _buildBody(),
     );
   }
 
   _buildBody() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      margin: const EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         children: [
           _buildNotificationItem('Messages'),
@@ -36,7 +35,7 @@ class _NotificationSettingsScreenState extends State {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: SwitchListTile(
-        contentPadding: EdgeInsets.all(0),
+        contentPadding: const EdgeInsets.all(0),
         value: switchListTileValue ??= true,
         onChanged: (newValue) => setState(() => switchListTileValue = newValue),
         title: Text(

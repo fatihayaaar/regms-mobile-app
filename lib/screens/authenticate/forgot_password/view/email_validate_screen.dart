@@ -52,21 +52,21 @@ class _EmailValidateScreen extends State {
       },
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          margin: const EdgeInsets.fromLTRB(25, 0, 25, 20),
           child: Column(
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.18),
               _buildTitle(),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               _buildSubTitle(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               _buildVerificationTextField(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               _buildLastTimeText(),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               _buildReSend(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               _buildEmailValidateButton(),
             ],
           ),
@@ -77,23 +77,22 @@ class _EmailValidateScreen extends State {
 
   Widget _buildTitle() {
     return Container(
+      alignment: Alignment.bottomLeft,
       child: Text(
         "Email\nValidate",
         style: Theme.of(context).textTheme.headlineMedium,
       ),
-      alignment: Alignment.bottomLeft,
     );
   }
 
   Widget _buildEmailValidateButton() {
-    return Container(
+    return SizedBox(
       height: 50,
       width: double.infinity,
       child: ElevatedButton(
         style: kLoginButtonButtonStyle,
         onPressed: () {
-          Route route =
-              MaterialPageRoute(builder: (_) => ResetPasswordScreen());
+          Route route = MaterialPageRoute(builder: (_) => ResetPasswordScreen());
           Navigator.pushReplacement(context, route);
         },
         child: Text(
@@ -115,9 +114,7 @@ class _EmailValidateScreen extends State {
           ),
           TextSpan(
             text: 'Resend',
-            style: tsRichTextStyle(_g == true
-                ? ColorSchemeLight.kLoginButtonColor
-                : ColorSchemeLight.kBorderColor),
+            style: tsRichTextStyle(_g == true ? ColorSchemeLight.kLoginButtonColor : ColorSchemeLight.kBorderColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 if (_start == 0) {
@@ -145,8 +142,8 @@ class _EmailValidateScreen extends State {
   void startTimer() {
     if (_timerStart) {
       _timerStart = false;
-      const oneSec = const Duration(seconds: 1);
-      _timer = new Timer.periodic(
+      const oneSec = Duration(seconds: 1);
+      _timer = Timer.periodic(
         oneSec,
         (Timer timer) {
           if (_start == 0) {
@@ -168,7 +165,7 @@ class _EmailValidateScreen extends State {
 
   Widget _buildVerificationTextField() {
     return Container(
-      padding: EdgeInsets.fromLTRB(14, 0, 15, 0),
+      padding: const EdgeInsets.fromLTRB(14, 0, 15, 0),
       decoration: kBoxDecorationTextField,
       child: VerificationCode(
         fillColor: ColorSchemeLight.kTextFieldColor,
@@ -188,9 +185,7 @@ class _EmailValidateScreen extends State {
 
   Widget _buildLastTimeText() {
     return Text(
-      (_start / 60).truncate().toString() +
-          ":" +
-          (_start % 60).toString().padLeft(2, '0').toString(),
+      "${(_start / 60).truncate()}:${(_start % 60).toString().padLeft(2, '0')}",
       style: kSubTitleTextStyle,
     );
   }

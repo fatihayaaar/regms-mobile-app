@@ -21,7 +21,7 @@ class _StarterScreenState extends State {
       child: Scaffold(
         appBar: AppBarTransparent(),
         body: Stack(
-          children: [],
+          children: const [],
         ),
       ),
     );

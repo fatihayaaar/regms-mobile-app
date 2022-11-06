@@ -8,9 +8,7 @@ class LoginNetwork<T> with MixinNetwork {
   static LoginNetwork? _instance;
 
   static LoginNetwork instance(api) {
-    if (_instance == null) {
-      _instance = LoginNetwork._(api);
-    }
+    _instance ??= LoginNetwork._(api);
     return _instance!;
   }
 

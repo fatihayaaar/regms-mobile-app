@@ -6,6 +6,8 @@ import '../../../core/models/base/base_view.dart';
 import '../viewmodel/splash_model_view.dart';
 
 class Splash extends BaseStatelessWidget {
+  Splash({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<SplashViewModel>(
@@ -35,7 +37,5 @@ class Splash extends BaseStatelessWidget {
         ),
       );
 
-  _buildLogo() => Container(
-        child: CircularProgressIndicator(),
-      );
+  _buildLogo() => const CircularProgressIndicator();
 }

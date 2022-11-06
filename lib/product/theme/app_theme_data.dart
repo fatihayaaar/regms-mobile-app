@@ -7,9 +7,7 @@ class AppThemeData {
   late final ThemeModeDark themeModeDark;
 
   static AppThemeData get instance {
-    if (_instance == null) {
-      _instance = AppThemeData._();
-    }
+    _instance ??= AppThemeData._();
     return _instance!;
   }
 

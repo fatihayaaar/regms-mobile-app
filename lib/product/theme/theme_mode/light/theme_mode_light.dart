@@ -8,9 +8,7 @@ class ThemeModeLight extends AppThemeMode with IThemeModeLight {
   static ThemeModeLight? _instance;
 
   static ThemeModeLight get instance {
-    if (_instance == null) {
-      _instance = ThemeModeLight._();
-    }
+    _instance ??= ThemeModeLight._();
     return _instance!;
   }
 

@@ -8,21 +8,19 @@ class AppBarThemeLight {
   static AppBarThemeLight? _instance;
 
   static AppBarThemeLight get instance {
-    if (_instance == null) {
-      _instance = AppBarThemeLight._();
-    }
+    _instance ??= AppBarThemeLight._();
     return _instance!;
   }
 
   AppBarThemeLight._();
 
   AppBarTheme get data => AppBarTheme(
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
           statusBarIconBrightness: Brightness.light,
         ),
         backgroundColor: ColorSchemeLight.kThemeColor,
-        shadowColor: Color.fromRGBO(0, 0, 0, 0),
+        shadowColor: const Color.fromRGBO(0, 0, 0, 0),
         titleTextStyle: GoogleFonts.raleway(
           color: Colors.white,
           fontWeight: FontWeight.bold,
@@ -33,6 +31,6 @@ class AppBarThemeLight {
           fontWeight: FontWeight.normal,
           fontSize: 19,
         ),
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
       );
 }

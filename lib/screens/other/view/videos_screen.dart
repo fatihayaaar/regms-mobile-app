@@ -26,8 +26,7 @@ class _VideosScreenState extends State {
         ),
         likeCount: 920,
         commentCount: 10,
-        text:
-            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+        text: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
         sendDate: "3s",
         media: "assets/videos/dump_video_1.mp4",
       ),
@@ -52,8 +51,7 @@ class _VideosScreenState extends State {
         ),
         likeCount: 9220,
         commentCount: 0,
-        text:
-            "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
+        text: "You want the widget to be this wide irrespective of the actual dimensions or you want it to be that slim or exactly square.",
         sendDate: "3s",
         media: "assets/videos/dump_video_1.mp4",
       ),
@@ -131,7 +129,7 @@ class _VideosScreenState extends State {
 
   _buildTitle(String title) {
     return Container(
-      margin: EdgeInsets.fromLTRB(15, 0, 0, 0),
+      margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
       alignment: Alignment.centerLeft,
       child: Text(
         title,
@@ -142,8 +140,8 @@ class _VideosScreenState extends State {
 
   _buildAddAction() {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 15, 0),
-      child: Icon(
+      margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+      child: const Icon(
         Icons.add_circle_outline_sharp,
         color: Colors.white,
       ),

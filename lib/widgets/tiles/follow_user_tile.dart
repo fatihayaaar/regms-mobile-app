@@ -8,13 +8,16 @@ import '../avatar.dart';
 class FollowUserTile extends StatelessWidget {
   final UserListItem user;
 
-  FollowUserTile({required this.user});
+  const FollowUserTile({
+    super.key,
+    required this.user,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      margin: EdgeInsets.fromLTRB(10, 5, 15, 5),
+      margin: const EdgeInsets.fromLTRB(10, 5, 15, 5),
       child: ListTile(
         minVerticalPadding: 0,
         minLeadingWidth: 10,
@@ -30,7 +33,7 @@ class FollowUserTile extends StatelessWidget {
 
   _buildAvatar() {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 5, 0),
+      margin: const EdgeInsets.fromLTRB(10, 0, 5, 0),
       child: Avatar(
         size: 20,
         borderColor: Colors.white,

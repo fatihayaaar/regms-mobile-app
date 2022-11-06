@@ -16,7 +16,7 @@ class User extends BaseNetworkModel {
   });
 
   User.empty({this.username = ""}) {
-    this.profile = Profile();
+    profile = Profile();
   }
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

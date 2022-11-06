@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants/styles.dart';
@@ -20,7 +19,7 @@ class AddPostScreen extends StatelessWidget {
         return AddPostViewModel();
       },
       child: Scaffold(
-        appBar: MyAppBar(
+        appBar: const MyAppBar(
           title: "New Post",
           isSaveAction: true,
           saveActionText: "Send",
@@ -51,7 +50,7 @@ class AddPostScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
           ),
           child: Column(
@@ -61,7 +60,7 @@ class AddPostScreen extends StatelessWidget {
               _buildContentHeader(),
               _buildTextField(),
               _buildPhotos(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildAddPostIconItems(),
             ],
           ),
@@ -89,8 +88,8 @@ class AddPostScreen extends StatelessWidget {
   _buildSelection() {
     return Container(
       decoration: kFilterBoxDecorationTextField,
-      margin: EdgeInsets.fromLTRB(15, 0, 0, 0),
-      padding: EdgeInsets.fromLTRB(15, 0, 10, 0),
+      margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+      padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
       child: SizedBox(
         height: 20,
         width: 200,
@@ -104,7 +103,7 @@ class AddPostScreen extends StatelessWidget {
                   child: Text(items),
                 );
               }).toList(),
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_drop_down,
                 size: 20,
               ),
@@ -122,7 +121,7 @@ class AddPostScreen extends StatelessWidget {
 
   _buildAddPostIconItems() {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -131,7 +130,7 @@ class AddPostScreen extends StatelessWidget {
             "Photos",
             Colors.red,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
             child: Divider(color: ColorSchemeLight.kBorderColor),
           ),
@@ -140,7 +139,7 @@ class AddPostScreen extends StatelessWidget {
             "Location",
             Colors.blue,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
             child: Divider(color: ColorSchemeLight.kBorderColor),
           ),
@@ -149,7 +148,7 @@ class AddPostScreen extends StatelessWidget {
             "Labels",
             Colors.deepOrange,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );
@@ -157,11 +156,11 @@ class AddPostScreen extends StatelessWidget {
 
   _buildIconButtonItem(IconData icon, String text, color) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
       child: Container(
         height: 30,
         width: double.infinity,
-        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         decoration: kAddPostItemBoxDecorationTextField,
         alignment: Alignment.centerLeft,
         child: Row(
@@ -171,7 +170,7 @@ class AddPostScreen extends StatelessWidget {
               color: color,
               size: 22,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(text, style: kAddPostItemsTextStyle),
           ],
         ),
@@ -181,21 +180,21 @@ class AddPostScreen extends StatelessWidget {
 
   _buildTextField() {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 8),
+      padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 8),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+        padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
         child: TextFormField(
           controller: textController,
           maxLines: null,
           decoration: InputDecoration(
             hintText: 'Write something...',
             hintStyle: kHintTextStyle,
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: Color(0x00000000),
               ),
             ),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: Color(0x00000000),
               ),

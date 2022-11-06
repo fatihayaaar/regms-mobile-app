@@ -6,15 +6,13 @@ class DrawerThemeLight {
   static DrawerThemeLight? _instance;
 
   static DrawerThemeLight get instance {
-    if (_instance == null) {
-      _instance = DrawerThemeLight._();
-    }
+    _instance ??= DrawerThemeLight._();
     return _instance!;
   }
 
   DrawerThemeLight._();
 
-  DrawerThemeData get data => DrawerThemeData(
+  DrawerThemeData get data => const DrawerThemeData(
         backgroundColor: ColorSchemeLight.kBackgroundColor,
       );
 }

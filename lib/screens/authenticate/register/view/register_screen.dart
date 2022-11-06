@@ -29,6 +29,8 @@ class RegisterScreen extends BaseStatelessWidget {
     'Female',
   ];
 
+  RegisterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<RegisterViewModel>(
@@ -62,14 +64,14 @@ class RegisterScreen extends BaseStatelessWidget {
 
   Widget _builderStepper() => Stack(
         children: [
-          Container(
+          SizedBox(
             height: double.infinity,
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   //_buildTopBar(),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   _buildRegisterContent(),
                 ],
               ),
@@ -89,7 +91,7 @@ class RegisterScreen extends BaseStatelessWidget {
           builder: (context, value, child) {
             return ExpandablePageView(
               controller: value.controller,
-              physics: new NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               onPageChanged: (index) {
                 value.slideIndex = index;
               },
@@ -111,8 +113,8 @@ class RegisterScreen extends BaseStatelessWidget {
         },
         child: Container(
           alignment: Alignment.centerRight,
-          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-          child: Container(
+          margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+          child: SizedBox(
             height: 38,
             width: 120,
             child: Consumer<RegisterViewModel>(
@@ -122,11 +124,9 @@ class RegisterScreen extends BaseStatelessWidget {
                   onPressed: () {
                     value.registerButtonOnClick();
                   },
-                  child: Container(
-                    child: Text(
-                      "Register",
-                      style: kLoginButtonContentTextStyle,
-                    ),
+                  child: Text(
+                    "Register",
+                    style: kLoginButtonContentTextStyle,
                   ),
                 );
               },
@@ -136,19 +136,19 @@ class RegisterScreen extends BaseStatelessWidget {
       );
 
   Widget _buildStep1() => Container(
-        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-        margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+        margin: const EdgeInsets.fromLTRB(25, 0, 25, 20),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Container(
+              alignment: Alignment.bottomLeft,
               child: Text(
                 "Start\nRegistering",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              alignment: Alignment.bottomLeft,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             _buildUsernameTextField(),
             AspectRatio(
               aspectRatio: 10 / 2,
@@ -157,31 +157,31 @@ class RegisterScreen extends BaseStatelessWidget {
               ),
             ),
             _buildContractText(),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             _buildNextButtonStep1(),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             _buildSignInText(),
           ],
         ),
       );
 
   Widget _buildStep2() => Container(
-        padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-        margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
+        padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+        margin: const EdgeInsets.fromLTRB(25, 0, 25, 20),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Text(
               "Complete The Registration",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             _buildEmailTextField(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildPasswordTextField(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildDatePickerTextField(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildSexTextField(),
           ],
         ),
@@ -189,8 +189,8 @@ class RegisterScreen extends BaseStatelessWidget {
 
   Widget _buildNextButtonStep1() => Container(
         alignment: Alignment.centerRight,
-        margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-        child: Container(
+        margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+        child: SizedBox(
           height: 38,
           width: 90,
           child: Consumer<RegisterViewModel>(
@@ -223,8 +223,9 @@ class RegisterScreen extends BaseStatelessWidget {
           validator: (value) {
             if (value!.isEmpty) {
               return "* Required";
-            } else
+            } else {
               return null;
+            }
           },
           decoration: tTextFieldInputDecoration("Username"),
         ),
@@ -232,7 +233,7 @@ class RegisterScreen extends BaseStatelessWidget {
 
   Widget _buildContractText() => Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 10),
         child: RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
@@ -293,8 +294,9 @@ class RegisterScreen extends BaseStatelessWidget {
           validator: (value) {
             if (value!.isEmpty) {
               return "* Required";
-            } else
+            } else {
               return null;
+            }
           },
           decoration: tTextFieldInputDecoration("Email Address"),
         ),
@@ -315,8 +317,9 @@ class RegisterScreen extends BaseStatelessWidget {
           validator: (value) {
             if (value!.isEmpty) {
               return "* Required";
-            } else
+            } else {
               return null;
+            }
           },
           decoration: tTextFieldInputDecoration("Password"),
         ),
@@ -335,7 +338,7 @@ class RegisterScreen extends BaseStatelessWidget {
               _buildCupertinoDatePicker(context);
             },
             child: Container(
-              margin: EdgeInsets.fromLTRB(5, 0, 0, 0),
+              margin: const EdgeInsets.fromLTRB(5, 0, 0, 0),
               alignment: Alignment.centerLeft,
               child: Consumer<RegisterViewModel>(
                 builder: (context, value, child) {
@@ -361,7 +364,7 @@ class RegisterScreen extends BaseStatelessWidget {
               return CupertinoDatePicker(
                 mode: CupertinoDatePickerMode.date,
                 onDateTimeChanged: (picked) {
-                  if (picked != null && picked != value.selectedDateTime) {
+                  if (picked != value.selectedDateTime) {
                     value.selectedDateTime = picked;
                   }
                 },
@@ -375,7 +378,7 @@ class RegisterScreen extends BaseStatelessWidget {
       });
 
   Widget _buildSexTextField() => Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         decoration: kBoxDecorationDropDownButton,
         child: SizedBox(
           height: 50,

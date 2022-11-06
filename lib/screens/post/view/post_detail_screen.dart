@@ -10,7 +10,10 @@ class PostDetailScreen extends StatefulWidget {
   static const routeName = '/post_detail_screen';
   final post;
 
-  PostDetailScreen({required this.post});
+  const PostDetailScreen({
+    super.key,
+    required this.post,
+  });
 
   @override
   _PostDetailScreenState createState() => _PostDetailScreenState(post);

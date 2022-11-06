@@ -5,9 +5,12 @@ import '../../constants/styles.dart';
 import '../../product/theme/theme_mode/light/color_scheme_light.dart';
 
 class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
-  final title;
+  final String title;
 
-  AppBarSettings({this.title = ""});
+  const AppBarSettings({
+    super.key,
+    this.title = "",
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(60.0);
@@ -19,7 +22,7 @@ class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
 
   _appBar(String title, context) {
     return AppBar(
-      systemOverlayStyle: SystemUiOverlayStyle(
+      systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
       ),
@@ -27,20 +30,20 @@ class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: 60,
       title: _buildTitle(context),
       backgroundColor: Colors.transparent,
-      iconTheme: IconThemeData(color: Colors.white),
-      shadowColor: Color.fromRGBO(0, 0, 0, 0),
+      iconTheme: const IconThemeData(color: Colors.white),
+      shadowColor: const Color.fromRGBO(0, 0, 0, 0),
     );
   }
 
   _buildTitle(context) {
     return Container(
       height: 60,
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Stack(
         children: [
           Align(
             alignment: Alignment.center,
-            child: Container(
+            child: SizedBox(
               height: 60,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,14 +59,14 @@ class AppBarSettings extends StatelessWidget implements PreferredSizeWidget {
           ),
           Container(
             height: 60,
-            margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+            margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
             child: Align(
               alignment: Alignment.centerLeft,
               child: GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_back,
                   color: ColorSchemeLight.kThemeColor,
                   size: 25,

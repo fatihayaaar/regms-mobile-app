@@ -19,7 +19,7 @@ import '../../screens/starter/view/starter_screen.dart';
 import 'navigation.dart';
 
 class NavigationRoute {
-  static NavigationRoute _instance = NavigationRoute._init();
+  static final NavigationRoute _instance = NavigationRoute._init();
 
   static NavigationRoute get instance => _instance;
 

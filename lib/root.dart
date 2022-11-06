@@ -7,9 +7,7 @@ class Root {
   User? myUser;
 
   static Root get instance {
-    if (_instance == null) {
-      _instance = Root._();
-    }
+    _instance ??= Root._();
     return _instance!;
   }
 

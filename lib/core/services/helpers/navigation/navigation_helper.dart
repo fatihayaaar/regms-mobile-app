@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class NavigationHelper {
-  static NavigationHelper _instance = NavigationHelper._init();
+  static final NavigationHelper _instance = NavigationHelper._init();
 
   static NavigationHelper get instance => _instance;
 

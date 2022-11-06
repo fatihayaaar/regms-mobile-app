@@ -10,14 +10,18 @@ class BottomNavBar extends StatelessWidget {
   final int selected;
   final Function? onPressed;
 
-  BottomNavBar({required this.selected, this.onPressed()?});
+  const BottomNavBar({
+    super.key,
+    required this.selected,
+    this.onPressed()?,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-        border: Border(
+        border: const Border(
           top: BorderSide(
             color: ColorSchemeLight.kBorderColor,
             width: 0.5,
@@ -26,7 +30,7 @@ class BottomNavBar extends StatelessWidget {
       ),
       height: 45,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         children: [
           _buildItem(
@@ -115,7 +119,7 @@ class BottomNavBar extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.grey.withOpacity(0.5),
             radius: 15,
-            backgroundImage: AssetImage("assets/images/dump_1.jpg"),
+            backgroundImage: const AssetImage("assets/images/dump_1.jpg"),
             //child: Image.file(),
           ),
         ),

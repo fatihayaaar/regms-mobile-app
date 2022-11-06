@@ -35,7 +35,7 @@ class HomeTimeline extends StatelessWidget {
         onClickMessages: onClickMessages,
       ),
       body: PageWidget(child: _buildContent(context)),
-      bottomNavigationBar: BottomNavBar(selected: -2),
+      bottomNavigationBar: const BottomNavBar(selected: -2),
     );
   }
 
@@ -57,12 +57,12 @@ class HomeTimeline extends StatelessWidget {
           children: [
             Container(
               color: Theme.of(context).backgroundColor,
-              padding: EdgeInsets.fromLTRB(0, 3, 0, 5),
+              padding: const EdgeInsets.fromLTRB(0, 3, 0, 5),
               child: SelectionWidget(list: list),
             ),
             ListView.builder(
-              padding: EdgeInsets.all(0),
-              physics: ScrollPhysics(),
+              padding: const EdgeInsets.all(0),
+              physics: const ScrollPhysics(),
               shrinkWrap: true,
               itemCount: posts.length,
               itemBuilder: (BuildContext context, int index) {

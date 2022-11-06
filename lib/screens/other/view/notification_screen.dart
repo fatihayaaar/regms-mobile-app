@@ -15,7 +15,7 @@ class _NotificationScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarSettings(title: "Notifications"),
+      appBar: const AppBarSettings(title: "Notifications"),
       body: _build(),
     );
   }
@@ -27,7 +27,7 @@ class _NotificationScreenState extends State {
         return false;
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 0),
+        margin: const EdgeInsets.symmetric(horizontal: 0),
         child: SingleChildScrollView(
           child: _buildNotifications(),
         ),
@@ -38,7 +38,7 @@ class _NotificationScreenState extends State {
   _buildNotifications() {
     return ListView.builder(
       itemCount: 25,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: (BuildContext context, int index) {
         return NotificationTile(

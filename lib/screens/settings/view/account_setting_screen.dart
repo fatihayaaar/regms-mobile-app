@@ -22,28 +22,28 @@ class _AccountSettingsScreen extends State {
     return Drawer(
       width: double.infinity,
       child: Scaffold(
-        appBar: AppBarSettings(title: "Account Settings"),
+        appBar: const AppBarSettings(title: "Account Settings"),
         body: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (overScroll) {
             overScroll.disallowIndicator();
             return false;
           },
           child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 25),
+            margin: const EdgeInsets.symmetric(horizontal: 25),
             child: ListView(
               shrinkWrap: true,
               children: [
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 DrawerListItem(
                   text: "Change Username",
                   page: ChangeUsernameScreen(),
                 ),
-                Divider(color: ColorSchemeLight.kBorderColor),
+                const Divider(color: ColorSchemeLight.kBorderColor),
                 DrawerListItem(
                   text: "Change Email Address",
                   page: ChangeEmailScreen(),
                 ),
-                Divider(color: ColorSchemeLight.kBorderColor),
+                const Divider(color: ColorSchemeLight.kBorderColor),
                 DrawerListItem(
                   text: "Change Password",
                   page: ChangePasswordScreen(),

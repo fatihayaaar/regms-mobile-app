@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../search_widget.dart';
 
-class AppBarSearchWidget extends StatelessWidget
-    implements PreferredSizeWidget {
+class AppBarSearchWidget extends StatelessWidget implements PreferredSizeWidget {
   final searchOnChanged;
 
-  AppBarSearchWidget({this.searchOnChanged});
+  const AppBarSearchWidget({
+    super.key,
+    this.searchOnChanged,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(45.0);
@@ -23,7 +25,7 @@ class AppBarSearchWidget extends StatelessWidget
       title: Row(
         children: [
           _buildTitle(context, "Search"),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           SearchWidget(onChanged: searchOnChanged),
         ],
       ),
@@ -33,7 +35,7 @@ class AppBarSearchWidget extends StatelessWidget
   _buildTitle(context, String title) {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Text(title),
     );
   }

@@ -24,12 +24,12 @@ class _UsersScreenState extends State {
         return UsersViewModel();
       },
       child: Scaffold(
-        appBar: MyAppBar(
+        appBar: const MyAppBar(
           title: "Followers",
           backButtonVisibility: true,
         ),
         body: PageWidget(child: _buildContent()),
-        bottomNavigationBar: BottomNavBar(selected: -2),
+        bottomNavigationBar: const BottomNavBar(selected: -2),
       ),
     );
   }
@@ -38,15 +38,15 @@ class _UsersScreenState extends State {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.fromLTRB(15, 15, 15, 10),
-          child: Search(),
+          margin: const EdgeInsets.fromLTRB(15, 15, 15, 10),
+          child: const Search(),
         ),
         _buildFollowRequestItem(),
         Consumer<UsersViewModel>(
           builder: (BuildContext context, value, Widget? child) {
             return ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: value.users.length,
               itemBuilder: (BuildContext context, int index) {
                 return ChangeNotifierProvider.value(
@@ -78,8 +78,8 @@ class _UsersScreenState extends State {
           },
         ),
         Container(
-          margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-          child: Divider(color: ColorSchemeLight.kBorderColor),
+          margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+          child: const Divider(color: ColorSchemeLight.kBorderColor),
         ),
       ],
     );

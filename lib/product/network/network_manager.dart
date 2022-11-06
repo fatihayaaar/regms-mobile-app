@@ -7,9 +7,7 @@ class NetworkManager {
   final api;
 
   static NetworkManager instance(api) {
-    if (_instance == null) {
-      _instance = NetworkManager._(api);
-    }
+    _instance ??= NetworkManager._(api);
     return _instance!;
   }
 

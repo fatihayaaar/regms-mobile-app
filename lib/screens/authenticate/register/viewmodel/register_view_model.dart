@@ -21,9 +21,9 @@ class RegisterViewModel extends BaseViewModel<RegisterService> {
   }
 
   void init() {
-    _controller = new PageController();
+    _controller = PageController();
     _slideIndex = 0;
-    _selectedDateTime = new DateTime.now();
+    _selectedDateTime = DateTime.now();
     _selectedGender = "Gender";
   }
 
@@ -68,7 +68,7 @@ class RegisterViewModel extends BaseViewModel<RegisterService> {
   void nextButtonStep1OnClick() {
     controller.animateToPage(
       slideIndex + 1,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.fastOutSlowIn,
     );
 

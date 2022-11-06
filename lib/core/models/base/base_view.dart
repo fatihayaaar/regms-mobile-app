@@ -11,7 +11,8 @@ class BaseView<T extends BaseViewModel> extends StatefulWidget {
   final Function(ThemeData theme, Function(String) translate, NetworkManager networkManager) initialState;
   final child;
 
-  BaseView({
+  const BaseView({
+    super.key,
     required this.builder,
     required this.viewModel,
     required this.onModelReady,

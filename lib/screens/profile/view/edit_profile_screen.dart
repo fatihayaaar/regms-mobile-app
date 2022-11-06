@@ -32,7 +32,7 @@ class EditProfileScreen extends BaseStatelessWidget {
   }
 
   MyAppBar _buildAppBar() {
-    return MyAppBar(
+    return const MyAppBar(
       title: "Edit Profile",
       backButtonVisibility: true,
       isSaveAction: true,
@@ -49,7 +49,7 @@ class EditProfileScreen extends BaseStatelessWidget {
           return false;
         },
         child: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             child: _buildContent(),
           ),
@@ -63,14 +63,14 @@ class EditProfileScreen extends BaseStatelessWidget {
       children: [
         Container(
           width: double.maxFinite,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: ColorSchemeLight.kThemeColor,
           ),
           child: Column(
             children: [
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               _buildAvatarEdit(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
             ],
           ),
         ),
@@ -89,7 +89,7 @@ class EditProfileScreen extends BaseStatelessWidget {
   }
 
   _buildAvatarEdit() {
-    return Container(
+    return SizedBox(
       width: 200,
       child: Stack(
         alignment: Alignment.center,
@@ -105,8 +105,8 @@ class EditProfileScreen extends BaseStatelessWidget {
             bottom: 15,
             right: 15,
             child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(10),
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: ColorSchemeLight.kBackgroundColor,
               ),
@@ -130,7 +130,7 @@ class EditProfileScreen extends BaseStatelessWidget {
       child: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: ColorSchemeLight.kBackgroundColor,
             borderRadius: BorderRadius.only(
               topRight: Radius.circular(20),
@@ -145,17 +145,17 @@ class EditProfileScreen extends BaseStatelessWidget {
 
   _buildFormContent() {
     return Container(
-      padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-      margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
+      padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+      margin: const EdgeInsets.fromLTRB(15, 0, 15, 20),
       child: Column(
         children: [
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           //_buildProfileProperty(),
           //SizedBox(height: 25),
           _buildNameAndSurnameTextField(),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           _buildBioTextField(),
-          SizedBox(height: 7),
+          const SizedBox(height: 7),
           _buildBioLength(),
         ],
       ),
@@ -167,7 +167,7 @@ class EditProfileScreen extends BaseStatelessWidget {
       children: [
         Container(
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
+          margin: const EdgeInsets.fromLTRB(20, 0, 0, 10),
           child: Text(
             "Name And Surname",
             style: theme.textTheme.bodySmall,
@@ -186,8 +186,9 @@ class EditProfileScreen extends BaseStatelessWidget {
             validator: (value) {
               if (value!.isEmpty) {
                 return "* Required";
-              } else
+              } else {
                 return null;
+              }
             },
             decoration: tTextFieldInputDecoration("Name And Surname"),
           ),
@@ -201,7 +202,7 @@ class EditProfileScreen extends BaseStatelessWidget {
       children: [
         Container(
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.fromLTRB(20, 0, 0, 10),
+          margin: const EdgeInsets.fromLTRB(20, 0, 0, 10),
           child: Text(
             "About Me",
             style: theme.textTheme.bodySmall,
@@ -224,11 +225,11 @@ class EditProfileScreen extends BaseStatelessWidget {
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "* Required";
-                  } else
+                  } else {
                     return null;
+                  }
                 },
-                decoration: tTextFieldInputDecoration(
-                    "You should write your biography! People may have opinions about you."),
+                decoration: tTextFieldInputDecoration("You should write your biography! People may have opinions about you."),
               );
             },
           ),
@@ -240,7 +241,7 @@ class EditProfileScreen extends BaseStatelessWidget {
   _buildBioLength() {
     return Container(
       alignment: Alignment.centerRight,
-      margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
       child: Consumer<EditProfileViewModel>(
         builder: (BuildContext context, value, Widget? child) {
           return Text(
@@ -267,10 +268,10 @@ class EditProfileScreen extends BaseStatelessWidget {
 
   _buildProfilePropertyChild() {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+      margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       width: 50,
       height: 50,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15)),
         color: Colors.grey,
       ),

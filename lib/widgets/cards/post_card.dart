@@ -14,9 +14,10 @@ class PostCard extends StatelessWidget {
   final Post post;
   final bool isCommentVisible;
   final bool isDetail;
-  var context;
+  late BuildContext context;
 
   PostCard({
+    super.key,
     required this.post,
     this.isDetail = false,
     this.isCommentVisible = true,
@@ -42,11 +43,11 @@ class PostCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             _buildPostCardHeader(),
             _buildPostContent(),
             _buildPostMedia(),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             _buildPostFooter(),
             SizedBox(height: isCommentVisible ? 5 : 0),
           ],
@@ -62,9 +63,9 @@ class PostCard extends StatelessWidget {
           child: Row(
             children: [
               _buildPostAvatar(),
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               _buildPostUsername(),
-              SizedBox(width: 7),
+              const SizedBox(width: 7),
               _buildPostDate(),
             ],
           ),
@@ -88,7 +89,7 @@ class PostCard extends StatelessWidget {
 
   _buildPostUsername() {
     return Text(
-      "${post.user.username}",
+      post.user.username,
       style: kPostUsernameTextStyle,
     );
   }
@@ -114,14 +115,12 @@ class PostCard extends StatelessWidget {
     return post.media == null
         ? Container()
         : Container(
-            margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(0),
-              child: Container(
-                child: Image.asset(
-                  "${post.media}",
-                  fit: BoxFit.cover,
-                ),
+              child: Image.asset(
+                "${post.media}",
+                fit: BoxFit.cover,
               ),
             ),
           );
@@ -141,7 +140,7 @@ class PostCard extends StatelessWidget {
               ),
               Visibility(
                 visible: isDetail,
-                child: SizedBox(height: 5),
+                child: const SizedBox(height: 5),
               ),
               _buildComments(),
               SizedBox(height: post.commentCount == 0 ? 5 : 0),
@@ -168,7 +167,7 @@ class PostCard extends StatelessWidget {
 
   _buildActions() {
     return Container(
-      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
+      margin: const EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -178,7 +177,7 @@ class PostCard extends StatelessWidget {
             onClick: () {},
             text: post.likeCount > 0 ? "${post.likeCount}" : null,
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           _buildAction(
             icon: (Icons.messenger_outline),
             onClick: () {},
@@ -189,7 +188,7 @@ class PostCard extends StatelessWidget {
             icon: (Icons.ios_share),
             onClick: () {},
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           _buildAction(
             icon: (Icons.bookmark_border),
             onClick: () {},
@@ -199,21 +198,19 @@ class PostCard extends StatelessWidget {
     );
   }
 
-  _buildAction({String? text, required IconData icon, required void onClick()}) {
+  _buildAction({String? text, required IconData icon, required void Function() onClick}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          child: Icon(
-            icon,
-            size: 20,
-            color: ColorSchemeLight.kCommentActionIconColor,
-          ),
+        Icon(
+          icon,
+          size: 20,
+          color: ColorSchemeLight.kCommentActionIconColor,
         ),
         Visibility(
           visible: text == null ? false : true,
-          child: SizedBox(width: 5),
+          child: const SizedBox(width: 5),
         ),
         Visibility(
           visible: text == null ? false : true,
@@ -233,12 +230,12 @@ class PostCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
             context: context,
-            builder: (_) => BottomSheetWidget(),
+            builder: (_) => const BottomSheetWidget(),
           );
         },
         child: Container(
-          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
-          child: Icon(
+          margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+          child: const Icon(
             Icons.keyboard_control_rounded,
             color: ColorSchemeLight.kBodyTextColor,
           ),
@@ -250,14 +247,14 @@ class PostCard extends StatelessWidget {
   _buildPostDate() {
     return Row(
       children: [
-        Icon(
+        const Icon(
           Icons.access_time,
           size: 10,
           color: ColorSchemeLight.kBodyTextColor,
         ),
-        SizedBox(width: 3),
+        const SizedBox(width: 3),
         Text(
-          "${post.sendDate}",
+          post.sendDate,
           style: kTimeTextStyle,
         ),
       ],

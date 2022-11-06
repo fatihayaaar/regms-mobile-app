@@ -4,9 +4,13 @@ import '../product/theme/theme_mode/light/color_scheme_light.dart';
 
 class PageWidget extends StatelessWidget {
   final Widget child;
-  final isRadius;
+  final bool isRadius;
 
-  PageWidget({required this.child, this.isRadius = false});
+  const PageWidget({
+    super.key,
+    required this.child,
+    this.isRadius = false,
+  });
 
   @override
   Widget build(BuildContext context) {

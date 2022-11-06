@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 class AppLocalizations {
   final Locale locale;
-  static RegExp exp = new RegExp(r"\{(.*?)\}");
+  static RegExp exp = RegExp(r"\{(.*?)\}");
   late Map<String, String> localizedStrings;
 
   static const delegate = _AppLocalizationsDelegate();
@@ -69,7 +69,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    AppLocalizations localizations = new AppLocalizations(locale);
+    AppLocalizations localizations = AppLocalizations(locale);
     await localizations.load();
     return localizations;
   }

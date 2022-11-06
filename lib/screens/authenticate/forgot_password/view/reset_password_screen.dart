@@ -31,19 +31,19 @@ class _ResetPasswordScreen extends State {
       },
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-          margin: EdgeInsets.fromLTRB(25, 0, 25, 20),
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          margin: const EdgeInsets.fromLTRB(25, 0, 25, 20),
           child: Column(
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.18),
               _buildTitle(),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               _buildSubTitle(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               _buildPasswordTextField(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildConfirmPasswordTextField(),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               _buildResetPasswordButton(),
             ],
           ),
@@ -54,11 +54,11 @@ class _ResetPasswordScreen extends State {
 
   Widget _buildTitle() {
     return Container(
+      alignment: Alignment.bottomLeft,
       child: Text(
         "Reset\nPassword",
         style: Theme.of(context).textTheme.headlineMedium,
       ),
-      alignment: Alignment.bottomLeft,
     );
   }
 
@@ -78,8 +78,9 @@ class _ResetPasswordScreen extends State {
         validator: (value) {
           if (value!.isEmpty) {
             return "* Required";
-          } else
+          } else {
             return null;
+          }
         },
         decoration: tTextFieldInputDecoration("Password"),
       ),
@@ -102,8 +103,9 @@ class _ResetPasswordScreen extends State {
         validator: (value) {
           if (value!.isEmpty) {
             return "* Required";
-          } else
+          } else {
             return null;
+          }
         },
         decoration: tTextFieldInputDecoration("Confirm Password"),
       ),
@@ -111,7 +113,7 @@ class _ResetPasswordScreen extends State {
   }
 
   Widget _buildResetPasswordButton() {
-    return Container(
+    return SizedBox(
       height: 50,
       width: double.infinity,
       child: ElevatedButton(

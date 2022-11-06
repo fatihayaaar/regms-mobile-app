@@ -8,9 +8,7 @@ import 'enum/theme_name.dart';
 class AppThemeContainer {
   static AppThemeContainer? _instance;
   static AppThemeContainer get instance {
-    if (_instance == null) {
-      _instance = AppThemeContainer._init();
-    }
+    _instance ??= AppThemeContainer._init();
     return _instance!;
   }
 

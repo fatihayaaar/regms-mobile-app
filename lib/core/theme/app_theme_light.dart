@@ -7,13 +7,12 @@ class AppThemeLight extends AppTheme {
   ThemeData? themeData;
 
   static AppThemeLight instance({ThemeData? themeData}) {
-    if (_instance == null) {
-      _instance = AppThemeLight._init(themeData: themeData);
-    }
+    _instance ??= AppThemeLight._init(themeData: themeData);
     return _instance!;
   }
 
   AppThemeLight._init({this.themeData});
 
+  @override
   ThemeData get theme => themeData ?? ThemeData.light().copyWith();
 }

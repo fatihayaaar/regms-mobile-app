@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 class SearchWidget extends StatelessWidget {
   final onChanged;
 
-  SearchWidget({this.onChanged});
+  const SearchWidget({
+    super.key,
+    this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      child: Container(
+      child: SizedBox(
         height: 28,
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -19,16 +22,16 @@ class SearchWidget extends StatelessWidget {
                 obscureText: false,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.transparent),
+                    borderSide: const BorderSide(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(5),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.transparent),
+                    borderSide: const BorderSide(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(5),
                   ),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.1),
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.search_sharp,
                     color: Colors.white,
                     size: 20,
@@ -41,5 +44,4 @@ class SearchWidget extends StatelessWidget {
       ),
     );
   }
-
 }

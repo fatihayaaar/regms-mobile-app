@@ -6,7 +6,10 @@ import 'avatar.dart';
 class CommentTextField extends StatelessWidget {
   final String? avatar;
 
-  CommentTextField({this.avatar});
+  const CommentTextField({
+    super.key,
+    this.avatar,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +26,11 @@ class CommentTextField extends StatelessWidget {
               validator: (value) {
                 if (value!.isEmpty) {
                   return "* Required";
-                } else
+                } else {
                   return null;
+                }
               },
-              decoration:
-                  kCommentTextFieldInputDecoration("send your comment..."),
+              decoration: kCommentTextFieldInputDecoration("send your comment..."),
             ),
           ),
         ),

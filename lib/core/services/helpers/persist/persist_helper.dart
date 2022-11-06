@@ -43,11 +43,11 @@ class PersistHelper {
   Future<ThemeName> getThemeMode() async {
     String? themeMode = sharedPreferences.getString(Preferences.THEME_MODE);
     ThemeName theme = ThemeName.LIGHT;
-    ApplicationConstant.THEME_SUPPORT.forEach((ThemeName element) {
+    for (var element in ApplicationConstant.THEME_SUPPORT) {
       if (themeMode == element.name) {
         theme = element;
       }
-    });
+    }
     return theme;
   }
 

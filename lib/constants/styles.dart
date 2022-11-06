@@ -1,10 +1,12 @@
+// ignore_for_file: prefer_function_declarations_over_variables
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../product/theme/theme_mode/light/color_scheme_light.dart';
 
 final kLoginButtonButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
-  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  shadowColor: MaterialStateProperty.all(const Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(15.0),
@@ -14,7 +16,7 @@ final kLoginButtonButtonStyle = ButtonStyle(
 
 final kRegisterButtonButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all(ColorSchemeLight.kLoginButtonColor),
-  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  shadowColor: MaterialStateProperty.all(const Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(30.0),
@@ -23,11 +25,11 @@ final kRegisterButtonButtonStyle = ButtonStyle(
 );
 
 final kDatePickerButtonButtonStyle = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 1.0)),
-  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(255, 255, 255, 1.0)),
+  shadowColor: MaterialStateProperty.all(const Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
-      side: BorderSide(
+      side: const BorderSide(
         width: 1,
         color: ColorSchemeLight.kBorderColor,
         style: BorderStyle.solid,
@@ -38,9 +40,9 @@ final kDatePickerButtonButtonStyle = ButtonStyle(
 );
 
 final kTransparentButtonButtonStyle = ButtonStyle(
-  padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(0)),
-  backgroundColor: MaterialStateProperty.all(Color.fromRGBO(0, 0, 0, 0)),
-  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(0)),
+  backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(0, 0, 0, 0)),
+  shadowColor: MaterialStateProperty.all(const Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(0.0),
@@ -50,7 +52,7 @@ final kTransparentButtonButtonStyle = ButtonStyle(
 
 final kProfileButtonButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all(ColorSchemeLight.kTextFieldColor),
-  shadowColor: MaterialStateProperty.all(Color.fromRGBO(255, 255, 255, 0)),
+  shadowColor: MaterialStateProperty.all(const Color.fromRGBO(255, 255, 255, 0)),
   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
     RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(15.0),
@@ -58,7 +60,7 @@ final kProfileButtonButtonStyle = ButtonStyle(
   ),
 );
 
-final kProfileHeaderDecoration = BoxDecoration(
+const kProfileHeaderDecoration = BoxDecoration(
   color: Colors.grey,
   borderRadius: BorderRadius.vertical(
     top: Radius.circular(15),
@@ -66,7 +68,7 @@ final kProfileHeaderDecoration = BoxDecoration(
   ),
 );
 
-final kCommentBoxDecoration = BoxDecoration(
+const kCommentBoxDecoration = BoxDecoration(
   color: ColorSchemeLight.kTextFieldColor,
   borderRadius: BorderRadius.only(
     topLeft: Radius.zero,
@@ -76,18 +78,18 @@ final kCommentBoxDecoration = BoxDecoration(
   ),
 );
 
-final tTextFieldBoxDecoration = BoxDecoration(
+const tTextFieldBoxDecoration = BoxDecoration(
   color: Color.fromRGBO(245, 245, 245, 1.0),
   borderRadius: BorderRadius.all(Radius.circular(15)),
 );
 
-final kCommentTextFieldBoxDecoration = BoxDecoration(
+const kCommentTextFieldBoxDecoration = BoxDecoration(
   color: Color.fromRGBO(245, 245, 245, 1.0),
   borderRadius: BorderRadius.all(Radius.circular(0)),
 );
 
 final tTextFieldInputDecoration = (hintText) => InputDecoration(
-      contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       border: InputBorder.none,
       hintText: hintText,
       hintStyle: kHintTextStyle,
@@ -95,8 +97,8 @@ final tTextFieldInputDecoration = (hintText) => InputDecoration(
 
 final kCommentTextFieldInputDecoration = (hintText) => InputDecoration(
       isDense: true,
-      contentPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
-      enabledBorder: OutlineInputBorder(
+      contentPadding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+      enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: ColorSchemeLight.kBorderColor, width: 1.0),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
@@ -109,12 +111,12 @@ final kHintTextStyle = GoogleFonts.raleway(
   color: ColorSchemeLight.kTextFieldLightColor,
 );
 final Decoration kBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(245, 245, 245, 1.0),
+  color: const Color.fromRGBO(245, 245, 245, 1.0),
   borderRadius: BorderRadius.circular(15),
 );
 
 final Decoration kAddPostDraftBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(245, 245, 245, 1.0),
+  color: const Color.fromRGBO(245, 245, 245, 1.0),
   borderRadius: BorderRadius.circular(0),
 );
 
@@ -124,19 +126,19 @@ final Decoration kAddPostBoxDecorationTextField = BoxDecoration(
 );
 
 final Decoration kFilterBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(255, 255, 255, 1.0),
+  color: const Color.fromRGBO(255, 255, 255, 1.0),
   borderRadius: BorderRadius.circular(15),
   border: Border.all(color: ColorSchemeLight.kBorderColor.withOpacity(0.5)),
 );
 
 final kAddPostItemBoxDecorationTextField = BoxDecoration(
-  color: Color.fromRGBO(254, 254, 254, 1.0),
+  color: const Color.fromRGBO(254, 254, 254, 1.0),
   borderRadius: BorderRadius.circular(0),
   border: Border.all(color: Colors.white.withOpacity(0.0)),
 );
 
 final Decoration kBoxDecorationDropDownButton = BoxDecoration(
-  color: Color.fromRGBO(255, 255, 255, 1.0),
+  color: const Color.fromRGBO(255, 255, 255, 1.0),
   border: Border.all(color: ColorSchemeLight.kBorderColor),
   borderRadius: BorderRadius.circular(15),
 );
@@ -147,7 +149,7 @@ final Decoration kBoxDecorationSearchTextField = BoxDecoration(
 );
 
 final Decoration kBoxDecorationListTypeItem = BoxDecoration(
-  color: Color.fromRGBO(245, 245, 245, 1.0),
+  color: const Color.fromRGBO(245, 245, 245, 1.0),
   borderRadius: BorderRadius.circular(10),
 );
 
@@ -218,7 +220,7 @@ final tForgotPasswordTextStyle = GoogleFonts.raleway(
 
 final gSheetActionTextStyle = GoogleFonts.rubik(
   fontSize: 14,
-  color: Color.fromRGBO(88, 80, 49, 1),
+  color: const Color.fromRGBO(88, 80, 49, 1),
 );
 
 final tAppbarActionTextStyle = GoogleFonts.raleway(

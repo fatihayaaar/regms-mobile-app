@@ -26,7 +26,7 @@ late List<CameraDescription> cameras;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
+    const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.white,
     ),
@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
             supportedLocales: store.supportedLanguages.map((language) {
               return Locale.fromSubtags(languageCode: language.locale);
             }).toList(),
-            localizationsDelegates: [
+            localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,

@@ -9,7 +9,11 @@ class CommentBox extends StatelessWidget {
   final String? detailText;
   final Comment comment;
 
-  CommentBox({this.detailText, required this.comment});
+  const CommentBox({
+    super.key,
+    this.detailText,
+    required this.comment,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,13 +60,13 @@ class CommentBox extends StatelessWidget {
             Row(
               children: [
                 _buildCommentBoxUsername(),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 _buildCommentBoxTime(),
               ],
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             _buildCommentBoxText(),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
           ],
         ),
       ),
@@ -71,7 +75,7 @@ class CommentBox extends StatelessWidget {
 
   _buildCommentBoxUsername() {
     return Text(
-      '${comment.user.username}',
+      comment.user.username,
       style: kCommentRichTextStyle(
         ColorSchemeLight.kCommentUsernameColor,
         FontWeight.bold,
@@ -81,7 +85,7 @@ class CommentBox extends StatelessWidget {
 
   _buildCommentBoxText() {
     return Text(
-      '${comment.text}',
+      comment.text,
       style: kCommentRichTextStyle(
         ColorSchemeLight.kCommentTextColor,
         FontWeight.normal,

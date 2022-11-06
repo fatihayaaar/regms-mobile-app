@@ -6,15 +6,13 @@ class BottomNavigationBarThemeLight {
   static BottomNavigationBarThemeLight? _instance;
 
   static BottomNavigationBarThemeLight get instance {
-    if (_instance == null) {
-      _instance = BottomNavigationBarThemeLight._();
-    }
+    _instance ??= BottomNavigationBarThemeLight._();
     return _instance!;
   }
 
   BottomNavigationBarThemeLight._();
 
-  BottomNavigationBarThemeData get data => BottomNavigationBarThemeData(
+  BottomNavigationBarThemeData get data => const BottomNavigationBarThemeData(
         backgroundColor: Colors.white,
         unselectedItemColor: ColorSchemeLight.kThemeColor,
       );

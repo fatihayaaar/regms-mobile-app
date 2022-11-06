@@ -7,9 +7,7 @@ class RegisterNetwork<T> with MixinNetwork {
   static RegisterNetwork? _instance;
 
   static RegisterNetwork instance(api) {
-    if (_instance == null) {
-      _instance = RegisterNetwork._(api);
-    }
+    _instance ??= RegisterNetwork._(api);
     return _instance!;
   }
 

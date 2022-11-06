@@ -4,9 +4,7 @@ class ColorSchemeLight {
   static ColorSchemeLight? _instance;
 
   static ColorSchemeLight get instance {
-    if (_instance == null) {
-      _instance = ColorSchemeLight._();
-    }
+    _instance ??= ColorSchemeLight._();
     return _instance!;
   }
 

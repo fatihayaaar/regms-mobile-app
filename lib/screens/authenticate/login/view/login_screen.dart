@@ -55,7 +55,7 @@ class LoginScreen extends BaseStatelessWidget {
             children: [
               SizedBox(height: MediaQuery.of(context).size.height * 0.18),
               _buildTitle(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               _buildContent(),
             ],
           ),
@@ -64,7 +64,7 @@ class LoginScreen extends BaseStatelessWidget {
 
   Widget _buildTitle() => Container(
         width: double.infinity,
-        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         alignment: Alignment.center,
         child: Text(
           translate("login_title"),
@@ -73,23 +73,23 @@ class LoginScreen extends BaseStatelessWidget {
       );
 
   Widget _buildContent() => Container(
-        padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-        margin: EdgeInsets.fromLTRB(15, 0, 15, 20),
+        padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+        margin: const EdgeInsets.fromLTRB(15, 0, 15, 20),
         child: _buildForm(),
       );
 
   Widget _buildForm() => Form(
         key: _formKey,
         child: Container(
-          margin: EdgeInsets.fromLTRB(10, 20, 10, 20),
+          margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
           child: Column(
             children: [
               _buildFormTextFields(),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               _buildForgotPasswordLink(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               _buildLoginButton(),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               _buildSignUp(),
             ],
           ),
@@ -97,11 +97,11 @@ class LoginScreen extends BaseStatelessWidget {
       );
 
   Widget _buildFormTextFields() => Container(
-        padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+        padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
         child: Column(
           children: <Widget>[
             _buildUsernameTextField(),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             _buildPasswordTextField(),
           ],
         ),
@@ -120,8 +120,9 @@ class LoginScreen extends BaseStatelessWidget {
           validator: (value) {
             if (value!.isEmpty) {
               return "* Required";
-            } else
+            } else {
               return null;
+            }
           },
           decoration: tTextFieldInputDecoration("Username"),
         ),
@@ -145,14 +146,15 @@ class LoginScreen extends BaseStatelessWidget {
           validator: (value) {
             if (value!.isEmpty) {
               return "* Required";
-            } else
+            } else {
               return null;
+            }
           },
           decoration: tTextFieldInputDecoration("Password"),
         ),
       );
 
-  Widget _buildLoginButton() => Container(
+  Widget _buildLoginButton() => SizedBox(
         height: 50,
         width: double.infinity,
         child: ElevatedButton(

@@ -11,7 +11,11 @@ class ProfileCard extends StatelessWidget {
   final User user;
   final context;
 
-  ProfileCard({required this.user, required this.context});
+  const ProfileCard({
+    super.key,
+    required this.user,
+    required this.context,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,46 +24,44 @@ class ProfileCard extends StatelessWidget {
         _buildProfileHeader(),
         _buildProfileActions(),
         Container(
-          margin: EdgeInsets.fromLTRB(10, 60, 10, 0),
+          margin: const EdgeInsets.fromLTRB(10, 60, 10, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildAvatar(),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               _buildNameAndSurname(),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               _buildBio(),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Icon(
                     Icons.person,
-                    color: ColorSchemeLight.kRegisterRichTextAboutColor
-                        .withOpacity(0.5),
+                    color: ColorSchemeLight.kRegisterRichTextAboutColor.withOpacity(0.5),
                   ),
-                  SizedBox(width: 7.5),
+                  const SizedBox(width: 7.5),
                   _buildProfileFollowersText(
                     text: "Followers",
                     count: user.profile.followersCount.toString(),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Icon(
                     Icons.circle,
-                    color: ColorSchemeLight.kRegisterRichTextAboutColor
-                        .withOpacity(0.5),
+                    color: ColorSchemeLight.kRegisterRichTextAboutColor.withOpacity(0.5),
                     size: 4,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   _buildProfileFollowersText(
                     text: "Following",
                     count: user.profile.followingCount.toString(),
                   ),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
             ],
           ),
         ),
@@ -104,7 +106,7 @@ class ProfileCard extends StatelessWidget {
   _buildProfileActions() {
     return Container(
       alignment: Alignment.topRight,
-      margin: EdgeInsets.fromLTRB(0, 110, 10, 0),
+      margin: const EdgeInsets.fromLTRB(0, 110, 10, 0),
       child: _buildProfileEditButton("Edit", () {
         Route route = MaterialPageRoute(
           builder: (_) => EditProfileScreen(),
@@ -114,9 +116,9 @@ class ProfileCard extends StatelessWidget {
     );
   }
 
-  _buildProfileEditButton(String text, void onClick()) {
+  _buildProfileEditButton(String text, void Function() onClick) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       height: 33,
       child: ElevatedButton(
         style: kProfileButtonButtonStyle,
@@ -136,14 +138,14 @@ class ProfileCard extends StatelessWidget {
         Navigator.push(context, route);
       },
       child: Container(
-        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Row(
           children: [
             Text(
               count,
               style: kFollowersCountSizeTextStyle,
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Text(
               text,
               style: kFollowersCountTextStyle,
