@@ -5,8 +5,8 @@ import '../../../../product/navigation/navigation.dart';
 import '../../../../product/network/auth/models/register_model/register_model.dart';
 import '../../../../product/extensions/context_extension.dart';
 import '../../../../core/models/base/base_view_model.dart';
-import '../../../../product/base/base_service.dart';
 import '../../../../product/network/auth/models/register_model/register_response_model/register_response_model.dart';
+import '../../../../product/network/base/base_service.dart';
 import '../../../../root.dart';
 import '../services/register_service.dart';
 

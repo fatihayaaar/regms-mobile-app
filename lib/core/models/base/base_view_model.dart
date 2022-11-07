@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../product/base/base_service.dart';
+import '../../../product/network/base/base_service.dart';
 
 abstract class BaseViewModel<T extends BaseService> extends ChangeNotifier {
   BuildContext? context;

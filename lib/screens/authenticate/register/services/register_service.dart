@@ -1,7 +1,7 @@
 import '../../../../core/services/helpers/network/models/error_model/error_response_model.dart';
-import '../../../../product/base/base_service.dart';
 import '../../../../product/network/auth/models/register_model/register_model.dart';
 import '../../../../product/network/auth/models/register_model/register_response_model/register_response_model.dart';
+import '../../../../product/network/base/base_service.dart';
 import '../../../../product/network/network_manager.dart';
 
 class RegisterService implements BaseService {

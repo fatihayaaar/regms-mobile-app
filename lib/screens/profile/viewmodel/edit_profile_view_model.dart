@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/models/base/base_view_model.dart';
-import '../../../product/base/base_service.dart';
+import '../../../product/network/base/base_service.dart';
 
 class EditProfileViewModel extends BaseViewModel {
   @override

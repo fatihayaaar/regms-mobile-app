@@ -1,5 +1,5 @@
+import '../../../product/network/base/base_service.dart';
 import '../../../product/network/network_manager.dart';
-import '../../../product/base/base_service.dart';
 import 'subservices/token_check_service.dart';
 
 class SplashService implements BaseService {

@@ -1,6 +1,6 @@
 import '../../../../product/network/auth/models/login_model/login_model.dart';
-import '../../../../product/base/base_service.dart';
 import '../../../../product/network/auth/models/login_model/login_response_model/login_response_model.dart';
+import '../../../../product/network/base/base_service.dart';
 import '../../../../product/network/network_manager.dart';
 
 class LoginService implements BaseService {

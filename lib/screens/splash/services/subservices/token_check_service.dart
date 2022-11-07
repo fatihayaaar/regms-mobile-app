@@ -1,7 +1,7 @@
 import '../../../../product/network/auth/models/token_check_model/token_check_model.dart';
 import '../../../../product/network/auth/models/token_check_model/token_check_response_model/token_check_response_model.dart';
+import '../../../../product/network/base/base_service.dart';
 import '../../../../product/network/network_manager.dart';
-import '../../../../product/base/base_service.dart';
 
 class TokenCheckService implements BaseService {
   @override
