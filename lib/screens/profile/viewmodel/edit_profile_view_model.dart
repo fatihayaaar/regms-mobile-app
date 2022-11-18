@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:regms_flutter_client/product/extensions/context_extension.dart';
+import 'package:regms_flutter_client/screens/profile/services/edit_profile_service.dart';
 
 import '../../../core/models/base/base_view_model.dart';
 import '../../../product/network/base/base_service.dart';
 
-class EditProfileViewModel extends BaseViewModel {
+class EditProfileViewModel extends BaseViewModel<EditProfileService> {
   @override
   BuildContext? context;
   var _length = 0;
+
+  @override
+  void setContext(BuildContext? context) => this.context = context;
+
+  @override
+  void setService(BaseService? service) {
+    service = EditProfileService(
+      networkManager: context!.networkManager,
+    );
+  }
 
   void textFormFieldOnChanges(val) {
     length = val;
@@ -18,10 +30,4 @@ class EditProfileViewModel extends BaseViewModel {
     _length = length;
     notifyListeners();
   }
-
-  @override
-  void setContext(BuildContext? context) => this.context = context;
-
-  @override
-  void setService(BaseService? service) {}
 }

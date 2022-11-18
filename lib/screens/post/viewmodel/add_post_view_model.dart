@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AddPostViewModel with ChangeNotifier {
+import '../../../product/extensions/context_extension.dart';
+import '../services/add_post_service.dart';
+import '../../../core/models/base/base_view_model.dart';
+import '../../../product/network/base/base_service.dart';
+
+class AddPostViewModel extends BaseViewModel<AddPostService> {
   var _photos = ["assets/images/dump_1.jpg", "assets/images/dump_1.jpg"];
   var _items = [
     'My Profile',
@@ -9,6 +14,16 @@ class AddPostViewModel with ChangeNotifier {
     'Group 3',
   ];
   var _selectedTag = "My Profile";
+
+  @override
+  void setContext(BuildContext? context) => this.context = context;
+
+  @override
+  void setService(BaseService? service) {
+    service = AddPostService(
+      networkManager: context!.networkManager,
+    );
+  }
 
   void dropDownButtonOnChanges(val) {
     selectedTag = val;

@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 
-class SearchViewModel with ChangeNotifier {
+import '../../../product/extensions/context_extension.dart';
+import '../services/search_service.dart';
+import '../../../core/models/base/base_view_model.dart';
+import '../../../product/network/base/base_service.dart';
+
+class SearchViewModel extends BaseViewModel<SearchService> {
   var _selectedTag = "Global Trend Topic";
   var _items = ['Global Trend Topic', 'Turkey Trend Topic', 'Local Trend Topi'];
   var _searchList = ["All", "User", "Group", "Post", "Tags", "Video"];
   var _isSearch = false;
+
+  @override
+  void setContext(BuildContext? context) => this.context = context;
+
+  @override
+  void setService(BaseService? service) {
+    service = SearchService(
+      networkManager: context!.networkManager,
+    );
+  }
 
   void searchOnChange(val) {
     if (val == null) {
