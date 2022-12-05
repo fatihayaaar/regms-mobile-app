@@ -36,108 +36,96 @@ class _EmailValidateScreen extends State {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarTransparent(),
-      backgroundColor: ColorSchemeLight.kBackgroundColor,
-      body: _buildBody(),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBarTransparent(),
+        backgroundColor: ColorSchemeLight.kBackgroundColor,
+        body: _buildBody(),
+      );
 
-  Widget _buildBody() {
-    return NotificationListener<OverscrollIndicatorNotification>(
-      onNotification: (overScroll) {
-        overScroll.disallowIndicator();
-        return false;
-      },
-      child: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          margin: const EdgeInsets.fromLTRB(25, 0, 25, 20),
-          child: Column(
-            children: [
-              SizedBox(height: MediaQuery.of(context).size.height * 0.18),
-              _buildTitle(),
-              const SizedBox(height: 10),
-              _buildSubTitle(),
-              const SizedBox(height: 40),
-              _buildVerificationTextField(),
-              const SizedBox(height: 40),
-              _buildLastTimeText(),
-              const SizedBox(height: 10),
-              _buildReSend(),
-              const SizedBox(height: 40),
-              _buildEmailValidateButton(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTitle() {
-    return Container(
-      alignment: Alignment.bottomLeft,
-      child: Text(
-        "Email\nValidate",
-        style: Theme.of(context).textTheme.headlineMedium,
-      ),
-    );
-  }
-
-  Widget _buildEmailValidateButton() {
-    return SizedBox(
-      height: 50,
-      width: double.infinity,
-      child: ElevatedButton(
-        style: kLoginButtonButtonStyle,
-        onPressed: () {
-          Route route = MaterialPageRoute(builder: (_) => ResetPasswordScreen());
-          Navigator.pushReplacement(context, route);
+  Widget _buildBody() => NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overScroll) {
+          overScroll.disallowIndicator();
+          return false;
         },
-        child: Text(
-          "Verify",
-          style: kLoginButtonContentTextStyle,
+        child: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            margin: const EdgeInsets.fromLTRB(25, 0, 25, 20),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+                _buildTitle(),
+                const SizedBox(height: 10),
+                _buildSubTitle(),
+                const SizedBox(height: 40),
+                _buildVerificationTextField(),
+                const SizedBox(height: 40),
+                _buildLastTimeText(),
+                const SizedBox(height: 10),
+                _buildReSend(),
+                const SizedBox(height: 40),
+                _buildEmailValidateButton(),
+              ],
+            ),
+          ),
         ),
-      ),
-    );
-  }
+      );
 
-  Widget _buildReSend() {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: "If you didn't receive a code! ",
-            style: tsRichTextStyle(ColorSchemeLight.kBodyTextColor),
-          ),
-          TextSpan(
-            text: 'Resend',
-            style: tsRichTextStyle(_g == true ? ColorSchemeLight.kLoginButtonColor : ColorSchemeLight.kBorderColor),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                if (_start == 0) {
-                  _start = 120;
-                  startTimer();
-                }
-              },
-          ),
-        ],
-      ),
-    );
-  }
+  Widget _buildTitle() => Container(
+        alignment: Alignment.bottomLeft,
+        child: Text(
+          "Email\nValidate",
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
+      );
 
-  _buildSubTitle() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      child: Text(
-        "Enter the verification code\nwe just send your email address.",
-        style: kSubTitleTextStyle,
-        textAlign: TextAlign.start,
-      ),
-    );
-  }
+  Widget _buildEmailValidateButton() => SizedBox(
+        height: 50,
+        width: double.infinity,
+        child: ElevatedButton(
+          style: kLoginButtonButtonStyle,
+          onPressed: () {
+            Route route = MaterialPageRoute(builder: (_) => ResetPasswordScreen());
+            Navigator.pushReplacement(context, route);
+          },
+          child: Text(
+            "Verify",
+            style: kLoginButtonContentTextStyle,
+          ),
+        ),
+      );
+
+  Widget _buildReSend() => RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: "If you didn't receive a code! ",
+              style: tsRichTextStyle(ColorSchemeLight.kBodyTextColor),
+            ),
+            TextSpan(
+              text: 'Resend',
+              style: tsRichTextStyle(_g == true ? ColorSchemeLight.kLoginButtonColor : ColorSchemeLight.kBorderColor),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  if (_start == 0) {
+                    _start = 120;
+                    startTimer();
+                  }
+                },
+            ),
+          ],
+        ),
+      );
+
+  Widget _buildSubTitle() => Container(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          "Enter the verification code\nwe just send your email address.",
+          style: kSubTitleTextStyle,
+          textAlign: TextAlign.start,
+        ),
+      );
 
   void startTimer() {
     if (_timerStart) {
