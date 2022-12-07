@@ -1,29 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:regms_flutter_client/screens/authenticate/forgot_password/viewmodel/confirm_password_view_model.dart';
 
 import '../../../../constants/styles.dart';
+import '../../../../core/models/base/base_stateless_widget.dart';
+import '../../../../core/models/base/base_view.dart';
 import '../../../../widgets/appbar/appbar_settings.dart';
 
-class ConfirmPasswordScreen extends StatefulWidget {
-  static const routeName = '/starter/forgot_password/confirm_password';
-
-  @override
-  _ConfirmPasswordScreen createState() => _ConfirmPasswordScreen();
-}
-
-class _ConfirmPasswordScreen extends State {
+class ConfirmPasswordScreen extends BaseStatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode _passwordFocus = FocusNode();
   bool _isHiddenPassword = true;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppBarSettings(title: "Confirm Password"),
-      body: _build(),
+    return BaseView<ConfirmPasswordViewModel>(
+      viewModel: ConfirmPasswordViewModel(),
+      onModelReady: onModelReady,
+      initialState: initialState,
+      builder: (context, viewModel) {
+        this.context = context;
+        return ChangeNotifierProvider<ConfirmPasswordViewModel>.value(
+          value: viewModel,
+          builder: (context, child) {
+            return Scaffold(
+              appBar: _buildAppBar(),
+              body: _buildBody(),
+            );
+          },
+        );
+      },
     );
   }
 
-  Widget _build() => Container(
+  PreferredSizeWidget _buildAppBar() => const AppBarSettings(title: "Confirm Password");
+
+  Widget _buildBody() => Container(
         margin: const EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [

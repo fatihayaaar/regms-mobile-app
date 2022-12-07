@@ -1,27 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../viewmodel/reset_password_view_model.dart';
 import '../../../../constants/styles.dart';
+import '../../../../core/models/base/base_stateless_widget.dart';
+import '../../../../core/models/base/base_view.dart';
 import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
 import '../../../../widgets/appbar/appbar_transparent.dart';
 
-class ResetPasswordScreen extends StatefulWidget {
-  static const routeName = '/starter/forgot_password/reset_password';
-
-  @override
-  _ResetPasswordScreen createState() => _ResetPasswordScreen();
-}
-
-class _ResetPasswordScreen extends State {
+class ResetPasswordScreen extends BaseStatelessWidget {
   bool _isHiddenPassword = true;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarTransparent(),
-      backgroundColor: ColorSchemeLight.kBackgroundColor,
-      body: _buildBody(),
+    return BaseView<ResetPasswordViewModel>(
+      viewModel: ResetPasswordViewModel(),
+      onModelReady: onModelReady,
+      initialState: initialState,
+      builder: (context, viewModel) {
+        this.context = context;
+        return ChangeNotifierProvider<ResetPasswordViewModel>.value(
+          value: viewModel,
+          builder: (context, child) {
+            return Scaffold(
+              backgroundColor: ColorSchemeLight.kBackgroundColor,
+              appBar: _buildAppBar(),
+              body: _buildBody(),
+            );
+          },
+        );
+      },
     );
   }
+
+  PreferredSizeWidget _buildAppBar() => AppBarTransparent();
 
   Widget _buildBody() => NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {

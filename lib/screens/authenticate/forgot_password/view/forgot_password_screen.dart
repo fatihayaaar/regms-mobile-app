@@ -1,26 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:regms_flutter_client/screens/authenticate/forgot_password/viewmodel/forgot_password_view_model.dart';
 
 import '../../../../constants/styles.dart';
+import '../../../../core/models/base/base_stateless_widget.dart';
+import '../../../../core/models/base/base_view.dart';
 import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
 import '../../../../widgets/appbar/appbar_transparent.dart';
 import 'email_validate_screen.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
-  static const routeName = '/starter/forgot_password';
-
-  @override
-  _ForgotPasswordScreen createState() => _ForgotPasswordScreen();
-}
-
-class _ForgotPasswordScreen extends State {
+class ForgotPasswordScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarTransparent(),
-      backgroundColor: ColorSchemeLight.kBackgroundColor,
-      body: _buildBody(),
+    return BaseView<ForgotPasswordViewModel>(
+      viewModel: ForgotPasswordViewModel(),
+      onModelReady: onModelReady,
+      initialState: initialState,
+      builder: (context, viewModel) {
+        this.context = context;
+        return ChangeNotifierProvider<ForgotPasswordViewModel>.value(
+          value: viewModel,
+          builder: (context, child) {
+            return Scaffold(
+              appBar: _buildAppBar(),
+              body: _buildBody(),
+            );
+          },
+        );
+      },
     );
   }
+
+  PreferredSizeWidget _buildAppBar() => AppBarTransparent();
 
   Widget _buildBody() => NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
