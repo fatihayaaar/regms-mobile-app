@@ -3,44 +3,39 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
+import 'package:provider/provider.dart';
 
+import '../viewmodel/email_validate_view_model.dart';
 import '../../../../constants/styles.dart';
+import '../../../../core/models/base/base_stateless_widget.dart';
+import '../../../../core/models/base/base_view.dart';
 import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
 import 'reset_password_screen.dart';
 import '../../../../widgets/appbar/appbar_transparent.dart';
 
-class EmailValidateScreen extends StatefulWidget {
-  static const routeName = '/starter/forgot_password/email_validate';
-
+class EmailValidateScreen extends BaseStatelessWidget {
   @override
-  _EmailValidateScreen createState() => _EmailValidateScreen();
-}
-
-class _EmailValidateScreen extends State {
-  late Timer _timer;
-  int _start = 120;
-  late bool _timerStart = true;
-  late bool _g;
-
-  @override
-  void initState() {
-    super.initState();
-    _g = false;
-    startTimer();
+  Widget build(BuildContext context) {
+    return BaseView<EmailValidateViewModel>(
+      viewModel: EmailValidateViewModel(),
+      onModelReady: onModelReady,
+      initialState: initialState,
+      builder: (context, viewModel) {
+        this.context = context;
+        return ChangeNotifierProvider<EmailValidateViewModel>.value(
+          value: viewModel,
+          builder: (context, child) {
+            return Scaffold(
+              appBar: _buildAppBar(),
+              body: _buildBody(),
+            );
+          },
+        );
+      },
+    );
   }
 
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBarTransparent(),
-        backgroundColor: ColorSchemeLight.kBackgroundColor,
-        body: _buildBody(),
-      );
+  PreferredSizeWidget _buildAppBar() => AppBarTransparent();
 
   Widget _buildBody() => NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
@@ -95,27 +90,31 @@ class _EmailValidateScreen extends State {
         ),
       );
 
-  Widget _buildReSend() => RichText(
-        textAlign: TextAlign.center,
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: "If you didn't receive a code! ",
-              style: tsRichTextStyle(ColorSchemeLight.kBodyTextColor),
+  Widget _buildReSend() => Consumer<EmailValidateViewModel>(
+        builder: (context, value, child) {
+          return RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "If you didn't receive a code! ",
+                  style: tsRichTextStyle(ColorSchemeLight.kBodyTextColor),
+                ),
+                TextSpan(
+                  text: 'Resend',
+                  style: tsRichTextStyle(value.g == true ? ColorSchemeLight.kLoginButtonColor : ColorSchemeLight.kBorderColor),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      if (value.start == 0) {
+                        value.start = 120;
+                        value.startTimer();
+                      }
+                    },
+                ),
+              ],
             ),
-            TextSpan(
-              text: 'Resend',
-              style: tsRichTextStyle(_g == true ? ColorSchemeLight.kLoginButtonColor : ColorSchemeLight.kBorderColor),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  if (_start == 0) {
-                    _start = 120;
-                    startTimer();
-                  }
-                },
-            ),
-          ],
-        ),
+          );
+        },
       );
 
   Widget _buildSubTitle() => Container(
@@ -127,30 +126,6 @@ class _EmailValidateScreen extends State {
         ),
       );
 
-  void startTimer() {
-    if (_timerStart) {
-      _timerStart = false;
-      const oneSec = Duration(seconds: 1);
-      _timer = Timer.periodic(
-        oneSec,
-        (Timer timer) {
-          if (_start == 0) {
-            setState(() {
-              _g = true;
-              _timerStart = true;
-              timer.cancel();
-            });
-          } else {
-            setState(() {
-              _g = false;
-              _start--;
-            });
-          }
-        },
-      );
-    }
-  }
-
   Widget _buildVerificationTextField() {
     return Container(
       padding: const EdgeInsets.fromLTRB(14, 0, 15, 0),
@@ -161,20 +136,20 @@ class _EmailValidateScreen extends State {
         keyboardType: TextInputType.number,
         underlineColor: ColorSchemeLight.kBorderColor,
         length: 4,
-        onCompleted: (String value) {
-          setState(() {});
-        },
-        onEditing: (bool value) {
-          setState(() {});
-        },
+        onCompleted: (String value) {},
+        onEditing: (bool value) {},
       ),
     );
   }
 
   Widget _buildLastTimeText() {
-    return Text(
-      "${(_start / 60).truncate()}:${(_start % 60).toString().padLeft(2, '0')}",
-      style: kSubTitleTextStyle,
+    return Consumer<EmailValidateViewModel>(
+      builder: (context, value, child) {
+        return Text(
+          "${(value.start / 60).truncate()}:${(value.start % 60).toString().padLeft(2, '0')}",
+          style: kSubTitleTextStyle,
+        );
+      },
     );
   }
 }

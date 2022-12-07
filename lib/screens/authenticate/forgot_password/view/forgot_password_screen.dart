@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/screens/authenticate/forgot_password/viewmodel/forgot_password_view_model.dart';
 
+import '../viewmodel/forgot_password_view_model.dart';
 import '../../../../constants/styles.dart';
 import '../../../../core/models/base/base_stateless_widget.dart';
 import '../../../../core/models/base/base_view.dart';
-import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
 import '../../../../widgets/appbar/appbar_transparent.dart';
 import 'email_validate_screen.dart';
 
