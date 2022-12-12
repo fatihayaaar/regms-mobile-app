@@ -1,50 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../core/models/base/base_stateless_widget.dart';
+import '../../../core/models/base/base_view.dart';
 import '../../../widgets/appbar/appbar_settings.dart';
+import '../viewmodel/notification_setting_view_model.dart';
 
-class NotificationSettingsScreen extends StatefulWidget {
-  @override
-  _NotificationSettingsScreenState createState() => _NotificationSettingsScreenState();
-}
-
-class _NotificationSettingsScreenState extends State {
+class NotificationSettingsScreen extends BaseStatelessWidget {
   bool? switchListTileValue;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppBarSettings(title: "Notification"),
-      body: _buildBody(),
+    return BaseView<NotificationSettingViewModel>(
+      viewModel: NotificationSettingViewModel(),
+      onModelReady: onModelReady,
+      initialState: initialState,
+      builder: (context, viewModel) {
+        this.context = context;
+        return ChangeNotifierProvider<NotificationSettingViewModel>.value(
+          value: viewModel,
+          builder: (context, child) {
+            return Scaffold(
+              appBar: _buildAppBar(),
+              body: _buildBody(),
+            );
+          },
+        );
+      },
     );
   }
 
-  _buildBody() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 25),
-      child: Column(
-        children: [
-          _buildNotificationItem('Messages'),
-          _buildNotificationItem('Followers'),
-          _buildNotificationItem('Posts'),
-        ],
-      ),
-    );
-  }
+  PreferredSizeWidget _buildAppBar() => const AppBarSettings(title: "Notification");
 
-  _buildNotificationItem(String text) {
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: SwitchListTile(
-        contentPadding: const EdgeInsets.all(0),
-        value: switchListTileValue ??= true,
-        onChanged: (newValue) => setState(() => switchListTileValue = newValue),
-        title: Text(
-          text,
-          style: Theme.of(context).textTheme.bodyText1,
+  Widget _buildBody() => Container(
+        margin: const EdgeInsets.symmetric(horizontal: 25),
+        child: Column(
+          children: [
+            _buildNotificationItem('Messages'),
+            _buildNotificationItem('Followers'),
+            _buildNotificationItem('Posts'),
+          ],
         ),
-        dense: true,
-        controlAffinity: ListTileControlAffinity.trailing,
-      ),
-    );
-  }
+      );
+
+  Widget _buildNotificationItem(String text) => GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: SwitchListTile(
+          contentPadding: const EdgeInsets.all(0),
+          value: switchListTileValue ??= true,
+          onChanged: (value) {},
+          // onChanged: (newValue) => setState(() => switchListTileValue = newValue),
+          title: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
+          dense: true,
+          controlAffinity: ListTileControlAffinity.trailing,
+        ),
+      );
 }

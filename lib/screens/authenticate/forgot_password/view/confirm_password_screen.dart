@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:regms_flutter_client/screens/authenticate/forgot_password/viewmodel/confirm_password_view_model.dart';
 
+import '../viewmodel/confirm_password_view_model.dart';
 import '../../../../constants/styles.dart';
 import '../../../../core/models/base/base_stateless_widget.dart';
 import '../../../../core/models/base/base_view.dart';

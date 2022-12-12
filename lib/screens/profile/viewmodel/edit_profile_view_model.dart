@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:regms_flutter_client/product/extensions/context_extension.dart';
-import 'package:regms_flutter_client/screens/profile/services/edit_profile_service.dart';
 
 import '../../../core/models/base/base_view_model.dart';
+import '../../../product/extensions/context_extension.dart';
 import '../../../product/network/base/base_service.dart';
+import '../services/edit_profile_service.dart';
 
 class EditProfileViewModel extends BaseViewModel<EditProfileService> {
   @override
