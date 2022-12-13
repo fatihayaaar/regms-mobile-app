@@ -28,7 +28,7 @@ class Splash extends BaseStatelessWidget {
     );
   }
 
-  _buildBody() => SafeArea(
+  Widget _buildBody() => SafeArea(
         child: Container(
           color: theme.backgroundColor,
           child: Center(
@@ -37,5 +37,5 @@ class Splash extends BaseStatelessWidget {
         ),
       );
 
-  _buildLogo() => const CircularProgressIndicator();
+  Widget _buildLogo() => const CircularProgressIndicator();
 }

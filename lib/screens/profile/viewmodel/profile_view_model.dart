@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../product/extensions/context_extension.dart';
-import '../services/profile_service.dart';
 import '../../../core/models/base/base_view_model.dart';
 import '../../../models/post/post.dart';
+import '../../../product/extensions/context_extension.dart';
 import '../../../product/network/base/base_service.dart';
+import '../services/profile_service.dart';
 
 class ProfileViewModel extends BaseViewModel<ProfileService> {
   var _isMyProfile;
@@ -12,7 +12,11 @@ class ProfileViewModel extends BaseViewModel<ProfileService> {
   var _selectList = ["All", "Videos", "Photos"];
   List<Post> _posts = [];
 
-  ProfileViewModel(this._posts, this._user, this._isMyProfile);
+  ProfileViewModel({required user, required isMyProfile, required posts}) {
+    _posts = posts;
+    _user = user;
+    _isMyProfile = isMyProfile;
+  }
 
   @override
   void setContext(BuildContext? context) => this.context = context;
