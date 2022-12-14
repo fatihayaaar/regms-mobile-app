@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../core/models/base/base_stateless_widget.dart';
+import '../../../core/models/base/base_view.dart';
 import '../../../models/post/post.dart';
 import '../../../models/profile/profile.dart';
 import '../../../models/user/user.dart';
 import '../../../widgets/appbar/appbar_transparent.dart';
 import '../../../widgets/bottom_navbar.dart';
 import '../../../widgets/cards/video_full_screen_card.dart';
+import '../viewmodel/videos_view_model.dart';
 
-class VideosScreen extends StatefulWidget {
-  static const routeName = '/videos';
-
-  @override
-  _VideosScreenState createState() => _VideosScreenState();
-}
-
-class _VideosScreenState extends State {
+class VideosScreen extends BaseStatelessWidget {
   var currentPost;
   var _pageViewController = PageController(initialPage: 0);
   var posts = [
@@ -59,92 +56,88 @@ class _VideosScreenState extends State {
   ];
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    posts = [];
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarTransparent(),
-      body: _buildBody(),
-      bottomNavigationBar: BottomNavBar(
-        selected: -2,
-        onPressed: () {
-          for (var post in posts) {
-            if (post.controller != null) {
-              post.controller.pause();
-            }
-          }
-        },
-      ),
-    );
-  }
-
-  _buildBody() {
-    return Stack(
-      children: [
-        PageView.builder(
-          controller: _pageViewController,
-          scrollDirection: Axis.vertical,
-          itemCount: posts.length,
-          itemBuilder: (BuildContext context, int index) {
-            return posts[index];
+    return BaseView<VideosViewModel>(
+      viewModel: VideosViewModel(),
+      onModelReady: onModelReady,
+      initialState: initialState,
+      builder: (context, viewModel) {
+        this.context = context;
+        return ChangeNotifierProvider<VideosViewModel>.value(
+          value: viewModel,
+          builder: (context, child) {
+            return Scaffold(
+              appBar: _buildAppBar(),
+              body: _buildBody(),
+              bottomNavigationBar: BottomNavBar(
+                selected: -2,
+                onPressed: () {
+                  for (var post in posts) {
+                    if (post.controller != null) {
+                      post.controller.pause();
+                    }
+                  }
+                },
+              ),
+            );
           },
-        ),
-        Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
-          child: _buildHeaderBar(),
-        ),
-      ],
+        );
+      },
     );
   }
 
-  _buildHeaderBar() {
-    return Container(
-      height: 45,
-      alignment: Alignment.centerLeft,
-      child: Stack(
+  PreferredSizeWidget _buildAppBar() => AppBarTransparent();
+
+  Widget _buildBody() => Stack(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: _buildTitle("Videos"),
+          PageView.builder(
+            controller: _pageViewController,
+            scrollDirection: Axis.vertical,
+            itemCount: posts.length,
+            itemBuilder: (BuildContext context, int index) {
+              return posts[index];
+            },
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: _buildAddAction(),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: _buildHeaderBar(),
           ),
         ],
-      ),
-    );
-  }
+      );
 
-  _buildTitle(String title) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-      alignment: Alignment.centerLeft,
-      child: Text(
-        title,
-        style: Theme.of(context).appBarTheme.titleTextStyle,
-      ),
-    );
-  }
+  Widget _buildHeaderBar() => Container(
+        height: 45,
+        alignment: Alignment.centerLeft,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: _buildTitle("Videos"),
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: _buildAddAction(),
+            ),
+          ],
+        ),
+      );
 
-  _buildAddAction() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
-      child: const Icon(
-        Icons.add_circle_outline_sharp,
-        color: Colors.white,
-      ),
-    );
-  }
+  Widget _buildTitle(String title) => Container(
+        margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+        alignment: Alignment.centerLeft,
+        child: Text(
+          title,
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
+      );
+
+  Widget _buildAddAction() => Container(
+        margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+        child: const Icon(
+          Icons.add_circle_outline_sharp,
+          color: Colors.white,
+        ),
+      );
 }
