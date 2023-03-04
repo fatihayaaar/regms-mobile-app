@@ -1,6 +1,6 @@
-import 'main.dart';
 import 'models/profile/profile.dart';
 import 'models/user/user.dart';
+import 'my_app.dart';
 
 class Root {
   static Root? _instance;

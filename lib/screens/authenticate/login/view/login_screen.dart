@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../../../../constants/styles.dart';
 import '../../../../core/models/base/base_stateless_widget.dart';
 import '../../../../core/models/base/base_view.dart';
-import '../../../../main.dart';
+import '../../../../my_app.dart';
 import '../../../../product/theme/theme_mode/light/color_scheme_light.dart';
 import '../viewmodel/login_view_model.dart';
 import '../../../../widgets/appbar/appbar_transparent.dart';
@@ -157,18 +157,20 @@ class LoginScreen extends BaseStatelessWidget {
   Widget _buildLoginButton() => SizedBox(
         height: 50,
         width: double.infinity,
-        child: ElevatedButton(
-          style: kLoginButtonButtonStyle,
-          onPressed: () {
-            Provider.of<LoginViewModel>(
-              context,
-              listen: false,
-            ).loginButtonOnClick(username: "", password: "");
+        child: Consumer<LoginViewModel>(
+          builder: (BuildContext context, value, Widget? child) {
+            // listen no !!
+            return ElevatedButton(
+              style: kLoginButtonButtonStyle,
+              onPressed: () {
+                value.loginButtonOnClick(username: "", password: "");
+              },
+              child: Text(
+                "Login",
+                style: kLoginButtonContentTextStyle,
+              ),
+            );
           },
-          child: Text(
-            "Login",
-            style: kLoginButtonContentTextStyle,
-          ),
         ),
       );
 

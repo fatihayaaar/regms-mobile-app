@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/styles.dart';
-import '../main.dart';
+import '../my_app.dart';
 import '../product/navigation/navigation.dart';
 import '../product/theme/theme_mode/light/color_scheme_light.dart';
 import '../root.dart';

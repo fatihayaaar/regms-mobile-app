@@ -1,4 +1,4 @@
-import '../../main.dart';
+import '../../my_app.dart';
 import 'helpers/navigation/navigation_helper.dart';
 import 'helpers/network/network_helper.dart';
 import 'helpers/persist/persist_helper.dart';

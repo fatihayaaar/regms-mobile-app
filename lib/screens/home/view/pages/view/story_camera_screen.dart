@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../main.dart';
+import '../../../../../my_app.dart';
 import '../../../../../widgets/appbar/appbar_transparent.dart';
 
 class StoryCameraScreen extends StatefulWidget {

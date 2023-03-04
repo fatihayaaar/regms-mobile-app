@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../main.dart';
+import '../../../../my_app.dart';
 import '../../../../product/navigation/navigation.dart';
 import '../../../../product/network/auth/models/register_model/register_model.dart';
 import '../../../../product/extensions/context_extension.dart';

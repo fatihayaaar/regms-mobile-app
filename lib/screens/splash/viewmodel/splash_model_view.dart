@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../my_app.dart';
 import '../../../product/extensions/context_extension.dart';
 import '../../../product/network/base/base_service.dart';
 import '../services/splash_service.dart';
 import '../../../core/models/base/base_view_model.dart';
-import '../../../main.dart';
 import '../../../product/navigation/navigation.dart';
 
 class SplashViewModel extends BaseViewModel<SplashService> {
