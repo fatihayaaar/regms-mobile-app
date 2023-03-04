@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "regms-mobile-app development",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "development"
+            ]
+        },
+        {
+            "name": "regms-mobile-app admin",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_admin.dart",
+            "args": [
+                "--flavor",
+                "admin"
+            ]
+        },
+        {
+            "name": "regms-mobile-app production",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "production"
+            ]
+        },
+        {
+            "name": "regms-mobile-app production (realese)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "production"
+            ]
+        },
+    ]
+}
