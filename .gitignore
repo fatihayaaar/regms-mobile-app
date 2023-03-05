@@ -1,0 +1,8 @@
+/build
+/captures
+/.dart_tool
+
+.flutter-plugins
+.flutter-plugins-dependencies
+
+GeneratedPluginRegistrant.java
