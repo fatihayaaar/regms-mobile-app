@@ -69,13 +69,13 @@ android {
             applicationIdSuffix ".dev"
             versionNameSuffix "_dev"
         }
-        production {
-            dimension "app"
-        }
         admin {
             dimension "app"
             applicationIdSuffix ".admin"
             versionNameSuffix "_admin" 
+        }
+        production {
+            dimension "app"
         }
     }
 }
