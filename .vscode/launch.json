@@ -9,7 +9,7 @@
             "program": "lib/main_dev.dart",
             "args": [
                 "--flavor",
-                "development"
+                "dev"
             ]
         },
         {
@@ -28,7 +28,7 @@
             "type": "dart",
             "args": [
                 "--flavor",
-                "production"
+                "prod"
             ]
         },
         {
@@ -38,7 +38,7 @@
             "flutterMode": "release",
             "args": [
                 "--flavor",
-                "production"
+                "prod"
             ]
         },
     ]
