@@ -1,10 +1,26 @@
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# Flutter/Dart/Pub related
 /build
 /captures
 /.dart_tool
-
 .flutter-plugins
 .flutter-plugins-dependencies
-
 pubspec.lock
 
-GeneratedPluginRegistrant.java
+# Web related
+lib/generated_plugin_registrant.dart
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
