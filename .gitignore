@@ -5,4 +5,6 @@
 .flutter-plugins
 .flutter-plugins-dependencies
 
+pubspec.lock
+
 GeneratedPluginRegistrant.java
