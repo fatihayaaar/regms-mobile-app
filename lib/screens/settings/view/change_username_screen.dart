@@ -11,6 +11,8 @@ class ChangeUsernameScreen extends BaseStatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
   final FocusNode _usernameFocus = FocusNode();
 
+  ChangeUsernameScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<ChangeUsernameViewModel>(

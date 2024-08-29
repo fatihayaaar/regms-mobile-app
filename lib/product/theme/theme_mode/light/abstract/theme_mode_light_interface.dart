@@ -7,7 +7,7 @@ import '../elevated_button_theme_light.dart';
 import '../float_action_button_theme_light.dart';
 import '../text_theme_light.dart';
 
-abstract class IThemeModeLight {
+mixin IThemeModeLight {
   ColorSchemeLight colorSchemeLight = ColorSchemeLight.instance;
   TextThemeLight textThemeLight = TextThemeLight.instance;
   AppBarThemeLight appBarThemeLight = AppBarThemeLight.instance;

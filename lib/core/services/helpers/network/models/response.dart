@@ -1,5 +1,5 @@
 import 'error_model/error_response_model.dart';
-import 'reponse_interface.dart';
+import 'response_interface.dart';
 
 class ResponseModel<T> extends IResponseModel<T> {
   @override

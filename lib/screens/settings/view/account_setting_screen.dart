@@ -12,6 +12,9 @@ import 'change_password_screen.dart';
 import 'change_username_screen.dart';
 
 class AccountSettingsScreen extends BaseStatelessWidget {
+
+  AccountSettingsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<AccountSettingViewModel>(

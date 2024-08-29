@@ -56,7 +56,7 @@ class HomeTimeline extends StatelessWidget {
         Column(
           children: [
             Container(
-              color: Theme.of(context).backgroundColor,
+              color: Theme.of(context).canvasColor,
               padding: const EdgeInsets.fromLTRB(0, 3, 0, 5),
               child: SelectionWidget(list: list),
             ),

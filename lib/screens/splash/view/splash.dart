@@ -6,10 +6,11 @@ import '../../../core/models/base/base_view.dart';
 import '../viewmodel/splash_model_view.dart';
 
 class Splash extends BaseStatelessWidget {
+
   Splash({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  build(BuildContext context) {
     return BaseView<SplashViewModel>(
       viewModel: SplashViewModel(),
       onModelReady: onModelReady,
@@ -28,14 +29,14 @@ class Splash extends BaseStatelessWidget {
     );
   }
 
-  Widget _buildBody() => SafeArea(
+  _buildBody() => SafeArea(
         child: Container(
-          color: theme.backgroundColor,
+          color: theme.canvasColor,
           child: Center(
             child: _buildLogo(),
           ),
         ),
       );
 
-  Widget _buildLogo() => const CircularProgressIndicator();
+  _buildLogo() => const CircularProgressIndicator();
 }

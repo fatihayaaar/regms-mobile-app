@@ -10,6 +10,9 @@ import '../../../widgets/avatar.dart';
 import '../viewmodel/edit_profile_view_model.dart';
 
 class EditProfileScreen extends BaseStatelessWidget {
+
+  EditProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<EditProfileViewModel>(
@@ -37,8 +40,8 @@ class EditProfileScreen extends BaseStatelessWidget {
         isSaveAction: true,
       );
 
-  Widget _buildBody() => Container(
-        color: theme.backgroundColor,
+  _buildBody() => Container(
+        color: theme.canvasColor,
         width: double.infinity,
         child: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (overScroll) {

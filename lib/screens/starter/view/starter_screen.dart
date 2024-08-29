@@ -7,6 +7,9 @@ import '../../../widgets/appbar/appbar_transparent.dart';
 import '../viewmodel/starter_view_model.dart';
 
 class StarterScreen extends BaseStatelessWidget {
+
+  StarterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<StarterViewModel>(
@@ -30,7 +33,7 @@ class StarterScreen extends BaseStatelessWidget {
 
   PreferredSizeWidget _buildAppBar() => AppBarTransparent();
 
-  Widget _buildBody() => Stack(
-        children: const [],
+  _buildBody() => const Stack(
+        children: [],
       );
 }

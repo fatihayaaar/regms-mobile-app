@@ -12,6 +12,8 @@ class ChangeEmailScreen extends BaseStatelessWidget {
   final TextEditingController _emailAddressController = TextEditingController();
   final FocusNode _emailAddressFocus = FocusNode();
 
+  ChangeEmailScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<ChangeEmailViewModel>(

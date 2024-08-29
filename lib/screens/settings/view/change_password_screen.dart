@@ -12,6 +12,8 @@ class ChangePasswordScreen extends BaseStatelessWidget {
   final FocusNode _passwordFocus = FocusNode();
   bool _isHiddenPassword = true;
 
+  ChangePasswordScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<ChangePasswordViewModel>(

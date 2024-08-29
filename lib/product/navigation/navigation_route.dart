@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../screens/home/view/home_screen.dart';
@@ -26,7 +28,10 @@ class NavigationRoute {
   NavigationRoute._init();
 
   Route<dynamic> generateRoute(RouteSettings settings) {
-    Map? data = settings.arguments as Map;
+    Map? data;
+    if (settings.arguments != null) {
+      data = settings.arguments as Map;
+    }
 
     switch (settings.name) {
       case Navigation.DEFAULT:
@@ -55,7 +60,7 @@ class NavigationRoute {
         return navigate(SearchScreen());
       case Navigation.PROFILE_PAGE:
         return navigate(ProfileScreen(
-          user: data["user"],
+          user: data!["user"],
           isMyProfile: data["isMyProfile"],
         ));
       case Navigation.EDIT_PROFILE_PAGE:
@@ -64,7 +69,7 @@ class NavigationRoute {
         return navigate(NotificationScreen());
       case Navigation.POST_DETAIL_PAGE:
         return navigate(PostDetailScreen(
-          post: data["post"],
+          post: data!["post"],
         ));
     }
     return navigate(StarterScreen());

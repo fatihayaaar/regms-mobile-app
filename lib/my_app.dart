@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constants/application_constant.dart';
@@ -55,15 +54,16 @@ void init() async {
 }
 
 class MyApp extends StatelessWidget {
-  final SettingStore _settingStore = SettingStore(
-    appService.providerPersistHelper,
-  );
+  final SettingStore _settingStore;
+  final NetworkManager _networkManager;
 
-  final NetworkManager _networkManager = NetworkManager.instance(
-    appService.providerNetworkHelper.api,
-  );
-
-  MyApp({super.key});
+  MyApp({super.key})
+      : _settingStore = SettingStore(
+          appService.providerPersistHelper,
+        ),
+        _networkManager = NetworkManager.instance(
+          appService.providerNetworkHelper.api,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +83,8 @@ class MyApp extends StatelessWidget {
                 ThemeName.DARK: AppThemeData.instance.themeModeDark.themeData,
               },
             ).theme,
-            onGenerateRoute: NavigationRoute.instance.generateRoute,
             navigatorKey: appService.providerNavigationHelper.navigatorKey,
+            onGenerateRoute: NavigationRoute.instance.generateRoute,
             locale: Locale(store.locale),
             supportedLocales: store.supportedLanguages.map((language) {
               return Locale.fromSubtags(languageCode: language.locale);

@@ -42,7 +42,7 @@ class PageWidget extends StatelessWidget {
       },
       child: SingleChildScrollView(
         child: Container(
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).canvasColor,
           child: child,
         ),
       ),

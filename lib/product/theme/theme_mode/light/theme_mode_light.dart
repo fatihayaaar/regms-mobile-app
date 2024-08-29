@@ -17,7 +17,7 @@ class ThemeModeLight extends AppThemeMode with IThemeModeLight {
   ThemeData get themeData => ThemeData.light().copyWith(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         scaffoldBackgroundColor: Colors.white,
-        backgroundColor: ColorSchemeLight.kBackgroundColor,
+        canvasColor: ColorSchemeLight.kBackgroundColor,
         textTheme: textThemeLight.data,
         primaryTextTheme: textThemeLight.dataPrimary,
         appBarTheme: appBarThemeLight.data,

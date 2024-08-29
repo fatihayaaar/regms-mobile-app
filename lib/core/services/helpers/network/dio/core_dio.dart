@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 
 import '../../../../extensions/network_extension.dart';
 import '../../../../models/base/base_network_model.dart';
 import 'core_dio_interface.dart';
 import '../enum/http_types.dart';
-import '../models/reponse_interface.dart';
+import '../models/response_interface.dart';
 import '../models/response.dart';
 import 'extensions/core_dio_extension.dart';
 

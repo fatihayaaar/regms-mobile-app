@@ -21,7 +21,7 @@ class Search extends StatelessWidget {
                 contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 0),
                 border: InputBorder.none,
                 hintText: "Search",
-                hintStyle: Theme.of(context).textTheme.bodyText1,
+                hintStyle: Theme.of(context).textTheme.bodySmall,
               ),
             ),
           ),

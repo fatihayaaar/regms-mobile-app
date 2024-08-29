@@ -1,6 +1,6 @@
 import '../../../../models/base/base_network_model.dart';
 import '../enum/http_types.dart';
-import '../models/reponse_interface.dart';
+import '../models/response_interface.dart';
 
 abstract class ICoreDio {
   Future<IResponseModel<R>> fetch<R, T extends BaseNetworkModel, E extends BaseNetworkModel>(

@@ -17,9 +17,9 @@ class NetworkHelper {
   ) {
     final baseOptions = BaseOptions(
       baseUrl: baseUrl,
-      receiveTimeout: receiveTimeout,
+      receiveTimeout: Duration(milliseconds: receiveTimeout),
+      connectTimeout: Duration(milliseconds: connectTimeout),
       //sendTimeout: sendTimeout,
-      connectTimeout: connectTimeout,
       headers: {
         'val': _preferenceModule.providerPersistHelper().getToken(),
       },

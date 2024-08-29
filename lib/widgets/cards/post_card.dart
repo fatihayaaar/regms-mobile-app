@@ -39,7 +39,7 @@ class PostCard extends StatelessWidget {
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(0),
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).canvasColor,
         ),
         child: Column(
           children: [

@@ -9,6 +9,8 @@ import '../viewmodel/notification_setting_view_model.dart';
 class NotificationSettingsScreen extends BaseStatelessWidget {
   bool? switchListTileValue;
 
+  NotificationSettingsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BaseView<NotificationSettingViewModel>(
@@ -52,7 +54,7 @@ class NotificationSettingsScreen extends BaseStatelessWidget {
           // onChanged: (newValue) => setState(() => switchListTileValue = newValue),
           title: Text(
             text,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           dense: true,
           controlAffinity: ListTileControlAffinity.trailing,

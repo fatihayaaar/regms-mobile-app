@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-@immutable
 class Shake extends StatelessWidget {
   final Duration duration;
   final double deltaX;

@@ -18,7 +18,7 @@ class StoryList extends StatelessWidget {
     return Container(
       height: 110,
       decoration: BoxDecoration(
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).canvasColor,
       ),
       child: ListView.builder(
         padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),

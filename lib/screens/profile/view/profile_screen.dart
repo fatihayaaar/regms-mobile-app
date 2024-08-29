@@ -126,7 +126,7 @@ class ProfileScreen extends BaseStatelessWidget {
       );
 
   Widget _buildProfileContent(BuildContext context) => Container(
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).canvasColor,
         alignment: Alignment.centerLeft,
         child: Consumer<ProfileViewModel>(
           builder: (BuildContext context, value, Widget? child) {
